@@ -12,7 +12,6 @@
 *.exe
 
 
-/.patches/
-/.idea/
-/.svn/
+/Source/Shields/bin/
+/Source/Shields/obj/
 
