@@ -11,7 +11,7 @@ namespace Jaxxa_Shields
 {
     public class Building_Shield : Building
     {
-
+        #region Variables
         //UI elements
         private static Texture2D UI_DIRECT_ON;
         private static Texture2D UI_DIRECT_OFF;
@@ -53,10 +53,16 @@ namespace Jaxxa_Shields
         public float colourBlue;
 
 
-        ShieldField shield;
+        ShieldField shieldField;
         CompPowerTrader power;
         //Prepared data
         private ShieldBlendingParticle[] sparksParticle = new ShieldBlendingParticle[3];
+
+        public int tempShieldStrength = 0;
+
+
+
+        #endregion
 
         //Dummy override
         public override void PostMake()
@@ -66,7 +72,7 @@ namespace Jaxxa_Shields
         //On spawn, get the power component reference
         public override void SpawnSetup()
         {
-            //Setup Ui
+            //Setup UI
             UI_DIRECT_OFF = ContentFinder<Texture2D>.Get("UI/DirectOff", true);
             UI_DIRECT_ON = ContentFinder<Texture2D>.Get("UI/DirectOn", true);
             UI_INDIRECT_OFF = ContentFinder<Texture2D>.Get("UI/IndirectOff", true);
@@ -79,7 +85,6 @@ namespace Jaxxa_Shields
 
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
-
             if (def is ShieldThingDef)
             {
                 //Read in variables from the custom MyThingDef
@@ -100,39 +105,49 @@ namespace Jaxxa_Shields
 
                 shieldStructuralIntegrityMode = ((Jaxxa_Shields.ShieldThingDef)def).shieldStructuralIntegrityMode;
 
-
                 colourRed = ((Jaxxa_Shields.ShieldThingDef)def).colourRed;
                 colourGreen = ((Jaxxa_Shields.ShieldThingDef)def).colourGreen;
                 colourBlue = ((Jaxxa_Shields.ShieldThingDef)def).colourBlue;
-
+            }
+            else
+            {
+                Log.Error("Shield definition not of type \"ShieldThingDef\"");
             }
 
-            shield = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+            Log.Message("Creating shieldField in SpawnSetup()");
+            shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
 
+
+            if (tempShieldStrength > 0)
+            {
+                shieldField.emergencyStartup();
+            }
+            //shieldField.shieldCurrentStrength = tempShieldStrength;
         }
+
 
         public override void Tick()
         {
             base.Tick();
             //Carefully check to prevent NullPointerExceptions
-            if (shield != null)
+            if (shieldField != null)
             {
                 //Disable shield when power goes off
                 if (this.power != null)
                 {
                     if (!this.power.PowerOn)
                     {
-                        shield.enabled = false;
+                        shieldField.enabled = false;
                     }
                     else
                     {
-                        shield.enabled = true;
+                        shieldField.enabled = true;
                     }
                 }
                 //Do tick for the shield field
-                shield.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_shieldRepairMode);
+                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_shieldRepairMode);
                 //Change power requirements depending on shield status
-                switch (shield.status)
+                switch (shieldField.status)
                 {
                     //Disabled shield also requires power (to avoid flickering when thing increases power requirements because it gained power...)
                     case ShieldStatus.Disabled:
@@ -155,23 +170,28 @@ namespace Jaxxa_Shields
                             break;
                         }
                 }
+                //Keep values uptoDate
+                tempShieldStrength = shieldField.shieldCurrentStrength;
+                Log.Message("tempShieldStrength set to: " + tempShieldStrength);
+
+
+
             }
             else
             {
-                shield = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+                Log.Message("shieldField is null in tick event, creating new one.");
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
 
         }
 
         public void DrawShieldField()
         {
-
-
-            if (shield.isOnline() || shield.shieldRecoverWarmup - shield.warmupPower < 60)
+            if (shieldField.isOnline() || shieldField.shieldRecoverWarmup - shieldField.warmupPower < 60)
             {
                 //Draw field
                 //shield.DrawField(Vectors.IntVecToVec(base.Position) + (new Vector3(0.5f, 0f, 0.5f)));
-                shield.DrawField(Vectors.IntVecToVec(base.Position));
+                shieldField.DrawField(Vectors.IntVecToVec(base.Position));
                 //Initialise the spark particle array
                 if (sparksParticle[0] == null)
                 {
@@ -205,13 +225,13 @@ namespace Jaxxa_Shields
         }
         public override void DrawExtraSelectionOverlays()
         {
-            GenDraw.DrawRadiusRing(base.Position, shield.shieldShieldRadius);
+            GenDraw.DrawRadiusRing(base.Position, shieldField.shieldShieldRadius);
         }
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
             //stringBuilder.Append(base.GetInspectString());
-            stringBuilder.Append(shield.GetInspectString());
+            stringBuilder.Append(shieldField.GetInspectString());
 
             /*
             for (int i = 0, l = sparksParticle.Length; i < l; i++)
@@ -235,10 +255,15 @@ namespace Jaxxa_Shields
         {
             base.ExposeData();
 
-            Scribe_Deep.LookDeep(ref shield, "shield");
-       
-            shield.position = base.Position;
-            
+            Scribe_Deep.LookDeep(ref shieldField, "shieldField");
+
+            shieldField.position = base.Position;
+
+
+            Log.Error("Start: tempShieldStrength is" + tempShieldStrength);
+            Scribe_Values.LookValue(ref tempShieldStrength, "tempShieldStrength");
+            Log.Error("End: tempShieldStrength is" + tempShieldStrength);
+
             Scribe_Values.LookValue(ref flag_direct, "flag_direct");
             Scribe_Values.LookValue(ref flag_indirect, "flag_indirect");
             Scribe_Values.LookValue(ref flag_fireSupression, "flag_fireSupression");
@@ -362,7 +387,7 @@ namespace Jaxxa_Shields
         {
             flag_indirect = !flag_indirect;
         }
-        
+
         private void SwitchFire()
         {
             flag_fireSupression = !flag_fireSupression;
@@ -373,7 +398,5 @@ namespace Jaxxa_Shields
             flag_shieldRepairMode = !flag_shieldRepairMode;
         }
 
-
-        
     }
 }
