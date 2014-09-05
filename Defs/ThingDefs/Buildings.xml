@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Things>
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<soundBulletHit>BulletImpactMetal</soundBulletHit>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<constructionEffect>ConstructMetal</constructionEffect>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+	
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
+		<eType>Building_Turret</eType>
+		<category>Building</category>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<blockLight>true</blockLight>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<overdraw>false</overdraw>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<fillPercent>1</fillPercent>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<designationCategory>Security</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<specialDisplayRadius>8</specialDisplayRadius>
+		<useStandardHealth>true</useStandardHealth>
+		<maxHealth>100</maxHealth>
+		<flammability>1.0</flammability>
+		<passability>Impassable</passability>
+		<combatTargetBuilding>true</combatTargetBuilding>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+	
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
+		<defName>Building_ShieldBasic</defName>
+		<label>Basic shield</label>
+		<description>Creates shield field to protect important infrastructure.</description>
+		<thingClass>Jaxxa_Shields.Building_Shield</thingClass>
+		<workToBuild>2000</workToBuild>
+		<researchPrerequisite>Building_ShieldBasic_research</researchPrerequisite>
+		<texturePath>Things/ShieldBuilding</texturePath>
+		<uiIconPath>Things/ShieldBuilding</uiIconPath>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>Silver</thingDef>
+				<count>500</count>
+			</li>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>3</count>
+			</li>
+		</filthLeavings>
+	
+		<shieldMaxShieldStrength>1000</shieldMaxShieldStrength>
+		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
+		<shieldShieldRadius>8</shieldShieldRadius>
+
+		<shieldPowerRequiredLoading>-1000</shieldPowerRequiredLoading>
+		<shieldPowerRequiredCharging>-2750</shieldPowerRequiredCharging>
+		<shieldPowerRequiredSustaining>-1820</shieldPowerRequiredSustaining>
+		
+		<shieldBlockIndirect>true</shieldBlockIndirect>
+		<shieldBlockDirect>true</shieldBlockDirect>
+		<shieldFireSupression>true</shieldFireSupression>
+		
+		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
+		
+		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
+		<shieldRecoverWarmup>900</shieldRecoverWarmup>
+		
+		<colourRed>0.0</colourRed>
+		<colourGreen>0.3764705882352941</colourGreen>
+		<colourBlue>0.7294117647058823</colourBlue>
+	</ThingDef>
+	
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
+		<defName>Building_ShieldSmall</defName>
+		<label>Small shield</label>
+		<description>Creates a smaller shield that allows people to stand on it.</description>
+		<thingClass>Jaxxa_Shields.Building_Shield</thingClass>
+		<workToBuild>2000</workToBuild>
+		<researchPrerequisite>Building_ShieldSmall_research</researchPrerequisite>
+		<texturePath>Things/ShieldBuilding_Small</texturePath>
+		<uiIconPath>Things/ShieldBuilding_Small</uiIconPath>
+		<passability>Standable</passability>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>Silver</thingDef>
+				<count>200</count>
+			</li>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>3</count>
+			</li>
+		</filthLeavings>
+		<specialDisplayRadius>2</specialDisplayRadius>
+		
+		<shieldMaxShieldStrength>500</shieldMaxShieldStrength>
+		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
+		<shieldShieldRadius>2</shieldShieldRadius>
+
+		<shieldPowerRequiredLoading>-500</shieldPowerRequiredLoading>
+		<shieldPowerRequiredCharging>-1500</shieldPowerRequiredCharging>
+		<shieldPowerRequiredSustaining>-1000</shieldPowerRequiredSustaining>
+		
+		<shieldBlockIndirect>true</shieldBlockIndirect>
+		<shieldBlockDirect>true</shieldBlockDirect>
+		<shieldFireSupression>true</shieldFireSupression>
+		
+		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
+		
+		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
+		<shieldRecoverWarmup>900</shieldRecoverWarmup>
+		
+		<colourRed>0.0</colourRed>
+		<colourGreen>0.3764705882352941</colourGreen>
+		<colourBlue>0.7294117647058823</colourBlue>
+	</ThingDef>
+  
+  	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
+		<defName>Building_Shield_CRAM</defName>
+		<label>Phalanx CRAM shield</label>
+		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, at the expense of being able to block direct fire weapons. (only stops Mortars)</description>
+		<thingClass>Jaxxa_Shields.Building_Shield</thingClass>
+		<workToBuild>2000</workToBuild>
+		<researchPrerequisite>Building_ShieldCRAM_research</researchPrerequisite>
+		<texturePath>Things/ShieldBuilding_CRAM</texturePath>
+		<uiIconPath>Things/ShieldBuilding_CRAM</uiIconPath>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>Silver</thingDef>
+				<count>500</count>
+			</li>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>3</count>
+			</li>
+		</filthLeavings>
+		<specialDisplayRadius>20</specialDisplayRadius>
+		
+		<shieldMaxShieldStrength>200</shieldMaxShieldStrength>
+		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
+		<shieldShieldRadius>20</shieldShieldRadius>
+
+		<shieldPowerRequiredLoading>-1000</shieldPowerRequiredLoading>
+		<shieldPowerRequiredCharging>-2750</shieldPowerRequiredCharging>
+		<shieldPowerRequiredSustaining>-1820</shieldPowerRequiredSustaining>
+		
+		<shieldBlockIndirect>true</shieldBlockIndirect>
+		<shieldBlockDirect>false</shieldBlockDirect>
+		<shieldFireSupression>false</shieldFireSupression>
+		
+		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
+		
+		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
+		<shieldRecoverWarmup>900</shieldRecoverWarmup>
+		
+		<colourRed>0.0</colourRed>
+		<colourGreen>1.0</colourGreen>
+		<colourBlue>0.5</colourBlue>
+	</ThingDef>
+
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
+		<defName>Building_ShieldSIF</defName>
+		<label>SIF shield</label>
+		<description>Rather than creating a large circular shield this generator will create an small individual shield over each wall/door object.</description>
+		<thingClass>Jaxxa_Shields.Building_Shield</thingClass>
+		<workToBuild>2000</workToBuild>
+		<researchPrerequisite>Building_ShieldSIF_research</researchPrerequisite>
+		<texturePath>Things/ShieldBuilding</texturePath>
+		<uiIconPath>Things/ShieldBuilding</uiIconPath>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>Silver</thingDef>
+				<count>500</count>
+			</li>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>3</count>
+			</li>
+		</filthLeavings>
+	
+		<shieldMaxShieldStrength>1000</shieldMaxShieldStrength>
+		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
+		<shieldShieldRadius>8</shieldShieldRadius>
+
+		<shieldPowerRequiredLoading>-1000</shieldPowerRequiredLoading>
+		<shieldPowerRequiredCharging>-2750</shieldPowerRequiredCharging>
+		<shieldPowerRequiredSustaining>-1820</shieldPowerRequiredSustaining>
+		
+		<shieldBlockIndirect>false</shieldBlockIndirect>
+		<shieldBlockDirect>true</shieldBlockDirect>
+		<shieldFireSupression>true</shieldFireSupression>
+		
+		<shieldStructuralIntegrityMode>true</shieldStructuralIntegrityMode>
+		
+		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
+		<shieldRecoverWarmup>900</shieldRecoverWarmup>
+		
+		<colourRed>0.0</colourRed>
+		<colourGreen>0.3764705882352941</colourGreen>
+		<colourBlue>0.7294117647058823</colourBlue>
+	</ThingDef>
+	
+	</Things>
