@@ -191,7 +191,7 @@ namespace Jaxxa_Shields
         }
 
 
-        public void emergencyStartup()
+        public void emergencyStartup(int desiredPower)
         {
             //This code runs when warmup is finished
             online = true;

@@ -120,7 +120,7 @@ namespace Jaxxa_Shields
 
             if (tempShieldStrength > 0)
             {
-                shieldField.emergencyStartup();
+                shieldField.emergencyStartup(tempShieldStrength);
             }
             //shieldField.shieldCurrentStrength = tempShieldStrength;
         }
