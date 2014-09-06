@@ -67,9 +67,11 @@ namespace Jaxxa_Shields
 
         #endregion
 
-        //Prepared data
+        #region Accessors
 
-        //Getter for the power (shield health)
+        /// <summary>
+        /// Getter for the power (shield health)
+        /// </summary>
         public int shieldCurrentStrength
         {
             get
@@ -89,6 +91,10 @@ namespace Jaxxa_Shields
                 }
             }
         }
+
+        /// <summary>
+        /// Get the Warmup Power
+        /// </summary>
         public int warmupPower
         {
             get
@@ -99,17 +105,24 @@ namespace Jaxxa_Shields
                 }
                 else return 0;
             }
-
         }
+
+        #endregion
+
         //Hit sound
         private static readonly SoundDef HitSoundDef = SoundDef.Named("Shields_HitShield");
-        //Getter for the shield status, used to chose correct power requirements
+
+        /// <summary>
+        /// Getter for the shield status, used to chose correct power requirements
+        /// </summary>
         public ShieldStatus status
         {
             get
             {
                 if (!this.enabled)
+                {
                     return ShieldStatus.Disabled;
+                }
                 else if (!online)
                 {
                     return ShieldStatus.Loading;
@@ -123,7 +136,6 @@ namespace Jaxxa_Shields
                     return ShieldStatus.Sustaining;
                 }
             }
-
         }
         //When false, shield will be inactive
         private bool enabled_internal = true;
@@ -150,12 +162,12 @@ namespace Jaxxa_Shields
                         online = false;
                         shieldCurrentStrength = 0;
                     }
-
                 }
-
-
             }
         }
+
+        #region Constructor
+
         //Constructor
         public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue)
         {
@@ -179,24 +191,22 @@ namespace Jaxxa_Shields
             this.colourRed = colourRed;
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
-            /*
-            this.colourRed = colourRed / 100.0f;
-            this.colourGreen = colourGreen / 100.0f;
-            this.colourBlue = colourBlue / 100.0f;*/
         }
+        
         //Blank constructor required by scribes
         public ShieldField()
         {
 
         }
 
+        #endregion
 
-        public void emergencyStartup(int desiredPower)
+        private void StartupField(int desiredPower)
         {
             //This code runs when warmup is finished
             online = true;
             warmupTicksCurrent = 0;
-            shieldCurrentStrength = 199;
+            shieldCurrentStrength = desiredPower;
         }
 
         //Tick - here the projectiles are being found
@@ -272,14 +282,17 @@ namespace Jaxxa_Shields
                 else
                 {
                     //This code runs when warmup is finished
-                    online = true;
-                    warmupTicksCurrent = 0;
-                    shieldCurrentStrength = this.shieldInitialShieldStrength;
+                    this.StartupField(this.shieldInitialShieldStrength);
                 }
             }
         }
 
-        //Finds all projectiles at the position and destroys them
+        /// <summary>
+        /// Finds all projectiles at the position and destroys them
+        /// </summary>
+        /// <param name="square">The current square to protect</param>
+        /// <param name="flag_direct">Block direct Fire</param>
+        /// <param name="flag_indirect">Block indirect Fire</param>
         private void ProtectSquare(IntVec3 square, bool flag_direct, bool flag_indirect)
         {
             //Ignore squares outside the map
@@ -324,7 +337,7 @@ namespace Jaxxa_Shields
                         //if (Quaternion.Angle(targetAngle, shieldProjAng) > 110)
 
 
-                        Log.Message("projectilePosition2D: " + projectilePosition2D + " " + " shieldPosition2D: " + shieldPosition2D + " Quat Angle: " + Quaternion.Angle(targetAngle, shieldProjAng).ToString());
+                        //Log.Message("projectilePosition2D: " + projectilePosition2D + " " + " shieldPosition2D: " + shieldPosition2D + " Quat Angle: " + Quaternion.Angle(targetAngle, shieldProjAng).ToString());
 
 
                         if (Quaternion.Angle(targetAngle, shieldProjAng) > 90)
@@ -596,6 +609,7 @@ namespace Jaxxa_Shields
             }
             return stringBuilder.ToString();
         }
+        
         /// <summary>
         /// Returns true if the shield is online
         /// </summary>
@@ -605,11 +619,11 @@ namespace Jaxxa_Shields
             return online && this.shieldCurrentStrength > 0;
         }
 
+        /// <summary>
+        /// Save / Load the Game
+        /// </summary>
         public void ExposeData()
-        {
-            /*
-            Log.Message("ExposeData()");
-            
+        {            
             Scribe_Values.LookValue<int>(ref this.shieldMaxShieldStrength, "shieldMaxShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldInitialShieldStrength, "shieldInitialShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldShieldRadius, "shieldShieldRadius", 0, false);
@@ -622,7 +636,7 @@ namespace Jaxxa_Shields
             Scribe_Values.LookValue<bool>(ref this.shieldStructuralIntegrityMode, "shieldStructuralIntegrityMode", false, false);
 
 
-            Scribe_Values.LookValue<int>(ref this.shieldCurrentStrength, "shieldCurrentStrength", 0, false);
+            Scribe_Values.LookValue<int>(ref shieldCurrentStrength_base, "shieldCurrentStrength_base", 0, false);
             Scribe_Values.LookValue<long>(ref this.tick, "tick", 0, false);
             Scribe_Values.LookValue<bool>(ref this.online, "online", false, false);
             Scribe_Values.LookValue<int>(ref this.warmupTicksCurrent, "warmupTicksCurrent", 0, false);
@@ -630,7 +644,7 @@ namespace Jaxxa_Shields
 
             Scribe_Values.LookValue<float>(ref this.colourRed, "colourRed", 0, false);
             Scribe_Values.LookValue<float>(ref this.colourGreen, "colourGreen", 0, false);
-            Scribe_Values.LookValue<float>(ref this.colourBlue, "colourBlue", 0, false);*/
+            Scribe_Values.LookValue<float>(ref this.colourBlue, "colourBlue", 0, false);
         }
 
         /// <summary>
@@ -645,6 +659,7 @@ namespace Jaxxa_Shields
             this.shieldCurrentStrength -= (int)(((float)damage) * powerToDamage);
         }
     }
+
     public enum ShieldStatus
     {
         //Disabled and offline

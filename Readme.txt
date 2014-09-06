@@ -84,6 +84,8 @@ colourBlue:Float value, Colour between 0 and 1
 	- Added Repair mods to SIF shield
 		- A counter to walls being damaged before the shot gets intercepted.
 	- Coding enhancements to work more reliably and predictably
+0.08
+	- Fix for shield strength not being charged on load
 	
 Planned:
 	-Early Warning?

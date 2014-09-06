@@ -58,10 +58,6 @@ namespace Jaxxa_Shields
         //Prepared data
         private ShieldBlendingParticle[] sparksParticle = new ShieldBlendingParticle[3];
 
-        public int tempShieldStrength = 0;
-
-
-
         #endregion
 
         //Dummy override
@@ -114,15 +110,11 @@ namespace Jaxxa_Shields
                 Log.Error("Shield definition not of type \"ShieldThingDef\"");
             }
 
-            Log.Message("Creating shieldField in SpawnSetup()");
-            shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
-
-
-            if (tempShieldStrength > 0)
+            if (shieldField == null)
             {
-                shieldField.emergencyStartup(tempShieldStrength);
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
-            //shieldField.shieldCurrentStrength = tempShieldStrength;
+
         }
 
 
@@ -170,12 +162,6 @@ namespace Jaxxa_Shields
                             break;
                         }
                 }
-                //Keep values uptoDate
-                tempShieldStrength = shieldField.shieldCurrentStrength;
-                Log.Message("tempShieldStrength set to: " + tempShieldStrength);
-
-
-
             }
             else
             {
@@ -185,6 +171,9 @@ namespace Jaxxa_Shields
 
         }
 
+        /// <summary>
+        /// Draw the shield Field
+        /// </summary>
         public void DrawShieldField()
         {
             if (shieldField.isOnline() || shieldField.shieldRecoverWarmup - shieldField.warmupPower < 60)
@@ -192,7 +181,7 @@ namespace Jaxxa_Shields
                 //Draw field
                 //shield.DrawField(Vectors.IntVecToVec(base.Position) + (new Vector3(0.5f, 0f, 0.5f)));
                 shieldField.DrawField(Vectors.IntVecToVec(base.Position));
-                //Initialise the spark particle array
+                //Initialize the spark particle array
                 if (sparksParticle[0] == null)
                 {
                     for (int i = 0; i < sparksParticle.Length; i++)
@@ -217,6 +206,7 @@ namespace Jaxxa_Shields
                 //Graphics.DrawMesh(MeshPool.plane20, matrix, FadedMaterialPool.FadedVersionOf(Building_Turret_Sentinel.TurretTopCharging, percentCharged), 0);
             }
         }
+        
         public override void Draw()
         {
             base.Draw();
@@ -258,11 +248,6 @@ namespace Jaxxa_Shields
             Scribe_Deep.LookDeep(ref shieldField, "shieldField");
 
             shieldField.position = base.Position;
-
-
-            Log.Error("Start: tempShieldStrength is" + tempShieldStrength);
-            Scribe_Values.LookValue(ref tempShieldStrength, "tempShieldStrength");
-            Log.Error("End: tempShieldStrength is" + tempShieldStrength);
 
             Scribe_Values.LookValue(ref flag_direct, "flag_direct");
             Scribe_Values.LookValue(ref flag_indirect, "flag_indirect");
