@@ -85,7 +85,7 @@ colourBlue:Float value, Colour between 0 and 1
 		- A counter to walls being damaged before the shot gets intercepted.
 	- Coding enhancements to work more reliably and predictably
 0.08
-	- Fix for shield strength not being charged on load
+	- Fix for shield strength not being charged on loading a save game
 	
 Planned:
 	-Early Warning?
