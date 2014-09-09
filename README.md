@@ -43,17 +43,22 @@ colourBlue:Float value, Colour between 0 and 1
 ###ChangeLog:
 0.01
 - Updating Darker's mod to fix a bug in Alpha 4
+
 0.02
 - Updating Darker's mod to Alpha 5
+
 0.03
 - Main rewrite and move to my own mod, many changes
+
 0.04
 - Increasing Strength of CRAM shield
 - Separate variables for shieldBlockIndirect and shieldBlockDirect
 - Fire suppression ability.
 - Added a shield that will protect squares that have walls / doors on them rather than a circular area
+
 0.05
 - Fix for not leaving debris when destroyed
+
 0.06
 - Alpha 6 Update
 - Renaming MyThingDef to ShieldThingDef
@@ -68,16 +73,20 @@ colourBlue:Float value, Colour between 0 and 1
 - SIF shields will put out fires on the wall / doors
 - XML based colour
 - Shield colour is now defined in the XML files rather than hard coded
+
 0.07
 - Added Repair mods to SIF shield
 - A counter to walls being damaged before the shot gets intercepted.
 - Coding enhancements to work more reliably and predictably
+
 0.08
 - Fix for shield strength not being charged on loading a save game
+
 Planned:
--Early Warning?
--Kenetic CRAM?
--Check / deal with missing values better
+- Early Warning?
+- Kenetic CRAM?
+- Check / deal with missing values better
+
 ###Background:
 This is based of the Shields mod by "Darker" http://ludeon.com/forums/index.php?topic=2677.msg24772#msg24772 that is no longer being supported by him. I did a fix for Alpha4 and updated it to Alpha5 and have now developed to the point where I consider it a separate spin-off mod.
 ###Credit/Legal:
