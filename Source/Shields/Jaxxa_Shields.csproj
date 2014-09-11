@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Games\RimWorld\RimWorldAlpha6Win\RimWorld532Win\RimWorld532Win_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\Dll's\532\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -42,7 +42,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>C:\Games\RimWorld\RimWorldAlpha6Win\RimWorld532Win\RimWorld532Win_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\Dll's\532\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

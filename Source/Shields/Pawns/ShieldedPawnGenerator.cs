@@ -19,6 +19,10 @@ namespace Jaxxa_Shields
 
         public static ShieldedPawn GeneratePawn(PawnKindDef kindDef, Faction faction)
         {
+            //Does this work?
+            return (ShieldedPawn)PawnGenerator.GeneratePawn(kindDef, faction);
+
+              /*  
             Log.Error("Start GeneratePawn()");
 
             Log.Error("Race: " + kindDef.race.ToString());
@@ -29,21 +33,20 @@ namespace Jaxxa_Shields
 
             Log.Error("Ping1");
 
+            
+            //Log.Error("Ping0.1");
+            //Pawn testing = (Pawn)Activator.CreateInstance(kindDef.race.thingClass);
+            //Log.Error("Ping0.2");
+            //testing.def = kindDef.race;
+            //Log.Error("Ping0.3");
+            //testing.PostMake();
+            //Log.Error("Ping0.4");
+            //ShieldedPawn pawn = (ShieldedPawn)testing;
 
-            /*
-            Log.Error("Ping0.1");
-            Pawn testing = (Pawn)Activator.CreateInstance(kindDef.race.thingClass);
-            Log.Error("Ping0.2");
-            testing.def = kindDef.race;
-            Log.Error("Ping0.3");
-            testing.PostMake();
-            Log.Error("Ping0.4");
-            ShieldedPawn pawn = (ShieldedPawn)testing;
-
-            Log.Error("Ping0.5");
-            pawn.kindDef = kindDef;
-            pawn.SetFactionDirect(faction);
-            Log.Error("Ping1");*/
+            //Log.Error("Ping0.5");
+            //pawn.kindDef = kindDef;
+            //pawn.SetFactionDirect(faction);
+            //Log.Error("Ping1");
 
             pawn.thinker = new Pawn_Thinker(pawn);
             Log.Error("Ping2");
@@ -96,10 +99,12 @@ namespace Jaxxa_Shields
             PawnApparelGenerator.GenerateStartingApparelFor(pawn);
             pawn.AddAndRemoveComponentsAsAppropriate();
 
+            
             Log.Error("About to Return");
-            return pawn;
+            return pawn;*/
         }
-
+        
+        /*
         private static void GiveRandomTraitsTo(Pawn pawn)
         {
             if (pawn.story == null)
@@ -151,6 +156,6 @@ namespace Jaxxa_Shields
                     Log.Warning("Didn't get age for " + (object)pawn);
                     return 19;
             }
-        }
+        }*/
     }
 }
