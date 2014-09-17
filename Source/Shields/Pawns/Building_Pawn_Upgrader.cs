@@ -120,23 +120,35 @@ namespace Jaxxa_Shields
                     //List<Thing> fireTo
                     foreach (Pawn currentPawn in closePawns.ToList())
                     {
+                        if (currentPawn.GetType() == typeof(Pawn))
+                        {
 
-                        //PawnKindDef temp = currentPawn.kindDef;
-                        //ThingDef tempDef = currentPawn.def;
-                        //Pawn_StoryTracker tempStory = currentPawn.story;
+                            IntVec3 pawnPosition = currentPawn.Position;
 
+                            ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
 
-                        //Jaxxa_Shields.Pawns.ShieldedPawn newPawn = Jaxxa_Shields.Pawns.ShieldedPawnGenerator.GeneratePawn(temp, Faction.OfColony);
-                        ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
+                            Log.Message("Despawn");
+                            currentPawn.Destroy();
 
-                        Log.Message("Despawn");
-                        currentPawn.Destroy();
+                            //newPawn.def = tempDef;
+                            //newPawn.story = tempStory;
 
-                        //newPawn.def = tempDef;
-                        //newPawn.story = tempStory;
-                        
-                        GenSpawn.Spawn(newPawn, this.Position);
-                        return true;
+                            GenSpawn.Spawn(newPawn, pawnPosition);
+                            return true;
+                        }
+                        else if (currentPawn.GetType() == typeof(ShieldedPawn))
+                        {
+                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
+
+                            if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
+                            {
+                                currentShieldedPawn.currentShields += 1;
+                            }
+                        }
+                        else
+                        {
+                            Log.Error("Unknown Pawn Type");
+                        }
                     }
                 }
             }
