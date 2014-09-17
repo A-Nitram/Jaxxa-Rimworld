@@ -52,6 +52,7 @@
     <Compile Include="Pawns\ShieldedPawnGenerator.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
     <Compile Include="Graphics.cs" />
+    <Compile Include="Pawns\Building_Pawn_Upgrader.cs" />
     <Compile Include="Shields\ShieldThingDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shields\ShieldBlendingParticle.cs" />

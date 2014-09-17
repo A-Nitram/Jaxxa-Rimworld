@@ -45,6 +45,19 @@
 		</prerequisites>
 	</ResearchProjectDef>
 	
+	<ResearchProjectDef>
+		<defName>Personal_Shield_research</defName>
+		<label>Personal Shield Research</label>
+		<description>Using nanno technology and miniturisation a personal version of the shield generator has been developed.
+		</description>
+		<totalCost>50000</totalCost>
+		<prerequisites>
+			<li>Building_ShieldBasic_research</li>
+			<li>Building_ShieldSIF_research</li>
+			<li>Building_ShieldSmall_research</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
 </ResearchProjectDefs>
 
 <!--

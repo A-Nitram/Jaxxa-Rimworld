@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Things>
-	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" Name="BuildingBase" Abstract="True">
+	<ThingDef Name="BuildingBase" Abstract="True">
 		<category>Building</category>
 		<soundBulletHit>BulletImpactMetal</soundBulletHit>
 		<selectable>true</selectable>
@@ -254,4 +254,39 @@
 		<colourBlue>0.7294117647058823</colourBlue>
 	</ThingDef>
 	
-	</Things>
+	
+	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
+		<defName>Building_Pawn_Upgrader</defName>
+		<label>Colonist Upgrade Station</label>
+		<description>Using nanno technology and miniturisation a personal version of the shield generator has been developed.</description>
+		<thingClass>Jaxxa_Shields.Building_Pawn_Upgrader</thingClass>
+		<workToBuild>2000</workToBuild>
+		<researchPrerequisite>Building_ShieldSIF_research</researchPrerequisite>
+		<texturePath>Things/ShieldBuilding</texturePath>
+		<uiIconPath>Things/ShieldBuilding</uiIconPath>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>Silver</thingDef>
+				<count>500</count>
+			</li>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>3</count>
+			</li>
+		</filthLeavings>
+
+	</ThingDef>
+	
+</Things>

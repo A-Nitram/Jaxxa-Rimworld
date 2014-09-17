@@ -397,39 +397,7 @@ namespace Jaxxa_Shields
                     }
                 }
 
-                this.replacePAwns();
 
-            }
-        }
-
-        private void replacePAwns()
-        {
-
-            IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
-
-            if (pawns != null)
-            {
-                IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
-
-                if (closePawns != null)
-                {
-                    //List<Thing> fireTo
-                    foreach (Pawn currentPAwn in closePawns.ToList())
-                    {
-                        PawnKindDef temp = currentPAwn.kindDef;
-                        ThingDef tempDef = currentPAwn.def;
-                        Pawn_StoryTracker tempStory = currentPAwn.story;
-
-                        Log.Message("Despawn");
-                        currentPAwn.Destroy();
-                        
-                        //Jaxxa_Shields.Pawns.ShieldedPawn newPawn = Jaxxa_Shields.Pawns.ShieldedPawnGenerator.GeneratePawn(temp, Faction.OfColony);
-                        ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony);
-                        newPawn.def = tempDef;
-                        newPawn.story = tempStory;
-                        GenSpawn.Spawn(newPawn, this.position);
-                    }
-                }
             }
         }
 
