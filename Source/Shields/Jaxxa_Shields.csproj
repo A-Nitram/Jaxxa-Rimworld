@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pawns\PawnKindDef_ShieldedPawn.cs" />
+    <Compile Include="Pawns\Saving\PawnSaver.cs" />
     <Compile Include="Pawns\ShieldedPawn.cs" />
     <Compile Include="Pawns\ShieldedPawnGenerator.cs" />
     <Compile Include="Shields\Building_Shield.cs" />

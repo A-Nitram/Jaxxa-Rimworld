@@ -120,6 +120,7 @@ namespace Jaxxa_Shields
                     //List<Thing> fireTo
                     foreach (Pawn currentPawn in closePawns.ToList())
                     {
+
                         //PawnKindDef temp = currentPawn.kindDef;
                         //ThingDef tempDef = currentPawn.def;
                         //Pawn_StoryTracker tempStory = currentPawn.story;
@@ -133,6 +134,7 @@ namespace Jaxxa_Shields
 
                         //newPawn.def = tempDef;
                         //newPawn.story = tempStory;
+                        
                         GenSpawn.Spawn(newPawn, this.Position);
                         return true;
                     }
