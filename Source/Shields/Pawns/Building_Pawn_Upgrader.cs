@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
+using Jaxxa_Shields.Pawns.Nano;
 
 namespace Jaxxa_Shields
 {
@@ -16,12 +17,18 @@ namespace Jaxxa_Shields
         public float MAX_DISTANCE = 5.0f;
 
         CompPowerTrader power;
+        //NanoConnector nanoConnector;
+
+        private static Texture2D UI_FIRE_ON;
 
         #endregion
 
         //Dummy override
         public override void PostMake()
         {
+
+            UI_FIRE_ON = ContentFinder<Texture2D>.Get("UI/FireOn", true);
+
             base.PostMake();
         }
         //On spawn, get the power component reference
@@ -29,6 +36,7 @@ namespace Jaxxa_Shields
         {
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
+            //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
         }
 
         public override void Tick()
@@ -37,11 +45,8 @@ namespace Jaxxa_Shields
 
             if (this.power.PowerOn == true)
             {
-                if (this.replacePAwns())
-                {
-                    this.power.DesirePowerOn = false;
-                    this.power.PowerOn = false;
-                }
+                NanoManager.tick();
+                //this.replacePAwns();
             }
         }
 
@@ -66,14 +71,21 @@ namespace Jaxxa_Shields
                 stringBuilder.AppendLine("   " + (i + 1) + ". " + sparksParticle[i].currentDir + " -> " + sparksParticle[i].currentStep);
             }*/
 
+            string text;
+
+
+            text = "Nano Charge: " + NanoManager.getCurrentCharge() + " / " + NanoManager.getMaxCharge();
+            stringBuilder.AppendLine(text);
+
             if (power != null)
             {
-                string text = power.CompInspectString();
+                text = power.CompInspectString();
                 if (!text.NullOrEmpty())
                 {
                     stringBuilder.AppendLine(text);
                 }
             }
+
 
             return stringBuilder.ToString();
         }
@@ -103,11 +115,34 @@ namespace Jaxxa_Shields
                 CommandList = baseCommands.ToList();
             }
 
-            return CommandList.AsEnumerable<Command>();
+            if (true)
+            {
+                //switchDirect
+                Command_Action command_Action_InstallShield = new Command_Action();
 
+                command_Action_InstallShield.defaultLabel = "Install NanoShield";
+
+                command_Action_InstallShield.icon = UI_FIRE_ON;
+                command_Action_InstallShield.defaultDesc = "Install NanoShield";
+
+                command_Action_InstallShield.activateSound = SoundDef.Named("Click");
+                command_Action_InstallShield.action = new Action(this.tryReplacePawn);
+
+                CommandList.Add(command_Action_InstallShield);
+            }
+
+            return CommandList.AsEnumerable<Command>();
         }
-         
-        private bool replacePAwns()
+
+        private void tryReplacePawn()
+        {
+            if (this.power.PowerOn == true)
+            {
+                this.replacePawns();
+            }
+        }
+
+        private bool replacePawns()
         {
             IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
 
@@ -122,19 +157,18 @@ namespace Jaxxa_Shields
                     {
                         if (currentPawn.GetType() == typeof(Pawn))
                         {
+                            if (NanoManager.requestCharge(100))
+                            {
+                                IntVec3 pawnPosition = currentPawn.Position;
 
-                            IntVec3 pawnPosition = currentPawn.Position;
+                                ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
 
-                            ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
+                                Log.Message("Despawn");
+                                currentPawn.Destroy();
 
-                            Log.Message("Despawn");
-                            currentPawn.Destroy();
-
-                            //newPawn.def = tempDef;
-                            //newPawn.story = tempStory;
-
-                            GenSpawn.Spawn(newPawn, pawnPosition);
-                            return true;
+                                GenSpawn.Spawn(newPawn, pawnPosition);
+                                return true;
+                            }
                         }
                         else if (currentPawn.GetType() == typeof(ShieldedPawn))
                         {
@@ -142,7 +176,10 @@ namespace Jaxxa_Shields
 
                             if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
                             {
-                                currentShieldedPawn.currentShields += 1;
+                                if (NanoManager.requestCharge(1))
+                                {
+                                    currentShieldedPawn.currentShields += 1;
+                                }
                             }
                         }
                         else

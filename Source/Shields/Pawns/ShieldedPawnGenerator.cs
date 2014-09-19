@@ -30,24 +30,11 @@ namespace Jaxxa_Shields
 
         public static ShieldedPawn GeneratePawn(PawnKindDef kindDef, Faction faction, Pawn currentPawn)
         {
-            Log.Message("Starting Save");
-            //Save Pawn
-            Scribe.InitWriting(@"C:\New.txt");
-            Scribe_Deep.LookDeep<Pawn>(ref currentPawn, "currentPawn");
-
-            Scribe.FinalizeWriting();
-            Scribe.mode = LoadSaveMode.Inactive;
-            Log.Message("End Save");
-
+            PawnSaver.save(currentPawn, @"C:\New.txt");
 
             ShieldedPawn newPawn = ShieldedPawnGenerator.GeneratePawn(kindDef, faction);
 
-
-            Scribe.InitLoading(@"C:\New.txt");
-            newPawn.ExposeData();
-
-            LoadCrossRefHandler.ResolveAllCrossReferences();
-            PostLoadInitter.DoAllPostLoadInits();
+            PawnSaver.load(newPawn, @"C:\New.txt");
 
             newPawn.currentShields = 100;
             newPawn.max_shields = 100;
