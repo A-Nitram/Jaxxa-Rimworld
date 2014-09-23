@@ -192,7 +192,7 @@ namespace Jaxxa_Shields
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
         }
-        
+
         //Blank constructor required by scribes
         public ShieldField()
         {
@@ -445,7 +445,7 @@ namespace Jaxxa_Shields
                 {
                     if (thing is Building)
                     {
-                        if (thing.health < thing.def.maxHealth)
+                        if (thing.health < thing.MaxHealth)
                         {
                             if (this.shieldCurrentStrength > 1)
                             {
@@ -582,7 +582,7 @@ namespace Jaxxa_Shields
             //Simple shield circle
             //UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(0.0f, 0.3764705882352941f, 0.7294117647058823f, fade)), 0);
             //Log.Message("Colour:" + colourRed + " " + colourGreen + " " + colourBlue);
-            UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade)), 0);
+            UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade),ShaderDatabase.MetaOverlay ), 0);
 
         }
 
@@ -611,7 +611,7 @@ namespace Jaxxa_Shields
             }
             return stringBuilder.ToString();
         }
-        
+
         /// <summary>
         /// Returns true if the shield is online
         /// </summary>
@@ -625,7 +625,7 @@ namespace Jaxxa_Shields
         /// Save / Load the Game
         /// </summary>
         public void ExposeData()
-        {            
+        {
             Scribe_Values.LookValue<int>(ref this.shieldMaxShieldStrength, "shieldMaxShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldInitialShieldStrength, "shieldInitialShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldShieldRadius, "shieldShieldRadius", 0, false);

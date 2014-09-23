@@ -7,22 +7,18 @@
 		<race>ShieldedHuman</race>
     <pointsCost>30</pointsCost>
     <defaultFactionType>Colony</defaultFactionType>
-		<recruitDifficulty>60</recruitDifficulty>
+		<baseRecruitDifficulty>60</baseRecruitDifficulty>
 		<backstoryCategory>Civil</backstoryCategory>
 		<outfits>
 			<li>
-				<def>Naked</def>
-				<commonality>5</commonality>
-			</li>
-			<li>
-				<def>BasicShirtOnly</def>
-				<commonality>50</commonality>
-			</li>
-			<li>
-				<def>BasicShirtAndJacket</def>
-				<commonality>50</commonality>
+				<def>BasicsSpace</def>
+				<commonality>10</commonality>
 			</li>
 		</outfits>
+    <apparelMoney>
+      <min>2000</min>
+      <max>3000</max>
+    </apparelMoney>
 	</PawnKindDef>
 
 </PawnKindDefs>

@@ -57,11 +57,12 @@ namespace Jaxxa_Shields.Graphics
             }
         }
 
+        /*
         public static Material SolidColorMaterial(Color color)
         {
             //return GenRender.SolidColorMaterial(color);
             return MaterialMaker.NewSolidColorMaterial(color);
-        }
+        }*/
 
         //GenRender.SolidColorMaterial(Color.white);
     }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-  <ThingDef Name="BaseShieldPawn" Abstract="True">
+  <ThingDef Name="ShieldedBasePawn" Abstract="True">
     <eType>Pawn </eType>
     <thingClass>Jaxxa_Shields.ShieldedPawn</thingClass>
     <category>Pawn</category>
@@ -9,9 +9,8 @@
     <tickerType>Normal</tickerType>
     <altitudeLayer>Pawn</altitudeLayer>
     <useStandardHealth>false</useStandardHealth>
-    <flammability>1.0</flammability>
     <hasTooltip>true</hasTooltip>
-    <soundBulletHit>BulletImpactFlesh</soundBulletHit>
+    <soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
     <inspectorTabs>
       <li>ITab_Pawn_Thoughts</li>
       <li>ITab_Pawn_Prisoner</li>
@@ -23,36 +22,51 @@
   </ThingDef>
 
 
-
   <!-- ============================ Human ========================== -->
-  
-  <ThingDef ParentName="BaseShieldPawn">
+
+  <ThingDef ParentName="ShieldedBasePawn">
     <defName>ShieldedHuman</defName>
-    <label>Shielded Human</label>
+    <label>shielded human</label>
     <description>A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets.</description>
-    <maxHealth>100</maxHealth>
+    <uiIconPath>Things/Pawn/Humanoid/UI/IconHuman</uiIconPath>
     <sunShadowInfo>
       <baseWidth>0.4</baseWidth>
       <baseHeight>0.4</baseHeight>
       <tallness>0.8</tallness>
     </sunShadowInfo>
-	<meleeAttacks>
-		<li>
-			<damageDef>Bludgeon</damageDef>
-			<damageAmount>10</damageAmount>
-		</li>
-	</meleeAttacks>
+    <baseMarketValue>500</baseMarketValue>
+    <statBases>
+      <MoveSpeed>4.61</MoveSpeed>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <cooldownTicks>100</cooldownTicks>
+        <meleeDamageAmount>7</meleeDamageAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>LeftFist</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <cooldownTicks>100</cooldownTicks>
+        <meleeDamageAmount>7</meleeDamageAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>RightFist</linkedBodyPartsGroup>
+      </li>
+    </verbs>
     <race>
       <thinkTree>Humanoid</thinkTree>
       <humanoid>true</humanoid>
-      <walkSpeed>1.0</walkSpeed>
       <isFlesh>true</isFlesh>
+      <hasLeather>true</hasLeather>
+      <leatherColor>(211,194,143)</leatherColor>
       <nameCategory>HumanStandard</nameCategory>
       <hasStory>true</hasStory>
       <minFoodQuality>Raw</minFoodQuality>
-	  <body>Human</body>
+      <body>Human</body>
       <bodySize>1</bodySize>
-	  <healthScale>1</healthScale>
+      <healthScale>1</healthScale>
       <diet>Omnivorous</diet>
       <soundWounded>Pawn_Human_Wounded</soundWounded>
       <soundDeath>Pawn_Human_Death</soundDeath>
@@ -60,8 +74,24 @@
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
     </race>
+    <recipes>
+      <li>InstallPowerClaw</li>
+	  <li>InstallScytherKnifeProtrusion</li>
+      <li>InstallBionicEye</li>
+      <li>InstallBionicArm</li>
+      <li>InstallBionicLeg</li>
+      <li>InstallSimpleProstheticArm</li>
+      <li>InstallSimpleProstheticLeg</li>
+      <li>InstallPegLeg</li>
+      <li>InstallDenture</li>
+      <li>InstallNaturalHeart</li>
+      <li>InstallNaturalLung</li>
+      <li>InstallNaturalKidney</li>
+      <li>InstallNaturalLiver</li>
+      <li>RemoveBodyPart</li>
+	  <li>Euthanize</li>
+    </recipes>
   </ThingDef>
-
 
 
 </ThingDefs>

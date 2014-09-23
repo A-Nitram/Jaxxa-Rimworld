@@ -10,7 +10,7 @@ namespace Jaxxa_Shields
 {
     class ShieldBlendingParticle
     {
-        private static readonly Material ShieldSparksMat = MaterialPool.MatFrom("Things/ShieldSparks", MatBases.Transparent);
+        private static readonly Material ShieldSparksMat = MaterialPool.MatFrom("Things/ShieldSparks", MatBases.LightOverlay);
 
         //Current rotation of the sprite
         private float currentAngle = UnityEngine.Random.Range(0f, 360f);

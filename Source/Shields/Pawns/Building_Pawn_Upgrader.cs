@@ -79,7 +79,7 @@ namespace Jaxxa_Shields
 
             if (power != null)
             {
-                text = power.CompInspectString();
+                text = power.CompInspectStringExtra();
                 if (!text.NullOrEmpty())
                 {
                     stringBuilder.AppendLine(text);
