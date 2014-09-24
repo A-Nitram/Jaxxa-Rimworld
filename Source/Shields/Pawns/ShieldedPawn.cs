@@ -22,7 +22,6 @@ namespace Jaxxa_Shields
             : base()
         {
             Log.Message("Creating ShieldedPawn");
-            
         }
 
         public override void SpawnSetup()
@@ -147,11 +146,11 @@ namespace Jaxxa_Shields
             SuffocationDamage.damageDef = DamageTypeDefOf.Suffocation;
             AvalableShieldResistance.Add(SuffocationDamage);
 
-
+            /*
             DamageMultiplier SurgicalCutDamage = new DamageMultiplier();
             SurgicalCutDamage.multiplier = 0.0f;
             SurgicalCutDamage.damageDef = DamageTypeDefOf.SurgicalCut;
-            AvalableShieldResistance.Add(SurgicalCutDamage);
+            AvalableShieldResistance.Add(SurgicalCutDamage);*/
         }
 
         public void setShieldsActive(bool newValue)
@@ -203,29 +202,58 @@ namespace Jaxxa_Shields
 
         public override void PreApplyDamage(DamageInfo dinfo)
         {
-            Log.Message("PreApplyDamage -> Resist:" + this.def.damageMultipliers.Count);
+            //Log.Message("PreApplyDamage -> Resist:" + this.def.damageMultipliers.Count);
             Log.Message("dinfo: " + dinfo.Amount);
             //this.currentShieldResistance = temp;
             //this.def.damageMultipliers.Add(temp);
             //dinfo.ForceSetAmount(0);
-
+            
+            currentShields -= 10;
             if (currentShields <= 0)
             {
-                currentShields -= dinfo.Amount;
+                currentShields = 0;
                 this.setShieldsActive(false);
             }
-
+            //Thing launcher = reflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
+            
             base.PreApplyDamage(dinfo);
         }
 
-        /*public override void PostApplyDamage(DamageInfo dinfo)
+        public override void PostApplyDamage(DamageInfo dinfo)
         {
-            Log.Error("PostApplyDamage - Shield Took Hit" + dinfo.Amount);
+            //Log.Error("PostApplyDamage - Shield Took Hit" + dinfo.Amount);
+            //this.healthTracker.bodyModel.healthDiffs.Clear();
+            //this.health = this.MaxHealth;
+
+            /*
+            List<HealthDiff> temp = new List<HealthDiff>();
+            temp.AddRange(this.healthTracker.bodyModel.healthDiffs);
+
+            Log.Message("Removing: " + temp.Count);
+
+            foreach (HealthDiff currentHealthDiff in temp)
+            {
+                this.healthTracker.bodyModel.healthDiffs.Remove(currentHealthDiff);
+            }
+            this.health = this.MaxHealth;*/
+            
             base.PostApplyDamage(dinfo);
 
-        }*/
+        }
         public override void Tick()
         {
+            /*IEnumerable<Thing> listOfThings = Find.
+
+            Log.Message("Things:" + listOfThings.Count());
+
+            foreach (Thing currentThing in listOfThings)
+            {
+                if (currentThing is Projectile)
+                {
+                    Log.Message("Found bullet");
+                }
+            }*/
+
            // Log.Message("Shielded Tick()");
             base.Tick();
         }

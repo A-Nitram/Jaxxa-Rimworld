@@ -50,6 +50,7 @@
     <Compile Include="Pawns\Nano\NanoConnector.cs" />
     <Compile Include="Pawns\Nano\NanoManager.cs" />
     <Compile Include="Pawns\PawnKindDef_ShieldedPawn.cs" />
+    <Compile Include="reflectionHelper.cs" />
     <Compile Include="Pawns\Saving\PawnSaver.cs" />
     <Compile Include="Pawns\ShieldedPawn.cs" />
     <Compile Include="Pawns\ShieldedPawnGenerator.cs" />

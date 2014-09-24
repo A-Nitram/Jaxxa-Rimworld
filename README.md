@@ -81,6 +81,12 @@ colourBlue:Float value, Colour between 0 and 1
 
 0.08
 - Fix for shield strength not being charged on loading a save game
+0.09
+- First pass at Personal Shields
+- SIF Shields will now have IFF
+	- Allowing allied bullets to pass in anydirection while stopping enemy bullets.
+	- Fixes potential problems with colonists not being able to fire out as expected
+
 
 Planned:
 - Early Warning?
