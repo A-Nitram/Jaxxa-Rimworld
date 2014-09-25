@@ -62,7 +62,7 @@ namespace Jaxxa_Shields
 
         public override void DrawExtraSelectionOverlays()
         {
-            //GenDraw.DrawRadiusRing(base.Position, shieldField.shieldShieldRadius);
+            GenDraw.DrawRadiusRing(base.Position, this.MAX_DISTANCE);
         }
         public override string GetInspectString()
         {
@@ -266,5 +266,8 @@ namespace Jaxxa_Shields
                 }
             }
         }
+
+
+
     }
 }

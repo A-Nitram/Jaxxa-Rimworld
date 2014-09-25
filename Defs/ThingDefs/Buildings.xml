@@ -207,6 +207,7 @@
 		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
 		<graphicPathSingle>Things/ShieldBuilding</graphicPathSingle>
 		<uiIconPath>Things/ShieldBuilding</uiIconPath>
+		<specialDisplayRadius>2</specialDisplayRadius>
 		<comps>
 			<li>
 				<compClass>CompPowerTrader</compClass>
