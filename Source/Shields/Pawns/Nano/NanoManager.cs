@@ -8,7 +8,7 @@ namespace Jaxxa_Shields.Pawns.Nano
 {
     static class NanoManager
     {
-        private static int currentCharge = 0;
+        public static int currentCharge = 0;
         private static int maxCharge = 100;
         private static int previousTickExecuted = 0;
 

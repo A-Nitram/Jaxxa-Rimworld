@@ -24,6 +24,7 @@ namespace Jaxxa_Shields
             Log.Message("Creating ShieldedPawn");
         }
 
+
         public override void SpawnSetup()
         {
             Log.Message("SpawnSetup");
@@ -200,6 +201,23 @@ namespace Jaxxa_Shields
             }
         }
 
+        public bool getShieldActive()
+        {
+            return this.baseShieldsActive;
+        }
+
+        public bool getRequiresRecharge()
+        {
+            if (currentShields < max_shields)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override void PreApplyDamage(DamageInfo dinfo)
         {
             //Log.Message("PreApplyDamage -> Resist:" + this.def.damageMultipliers.Count);
@@ -240,6 +258,7 @@ namespace Jaxxa_Shields
             base.PostApplyDamage(dinfo);
 
         }
+
         public override void Tick()
         {
             /*IEnumerable<Thing> listOfThings = Find.
@@ -260,11 +279,43 @@ namespace Jaxxa_Shields
 
         public override string GetInspectString()
         {
+            string status = "";
+
+            if (this.baseShieldsActive)
+            {
+                status = "Online";
+            }
+            else
+            {
+                status = "Offline";
+            }
+
             string output;
 
-            output = "Shields " + currentShields + @" / " + max_shields + " - " + base.GetInspectString();
+            output = "Shields " + status + ": " + currentShields + @" / " + max_shields + " - " + base.GetInspectString();
             return output; 
             
+        }
+
+        public bool recharge(int chageAmmount)
+        {
+            if (this.currentShields < this.max_shields)
+            {
+                this.currentShields += chageAmmount;
+
+                if (this.currentShields >= this.max_shields)
+                {
+                    this.setShieldsActive(true);
+                    this.currentShields = this.max_shields;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
 
         public override void ExposeData()
