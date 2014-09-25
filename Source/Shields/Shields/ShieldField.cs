@@ -7,6 +7,7 @@ using Verse;
 using Verse.Sound;
 using VerseBase;
 using RimWorld;
+using System.Reflection;
 
 namespace Jaxxa_Shields
 {
@@ -322,8 +323,10 @@ namespace Jaxxa_Shields
 
                     if (!pr.Destroyed && ((shieldBlockIndirect && flag_indirect && pr.def.projectile.flyOverhead) || (shieldBlockDirect && flag_direct && !pr.def.projectile.flyOverhead)))
                     {
-                        //IFF
-                        bool interceptIFF = true;
+
+                        bool wantToIntercept = true;
+
+                        //Check IFF
                         if (IFFcheck == true)
                         {
                             Log.Message("IFFcheck == true");
@@ -334,7 +337,7 @@ namespace Jaxxa_Shields
                                 Log.Message("launcher != null");
                                 if (launcher.Faction.def == FactionDefOf.Colony)
                                 {
-                                    interceptIFF = false;
+                                    wantToIntercept = false;
                                 }
                                 else
                                 {
@@ -343,7 +346,43 @@ namespace Jaxxa_Shields
                             }
                         }
 
-                        if (interceptIFF)
+
+                        /*
+                        //Check overshoot
+                        if (pr.def.projectile.flyOverhead)
+                        {
+                            //IntVec3 destination = new IntVec3(reflectionHelper.GetInstanceField(typeof(Vector3), pr, "destination") as Vector3);
+                            Log.Message("GettingFunction");
+
+                            //MethodInfo function = reflectionHelper.GetInstanceMethod(typeof(Projectile), pr, "DestinationCell") as MethodInfo;
+                            //IntVec3 temp = null;
+                            object property = reflectionHelper.GetPropertyValue(pr, "ExactRotation");
+                            
+                            //var value = GetType().GetProperty("DestinationCell").GetValue(pr,null);
+                            Log.Message("Calling Function");
+                            if (property != null)
+                            {
+                                Log.Message("Value not Null");
+                                IntVec3 temp = (IntVec3)property;
+                                Log.Message("Value Cast");
+                                //IntVec3 temp = (IntVec3)function.Invoke(pr, null);
+                                if (temp != null)
+                                {
+                                    Log.Error("Destination: " + temp.x + temp.y + temp.z);
+                                }
+                                else
+                                {
+                                    Log.Error("temp is null");
+                                }
+                            }
+                            else
+                            {
+                                Log.Error("Function null");
+
+                            }
+                        }*/
+
+                        if (wantToIntercept)
                         {
 
                             //Detect proper collision using angles
@@ -364,7 +403,7 @@ namespace Jaxxa_Shields
                             //Log.Message("projectilePosition2D: " + projectilePosition2D + " " + " shieldPosition2D: " + shieldPosition2D + " Quat Angle: " + Quaternion.Angle(targetAngle, shieldProjAng).ToString());
 
 
-                            if (Quaternion.Angle(targetAngle, shieldProjAng) > 90)
+                            if ((Quaternion.Angle(targetAngle, shieldProjAng) > 90) || IFFcheck)
                             {
                                 //pr.Faction = Faction.OfColony;
                                 //pr.def.projectile.
@@ -399,8 +438,6 @@ namespace Jaxxa_Shields
             }
 
         }
-
-
 
         private void supressFire(bool flag_fireSupression)
         {
