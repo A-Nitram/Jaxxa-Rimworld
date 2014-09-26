@@ -12,6 +12,6 @@
 *.exe
 
 
-/Source/Shields/bin/
-/Source/Shields/obj/
+*/bin/*
+*/obj/*
 
