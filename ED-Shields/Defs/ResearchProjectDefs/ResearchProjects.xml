@@ -45,6 +45,7 @@
 		</prerequisites>
 	</ResearchProjectDef>
 	
+	<!--
 	<ResearchProjectDef>
 		<defName>Personal_Shield_research</defName>
 		<label>Personal Shield Research</label>
@@ -57,6 +58,7 @@
 			<li>Building_ShieldSmall_research</li>
 		</prerequisites>
 	</ResearchProjectDef>
+	-->
 	
 </ResearchProjectDefs>
 

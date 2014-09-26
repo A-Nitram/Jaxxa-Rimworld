@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Things>
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
+		<eType>Building_Turret</eType>
+		<category>Building</category>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<blockLight>true</blockLight>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<overdraw>false</overdraw>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<fillPercent>1</fillPercent>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<specialDisplayRadius>8</specialDisplayRadius>
+		<statBases>
+			<MaxHealth>500</MaxHealth>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-2</Beauty>
+		</statBases>
+		<costList>
+			<Metal>100</Metal>
+			<Silver>500</Silver>
+		</costList>
+		<filthLeavings>
+			<SlagRubble>2</SlagRubble>
+		</filthLeavings>
+		<passability>Impassable</passability>
+		<combatTargetBuilding>true</combatTargetBuilding>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="ShieldBase">
+		<defName>Building_Pawn_Upgrader</defName>
+		<label>Colonist Upgrade Station</label>
+		<description>Using nano technology and miniaturisation a personal version of the shield generator has been developed.</description>
+		<thingClass>Jaxxa_Shields.Building_Pawn_Upgrader</thingClass>
+		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
+		<graphicPathSingle>Things/ShieldBuilding</graphicPathSingle>
+		<uiIconPath>Things/ShieldBuilding</uiIconPath>
+		<specialDisplayRadius>2</specialDisplayRadius>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+	</ThingDef>
+	
+</Things>

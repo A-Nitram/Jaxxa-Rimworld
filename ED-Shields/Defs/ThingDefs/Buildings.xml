@@ -197,23 +197,5 @@
 		<colourGreen>0.3764705882352941</colourGreen>
 		<colourBlue>0.7294117647058823</colourBlue>
 	</ThingDef>
-	
-	
-	<ThingDef Class="Jaxxa_Shields.ShieldThingDef" ParentName="ShieldBase">
-		<defName>Building_Pawn_Upgrader</defName>
-		<label>Colonist Upgrade Station</label>
-		<description>Using nano technology and miniaturisation a personal version of the shield generator has been developed.</description>
-		<thingClass>Jaxxa_Shields.Building_Pawn_Upgrader</thingClass>
-		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
-		<graphicPathSingle>Things/ShieldBuilding</graphicPathSingle>
-		<uiIconPath>Things/ShieldBuilding</uiIconPath>
-		<specialDisplayRadius>2</specialDisplayRadius>
-		<comps>
-			<li>
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1000</basePowerConsumption>
-			</li>
-		</comps>
-	</ThingDef>
-	
+		
 </Things>
