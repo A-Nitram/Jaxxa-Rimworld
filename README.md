@@ -24,23 +24,23 @@ SIF Generator:
 Rather than creating a large circular shield this generator will create an small individual shield over each wall/door object.
 ###Statistics / Modding:
 One of the main modifications that I made was making information about the shield to be read in from the XLM files rather than hard coded into the C# code. Because of this it should be easy to make your own shield generator of any size or strength.
-The new XML variables that I have added that will be needed by shields are:
-shieldMaxShieldStrength: Maximum shield strength
-shieldInitialShieldStrength:Shield strength when going online
-shieldShieldRadius:Radius of the Shield
-shieldPowerRequiredLoading:The power used during Warmup
-shieldPowerRequiredCharging:The power when the shield is up but not at full strength
-shieldPowerRequiredSustaining:The power used when the shield is up and at full strength
-shieldBlockIndirect:Should it block projectiles that fly overhead
-shieldBlockDirect:Should it block projectiles that fly direct
-shieldFireSupression:Should it put out fires (in squares that it is blocking)
-shieldStructuralIntegrityMode:Should it only work on walls
-shieldRechargeTickDelay:How many ticks between recharging the shield by 1 (lower number will recharge faster)
-shieldRecoverWarmup:How long to wait before starting to charge
-colourRed:Float value, Colour between 0 and 1
-colourGreen:Float value, Colour between 0 and 1
-colourBlue:Float value, Colour between 0 and 1
-###ChangeLog:
+The new XML variables that I have added that will be needed by shields are:  
+shieldMaxShieldStrength: Maximum shield strength  
+shieldInitialShieldStrength:Shield strength when going online  
+shieldShieldRadius:Radius of the Shield  
+shieldPowerRequiredLoading:The power used during Warmup  
+shieldPowerRequiredCharging:The power when the shield is up but not at full strength  
+shieldPowerRequiredSustaining:The power used when the shield is up and at full strength  
+shieldBlockIndirect:Should it block projectiles that fly overhead  
+shieldBlockDirect:Should it block projectiles that fly direct  
+shieldFireSupression:Should it put out fires (in squares that it is blocking)  
+shieldStructuralIntegrityMode:Should it only work on walls  
+shieldRechargeTickDelay:How many ticks between recharging the shield by 1 (lower number will recharge faster)  
+shieldRecoverWarmup:How long to wait before starting to charge  
+colourRed:Float value, Colour between 0 and 1  
+colourGreen:Float value, Colour between 0 and 1  
+colourBlue:Float value, Colour between 0 and 1  
+###ChangeLog:  
 0.01
 - Updating Darker's mod to fix a bug in Alpha 4
 
@@ -81,6 +81,12 @@ colourBlue:Float value, Colour between 0 and 1
 
 0.08
 - Fix for shield strength not being charged on loading a save game
+0.09
+- First pass at Personal Shields
+- SIF Shields will now have IFF
+	- Allowing allied bullets to pass in anydirection while stopping enemy bullets.
+	- Fixes potential problems with colonists not being able to fire out as expected
+
 
 Planned:
 - Early Warning?

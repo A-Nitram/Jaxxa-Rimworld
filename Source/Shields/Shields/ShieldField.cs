@@ -7,6 +7,7 @@ using Verse;
 using Verse.Sound;
 using VerseBase;
 using RimWorld;
+using System.Reflection;
 
 namespace Jaxxa_Shields
 {
@@ -192,7 +193,7 @@ namespace Jaxxa_Shields
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
         }
-        
+
         //Blank constructor required by scribes
         public ShieldField()
         {
@@ -229,7 +230,7 @@ namespace Jaxxa_Shields
 
                     foreach (IntVec3 square in this.squares)
                     {
-                        ProtectSquare(square, flag_direct, flag_indirect);
+                        ProtectSquare(square, flag_direct, flag_indirect, true);
                         supressFire(flag_fireSupression, square);
                         repairSytem(square, shieldRepairMode);
 
@@ -250,7 +251,7 @@ namespace Jaxxa_Shields
                         //Only use squares around, not inside
                         if (Vectors.VectorSize(square) >= (float)shieldShieldRadius - 1.5f)
                         {
-                            ProtectSquare(square + position, flag_direct, flag_indirect);
+                            ProtectSquare(square + position, flag_direct, flag_indirect, false);
                         }
                         //Stop if the power was drained
                         if (shieldCurrentStrength <= 0)
@@ -293,7 +294,7 @@ namespace Jaxxa_Shields
         /// <param name="square">The current square to protect</param>
         /// <param name="flag_direct">Block direct Fire</param>
         /// <param name="flag_indirect">Block indirect Fire</param>
-        private void ProtectSquare(IntVec3 square, bool flag_direct, bool flag_indirect)
+        private void ProtectSquare(IntVec3 square, bool flag_direct, bool flag_indirect, bool IFFcheck)
         {
             //Ignore squares outside the map
             if (!square.InBounds())
@@ -322,43 +323,112 @@ namespace Jaxxa_Shields
 
                     if (!pr.Destroyed && ((shieldBlockIndirect && flag_indirect && pr.def.projectile.flyOverhead) || (shieldBlockDirect && flag_direct && !pr.def.projectile.flyOverhead)))
                     {
-                        //Detect proper collision using angles
-                        Quaternion targetAngle = pr.ExactRotation;
 
-                        Vector3 projectilePosition2D = pr.ExactPosition;
-                        projectilePosition2D.y = 0;
+                        bool wantToIntercept = true;
 
-                        Vector3 shieldPosition2D = Vectors.IntVecToVec(position);
-                        shieldPosition2D.y = 0;
-
-                        Quaternion shieldProjAng = Quaternion.LookRotation(projectilePosition2D - shieldPosition2D);
-
-                        //Destroy projectile if angles are counter to each other
-                        //if (Quaternion.Angle(targetAngle, shieldProjAng) > 110)
-
-
-                        //Log.Message("projectilePosition2D: " + projectilePosition2D + " " + " shieldPosition2D: " + shieldPosition2D + " Quat Angle: " + Quaternion.Angle(targetAngle, shieldProjAng).ToString());
-
-
-                        if (Quaternion.Angle(targetAngle, shieldProjAng) > 90)
+                        //Check IFF
+                        if (IFFcheck == true)
                         {
-                            //pr.Faction = Faction.OfColony;
-                            //pr.def.projectile.
+                            Log.Message("IFFcheck == true");
+                            Thing launcher = reflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
 
-                            //On hit effects
-                            MoteMaker.ThrowLightningGlow(pr.ExactPosition, 0.5f);
-                            //On hit sound
-                            HitSoundDef.PlayOneShot(pr.Position);
-                            //Damage the shield
-                            ProcessDamage(pr.def.projectile.damageAmountBase);
-                            //add projectile to the list of things to be destroyed
-                            thingsToDestroy.Add(pr);
-                            if (!isOnline())
+                            if (launcher != null)
                             {
-                                //Stop if the shield was drained
-                                break;
+                                Log.Message("launcher != null");
+                                if (launcher.Faction.def == FactionDefOf.Colony)
+                                {
+                                    wantToIntercept = false;
+                                }
+                                else
+                                {
+
+                                }
                             }
                         }
+
+
+                        /*
+                        //Check overshoot
+                        if (pr.def.projectile.flyOverhead)
+                        {
+                            //IntVec3 destination = new IntVec3(reflectionHelper.GetInstanceField(typeof(Vector3), pr, "destination") as Vector3);
+                            Log.Message("GettingFunction");
+
+                            //MethodInfo function = reflectionHelper.GetInstanceMethod(typeof(Projectile), pr, "DestinationCell") as MethodInfo;
+                            //IntVec3 temp = null;
+                            object property = reflectionHelper.GetPropertyValue(pr, "ExactRotation");
+                            
+                            //var value = GetType().GetProperty("DestinationCell").GetValue(pr,null);
+                            Log.Message("Calling Function");
+                            if (property != null)
+                            {
+                                Log.Message("Value not Null");
+                                IntVec3 temp = (IntVec3)property;
+                                Log.Message("Value Cast");
+                                //IntVec3 temp = (IntVec3)function.Invoke(pr, null);
+                                if (temp != null)
+                                {
+                                    Log.Error("Destination: " + temp.x + temp.y + temp.z);
+                                }
+                                else
+                                {
+                                    Log.Error("temp is null");
+                                }
+                            }
+                            else
+                            {
+                                Log.Error("Function null");
+
+                            }
+                        }*/
+
+                        if (wantToIntercept)
+                        {
+
+                            //Detect proper collision using angles
+                            Quaternion targetAngle = pr.ExactRotation;
+
+                            Vector3 projectilePosition2D = pr.ExactPosition;
+                            projectilePosition2D.y = 0;
+
+                            Vector3 shieldPosition2D = Vectors.IntVecToVec(position);
+                            shieldPosition2D.y = 0;
+
+                            Quaternion shieldProjAng = Quaternion.LookRotation(projectilePosition2D - shieldPosition2D);
+
+                            //Destroy projectile if angles are counter to each other
+                            //if (Quaternion.Angle(targetAngle, shieldProjAng) > 110)
+
+
+                            //Log.Message("projectilePosition2D: " + projectilePosition2D + " " + " shieldPosition2D: " + shieldPosition2D + " Quat Angle: " + Quaternion.Angle(targetAngle, shieldProjAng).ToString());
+
+
+                            if ((Quaternion.Angle(targetAngle, shieldProjAng) > 90) || IFFcheck)
+                            {
+                                //pr.Faction = Faction.OfColony;
+                                //pr.def.projectile.
+
+                                //On hit effects
+                                MoteMaker.ThrowLightningGlow(pr.ExactPosition, 0.5f);
+                                //On hit sound
+                                HitSoundDef.PlayOneShot(pr.Position);
+                                //Damage the shield
+                                ProcessDamage(pr.def.projectile.damageAmountBase);
+                                //add projectile to the list of things to be destroyed
+                                thingsToDestroy.Add(pr);
+                                if (!isOnline())
+                                {
+                                    //Stop if the shield was drained
+                                    break;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            Log.Message("Skip");
+                        }
+
                     }
                 }
             }
@@ -396,6 +466,8 @@ namespace Jaxxa_Shields
                         }
                     }
                 }
+
+
             }
         }
 
@@ -443,7 +515,7 @@ namespace Jaxxa_Shields
                 {
                     if (thing is Building)
                     {
-                        if (thing.health < thing.def.maxHealth)
+                        if (thing.health < thing.MaxHealth)
                         {
                             if (this.shieldCurrentStrength > 1)
                             {
@@ -580,7 +652,7 @@ namespace Jaxxa_Shields
             //Simple shield circle
             //UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(0.0f, 0.3764705882352941f, 0.7294117647058823f, fade)), 0);
             //Log.Message("Colour:" + colourRed + " " + colourGreen + " " + colourBlue);
-            UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade)), 0);
+            UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade), ShaderDatabase.MetaOverlay), 0);
 
         }
 
@@ -609,7 +681,7 @@ namespace Jaxxa_Shields
             }
             return stringBuilder.ToString();
         }
-        
+
         /// <summary>
         /// Returns true if the shield is online
         /// </summary>
@@ -623,7 +695,7 @@ namespace Jaxxa_Shields
         /// Save / Load the Game
         /// </summary>
         public void ExposeData()
-        {            
+        {
             Scribe_Values.LookValue<int>(ref this.shieldMaxShieldStrength, "shieldMaxShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldInitialShieldStrength, "shieldInitialShieldStrength", 0, false);
             Scribe_Values.LookValue<int>(ref this.shieldShieldRadius, "shieldShieldRadius", 0, false);
