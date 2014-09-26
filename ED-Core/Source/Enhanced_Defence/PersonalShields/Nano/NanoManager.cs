@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Jaxxa_Shields.Pawns.Nano
+namespace Enhanced_Defence.PersonalShields.Nano
 {
     static class NanoManager
     {

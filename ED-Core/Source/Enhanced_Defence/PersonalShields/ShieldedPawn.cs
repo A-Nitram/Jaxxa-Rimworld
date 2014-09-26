@@ -9,7 +9,7 @@ using UnityEngine;
 using Verse.AI;
 using Verse;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.PersonalShields
 {
     public class ShieldedPawn : Verse.Pawn
     {
@@ -165,7 +165,6 @@ namespace Jaxxa_Shields
             {
                 Log.Message("Change to True");
                 baseShieldsActive = newValue;
-
 
                 Log.Message("Check damageMultipliers start");
                 if (this.def != null)

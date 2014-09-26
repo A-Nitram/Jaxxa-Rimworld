@@ -6,9 +6,9 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
-using Jaxxa_Shields.Pawns.Nano;
+using Enhanced_Defence.PersonalShields.Nano;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.PersonalShields
 {
     public class Building_Pawn_Upgrader : Building
     {
@@ -198,7 +198,7 @@ namespace Jaxxa_Shields
                             {
                                 IntVec3 pawnPosition = currentPawn.Position;
 
-                                ShieldedPawn newPawn = Jaxxa_Shields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
+                                ShieldedPawn newPawn = Enhanced_Defence.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
 
                                 Log.Message("Despawn");
                                 currentPawn.Destroy();

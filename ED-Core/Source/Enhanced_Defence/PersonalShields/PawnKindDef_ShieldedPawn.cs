@@ -7,7 +7,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.PersonalShields
 {
     class PawnKindDef_ShieldedPawn : PawnKindDef
     {

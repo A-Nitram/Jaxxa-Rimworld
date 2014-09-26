@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence
 {
     class Vectors
     {

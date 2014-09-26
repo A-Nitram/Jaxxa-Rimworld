@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaxxa_Shields", "Shields\Jaxxa_Shields.csproj", "{A36BEEB2-7379-475B-B537-827E34571962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enhanced_Defence", "Enhanced_Defence\Enhanced_Defence.csproj", "{A36BEEB2-7379-475B-B537-827E34571962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

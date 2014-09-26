@@ -3,7 +3,7 @@
 
   <ThingDef Name="ShieldedBasePawn" Abstract="True">
     <eType>Pawn </eType>
-    <thingClass>Jaxxa_Shields.ShieldedPawn</thingClass>
+    <thingClass>Enhanced_Defence.PersonalShields.ShieldedPawn</thingClass>
     <category>Pawn</category>
     <selectable>true</selectable>
     <tickerType>Normal</tickerType>

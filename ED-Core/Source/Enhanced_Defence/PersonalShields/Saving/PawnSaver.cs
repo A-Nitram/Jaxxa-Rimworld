@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.PersonalShields.Saving
 {
     static class PawnSaver
     {

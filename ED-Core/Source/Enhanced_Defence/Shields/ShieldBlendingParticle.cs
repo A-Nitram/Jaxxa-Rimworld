@@ -6,7 +6,7 @@ using UnityEngine;
 using VerseBase;
 using Verse;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.Shields
 {
     class ShieldBlendingParticle
     {

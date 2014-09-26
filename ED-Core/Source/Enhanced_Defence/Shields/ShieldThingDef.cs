@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.Shields
 {
     public class ShieldThingDef : Verse.ThingDef
     {

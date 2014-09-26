@@ -8,7 +8,7 @@ using Verse.AI;
 using RimWorld;
 using UnityEngine;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.PersonalShields
 {
     public static class ShieldedPawnGenerator
     {
@@ -30,11 +30,11 @@ namespace Jaxxa_Shields
 
         public static ShieldedPawn GeneratePawn(PawnKindDef kindDef, Faction faction, Pawn currentPawn)
         {
-            PawnSaver.save(currentPawn, @"C:\New.txt");
+            Enhanced_Defence.PersonalShields.Saving.PawnSaver.save(currentPawn, @"C:\New.txt");
 
             ShieldedPawn newPawn = ShieldedPawnGenerator.GeneratePawn(kindDef, faction);
 
-            PawnSaver.load(newPawn, @"C:\New.txt");
+            Enhanced_Defence.PersonalShields.Saving.PawnSaver.load(newPawn, @"C:\New.txt");
 
             newPawn.currentShields = 100;
             newPawn.max_shields = 100;

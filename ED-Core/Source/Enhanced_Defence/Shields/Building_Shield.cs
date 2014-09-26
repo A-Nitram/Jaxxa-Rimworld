@@ -7,7 +7,7 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 
-namespace Jaxxa_Shields
+namespace Enhanced_Defence.Shields
 {
     public class Building_Shield : Building
     {
@@ -84,26 +84,26 @@ namespace Jaxxa_Shields
             if (def is ShieldThingDef)
             {
                 //Read in variables from the custom MyThingDef
-                shieldMaxShieldStrength = ((Jaxxa_Shields.ShieldThingDef)def).shieldMaxShieldStrength;
-                shieldInitialShieldStrength = ((Jaxxa_Shields.ShieldThingDef)def).shieldInitialShieldStrength;
-                shieldShieldRadius = ((Jaxxa_Shields.ShieldThingDef)def).shieldShieldRadius;
+                shieldMaxShieldStrength = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldMaxShieldStrength;
+                shieldInitialShieldStrength = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldInitialShieldStrength;
+                shieldShieldRadius = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldShieldRadius;
 
-                shieldPowerRequiredLoading = ((Jaxxa_Shields.ShieldThingDef)def).shieldPowerRequiredLoading;
-                shieldPowerRequiredCharging = ((Jaxxa_Shields.ShieldThingDef)def).shieldPowerRequiredCharging;
-                shieldPowerRequiredSustaining = ((Jaxxa_Shields.ShieldThingDef)def).shieldPowerRequiredSustaining;
+                shieldPowerRequiredLoading = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredLoading;
+                shieldPowerRequiredCharging = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredCharging;
+                shieldPowerRequiredSustaining = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredSustaining;
 
-                shieldRechargeTickDelay = ((Jaxxa_Shields.ShieldThingDef)def).shieldRechargeTickDelay;
-                shieldRecoverWarmup = ((Jaxxa_Shields.ShieldThingDef)def).shieldRecoverWarmup;
+                shieldRechargeTickDelay = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldRechargeTickDelay;
+                shieldRecoverWarmup = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldRecoverWarmup;
 
-                shieldBlockIndirect = ((Jaxxa_Shields.ShieldThingDef)def).shieldBlockIndirect;
-                shieldBlockDirect = ((Jaxxa_Shields.ShieldThingDef)def).shieldBlockDirect;
-                shieldFireSupression = ((Jaxxa_Shields.ShieldThingDef)def).shieldFireSupression;
+                shieldBlockIndirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockIndirect;
+                shieldBlockDirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockDirect;
+                shieldFireSupression = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldFireSupression;
 
-                shieldStructuralIntegrityMode = ((Jaxxa_Shields.ShieldThingDef)def).shieldStructuralIntegrityMode;
+                shieldStructuralIntegrityMode = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldStructuralIntegrityMode;
 
-                colourRed = ((Jaxxa_Shields.ShieldThingDef)def).colourRed;
-                colourGreen = ((Jaxxa_Shields.ShieldThingDef)def).colourGreen;
-                colourBlue = ((Jaxxa_Shields.ShieldThingDef)def).colourBlue;
+                colourRed = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourRed;
+                colourGreen = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourGreen;
+                colourBlue = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourBlue;
             }
             else
             {
