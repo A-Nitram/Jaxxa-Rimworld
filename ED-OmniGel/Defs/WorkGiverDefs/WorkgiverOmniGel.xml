@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+
+  <WorkGiverDef>
+    <defName>DoBillsOmniGelMK1</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>91</priorityInType>
+    <billGiverDef>Table_MK1_Replicator</billGiverDef>
+    <verb>replicate</verb>
+    <gerund>replicating</gerund>
+	<requiredActivities>
+		<li>Manipulation</li>
+	</requiredActivities>
+  </WorkGiverDef>
+  
+  <WorkGiverDef>
+    <defName>DoBillsOmniGelMK2</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>92</priorityInType>
+    <billGiverDef>Table_MK2_Replicator</billGiverDef>
+    <verb>replicate</verb>
+    <gerund>replicating</gerund>
+	<requiredActivities>
+		<li>Manipulation</li>
+	</requiredActivities>
+  </WorkGiverDef>
+  
+  <WorkGiverDef>
+    <defName>DoBillsOmniGelMK3</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>93</priorityInType>
+    <billGiverDef>Table_MK3_Replicator</billGiverDef>
+    <verb>replicate</verb>
+    <gerund>replicating</gerund>
+	<requiredActivities>
+		<li>Manipulation</li>
+	</requiredActivities>
+  </WorkGiverDef>
+  
+</WorkGivers>

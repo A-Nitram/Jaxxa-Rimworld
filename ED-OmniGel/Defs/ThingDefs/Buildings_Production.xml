@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+	<statBases>
+		<WorkToBuild>1800</WorkToBuild>
+		<MaxHealth>350</MaxHealth>
+		<Flammability>1.0</Flammability>
+	</statBases>
+  </ThingDef>
+  
+  <!-- ========================= Work tables ==========================-->
+
+  <ThingDef ParentName="BuildingBase">
+    <DefName>Table_MK1_Replicator</DefName>
+    <EType>Building_WorkTable</EType>
+    <Label>Mark 1 Matter Replicator</Label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>An advanced matter replication device.</Description>
+    <graphicPathSingle>Things/Items/MK1Replicator</graphicPathSingle>
+    <researchPrerequisite>Research_MK1_Replicator</researchPrerequisite>
+	<costList>
+      <Metal>100</Metal>
+      <Silver>50</Silver>
+    </costList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <UseStandardHealth>True</UseStandardHealth>
+    <Size>(3,1)</Size>
+    <Overdraw>False</Overdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>Impassable</Passability>
+    <hasInteractionSquare>True</hasInteractionSquare>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <constructEffect>ConstructMetal</constructEffect>
+    <recipes>
+      <li>Replicate_MK1_SlagFromOmniGel</li>
+      <li>Replicate_MK1_RockFromOmniGel</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+        <startElectricalFires>true</startElectricalFires>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>6</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="BuildingBase">
+    <DefName>Table_MK2_Replicator</DefName>
+    <EType>Building_WorkTable</EType>
+    <Label>Mark 2 Matter Replicator</Label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>An advanced matter replication device.</Description>
+    <graphicPathSingle>Things/Items/MK2Replicator</graphicPathSingle>
+    <researchPrerequisite>Research_MK2_Replicator</researchPrerequisite>
+	<costList>
+      <Metal>200</Metal>
+      <Silver>100</Silver>
+    </costList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <UseStandardHealth>True</UseStandardHealth>
+    <Size>(3,1)</Size>
+    <Overdraw>False</Overdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>Impassable</Passability>
+    <hasInteractionSquare>True</hasInteractionSquare>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <constructEffect>ConstructMetal</constructEffect>
+    <recipes>
+      <li>Replicate_MK2_MetalFromOmniGel</li>
+      <li>Replicate_MK2_StoneFromOmniGel</li>
+      <li>Replicate_MK2_SilverFromOmniGel</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>1000</basePowerConsumption>
+        <startElectricalFires>true</startElectricalFires>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>6</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <DefName>Table_MK3_Replicator</DefName>
+    <EType>Building_WorkTable</EType>
+    <Label>Mark 3 Matter Replicator</Label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>An advanced matter replication device.</Description>
+    <graphicPathSingle>Things/Items/MK3Replicator</graphicPathSingle>
+    <researchPrerequisite>Research_MK3_Replicator</researchPrerequisite>
+	<costList>
+      <Metal>200</Metal>
+      <Silver>400</Silver>
+    </costList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <UseStandardHealth>True</UseStandardHealth>
+    <Size>(3,1)</Size>
+    <Overdraw>False</Overdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>Impassable</Passability>
+    <hasInteractionSquare>True</hasInteractionSquare>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <constructEffect>ConstructMetal</constructEffect>
+    <recipes>
+      <li>Replicate_MK3_UraniumFromOmniGel</li>
+      <li>Replicate_MK3_ShellsFromOmniGel</li>
+      <!--<li>Replicate_MK3_MissilesFromOmniGel</li>-->
+      <li>Replicate_MK3_MedicineFromOmniGel</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>1500</basePowerConsumption>
+        <startElectricalFires>true</startElectricalFires>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>6</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+  </ThingDef>
+
+</ThingDefs>

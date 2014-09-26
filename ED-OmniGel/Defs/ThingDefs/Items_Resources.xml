@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+
+  <ThingDef Name="ResourceBase" Abstract="True">
+    <thingClass>ThingWithComponents</thingClass>
+    <label>unspecified resource</label>
+    <category>Item</category>
+    <eType>Item</eType>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useStandardHealth>true</useStandardHealth>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>75</stackLimit>
+    <tradersCarry>true</tradersCarry>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+  </ThingDef>
+
+  <!--=============== Construction ====================-->
+
+
+	<ThingDef ParentName="ResourceBase">
+	<defName>OmniGel</defName>
+	<label>Omni Gel</label>
+	<description>For refining into things.</description>
+	<graphicPathSingle>Things/Items/PurpleBucket</graphicPathSingle>
+	<soundInteract>Metal_Drop</soundInteract>
+	<soundDrop>Metal_Drop</soundDrop>
+	<baseMarketValue>1</baseMarketValue>
+	<useStandardHealth>false</useStandardHealth>
+	<storeCategories>
+		<li>ResourcesRaw</li>
+	</storeCategories>
+	</ThingDef>
+
+</Resources>

@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+  <RecipeDef>
+    <defName>Replicate_MK1_SlagFromOmniGel</defName>
+    <label>Replicate Slag from Omni-Gel</label>
+    <description>Replicates slag debris from Omni-Gel.</description>
+    <jobString>Creating slag from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+		<filter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</filter>
+		<count>1</count>
+      </li>
+    </ingredients>
+    <products>
+        <ChunkSlag>1</ChunkSlag>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+	<RecipeDef>
+		<defName>Replicate_MK1_RockFromOmniGel</defName>
+		<label>Replicate Rock Debris from Omni-Gel</label>
+		<description>Replicates Rock Debris from Omni-Gel.</description>
+		<jobString>Creating Rock Debris from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>GelSpeed</workSpeedStat>
+		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workEffect>UseMetalRefinery</workEffect>
+		<sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<ChunkRock>1</ChunkRock>
+		</products>
+		<fixedIngredientFilter>
+		  <thingDefs>
+			<li>OmniGel</li>
+		  </thingDefs>
+		</fixedIngredientFilter>
+		<skillGains>
+		  <li>
+			<skill>Crafting</skill>
+			<xp>120</xp>
+		  </li>
+		</skillGains>
+	</RecipeDef>
+
+    
+  <RecipeDef>
+    <defName>Replicate_MK2_MetalFromOmniGel</defName>
+    <label>Replicate Metal from Omni-Gel</label>
+    <description>Replicates Metal from Omni-Gel.</description>
+    <jobString>Creating Metal from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+			 <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+		<count>10</count>
+      </li>
+    </ingredients>
+    <products>
+        <Metal>50</Metal>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+    
+  <RecipeDef>
+    <defName>Replicate_MK2_StoneFromOmniGel</defName>
+    <label>Replicate Stone from Omni-Gel</label>
+    <description>Replicates Stone from Omni-Gel.</description>
+    <jobString>Creating Stone from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <products>
+        <StoneBlocks>50</StoneBlocks>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+    
+  <RecipeDef>
+    <defName>Replicate_MK2_SilverFromOmniGel</defName>
+    <label>Replicate Silver from Omni-Gel</label>
+    <description>Replicates Silver Debris from Omni-Gel.</description>
+    <jobString>Creating Silver Debris from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <products>
+        <Silver>50</Silver>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+  
+  <RecipeDef>
+    <defName>Replicate_MK3_UraniumFromOmniGel</defName>
+    <label>Replicate Uranium from Omni-Gel</label>
+    <description>Replicates Uranium Debris from Omni-Gel.</description>
+    <jobString>Creating Uranium Debris from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <products>
+        <Uranium>10</Uranium>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+  
+  <RecipeDef>
+    <defName>Replicate_MK3_ShellsFromOmniGel</defName>
+    <label>Replicate Shells from Omni-Gel</label>
+    <description>Replicates Shells Debris from Omni-Gel.</description>
+    <jobString>Creating Shells Debris from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <products>
+        <Shells>10</Shells>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  <!--
+  <RecipeDef>
+    <defName>Replicate_MK3_MissilesFromOmniGel</defName>
+    <label>Replicate Missiles from Omni-Gel</label>
+    <description>Replicates Missiles Debris from Omni-Gel.</description>
+    <jobString>Creating Missiles Debris from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <products>
+        <Missiles>10</Missiles>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  -->
+  <RecipeDef>
+    <defName>Replicate_MK3_MedicineFromOmniGel</defName>
+    <label>Replicate Medicine from Omni-Gel</label>
+    <description>Replicates Medicine Debris from Omni-Gel.</description>
+    <jobString>Creating Medicine Debris from Omni-Gel.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GelSpeed</workSpeedStat>
+    <efficiencyStat>GelEfficiency</efficiencyStat>
+    <workEffect>UseMetalRefinery</workEffect>
+    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>OmniGel</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+    </ingredients>
+    <products>
+        <Medicine>5</Medicine>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>OmniGel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <skillGains>
+      <li>
+        <skill>Crafting</skill>
+        <xp>120</xp>
+      </li>
+    </skillGains>
+  </RecipeDef>
+  
+</RecipeDefs>
