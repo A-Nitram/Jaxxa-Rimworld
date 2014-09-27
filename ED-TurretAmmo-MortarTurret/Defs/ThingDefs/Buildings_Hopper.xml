@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>Hopper</defName>
+    <eType>BuildingComplex</eType>
+    <label>hopper</label>
+    <thingClass>Building_Storage</thingClass>
+    <graphicPathSingle>Things/Building/Production/Hopper</graphicPathSingle>
+    <altitudeLayer>Waist</altitudeLayer>
+    <passability>Impassable</passability>
+    <building>
+      <fixedStorageSettings>
+        <priority>Important</priority>
+        <allowances>
+          <categories>
+            <li>Resources</li>
+          </categories>
+        </allowances>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <allowances>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+          <exceptedThingDefs>
+            <li>Human_Meat</li>
+          </exceptedThingDefs>
+        </allowances>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <statBases>
+      <WorkToBuild>330</WorkToBuild>
+      <MaxHealth>100</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Holds resources for use by machines like nutrient paste dispensers.</description>
+    <costList>
+      <Metal>15</Metal>
+    </costList>
+    <tickerType>Never</tickerType>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <killedLeavings>
+      <ChunkSlag>1</ChunkSlag>
+    </killedLeavings>
+    <filthLeavings>
+      <SlagRubble>2</SlagRubble>
+    </filthLeavings>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <itemSurface>true</itemSurface>
+    <placementRestricters>
+      <li>PlacementRestricter_NextToHopperAccepter</li>
+    </placementRestricters>
+    <designationHotKey>H</designationHotKey>
+  </ThingDef>
+
+</ThingDefs>

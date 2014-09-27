@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace Enhanced_Defence
+namespace Enhanced_Defence.ShieldUtils
 {
     class Vectors
     {

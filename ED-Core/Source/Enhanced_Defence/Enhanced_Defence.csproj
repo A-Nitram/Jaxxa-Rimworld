@@ -52,19 +52,19 @@
     <Compile Include="PersonalShields\Nano\NanoConnector.cs" />
     <Compile Include="PersonalShields\Nano\NanoManager.cs" />
     <Compile Include="PersonalShields\PawnKindDef_ShieldedPawn.cs" />
-    <Compile Include="reflectionHelper.cs" />
+    <Compile Include="ShieldUtils\reflectionHelper.cs" />
     <Compile Include="PersonalShields\Saving\PawnSaver.cs" />
     <Compile Include="PersonalShields\ShieldedPawn.cs" />
     <Compile Include="PersonalShields\ShieldedPawnGenerator.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
-    <Compile Include="Graphics.cs" />
+    <Compile Include="ShieldUtils\Graphics.cs" />
     <Compile Include="PersonalShields\Building_Pawn_Upgrader.cs" />
     <Compile Include="Shields\ShieldThingDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shields\ShieldBlendingParticle.cs" />
     <Compile Include="Shields\ShieldField.cs" />
     <Compile Include="TurretAmmo\TurretAmmoThingDef.cs" />
-    <Compile Include="Vectors.cs" />
+    <Compile Include="ShieldUtils\Vectors.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

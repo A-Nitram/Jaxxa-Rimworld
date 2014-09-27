@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
+using Enhanced_Defence.ShieldUtils;
 
 namespace Enhanced_Defence.Shields
 {

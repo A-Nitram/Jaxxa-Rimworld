@@ -8,6 +8,7 @@ using Verse.Sound;
 using VerseBase;
 using RimWorld;
 using System.Reflection;
+using Enhanced_Defence.ShieldUtils;
 
 namespace Enhanced_Defence.Shields
 {
@@ -652,7 +653,7 @@ namespace Enhanced_Defence.Shields
             //Simple shield circle
             //UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(0.0f, 0.3764705882352941f, 0.7294117647058823f, fade)), 0);
             //Log.Message("Colour:" + colourRed + " " + colourGreen + " " + colourBlue);
-            UnityEngine.Graphics.DrawMesh(Enhanced_Defence.Graphics.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade), ShaderDatabase.MetaOverlay), 0);
+            UnityEngine.Graphics.DrawMesh(Enhanced_Defence.ShieldUtils.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade), ShaderDatabase.MetaOverlay), 0);
 
         }
 
