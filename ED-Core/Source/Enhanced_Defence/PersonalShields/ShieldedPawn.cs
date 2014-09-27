@@ -30,8 +30,7 @@ namespace Enhanced_Defence.PersonalShields
             Log.Message("SpawnSetup");
             base.SpawnSetup();
 
-            setupDamageMultiplier();
-
+            //setupDamageMultiplier();
             setShieldsActive(true);
         }
 
@@ -166,6 +165,7 @@ namespace Enhanced_Defence.PersonalShields
                 Log.Message("Change to True");
                 baseShieldsActive = newValue;
 
+                /*
                 Log.Message("Check damageMultipliers start");
                 if (this.def != null)
                 {
@@ -181,7 +181,7 @@ namespace Enhanced_Defence.PersonalShields
                 {
                     Log.Message("Check AvalableShieldResistance");
                     this.def.damageMultipliers.AddRange(AvalableShieldResistance);
-                }
+                }*/
 
             }
 
@@ -190,13 +190,13 @@ namespace Enhanced_Defence.PersonalShields
                 Log.Message("Change to false");
                 baseShieldsActive = newValue;
 
-                if (this.AvalableShieldResistance != null)
+                /*if (this.AvalableShieldResistance != null)
                 {
                     for (int i = 0; i < AvalableShieldResistance.Count; i++ )
                     {
                         this.def.damageMultipliers.Remove(AvalableShieldResistance[i]);
                     }
-                }
+                }*/
             }
         }
 
@@ -224,15 +224,20 @@ namespace Enhanced_Defence.PersonalShields
             //this.currentShieldResistance = temp;
             //this.def.damageMultipliers.Add(temp);
             //dinfo.ForceSetAmount(0);
-            
-            currentShields -= 10;
-            if (currentShields <= 0)
-            {
-                currentShields = 0;
-                this.setShieldsActive(false);
-            }
+
             //Thing launcher = reflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
-            
+
+            if (this.getShieldActive())
+            {
+                DebugSettings.playerDamageEnabled = false;
+
+                currentShields -= dinfo.Amount;
+                if (currentShields <= 0)
+                {
+                    currentShields = 0;
+                    this.setShieldsActive(false);
+                }
+            }
             base.PreApplyDamage(dinfo);
         }
 
@@ -242,20 +247,33 @@ namespace Enhanced_Defence.PersonalShields
             //this.healthTracker.bodyModel.healthDiffs.Clear();
             //this.health = this.MaxHealth;
 
+            DebugSettings.playerDamageEnabled = true;
+
             /*
-            List<HealthDiff> temp = new List<HealthDiff>();
-            temp.AddRange(this.healthTracker.bodyModel.healthDiffs);
-
-            Log.Message("Removing: " + temp.Count);
-
-            foreach (HealthDiff currentHealthDiff in temp)
+            if (this.Destroyed)
             {
-                this.healthTracker.bodyModel.healthDiffs.Remove(currentHealthDiff);
+                Log.Error("this.Destroyed");
             }
-            this.health = this.MaxHealth;*/
-            
-            base.PostApplyDamage(dinfo);
 
+            if (this.getShieldActive())
+            {
+                Log.Message("AutoHealing");
+                List<HealthDiff> temp = new List<HealthDiff>();
+                temp.AddRange(this.healthTracker.bodyModel.healthDiffs);
+
+                Log.Message("Removing: " + temp.Count);
+
+                foreach (HealthDiff currentHealthDiff in temp)
+                {
+                    this.healthTracker.bodyModel.healthDiffs.Remove(currentHealthDiff);
+                }
+                this.health = this.MaxHealth;
+            }
+            else
+            {
+                base.PostApplyDamage(dinfo);
+            }*/
+            base.PostApplyDamage(dinfo);
         }
 
         public override void Tick()
@@ -272,7 +290,7 @@ namespace Enhanced_Defence.PersonalShields
                 }
             }*/
 
-           // Log.Message("Shielded Tick()");
+            // Log.Message("Shielded Tick()");
             base.Tick();
         }
 
@@ -292,8 +310,8 @@ namespace Enhanced_Defence.PersonalShields
             string output;
 
             output = "Shields " + status + ": " + currentShields + @" / " + max_shields + " - " + base.GetInspectString();
-            return output; 
-            
+            return output;
+
         }
 
         public bool recharge(int chageAmmount)
@@ -313,8 +331,6 @@ namespace Enhanced_Defence.PersonalShields
             {
                 return false;
             }
-
-
         }
 
         public override void ExposeData()
@@ -324,7 +340,7 @@ namespace Enhanced_Defence.PersonalShields
             Scribe_Values.LookValue<bool>(ref baseShieldsActive, "baseShieldsActive");
 
             Scribe_Collections.LookList<DamageMultiplier>(ref this.AvalableShieldResistance, "AvalableShieldResistance", LookMode.Deep, (object)null);
-            
+
             base.ExposeData();
         }
     }
