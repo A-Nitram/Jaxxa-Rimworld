@@ -14,7 +14,7 @@
   <ThingDef Class="Enhanced_Defence.TurretAmmo.TurretAmmoThingDef" ParentName="BuildingBase">
     <defName>Turret_MortarIncendiary</defName>
     <eType>Building_Turret</eType>
-    <label>Mortar Turret</label>
+    <label>incendiary mortar</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
     <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
@@ -31,7 +31,7 @@
 	<internalAmmoEnabled>true</internalAmmoEnabled>
 	<internalAmmoMAX>80</internalAmmoMAX>
 	<internalAmmoMultiplier>1</internalAmmoMultiplier>
-	<internalAmmoCurrent>5</internalAmmoCurrent>
+	<internalAmmoCurrent>80</internalAmmoCurrent>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
@@ -90,11 +90,11 @@
 
 
   <!--=============== Mortar turret ===============-->
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef Class="Enhanced_Defence.TurretAmmo.TurretAmmoThingDef" ParentName="BuildingBase">
     <defName>Turret_MortarBomb</defName>
     <eType>Building_Turret</eType>
     <label>mortar</label>
-    <thingClass>Building_TurretGun</thingClass>
+    <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
     <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
     <hasInteractionSquare>True</hasInteractionSquare>
@@ -105,6 +105,12 @@
       <WorkToBuild>2700</WorkToBuild>
       <Beauty>-60</Beauty>
     </statBases>
+	<ammoType>Shells</ammoType>
+	<ammoAmountUsedToFire>1</ammoAmountUsedToFire>
+	<internalAmmoEnabled>true</internalAmmoEnabled>
+	<internalAmmoMAX>80</internalAmmoMAX>
+	<internalAmmoMultiplier>1</internalAmmoMultiplier>
+	<internalAmmoCurrent>80</internalAmmoCurrent>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
@@ -136,6 +142,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Artillery_MortarBomb</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretburstCooldownTicks>3000</turretburstCooldownTicks>
@@ -153,11 +160,11 @@
   </ThingDef>
 
   <!--=============== Mortar turret ===============-->
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef Class="Enhanced_Defence.TurretAmmo.TurretAmmoThingDef" ParentName="BuildingBase">
     <defName>Turret_MortarEMP</defName>
     <eType>Building_Turret</eType>
     <label>EMP mortar</label>
-    <thingClass>Building_TurretGun</thingClass>
+    <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
     <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
     <hasInteractionSquare>True</hasInteractionSquare>
@@ -168,6 +175,12 @@
       <WorkToBuild>2700</WorkToBuild>
       <Beauty>-60</Beauty>
     </statBases>
+	<ammoType>Shells</ammoType>
+	<ammoAmountUsedToFire>1</ammoAmountUsedToFire>
+	<internalAmmoEnabled>true</internalAmmoEnabled>
+	<internalAmmoMAX>80</internalAmmoMAX>
+	<internalAmmoMultiplier>1</internalAmmoMultiplier>
+	<internalAmmoCurrent>80</internalAmmoCurrent>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
@@ -199,6 +212,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Artillery_MortarEMP</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretburstCooldownTicks>3000</turretburstCooldownTicks>

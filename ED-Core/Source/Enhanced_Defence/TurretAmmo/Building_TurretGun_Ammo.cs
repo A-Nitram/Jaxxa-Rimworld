@@ -272,7 +272,7 @@ namespace Enhanced_Defence.TurretAmmo
         {
             get
             {
-                ThingDef thingDefHopper = ThingDef.Named("Hopper");
+                ThingDef thingDefHopper = ThingDef.Named("AutoLoader");
                 //ThingDef thingDefAmmoType = ThingDef.Named("Shells");
                 ThingDef thingDefAmmoType = ThingDef.Named(this.ammoType);
 

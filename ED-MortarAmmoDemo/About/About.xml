@@ -5,6 +5,7 @@
   <url>http://ludeon.com/forums/index.php?topic=4701.0</url>
   <targetVersion>Alpha 7</targetVersion>
   <description>
-	Adds the ability for turrets that require Ammunition to fire.
+	Adds the requirement for Mortars to need Ammunition to fire.
+	Warning this will likely break sieges.
   </description>
 </ModMetaData>

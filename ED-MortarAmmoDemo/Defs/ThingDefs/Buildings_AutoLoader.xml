@@ -11,11 +11,11 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>Hopper</defName>
+    <defName>AutoLoader</defName>
     <eType>BuildingComplex</eType>
-    <label>hopper</label>
+    <label>AutoLoader</label>
     <thingClass>Building_Storage</thingClass>
-    <graphicPathSingle>Things/Building/Production/Hopper</graphicPathSingle>
+    <graphicPathSingle>Things/Building/AutoLoader</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
     <passability>Impassable</passability>
     <building>
@@ -31,10 +31,9 @@
         <priority>Important</priority>
         <allowances>
           <categories>
-            <li>FoodRaw</li>
+            <li>Manufactured</li>
           </categories>
           <exceptedThingDefs>
-            <li>Human_Meat</li>
           </exceptedThingDefs>
         </allowances>
       </defaultStorageSettings>
@@ -49,7 +48,7 @@
       <MaxHealth>100</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>Holds resources for use by machines like nutrient paste dispensers.</description>
+    <description>Holds Ammunition for use with Turrets</description>
     <costList>
       <Metal>15</Metal>
     </costList>
@@ -62,7 +61,7 @@
     <filthLeavings>
       <SlagRubble>2</SlagRubble>
     </filthLeavings>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>Security</designationCategory>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <itemSurface>true</itemSurface>
     <placementRestricters>
