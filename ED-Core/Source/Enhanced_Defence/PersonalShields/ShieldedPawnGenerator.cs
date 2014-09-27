@@ -30,11 +30,15 @@ namespace Enhanced_Defence.PersonalShields
 
         public static ShieldedPawn GeneratePawn(PawnKindDef kindDef, Faction faction, Pawn currentPawn)
         {
-            Enhanced_Defence.PersonalShields.Saving.PawnSaver.save(currentPawn, @"C:\New.txt");
+
+            //string fileLocation = @"C:\New.txt";
+            string fileLocation = @"TempPawn.txt";
+
+            Enhanced_Defence.PersonalShields.Saving.PawnSaver.save(currentPawn, fileLocation);
 
             ShieldedPawn newPawn = ShieldedPawnGenerator.GeneratePawn(kindDef, faction);
 
-            Enhanced_Defence.PersonalShields.Saving.PawnSaver.load(newPawn, @"C:\New.txt");
+            Enhanced_Defence.PersonalShields.Saving.PawnSaver.load(newPawn, fileLocation);
 
             newPawn.currentShields = 100;
             newPawn.max_shields = 100;
