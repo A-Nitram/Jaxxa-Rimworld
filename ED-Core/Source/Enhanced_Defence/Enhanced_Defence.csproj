@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Power\LaserDrill\Building_LaserDrill.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
     <Compile Include="PersonalShields\Nano\NanoConnector.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="ShieldUtils\Vectors.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Power\LaserDrill\" />
     <Folder Include="Power\WirelessPower\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
