@@ -59,11 +59,8 @@ namespace Enhanced_Defence.TurretAmmo
                 this.internalAmmoMultiplier = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMultiplier;
                 this.internalAmmoCurrent = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoCurrent;
             }
-
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
-
-
         }
 
         public override void Tick()
@@ -112,7 +109,8 @@ namespace Enhanced_Defence.TurretAmmo
             //Shutdown if no Ammo
             if (!HasAmmoToFire())
             {
-                power.DesirePowerOn = false;
+                this.burstWarmupTicksLeft = this.def.building.turretBurstWarmupTicks;
+                //power.DesirePowerOn = false;
             }
 
             this.previousburstCooldownTicksLeft = this.burstCooldownTicksLeft;
@@ -283,9 +281,13 @@ namespace Enhanced_Defence.TurretAmmo
                     foreach (Thing tempThing in Find.ThingGrid.ThingsAt(sq))
                     {
                         if (tempThing.def == thingDefAmmoType)
+                        {
                             thingAmmo = tempThing;
+                        }
                         if (tempThing.def == thingDefHopper)
+                        {
                             thingContainer = tempThing;
+                        }
                     }
                     if (thingAmmo != null && thingContainer != null && thingAmmo.stackCount >= this.ammoAmountUsedToFire)
                     {

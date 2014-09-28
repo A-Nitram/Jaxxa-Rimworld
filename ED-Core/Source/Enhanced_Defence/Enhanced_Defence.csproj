@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Power\LaserDrill\Building_LaserDrill.cs" />
+    <Compile Include="Power\WirelessPower\WirelessPowerNode.cs" />
+    <Compile Include="Power\WirelessPower\WirelessPowerManager.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
     <Compile Include="PersonalShields\Nano\NanoConnector.cs" />
@@ -67,9 +69,7 @@
     <Compile Include="TurretAmmo\TurretAmmoThingDef.cs" />
     <Compile Include="ShieldUtils\Vectors.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Power\WirelessPower\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
