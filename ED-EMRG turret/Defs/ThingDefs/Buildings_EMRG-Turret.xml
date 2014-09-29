@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+  <!--=============== Improvised turret ===============-->
+  <ThingDef ParentName="BuildingBase">
+    <defName>TurretGunEMRG</defName>
+    <eType>Building_Turret</eType>
+    <label>ElectroMagnetic RailGun</label>
+    <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
+    <graphicPathSingle>Things/Building/emrgBase</graphicPathSingle>
+    <altitudeLayer>Waist</altitudeLayer>
+    <statBases>
+      <MaxHealth>200</MaxHealth>
+      <Flammability>1.0</Flammability>
+      <WorkToBuild>2500</WorkToBuild>
+      <Beauty>-60</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+	
+	<ammoType>Shells</ammoType>
+	<ammoAmountUsedToFire>1</ammoAmountUsedToFire>
+	<internalAmmoEnabled>true</internalAmmoEnabled>
+	<internalAmmoMAX>10</internalAmmoMAX>
+	<internalAmmoMultiplier>1</internalAmmoMultiplier>
+	<internalAmmoCurrent>10</internalAmmoCurrent>
+	
+	
+    <comps>
+      <li>
+        <compClass>CompExplosive</compClass>
+        <explosiveRadius>2.0</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+      </li>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+    </comps>
+    <description>This recruits is a 20 kilo ferous slug. Feel the weight! Every five seconds, the main gun of an Everest-class dreadnought accelerates one, to one-point-three percent of lightspeed. Unfortunately we don't have an Everest-class dreadnought so this turret will have to do.</description>
+    <size>(2,2)</size>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.4</fillPercent>
+    <overdraw>true</overdraw>
+    <costList>
+      <Metal>160</Metal>
+    </costList>
+    <combatTargetBuilding>true</combatTargetBuilding>
+    <filthLeavings>
+      <SlagRubble>1</SlagRubble>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <specialDisplayRadius>25.9</specialDisplayRadius>
+    <building>
+	  <wantsHopperAdjacent>true</wantsHopperAdjacent>
+      <turretGunDef>Gun_EMRG</turretGunDef>
+      <turretburstCooldownTicks>400</turretburstCooldownTicks>
+      <turretTopgraphicPathSingle>Things/Building/emrgTop</turretTopgraphicPathSingle>
+    </building>
+    <designationHotKey>R</designationHotKey>
+  </ThingDef>
+
+</ThingDefs>

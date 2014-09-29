@@ -11,10 +11,10 @@
   </ThingDef>
   
    <ThingDef ParentName="BuildingBase">
-    <defName>LaserDrill</defName>
+    <defName>LaserFiller</defName>
     <eType>BuildingComplex</eType>
-    <label>Laser drill</label>
-    <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserDrill</thingClass>
+    <label>Laser Filler</label>
+    <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
     <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
@@ -26,21 +26,21 @@
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>Mines out rock to create a large hole through to the steam networks below the planets surface.</description>
+    <description>Removes a SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface.</description>
     <building>
       <wantsHopperAdjacent>false</wantsHopperAdjacent>
     </building>
     <comps>
       <li>
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
+        <startElectricalFires>false</startElectricalFires>
         <basePowerConsumption>1200</basePowerConsumption>
       </li>
     </comps>
     <size>(4,4)</size>
     <costList>
-      <Metal>500</Metal>
-      <Uranium>20</Uranium>
+      <Metal>100</Metal>
+      <StoneBlocks>200</StoneBlocks>
     </costList>
     <overdraw>false</overdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
@@ -51,6 +51,9 @@
     <filthLeavings>
       <SlagRubble>3</SlagRubble>
     </filthLeavings>
+    <placementRestricters>
+      <li>PlacementRestricter_OnSteamGeyser</li>
+    </placementRestricters>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Production</designationCategory>

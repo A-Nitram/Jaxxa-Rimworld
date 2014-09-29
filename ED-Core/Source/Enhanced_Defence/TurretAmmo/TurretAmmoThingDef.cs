@@ -14,5 +14,6 @@ namespace Enhanced_Defence.TurretAmmo
         public int internalAmmoMAX;
         public int internalAmmoMultiplier;
         public int internalAmmoCurrent;
+        public int internalAmmoStartColonist;
     }
 }

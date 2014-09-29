@@ -39,6 +39,7 @@ namespace Enhanced_Defence.TurretAmmo
         /// </summary>
         public int internalAmmoCurrent = 20;
 
+        public int internalAmmoStartColonist = -1;
         //Dummy override
         public override void PostMake()
         {
@@ -58,6 +59,18 @@ namespace Enhanced_Defence.TurretAmmo
                 this.internalAmmoMAX = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMAX;
                 this.internalAmmoMultiplier = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMultiplier;
                 this.internalAmmoCurrent = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoCurrent;
+
+
+                this.internalAmmoStartColonist = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoStartColonist;
+
+                if (this.internalAmmoStartColonist != 0)
+                {
+                    this.internalAmmoCurrent = this.internalAmmoStartColonist;
+                    if (this.internalAmmoCurrent < 0)
+                    {
+                        this.internalAmmoCurrent = 0;
+                    }
+                }
             }
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
@@ -109,8 +122,19 @@ namespace Enhanced_Defence.TurretAmmo
             //Shutdown if no Ammo
             if (!HasAmmoToFire())
             {
-                this.burstWarmupTicksLeft = this.def.building.turretBurstWarmupTicks;
-                //power.DesirePowerOn = false;
+                if (this.def.building.turretBurstCooldownTicks > 1)
+                {
+                    this.burstCooldownTicksLeft = this.def.building.turretBurstCooldownTicks;
+                }
+                else
+                {
+                    this.burstCooldownTicksLeft = 1;
+                }
+
+                if(this.power != null)
+                {
+                    power.DesirePowerOn = false;
+                }
             }
 
             this.previousburstCooldownTicksLeft = this.burstCooldownTicksLeft;
@@ -153,6 +177,7 @@ namespace Enhanced_Defence.TurretAmmo
             if (this.internalAmmoEnabled)
             {
                 stringBuilder.Append("Internal Ammo: " + this.internalAmmoCurrent + @" / " + this.internalAmmoMAX + " - ");
+
 
 
                 if (this.AmmoInHopper != null)
@@ -231,6 +256,7 @@ namespace Enhanced_Defence.TurretAmmo
             {
                 if (internalAmmoCurrent >= ammoAmountUsedToFire)
                 {
+                    Log.Message("internalAmmoCurrent >= ammoAmountUsedToFire");
                     return true;
                 }
             }
@@ -238,9 +264,9 @@ namespace Enhanced_Defence.TurretAmmo
             {
                 if (AmmoInHopper != null)
                 {
-
                     if (AmmoInHopper.stackCount >= this.ammoAmountUsedToFire)
                     {
+                        Log.Message("AmmoInHopper.stackCount >= this.ammoAmountUsedToFire");
                         return true;
                     }
                 }

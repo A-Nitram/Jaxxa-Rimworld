@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Power\LaserDrill\Building_LaserDrill.cs" />
+    <Compile Include="Power\LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="Power\WirelessPower\WirelessPowerNode.cs" />
     <Compile Include="Power\WirelessPower\WirelessPowerManager.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />

@@ -32,13 +32,9 @@
 	<internalAmmoMAX>80</internalAmmoMAX>
 	<internalAmmoMultiplier>1</internalAmmoMultiplier>
 	<internalAmmoCurrent>80</internalAmmoCurrent>
+	<internalAmmoStartColonist>10</internalAmmoStartColonist>
     <tickerType>Normal</tickerType>
     <comps>
-      <li>
-        <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>10</basePowerConsumption>
-      </li>
       <li>
         <compClass>CompExplosive</compClass>
         <explosiveRadius>4.9</explosiveRadius>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ED-MortarAmmo</name>
+  <author>Jaxxa</author>
+  <url>http://ludeon.com/forums/index.php?topic=4701.0</url>
+  <targetVersion>Alpha 7</targetVersion>
+  <description>
+	Required AutoLoader Module
+	Adds the requirement for Mortars to need Ammunition to fire.
+  </description>
+</ModMetaData>
