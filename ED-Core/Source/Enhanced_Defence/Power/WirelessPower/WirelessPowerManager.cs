@@ -52,7 +52,7 @@ namespace Enhanced_Defence.Power.WirelessPower
             CurrentAvalablePower = 0;
             foreach (WirelessPowerNode currentNode in getCurrentNodes())
             {
-                CurrentAvalablePower += currentNode.desiredPower;
+                CurrentAvalablePower -= currentNode.desiredPower;
             }
 
             if (CurrentAvalablePower >= 0)
@@ -72,15 +72,17 @@ namespace Enhanced_Defence.Power.WirelessPower
             if (getCurrentNodes().Contains(powerNode))
             {
                 //Note already registered
+                return false;
             }
             else
             {
                 activeNodes.Add(powerNode);
+                return true;
             }
-            return false;
         }
 
-        public static void TickRare()
+        //public static void TickRare()
+        public static void Tick()
         {
             int currentTick = Find.TickManager.tickCount;
 

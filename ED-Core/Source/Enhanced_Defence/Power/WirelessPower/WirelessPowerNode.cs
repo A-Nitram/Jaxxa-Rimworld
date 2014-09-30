@@ -41,19 +41,30 @@ namespace Enhanced_Defence.Power.WirelessPower
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
         }
 
-        public override void TickRare()
+        //public override void TickRare()
+        public override void Tick()
         {
-            WirelessPowerManager.TickRare();
+            //WirelessPowerManager.TickRare();
+            WirelessPowerManager.Tick();
             base.TickRare();
-
 
             if (WirelessPowerManager.suficentPower)
             {
-                this.power.PowerOn = false;
+                this.power.PowerOn = true;
+                this.power.DesirePowerOn = true;
             }
             else
             {
-                this.power.PowerOn = true;
+                if (this.desiredPower > 0)
+                {
+                    this.power.PowerOn = false;
+                    this.power.DesirePowerOn = false;
+                }
+                else
+                {
+                   // this.power.PowerOn = true;
+                    //this.power.DesirePowerOn = true;
+                }
             }
         }
 
@@ -121,23 +132,30 @@ namespace Enhanced_Defence.Power.WirelessPower
 
         private void PowerTransmit()
         {
-            this.desiredPower += 100;
+            this.desiredPower -= 100;
             this.power.powerOutput = desiredPower;
         }
 
         private void PowerReceive()
         {
-            this.desiredPower -= 100;
+            this.desiredPower += 100;
             this.power.powerOutput = desiredPower;
         }
-
 
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
 
             string text;
-            text = "Power Net:" + WirelessPowerManager.CurrentAvalablePower;
+
+            if (WirelessPowerManager.suficentPower)
+            {
+                text = "Power Net Online:" + WirelessPowerManager.CurrentAvalablePower;
+            }
+            else
+            {
+                text = "Power Net Offline:" + WirelessPowerManager.CurrentAvalablePower;
+            }
 
             stringBuilder.AppendLine(text);
 

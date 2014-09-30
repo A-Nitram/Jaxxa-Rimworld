@@ -20,7 +20,7 @@
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
-    <tickerType>Rare</tickerType>
+    <tickerType>Normal</tickerType>
     <statBases>
       <WorkToBuild>1800</WorkToBuild>
       <MaxHealth>350</MaxHealth>
@@ -34,7 +34,7 @@
       <li>
         <compClass>CompPowerTrader</compClass>
         <startElectricalFires>false</startElectricalFires>
-        <basePowerConsumption>100</basePowerConsumption>
+        <basePowerConsumption>0</basePowerConsumption>
       </li>
     </comps>
     <size>(2,2)</size>
