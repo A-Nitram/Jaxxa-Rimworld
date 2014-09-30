@@ -26,12 +26,7 @@ namespace Enhanced_Defence.PersonalShields.Nano
             return maxCharge;
         }
 
-        /*public static void addConnection(NanoConnector newConection)
-        {
-            //Todo test if it exists?
-            connections.Add(newConection);
-        }*/
-
+        //TODO: Move to rare tick?
         public static void tick()
         {
             int currentTick = Find.TickManager.tickCount;
