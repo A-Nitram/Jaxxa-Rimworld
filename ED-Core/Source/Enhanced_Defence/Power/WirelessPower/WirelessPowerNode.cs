@@ -12,14 +12,14 @@ namespace Enhanced_Defence.Power.WirelessPower
     {
         #region Variables
 
-        public bool flag_charge = false;
         CompPowerTrader power;
+
         //NanoConnector nanoConnector;
 
         private static Texture2D UI_POWER_TRANSMIT;
         private static Texture2D UI_POWER_RECEIVE;
 
-        private float desiredPower = 0;
+        public float desiredPower = 0;
 
         #endregion
 
@@ -37,7 +37,24 @@ namespace Enhanced_Defence.Power.WirelessPower
         {
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
+            WirelessPowerManager.registerToGrid(this);
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
+        }
+
+        public override void TickRare()
+        {
+            WirelessPowerManager.TickRare();
+            base.TickRare();
+
+
+            if (WirelessPowerManager.suficentPower)
+            {
+                this.power.PowerOn = false;
+            }
+            else
+            {
+                this.power.PowerOn = true;
+            }
         }
 
         public override void ExposeData()
@@ -114,5 +131,27 @@ namespace Enhanced_Defence.Power.WirelessPower
             this.power.powerOutput = desiredPower;
         }
 
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            string text;
+            text = "Power Net:" + WirelessPowerManager.CurrentAvalablePower;
+
+            stringBuilder.AppendLine(text);
+
+            if (power != null)
+            {
+                text = power.CompInspectStringExtra();
+                if (!text.NullOrEmpty())
+                {
+                    stringBuilder.AppendLine(text);
+                }
+            }
+
+
+            return stringBuilder.ToString();
+        }
     }
 }
