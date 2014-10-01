@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ED-WirelessPower</name>
+  <author>Jaxxa</author>
+  <targetVersion>Alpha 7</targetVersion>
+  <description>
+	Adds a wireless power system to move power to any point on the map.
+  </description>
+</ModMetaData>

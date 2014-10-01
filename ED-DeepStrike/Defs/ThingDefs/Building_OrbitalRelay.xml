@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+  
+   <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+    <defName>OrbitalRelay</defName>
+    <eType>BuildingComplex</eType>
+    <label>Orbital Relay</label>
+    <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <tickerType>Rare</tickerType>
+	<DropPodDeepStrike>true</DropPodDeepStrike>
+	<DropPodAddUnits>true</DropPodAddUnits>
+	<DropPodAddResources>true</DropPodAddResources>
+	<DropPodAddUnitRadius>5</DropPodAddUnitRadius>
+    <statBases>
+      <WorkToBuild>1800</WorkToBuild>
+      <MaxHealth>350</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<specialDisplayRadius>5</specialDisplayRadius>
+    <description>Orbital Relay.</description>
+    <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+    </building>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>false</startElectricalFires>
+        <basePowerConsumption>1000</basePowerConsumption>
+      </li>
+    </comps>
+    <size>(4,4)</size>
+    <costList>
+      <Metal>500</Metal>
+      <Uranium>20</Uranium>
+    </costList>
+    <overdraw>false</overdraw>
+    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <hasInteractionSquare>false</hasInteractionSquare>
+    <killedLeavings>
+      <ChunkSlag>6</ChunkSlag>
+     </killedLeavings>
+    <filthLeavings>
+      <SlagRubble>3</SlagRubble>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <staticSunShadowHeight>0.75</staticSunShadowHeight>
+  </ThingDef>  
+  
+   <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+    <defName>OrbitalBeacon</defName>
+    <eType>BuildingComplex</eType>
+    <label>Orbital Beacon</label>
+    <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <tickerType>Rare</tickerType>
+	<DropPodDeepStrike>true</DropPodDeepStrike>
+	<DropPodAddUnits>false</DropPodAddUnits>
+	<DropPodAddResources>false</DropPodAddResources>
+	<DropPodAddUnitRadius>0</DropPodAddUnitRadius>
+    <statBases>
+      <WorkToBuild>0</WorkToBuild>
+      <MaxHealth>30</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Orbital Beacon, Allows for precise targeting of Orbital Drops.</description>
+    <building>
+      <wantsHopperAdjacent>false</wantsHopperAdjacent>
+    </building>
+    <comps>
+    </comps>
+    <size>(1,1)</size>
+    <costList>
+    </costList>
+    <overdraw>false</overdraw>
+    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <hasInteractionSquare>false</hasInteractionSquare>
+    <killedLeavings>
+      <ChunkSlag>0</ChunkSlag>
+     </killedLeavings>
+    <filthLeavings>
+      <SlagRubble>0</SlagRubble>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <staticSunShadowHeight>0.75</staticSunShadowHeight>
+  </ThingDef>
+
+
+</ThingDefs>

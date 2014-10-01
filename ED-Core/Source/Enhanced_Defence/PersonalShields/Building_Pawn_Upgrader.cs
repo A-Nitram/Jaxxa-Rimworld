@@ -181,48 +181,43 @@ namespace Enhanced_Defence.PersonalShields
 
         private bool replacePawns()
         {
-            IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
+            IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, this.MAX_DISTANCE);
 
-            if (pawns != null)
+            if (closePawns != null)
             {
-                IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.WithinHorizontalDistanceOf(this.Position, this.MAX_DISTANCE));
-
-                if (closePawns != null)
+                //List<Thing> fireTo
+                foreach (Pawn currentPawn in closePawns.ToList())
                 {
-                    //List<Thing> fireTo
-                    foreach (Pawn currentPawn in closePawns.ToList())
+                    if (currentPawn.GetType() == typeof(Pawn))
                     {
-                        if (currentPawn.GetType() == typeof(Pawn))
+                        if (NanoManager.requestCharge(100))
                         {
-                            if (NanoManager.requestCharge(100))
+                            IntVec3 pawnPosition = currentPawn.Position;
+
+                            ShieldedPawn newPawn = Enhanced_Defence.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
+
+                            Log.Message("Despawn");
+                            currentPawn.Destroy();
+
+                            GenSpawn.Spawn(newPawn, pawnPosition);
+                            return true;
+                        }
+                    }
+                    else if (currentPawn.GetType() == typeof(ShieldedPawn))
+                    {
+                        ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
+
+                        if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
+                        {
+                            if (NanoManager.requestCharge(1))
                             {
-                                IntVec3 pawnPosition = currentPawn.Position;
-
-                                ShieldedPawn newPawn = Enhanced_Defence.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
-
-                                Log.Message("Despawn");
-                                currentPawn.Destroy();
-
-                                GenSpawn.Spawn(newPawn, pawnPosition);
-                                return true;
+                                currentShieldedPawn.currentShields += 1;
                             }
                         }
-                        else if (currentPawn.GetType() == typeof(ShieldedPawn))
-                        {
-                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
-
-                            if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
-                            {
-                                if (NanoManager.requestCharge(1))
-                                {
-                                    currentShieldedPawn.currentShields += 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Log.Error("Unknown Pawn Type");
-                        }
+                    }
+                    else
+                    {
+                        Log.Error("Unknown Pawn Type");
                     }
                 }
             }
@@ -266,8 +261,6 @@ namespace Enhanced_Defence.PersonalShields
                 }
             }
         }
-
-
 
     }
 }

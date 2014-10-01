@@ -331,7 +331,7 @@ namespace Enhanced_Defence.Shields
                         if (IFFcheck == true)
                         {
                             Log.Message("IFFcheck == true");
-                            Thing launcher = reflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
+                            Thing launcher = ReflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
 
                             if (launcher != null)
                             {

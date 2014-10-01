@@ -7,7 +7,7 @@ using Verse;
 
 namespace Enhanced_Defence.ShieldUtils
 {
-    class reflectionHelper
+    class ReflectionHelper
     {
         /// <summary>
         /// Uses reflection to get the field value from an object.
