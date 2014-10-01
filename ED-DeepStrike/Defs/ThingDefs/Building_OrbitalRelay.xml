@@ -24,13 +24,13 @@
 	<DropPodDeepStrike>true</DropPodDeepStrike>
 	<DropPodAddUnits>true</DropPodAddUnits>
 	<DropPodAddResources>true</DropPodAddResources>
-	<DropPodAddUnitRadius>5</DropPodAddUnitRadius>
+	<DropPodAddUnitRadius>3</DropPodAddUnitRadius>
     <statBases>
       <WorkToBuild>1800</WorkToBuild>
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
-	<specialDisplayRadius>5</specialDisplayRadius>
+	<specialDisplayRadius>3</specialDisplayRadius>
     <description>Orbital Relay.</description>
     <building>
       <wantsHopperAdjacent>true</wantsHopperAdjacent>
@@ -42,7 +42,7 @@
         <basePowerConsumption>1000</basePowerConsumption>
       </li>
     </comps>
-    <size>(4,4)</size>
+    <size>(3,3)</size>
     <costList>
       <Metal>500</Metal>
       <Uranium>20</Uranium>
