@@ -129,7 +129,18 @@ namespace Enhanced_Defence.DropPod
 
         public void AddResources()
         {
+            Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindThingsInAutoLoader(this);
 
+            if (foundThing != null)
+            {
+                List<Thing> thingList = new List<Thing>();
+                thingList.Add(foundThing);
+                foundThing.DeSpawn();
+
+                Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                //Recursively Call to get Everything
+                this.AddResources();
+            }
         }
 
         public void AddColonist()

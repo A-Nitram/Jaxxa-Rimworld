@@ -275,12 +275,13 @@ namespace Enhanced_Defence.TurretAmmo
             return false;
         }
 
+        //TODO: Move this to Utils
         //Adapted from Building_NutrientPasteDispenser
         public Building AnyAdjacentHopper
         {
             get
             {
-                ThingDef thingDef = ThingDef.Named("Hopper");
+                ThingDef thingDef = ThingDef.Named("AutoLoader");
                 foreach (IntVec3 loc in GenAdj.AdjacentSquaresCardinal((Thing)this))
                 {
                     Building building = Find.BuildingGrid.BuildingAt(loc);
@@ -291,6 +292,7 @@ namespace Enhanced_Defence.TurretAmmo
             }
         }
 
+        //TODO: Move this to Utils
         //Adapted from Building_NutrientPasteDispenser
         private Thing AmmoInHopper
         {

@@ -12,7 +12,7 @@ namespace Enhanced_Defence.Power.WirelessPower
     {
         #region Variables
 
-        CompPowerTrader power;
+        public CompPowerTrader power;
 
         //NanoConnector nanoConnector;
 
@@ -48,24 +48,24 @@ namespace Enhanced_Defence.Power.WirelessPower
             WirelessPowerManager.Tick();
             base.TickRare();
 
-            if (WirelessPowerManager.suficentPower)
+            if (!this.WantsToTransmit())
             {
-                this.power.PowerOn = true;
-                this.power.DesirePowerOn = true;
+                //Receiving power
+                if (!WirelessPowerManager.suficentPower)
+                {
+                    //this.power.PowerOn = true;
+                    this.power.DesirePowerOn = false;
+                }
             }
             else
             {
-                if (this.desiredPower > 0)
-                {
-                    this.power.PowerOn = false;
-                    this.power.DesirePowerOn = false;
-                }
-                else
-                {
-                   // this.power.PowerOn = true;
-                    //this.power.DesirePowerOn = true;
-                }
+                //Transmitting power
+
+                // this.power.PowerOn = true;
+                //this.power.DesirePowerOn = true;
             }
+
+
         }
 
         public override void ExposeData()
@@ -140,6 +140,18 @@ namespace Enhanced_Defence.Power.WirelessPower
         {
             this.desiredPower += 100;
             this.power.powerOutput = desiredPower;
+        }
+
+        public bool WantsToTransmit()
+        {
+            if (power.powerOutput <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string GetInspectString()

@@ -52,7 +52,23 @@ namespace Enhanced_Defence.Power.WirelessPower
             CurrentAvalablePower = 0;
             foreach (WirelessPowerNode currentNode in getCurrentNodes())
             {
-                CurrentAvalablePower -= currentNode.desiredPower;
+                if (currentNode.WantsToTransmit())
+                {
+                    //Sending power
+                    if (currentNode.power.PowerOn)
+                    {
+                        //CurrentAvalablePower -= currentNode.desiredPower;
+                        CurrentAvalablePower -= currentNode.power.powerOutput;
+                    }
+                }
+                else
+                {
+                    //Receiving power
+                    if (currentNode.power.DesirePowerOn)
+                    {
+                        CurrentAvalablePower -= currentNode.desiredPower;
+                    }
+                }
             }
 
             if (CurrentAvalablePower >= 0)
