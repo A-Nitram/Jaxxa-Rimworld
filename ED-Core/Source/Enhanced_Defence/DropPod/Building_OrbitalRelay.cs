@@ -27,9 +27,9 @@ namespace Enhanced_Defence.DropPod
         //Dummy override
         public override void PostMake()
         {
-            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
-            UI_ADD_COLONIST = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
-            UI_DROPPOD = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
+            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/ADD_RESOURCES", true);
+            UI_ADD_COLONIST = ContentFinder<Texture2D>.Get("UI/ADD_COLONIST", true);
+            UI_DROPPOD = ContentFinder<Texture2D>.Get("UI/DEEP_STRIKE", true);
 
             base.PostMake();
         }
@@ -133,13 +133,16 @@ namespace Enhanced_Defence.DropPod
 
             if (foundThing != null)
             {
-                List<Thing> thingList = new List<Thing>();
-                thingList.Add(foundThing);
-                foundThing.DeSpawn();
+                if (foundThing.SpawnedInWorld)
+                {
+                    List<Thing> thingList = new List<Thing>();
+                    thingList.Add(foundThing);
+                    foundThing.DeSpawn();
 
-                Building_OrbitalRelay.listOfThingLists.Add(thingList);
-                //Recursively Call to get Everything
-                this.AddResources();
+                    Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                    //Recursively Call to get Everything
+                    this.AddResources();
+                }
             }
         }
 
@@ -152,12 +155,31 @@ namespace Enhanced_Defence.DropPod
             {
                 foreach (Pawn currentPawn in closePawns)
                 {
-                    List<Thing> thingList = new List<Thing>();
-                    thingList.Add(currentPawn);
-                    Building_OrbitalRelay.listOfThingLists.Add(thingList);
-                    currentPawn.DeSpawn();
+                    if (currentPawn.SpawnedInWorld)
+                    {
+                        List<Thing> thingList = new List<Thing>();
+                        thingList.Add(currentPawn);
+                        Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                        currentPawn.DeSpawn();
+                    }
                 }
             }
+        }
+
+        //Saving game
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Collections.LookList(ref listOfThingLists, "listOfThingLists");
+            //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
+
+
+            Scribe_Values.LookValue(ref DropPodAddUnitRadius, "DropPodAddUnitRadius");
+            Scribe_Values.LookValue(ref DropPodDeepStrike, "DropPodDeepStrike");
+            Scribe_Values.LookValue(ref DropPodAddUnits, "DropPodAddUnits");
+            Scribe_Values.LookValue(ref DropPodAddResources, "DropPodAddResources");
+
         }
     }
 }

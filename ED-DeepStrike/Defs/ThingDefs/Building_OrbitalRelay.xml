@@ -11,11 +11,11 @@
   </ThingDef>
   
    <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
-    <defName>OrbitalRelay</defName>
+    <defName>OrbitalCommand</defName>
     <eType>BuildingComplex</eType>
-    <label>Orbital Relay</label>
+    <label>Orbital Command</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
-    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <graphicPathSingle>Things/Buildings/OrbitalCommand</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
@@ -31,7 +31,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
 	<specialDisplayRadius>3</specialDisplayRadius>
-    <description>Orbital Relay.</description>
+    <description>Orbital Command.</description>
     <building>
       <wantsHopperAdjacent>true</wantsHopperAdjacent>
     </building>
@@ -67,7 +67,7 @@
     <eType>BuildingComplex</eType>
     <label>Orbital Beacon</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
-    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <graphicPathSingle>Things/Buildings/OrbitalRelay</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>

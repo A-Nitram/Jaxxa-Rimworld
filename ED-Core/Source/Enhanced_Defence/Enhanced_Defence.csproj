@@ -55,7 +55,6 @@
     <Compile Include="Power\WirelessPower\WirelessPowerManager.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
-    <Compile Include="PersonalShields\Nano\NanoConnector.cs" />
     <Compile Include="PersonalShields\Nano\NanoManager.cs" />
     <Compile Include="PersonalShields\PawnKindDef_ShieldedPawn.cs" />
     <Compile Include="Utilities\ReflectionHelper.cs" />
