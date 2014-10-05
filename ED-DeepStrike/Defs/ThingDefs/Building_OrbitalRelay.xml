@@ -27,7 +27,7 @@
 	<DropPodAddUnitRadius>3</DropPodAddUnitRadius>
     <statBases>
       <WorkToBuild>1800</WorkToBuild>
-      <MaxHealth>350</MaxHealth>
+      <MaxHealth>500</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
 	<specialDisplayRadius>3</specialDisplayRadius>
