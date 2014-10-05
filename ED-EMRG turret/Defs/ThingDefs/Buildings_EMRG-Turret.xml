@@ -11,7 +11,7 @@
   </ThingDef>
 
   <!--=============== Improvised turret ===============-->
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef Class="Enhanced_Defence.TurretAmmo.TurretAmmoThingDef" ParentName="BuildingBase">
     <defName>TurretGunEMRG</defName>
     <eType>Building_Turret</eType>
     <label>ElectroMagnetic RailGun</label>

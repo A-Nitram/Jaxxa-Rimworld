@@ -2,10 +2,11 @@
 <ModMetaData>
   <name>ED-MortarAmmo</name>
   <author>Jaxxa</author>
-  <url>http://ludeon.com/forums/index.php?topic=4701.0</url>
+  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 7</targetVersion>
   <description>
-	Required AutoLoader Module
-	Adds the requirement for Mortars to need Ammunition to fire.
+	Requires: ED-Core, ED-AutoLoader
+	Adds the requirement for the base Mortars to require Ammunition to fire.
+	Also changes Raider constructed Mortars during sieges, but they start with a high initial Ammunition.
   </description>
 </ModMetaData>

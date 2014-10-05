@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>ED-Shields</name>
-  <author>Jaxxa, original by Darker</author>
-  <url>http://ludeon.com/forums/index.php?topic=4701.0</url>
+  <author>Jaxxa</author>
+  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 7</targetVersion>
   <description>
-   Version: Shields_Jaxxa_0.08
-   Adds a number of shield systems to the game as a protective method against hostile action.
-   Original mod by Darker http://ludeon.com/forums/index.php?topic=2677
+	Requires: ED-Cor
+	Adds a number of shield systems to the game as a protective method against hostile action.
   </description>
 </ModMetaData>
