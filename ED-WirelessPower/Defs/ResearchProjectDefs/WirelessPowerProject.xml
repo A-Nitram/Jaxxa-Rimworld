@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+	<ResearchProjectDef>
+		<defName>WirelessPower_Research</defName>
+		<label>Wireless Power</label>
+		<description>Allows you to construct a wireless power grid.</description>
+		<totalCost>1000</totalCost>
+		<prerequisites></prerequisites>
+	</ResearchProjectDef>
+
+</ResearchProjectDefs>

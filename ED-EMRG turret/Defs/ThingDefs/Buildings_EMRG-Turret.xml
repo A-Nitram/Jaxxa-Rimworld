@@ -16,6 +16,7 @@
     <eType>Building_Turret</eType>
     <label>ElectroMagnetic RailGun</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
+	<researchPrerequisite>Building_EMRG_research</researchPrerequisite>
     <graphicPathSingle>Things/Building/emrgBase</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
     <statBases>

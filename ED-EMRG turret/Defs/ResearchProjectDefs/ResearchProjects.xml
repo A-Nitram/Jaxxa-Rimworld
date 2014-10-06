@@ -11,6 +11,7 @@
 		<prerequisites></prerequisites>
 	</ResearchProjectDef>
 
+<!--
 	<ResearchProjectDef>
 		<defName>Building_BoomratTurret_research</defName>
 		<label>Boomrat Turret</label>
@@ -22,6 +23,7 @@
 			<li>Building_EMRG_research</li>
 		</prerequisites>
 	</ResearchProjectDef>
+-->
 
 </ResearchProjectDefs>
 

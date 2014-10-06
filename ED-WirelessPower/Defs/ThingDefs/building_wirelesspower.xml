@@ -15,6 +15,7 @@
     <eType>BuildingComplex</eType>
     <label>Wireless Power Node</label>
     <thingClass>Enhanced_Defence.Power.WirelessPower.WirelessPowerNode</thingClass>
+	<researchPrerequisite>WirelessPower_Research</researchPrerequisite>
     <graphicPathSingle>Things/Buildings/NuclearLamp</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
