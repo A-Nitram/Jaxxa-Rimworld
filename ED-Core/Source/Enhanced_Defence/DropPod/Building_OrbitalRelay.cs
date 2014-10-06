@@ -22,14 +22,12 @@ namespace Enhanced_Defence.DropPod
 
         public int DropPodAddUnitRadius;
 
-        private static List<List<Thing>> listOfThingLists = new List<List<Thing>>();
+        //private static List<List<Thing>> listOfThingLists = new List<List<Thing>>();
+        private static List<Thing> listOfThings = new List<Thing>();
 
         //Dummy override
         public override void PostMake()
         {
-            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/ADD_RESOURCES", true);
-            UI_ADD_COLONIST = ContentFinder<Texture2D>.Get("UI/ADD_COLONIST", true);
-            UI_DROPPOD = ContentFinder<Texture2D>.Get("UI/DEEP_STRIKE", true);
 
             base.PostMake();
         }
@@ -37,6 +35,10 @@ namespace Enhanced_Defence.DropPod
         public override void SpawnSetup()
         {
             base.SpawnSetup();
+
+            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/ADD_RESOURCES", true);
+            UI_ADD_COLONIST = ContentFinder<Texture2D>.Get("UI/ADD_COLONIST", true);
+            UI_DROPPOD = ContentFinder<Texture2D>.Get("UI/DEEP_STRIKE", true);
 
             this.power = base.GetComp<CompPowerTrader>();
             if (def is OrbitalRelayThingDef)
@@ -122,9 +124,22 @@ namespace Enhanced_Defence.DropPod
             //thingList.Add( ThingMaker.MakeThing(ThingDef.Named("MealNutrientPaste"),(ThingDef) null));
             //Building_OrbitalRelay.listOfThingLists.Add(thingList);
 
-            DropPodUtility.DropThingGroupsNear(this.Position, Building_OrbitalRelay.listOfThingLists);
+            //DropPodUtility.DropThingGroupsNear(this.Position, Building_OrbitalRelay.listOfThingLists);
+            //Building_OrbitalRelay.listOfThingLists.Clear();
 
-            Building_OrbitalRelay.listOfThingLists.Clear();
+            List<List<Thing>> listOfListOfThings = new List<List<Thing>>();
+
+            foreach (Thing currentThing in Building_OrbitalRelay.listOfThings)
+            {
+                List<Thing> newList = new List<Thing>();
+                newList.Add(currentThing);
+
+                listOfListOfThings.Add(newList);
+            }
+
+            DropPodUtility.DropThingGroupsNear(this.Position, listOfListOfThings);
+
+            Building_OrbitalRelay.listOfThings.Clear();
         }
 
         public void AddResources()
@@ -138,10 +153,13 @@ namespace Enhanced_Defence.DropPod
                     if (foundThing.SpawnedInWorld)
                     {
                         List<Thing> thingList = new List<Thing>();
-                        thingList.Add(foundThing);
+                        //thingList.Add(foundThing);
+                        Building_OrbitalRelay.listOfThings.Add(foundThing);
                         foundThing.DeSpawn();
 
-                        Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                        //Building_OrbitalRelay.listOfThingLists.Add(thingList);
+
+
                         //Recursively Call to get Everything
                         this.AddResources();
                     }
@@ -166,10 +184,15 @@ namespace Enhanced_Defence.DropPod
                     {
                         if (currentPawn.SpawnedInWorld)
                         {
+                            Building_OrbitalRelay.listOfThings.Add(currentPawn);
+                            currentPawn.DeSpawn();
+
+
+                            /*
                             List<Thing> thingList = new List<Thing>();
                             thingList.Add(currentPawn);
                             Building_OrbitalRelay.listOfThingLists.Add(thingList);
-                            currentPawn.DeSpawn();
+                            currentPawn.DeSpawn();*/
                         }
                     }
                 }
@@ -185,14 +208,16 @@ namespace Enhanced_Defence.DropPod
         {
             base.ExposeData();
 
-            Scribe_Collections.LookList(ref listOfThingLists, "listOfThingLists");
+
             //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
 
-
-            Scribe_Values.LookValue(ref DropPodAddUnitRadius, "DropPodAddUnitRadius");
-            Scribe_Values.LookValue(ref DropPodDeepStrike, "DropPodDeepStrike");
-            Scribe_Values.LookValue(ref DropPodAddUnits, "DropPodAddUnits");
-            Scribe_Values.LookValue(ref DropPodAddResources, "DropPodAddResources");
+            Scribe_Values.LookValue<int>(ref DropPodAddUnitRadius, "DropPodAddUnitRadius");
+            Scribe_Values.LookValue<bool>(ref DropPodDeepStrike, "DropPodDeepStrike");
+            Scribe_Values.LookValue<bool>(ref DropPodAddUnits, "DropPodAddUnits");
+            Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");
+                
+            //Scribe_Collections.LookList<Thing>(ref listOfThingLists, "listOfThingLists", LookMode.Deep, (object)null);
+            Scribe_Collections.LookList<Thing>(ref listOfThings, "listOfThings", LookMode.Deep, (object)null);
 
         }
     }

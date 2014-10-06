@@ -29,9 +29,6 @@ namespace Enhanced_Defence.PersonalShields
         public override void PostMake()
         {
 
-            UI_UPGRADE = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
-            UI_CHARGE_OFF = ContentFinder<Texture2D>.Get("UI/ChargeOFF", true);
-            UI_CHARGE_ON = ContentFinder<Texture2D>.Get("UI/ChargeON", true);
 
             base.PostMake();
         }
@@ -41,6 +38,10 @@ namespace Enhanced_Defence.PersonalShields
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
+
+            UI_UPGRADE = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
+            UI_CHARGE_OFF = ContentFinder<Texture2D>.Get("UI/ChargeOFF", true);
+            UI_CHARGE_ON = ContentFinder<Texture2D>.Get("UI/ChargeON", true);
         }
 
         public override void Tick()
