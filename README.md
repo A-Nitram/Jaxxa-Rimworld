@@ -25,6 +25,9 @@ Individual Modules
 [ED-Shields](ED-Shields)  
 [ED-WirelessPower](ED-WirelessPower)  
 
+##ChangeLog  
+0.01 - Initial Release  
+0.02 - Reduced Research Cost  
 
 ##License:
 This work is licensed under http://creativecommons.org/licenses/by/4.0/
