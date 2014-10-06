@@ -15,6 +15,7 @@
     <eType>BuildingComplex</eType>
     <label>Laser Filler</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
+	<researchPrerequisite>Research_LaserFiller</researchPrerequisite>
     <graphicPathSingle>Things/Buildings/LaserFiller</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
@@ -56,7 +57,7 @@
     </placementRestricters>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>Power</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
   </ThingDef>
 

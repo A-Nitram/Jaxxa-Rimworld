@@ -7,7 +7,7 @@
 		<description>
 		Allows you to build a Railgun
 		</description>
-		<totalCost>70000</totalCost>
+		<totalCost>1000</totalCost>
 		<prerequisites></prerequisites>
 	</ResearchProjectDef>
 
