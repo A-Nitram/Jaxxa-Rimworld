@@ -15,7 +15,7 @@
     <eType>BuildingComplex</eType>
     <label>Laser Filler</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
-    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <graphicPathSingle>Things/Buildings/LaserFiller</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>

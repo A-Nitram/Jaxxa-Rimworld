@@ -10,7 +10,7 @@ namespace Enhanced_Defence.Power.LaserDrill
 
     public class Building_LaserDrill : Building
     {
-        private int drillWork = 1000;
+        private int drillWork = 500;
         private CompPowerTrader powerComp;
 
         public override void SpawnSetup()

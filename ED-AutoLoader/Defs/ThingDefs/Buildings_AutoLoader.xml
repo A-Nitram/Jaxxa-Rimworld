@@ -15,6 +15,7 @@
     <eType>BuildingComplex</eType>
     <label>AutoLoader</label>
     <thingClass>Building_Storage</thingClass>
+	<researchPrerequisite>research_building_autoLoader</researchPrerequisite>
     <graphicPathSingle>Things/Building/AutoLoader</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
     <passability>Impassable</passability>

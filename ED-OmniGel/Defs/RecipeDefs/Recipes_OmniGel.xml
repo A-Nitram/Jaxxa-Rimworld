@@ -206,7 +206,7 @@
       </li>
     </ingredients>
     <products>
-        <Uranium>10</Uranium>
+        <Uranium>1</Uranium>
     </products>
     <fixedIngredientFilter>
       <thingDefs>
@@ -243,7 +243,7 @@
       </li>
     </ingredients>
     <products>
-        <Shells>10</Shells>
+        <Shells>1</Shells>
     </products>
     <fixedIngredientFilter>
       <thingDefs>
@@ -315,7 +315,7 @@
       </li>
     </ingredients>
     <products>
-        <Medicine>5</Medicine>
+        <Medicine>1</Medicine>
     </products>
     <fixedIngredientFilter>
       <thingDefs>

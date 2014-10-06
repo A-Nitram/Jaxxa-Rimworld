@@ -15,6 +15,7 @@
     <eType>BuildingComplex</eType>
     <label>Orbital Command</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
     <graphicPathSingle>Things/Buildings/OrbitalCommand</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
@@ -67,6 +68,7 @@
     <eType>BuildingComplex</eType>
     <label>Orbital Beacon</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
     <graphicPathSingle>Things/Buildings/OrbitalRelay</graphicPathSingle>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>

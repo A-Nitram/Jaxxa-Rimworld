@@ -129,40 +129,54 @@ namespace Enhanced_Defence.DropPod
 
         public void AddResources()
         {
-            Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindThingsInAutoLoader(this);
-
-            if (foundThing != null)
+            if (power.PowerOn)
             {
-                if (foundThing.SpawnedInWorld)
-                {
-                    List<Thing> thingList = new List<Thing>();
-                    thingList.Add(foundThing);
-                    foundThing.DeSpawn();
+                Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindThingsInAutoLoader(this);
 
-                    Building_OrbitalRelay.listOfThingLists.Add(thingList);
-                    //Recursively Call to get Everything
-                    this.AddResources();
+                if (foundThing != null)
+                {
+                    if (foundThing.SpawnedInWorld)
+                    {
+                        List<Thing> thingList = new List<Thing>();
+                        thingList.Add(foundThing);
+                        foundThing.DeSpawn();
+
+                        Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                        //Recursively Call to get Everything
+                        this.AddResources();
+                    }
                 }
+            }
+            else
+            {
+                Messages.Message("Insufficient Power to add Resources");
             }
         }
 
         public void AddColonist()
         {
-            Log.Message("CLick AddColonist");
-            IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, this.DropPodAddUnitRadius);
-
-            if (closePawns != null)
+            if (power.PowerOn)
             {
-                foreach (Pawn currentPawn in closePawns)
+                //Log.Message("CLick AddColonist");
+                IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, this.DropPodAddUnitRadius);
+
+                if (closePawns != null)
                 {
-                    if (currentPawn.SpawnedInWorld)
+                    foreach (Pawn currentPawn in closePawns)
                     {
-                        List<Thing> thingList = new List<Thing>();
-                        thingList.Add(currentPawn);
-                        Building_OrbitalRelay.listOfThingLists.Add(thingList);
-                        currentPawn.DeSpawn();
+                        if (currentPawn.SpawnedInWorld)
+                        {
+                            List<Thing> thingList = new List<Thing>();
+                            thingList.Add(currentPawn);
+                            Building_OrbitalRelay.listOfThingLists.Add(thingList);
+                            currentPawn.DeSpawn();
+                        }
                     }
                 }
+            }
+            else
+            {
+                Messages.Message("Insufficient Power to add Colonist");
             }
         }
 
