@@ -56,4 +56,7 @@ Thanks to PunisheR007 for:
 * Creating the Embrasures  mod that is the basis for the Embrasures module  
  * http://ludeon.com/forums/index.php?topic=3961.0
 
+Thanks to skullywag for:
+* The use of his StunGun Graphic (unreleased)
+
 --Jaxxa
