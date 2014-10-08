@@ -12,7 +12,7 @@ Extract the zip file and place the folders (ED-AutoLoader, ED-Core ... ) into yo
 Then enable the modules that you want to play with, some modules will have dependencies that you must enable before they themselves can be enabled.
 
 ##Details:
-For details on the individual modules please look at the GitHub wiki:
+For details on the individual modules please look at the GitHub wiki:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 
 ##ChangeLog:  
