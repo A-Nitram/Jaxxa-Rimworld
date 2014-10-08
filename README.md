@@ -25,16 +25,21 @@ Individual Modules
 [ED-Shields](ED-Shields)  
 [ED-WirelessPower](ED-WirelessPower)  
 
-##ChangeLog  
-0.01 - Initial Release  
-0.02 - Reduced Research Cost  
-0.03 - Changed Personal Shields to be Completely Standalone  
-		- No research requirements for base shields  
-		- Separate copies of the Textures  
-	- Added Embrasures  
-	- Update description of OmniGel Research
-	- Added Wireless power increase /decrease by 1000 options
-	- 
+
+##ChangeLog:  
+~~~
+0.01  
+- Initial Release  
+0.02  
+- Reduced Research Cost  
+0.03  
+- Changed Personal Shields to be Completely Standalone  
+	- No research requirements for base shields  
+	- Separate copies of the Textures  
+- Added Embrasures  
+- Update description of OmniGel Research
+- Added Wireless power increase / decrease by 1000 options
+~~~
 
 ##License:
 This work is licensed under http://creativecommons.org/licenses/by/4.0/
@@ -57,5 +62,7 @@ Thanks to mrofa for:
 Thanks to PunisheR007 for:
 * Creating the Cannons and Turrets mod that is the basis for the Cannon Ammo and Turrets module (Unreleased)
  * http://ludeon.com/forums/index.php?topic=3878.0
+* Creating the Embrasures  mod that is the basis for the Embrasures module  
+ * http://ludeon.com/forums/index.php?topic=3961.0
 
 --Jaxxa
