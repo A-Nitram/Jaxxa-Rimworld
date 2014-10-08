@@ -11,21 +11,9 @@ This mod has been created with a number of distinct modules. Theses are designed
 Extract the zip file and place the folders (ED-AutoLoader, ED-Core ... ) into your RimWorldxxx\mods folder.  
 Then enable the modules that you want to play with, some modules will have dependencies that you must enable before they themselves can be enabled.
 
-
 ##Details:
-Individual Modules
-
-[ED-AutoLoader](ED-AutoLoader)  
-[ED-Core](ED-Core)  
-[ED-DeepStrike](ED-DeepStrike)  
-[ED-EMRG turret](ED-EMRG turret)  
-[ED-LaserDrill](ED-LaserDrill)  
-[ED-MortarAmmo](ED-MortarAmmo)  
-[ED-OmniGel](ED-OmniGel)  
-[ED-PersonalShields](ED-PersonalShields)  
-[ED-Shields](ED-Shields)  
-[ED-WirelessPower](ED-WirelessPower)  
-
+For details on the individual modules please look at the GitHub wiki:
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 
 ##ChangeLog:  
 ~~~
