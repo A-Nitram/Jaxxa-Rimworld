@@ -28,6 +28,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Added Embrasures  
 - Update description of OmniGel Research
 - Added Wireless power increase / decrease by 1000 options
+0.04
+- Fixed Wireless Power Node not loading icons correctly after the game has been reset.
 ~~~
 
 ##License:
