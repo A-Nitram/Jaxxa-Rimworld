@@ -37,6 +37,9 @@ namespace Enhanced_Defence.Power.WirelessPower
         {
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
+
+            this.power.powerOutput = desiredPower;
+
             WirelessPowerManager.registerToGrid(this);
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
         }
@@ -72,6 +75,9 @@ namespace Enhanced_Defence.Power.WirelessPower
         {
             base.ExposeData();
 
+            Scribe_Values.LookValue(ref desiredPower, "desiredPower");
+
+
             // Scribe_Values.LookValue(ref flag_charge, "flag_charge");
             // Scribe_Values.LookValue(ref NanoManager.currentCharge, "currentCharge");
             /*
@@ -95,20 +101,22 @@ namespace Enhanced_Defence.Power.WirelessPower
                 CommandList = baseCommands.ToList();
             }
 
+
+            //Power Down
             if (true)
             {
                 //PowerUp
-                Command_Action command_Action_PowerUp = new Command_Action();
+                Command_Action command_Action_PowerDown = new Command_Action();
 
-                command_Action_PowerUp.defaultLabel = "Power Transmit";
+                command_Action_PowerDown.defaultLabel = "Power Receive 1000";
 
-                command_Action_PowerUp.icon = UI_POWER_TRANSMIT;
-                command_Action_PowerUp.defaultDesc = "Power Transmit";
+                command_Action_PowerDown.icon = UI_POWER_RECEIVE;
+                command_Action_PowerDown.defaultDesc = "Power Receive 1000";
 
-                command_Action_PowerUp.activateSound = SoundDef.Named("Click");
-                command_Action_PowerUp.action = new Action(this.PowerTransmit);
+                command_Action_PowerDown.activateSound = SoundDef.Named("Click");
+                command_Action_PowerDown.action = new Action(this.PowerReceive1000);
 
-                CommandList.Add(command_Action_PowerUp);
+                CommandList.Add(command_Action_PowerDown);
             }
 
             //Power Down
@@ -117,28 +125,72 @@ namespace Enhanced_Defence.Power.WirelessPower
                 //PowerUp
                 Command_Action command_Action_PowerDown = new Command_Action();
 
-                command_Action_PowerDown.defaultLabel = "Power Receive";
+                command_Action_PowerDown.defaultLabel = "Power Receive 100";
 
                 command_Action_PowerDown.icon = UI_POWER_RECEIVE;
-                command_Action_PowerDown.defaultDesc = "Power Receive";
+                command_Action_PowerDown.defaultDesc = "Power Receive 100";
 
                 command_Action_PowerDown.activateSound = SoundDef.Named("Click");
-                command_Action_PowerDown.action = new Action(this.PowerReceive);
+                command_Action_PowerDown.action = new Action(this.PowerReceive100);
 
                 CommandList.Add(command_Action_PowerDown);
             }
+
+            if (true)
+            {
+                //PowerUp
+                Command_Action command_Action_PowerUp = new Command_Action();
+
+                command_Action_PowerUp.defaultLabel = "Power Transmit 100";
+
+                command_Action_PowerUp.icon = UI_POWER_TRANSMIT;
+                command_Action_PowerUp.defaultDesc = "Power Transmit 100";
+
+                command_Action_PowerUp.activateSound = SoundDef.Named("Click");
+                command_Action_PowerUp.action = new Action(this.PowerTransmit100);
+
+                CommandList.Add(command_Action_PowerUp);
+            }
+
+            if (true)
+            {
+                //PowerUp
+                Command_Action command_Action_PowerUp = new Command_Action();
+
+                command_Action_PowerUp.defaultLabel = "Power Transmit 1000";
+
+                command_Action_PowerUp.icon = UI_POWER_TRANSMIT;
+                command_Action_PowerUp.defaultDesc = "Power Transmit 1000";
+
+                command_Action_PowerUp.activateSound = SoundDef.Named("Click");
+                command_Action_PowerUp.action = new Action(this.PowerTransmit1000);
+
+                CommandList.Add(command_Action_PowerUp);
+            }
+
+
             return CommandList.AsEnumerable<Command>();
         }
 
-        private void PowerTransmit()
+        private void PowerTransmit100()
         {
             this.desiredPower -= 100;
             this.power.powerOutput = desiredPower;
         }
+        private void PowerTransmit1000()
+        {
+            this.desiredPower -= 1000;
+            this.power.powerOutput = desiredPower;
+        }
 
-        private void PowerReceive()
+        private void PowerReceive100()
         {
             this.desiredPower += 100;
+            this.power.powerOutput = desiredPower;
+        }
+        private void PowerReceive1000()
+        {
+            this.desiredPower += 1000;
             this.power.powerOutput = desiredPower;
         }
 

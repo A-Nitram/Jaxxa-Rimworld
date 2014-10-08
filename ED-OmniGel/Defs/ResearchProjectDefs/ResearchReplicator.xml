@@ -12,16 +12,16 @@
 	<ResearchProjectDef>
 		<defName>Research_MK2_Replicator</defName>
 		<label>Mark 2 Replicator</label>
-		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Stone, Metal or Silver.</description>
-		<totalCost>1500</totalCost>
+		<description>Allows you to build the MK2 Replicator, which can transform Omni-Gel into Stone, Metal or Silver.</description>
+		<totalCost>2000</totalCost>
 		<prerequisites><li>Research_MK1_Replicator</li></prerequisites>
 	</ResearchProjectDef>
 	
 	<ResearchProjectDef>
 		<defName>Research_MK3_Replicator</defName>
 		<label>Mark 3 Replicator</label>
-		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Somthing?.</description>
-		<totalCost>2000</totalCost>
+		<description>Allows you to build the MK3 Replicator, which can transform Omni-Gel into Uranium, Shells or Medicine.</description>
+		<totalCost>3000</totalCost>
 		<prerequisites><li>Research_MK2_Replicator</li></prerequisites>
 	</ResearchProjectDef>
 

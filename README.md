@@ -28,9 +28,13 @@ Individual Modules
 ##ChangeLog  
 0.01 - Initial Release  
 0.02 - Reduced Research Cost  
-0.03 - Changed Personal Shields to be Completely Standalone
-		- No research requirements for base shields
-		- Separate copies of the Textures
+0.03 - Changed Personal Shields to be Completely Standalone  
+		- No research requirements for base shields  
+		- Separate copies of the Textures  
+	- Added Embrasures  
+	- Update description of OmniGel Research
+	- Added Wireless power increase /decrease by 1000 options
+	- 
 
 ##License:
 This work is licensed under http://creativecommons.org/licenses/by/4.0/
