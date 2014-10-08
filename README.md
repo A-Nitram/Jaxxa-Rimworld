@@ -1,7 +1,8 @@
 Enhanced-Defence
 ======================
 Note: View this on GitHub for the correct formatting and most recent updates.  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence
+https://github.com/jaxxa/RimWorld-Enhanced-Defence  
+Also check the GitHub wiki for more detailed information about the individual Modules.
 
 ##About:
 This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to.
