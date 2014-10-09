@@ -30,6 +30,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Added Wireless power increase / decrease by 1000 options
 0.04
 - Fixed Wireless Power Node not loading icons correctly after the game has been reset.
+- Fix to the starting Ammo of some types of Mortars
 ~~~
 
 ##License:
