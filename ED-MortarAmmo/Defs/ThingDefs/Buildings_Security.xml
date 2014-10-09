@@ -107,6 +107,7 @@
 	<internalAmmoMAX>80</internalAmmoMAX>
 	<internalAmmoMultiplier>1</internalAmmoMultiplier>
 	<internalAmmoCurrent>80</internalAmmoCurrent>
+	<internalAmmoStartColonist>10</internalAmmoStartColonist>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
@@ -177,6 +178,7 @@
 	<internalAmmoMAX>80</internalAmmoMAX>
 	<internalAmmoMultiplier>1</internalAmmoMultiplier>
 	<internalAmmoCurrent>80</internalAmmoCurrent>
+	<internalAmmoStartColonist>10</internalAmmoStartColonist>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
