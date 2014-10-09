@@ -6,7 +6,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence
 Also check the GitHub wiki for more detailed information about the individual Modules:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
 
-Downlaods are Avalable on the Nexus:  
+Downloads are Available on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?  
 
 Discussion on the Official forums at:  
