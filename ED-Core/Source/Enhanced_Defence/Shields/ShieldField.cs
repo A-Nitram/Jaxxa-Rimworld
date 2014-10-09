@@ -585,25 +585,16 @@ namespace Enhanced_Defence.Shields
 
             List<string> validBuildings = new List<string>();
 
-            //Embrasures
-            validBuildings.Add("MetalWallEmbrasure");
-            validBuildings.Add("StoneWallEmbrasure");
-            validBuildings.Add("LogWallEmbrasure");
-            validBuildings.Add("WoodWallEmbrasure");
-
-            //JWalls
-            validBuildings.Add("DoorPoweredBlast");
-            validBuildings.Add("WallMetalBlast");
-            validBuildings.Add("WallStoneBlast");
 
             //Core
-            validBuildings.Add("DoorPowered");
-            validBuildings.Add("DoorWood");
-            validBuildings.Add("WallLog");
-            validBuildings.Add("WallWood");
-            validBuildings.Add("WallMetal");
-            validBuildings.Add("WallStone");
+            validBuildings.Add("Door");
+            validBuildings.Add("Autodoor");
+            validBuildings.Add("Wall");
+            validBuildings.Add("WallConduit");
             validBuildings.Add("Sandbags");
+
+            //Embrasures
+            validBuildings.Add("Embrasure");
 
 
             if (validBuildings.Contains(currentBuilding.def.defName))

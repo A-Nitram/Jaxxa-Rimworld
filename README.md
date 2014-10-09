@@ -31,6 +31,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 0.04
 - Fixed Wireless Power Node not loading icons correctly after the game has been reset.
 - Fix to the starting Ammo of some types of Mortars
+- Fixed what walls / doors can be covered by SIF Shields
 ~~~
 
 ##License:
