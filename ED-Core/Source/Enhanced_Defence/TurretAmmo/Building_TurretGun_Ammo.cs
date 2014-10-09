@@ -63,12 +63,16 @@ namespace Enhanced_Defence.TurretAmmo
 
                 this.internalAmmoStartColonist = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoStartColonist;
 
-                if (this.internalAmmoStartColonist != 0)
+
+                if (this.Faction.Equals(Faction.OfColony))
                 {
-                    this.internalAmmoCurrent = this.internalAmmoStartColonist;
-                    if (this.internalAmmoCurrent < 0)
+                    if (this.internalAmmoStartColonist != 0)
                     {
-                        this.internalAmmoCurrent = 0;
+                        this.internalAmmoCurrent = this.internalAmmoStartColonist;
+                        if (this.internalAmmoCurrent < 0)
+                        {
+                            this.internalAmmoCurrent = 0;
+                        }
                     }
                 }
             }
