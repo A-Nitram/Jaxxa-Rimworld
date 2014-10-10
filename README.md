@@ -52,6 +52,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Fix for Memory leak relating to the Shield Display
 - Added option to Hide Shield visual display
 - Only one Laser Drill Can be active at a time
+- Power carrying Embrasures.
 ~~~
 
 ##License:
