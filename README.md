@@ -5,6 +5,9 @@ Enhanced-Defence
 Discussion and Latest Download available on the Official Rimworld forums at:  
 https://ludeon.com/forums/index.php?topic=6636.0
 
+With a Download Mirror on the Nexus:
+http://www.nexusmods.com/rimworld/mods/62/?
+
 View this document on GitHub for the correct formatting and most recent document updates:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence  
 
