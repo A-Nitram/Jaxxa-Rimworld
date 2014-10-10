@@ -8,7 +8,7 @@ https://ludeon.com/forums/index.php?topic=6636.0
 With a Download Mirror on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?
 
-View this document on GitHub for the correct formatting and most recent document updates:  
+View the Readme document (including changelog) on GitHub for the correct formatting and most recent document updates:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence  
 
 Also check the GitHub wiki for more detailed information about the individual Modules:  
