@@ -77,6 +77,10 @@ namespace Enhanced_Defence.Power.WirelessPower
             }
             else
             {
+                if (WirelessPowerManager.suficentPower)
+                {
+                    Messages.Message("Wireless Power Grid has collapsed.", MessageSound.Negative);
+                }
                 WirelessPowerManager.suficentPower = false;
             }
 
