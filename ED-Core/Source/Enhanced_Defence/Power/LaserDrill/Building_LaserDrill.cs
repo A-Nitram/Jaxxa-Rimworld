@@ -25,19 +25,17 @@ namespace Enhanced_Defence.Power.LaserDrill
             Scribe_Values.LookValue<int>(ref this.drillWork, "drillWork", 0, false);
         }
 
-
-
         public override void TickRare()
         {
             if (this.powerComp.PowerOn)
             {
-
-                Log.Message("Reducing count");
+                //Log.Message("Reducing count");
+                this.disableOthers();
                 this.drillWork = this.drillWork - 1;
             }
             else
             {
-                Log.Message("No Power for drill.");
+                //Log.Message("No Power for drill.");
             }
 
             if (this.drillWork <= 0)
@@ -46,6 +44,31 @@ namespace Enhanced_Defence.Power.LaserDrill
                 GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), this.Position);
             }
             base.Tick();
+        }
+
+        public void disableOthers()
+        {
+            //<Pawn>(t => t.Position.WithinHorizontalDistanceOf(this.Position, this.MAX_DISTANCE));               
+            IEnumerable<Building> LaserBuildings = Find.ListerBuildings.allBuildingsColonist.Where<Building>(t => t.def.defName == "LaserDrill");
+
+            if (LaserBuildings != null)
+            {
+                //List<Thing> fireTo
+                foreach (Building_LaserDrill currentBuilding in LaserBuildings.ToList())
+                {
+                    Log.Message("Checking");
+                    if (currentBuilding != this)
+                    {
+                        currentBuilding.powerComp.DesirePowerOn = false;
+                    }
+                }
+            }
+            else
+            {
+                Log.Error("List Null");
+
+            }
+                             
         }
 
         public override string GetInspectString()

@@ -67,6 +67,10 @@ namespace Enhanced_Defence.Shields
         //Ratio of lost power per damage
         private const float powerToDamage = 1f;
 
+        static List<string> validBuildings;
+
+        Material currentMatrialColour;
+
         #endregion
 
         #region Accessors
@@ -168,7 +172,7 @@ namespace Enhanced_Defence.Shields
             }
         }
 
-        #region Constructor
+        #region Setup
 
         //Constructor
         public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue)
@@ -193,12 +197,38 @@ namespace Enhanced_Defence.Shields
             this.colourRed = colourRed;
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
+
+            ShieldField.setupValidBuildings();
         }
 
         //Blank constructor required by scribes
         public ShieldField()
         {
 
+        }
+
+        static public void setupValidBuildings()
+        {
+            if (ShieldField.validBuildings == null)
+            {
+                ShieldField.validBuildings = new List<string>();
+
+                //if (building.def.label.Contains("embrasure"))
+                //if (building.def.defName.Contains("Embrasure"))
+
+                //Core
+                ShieldField.validBuildings.Add("Door");
+                ShieldField.validBuildings.Add("Autodoor");
+                ShieldField.validBuildings.Add("Wall");
+                ShieldField.validBuildings.Add("WallConduit");
+                ShieldField.validBuildings.Add("Sandbags");
+
+                //Embrasures
+                ShieldField.validBuildings.Add("Embrasure");
+                ShieldField.validBuildings.Add("EmbrasureConduit");
+                
+
+            }
         }
 
         #endregion
@@ -580,33 +610,23 @@ namespace Enhanced_Defence.Shields
 
         public bool isBuildingValid(Thing currentBuilding)
         {
-            //if (building.def.label.Contains("embrasure"))
-            //if (building.def.defName.Contains("Embrasure"))
-
-            List<string> validBuildings = new List<string>();
-
-
-            //Core
-            validBuildings.Add("Door");
-            validBuildings.Add("Autodoor");
-            validBuildings.Add("Wall");
-            validBuildings.Add("WallConduit");
-            validBuildings.Add("Sandbags");
-
-            //Embrasures
-            validBuildings.Add("Embrasure");
-
-
-            if (validBuildings.Contains(currentBuilding.def.defName))
+            if (ShieldField.validBuildings != null)
             {
-                return true;
+                if (validBuildings.Contains(currentBuilding.def.defName))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                Log.Error("ShieldField.validBuildings Not set up properly");
             }
 
             return false;
         }
 
         #region drawing
-
+        
         //Draw the field on map
         public void DrawField(Vector3 center)
         {
@@ -630,7 +650,7 @@ namespace Enhanced_Defence.Shields
                 }
             }
         }
-
+        
         public void DrawSubField(Vector3 position, float shieldShieldRadius)
         {
             position = position + (new Vector3(0.5f, 0f, 0.5f));
@@ -639,12 +659,16 @@ namespace Enhanced_Defence.Shields
             Matrix4x4 matrix = default(Matrix4x4);
             matrix.SetTRS(position, Quaternion.identity, s);
 
-            float fade = this.status != ShieldStatus.Loading ? 0.15f : (((float)(60 - (shieldRecoverWarmup - warmupTicksCurrent)) * 0.10f) / 60.0f);
+            if (currentMatrialColour == null)
+            {
+                Log.Message("Creating currentMatrialColour");
+                currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue,0.15f),ShaderDatabase.MetaOverlay);
+            }
 
+            //float fade = this.status != ShieldStatus.Loading ? 0.15f : (((float)(60 - (shieldRecoverWarmup - warmupTicksCurrent)) * 0.10f) / 60.0f);
             //Simple shield circle
-            //UnityEngine.Graphics.DrawMesh(Jaxxa_Shields.Graphics.Graphics.CircleMesh, matrix, MaterialMaker.NewSolidColorMaterial(new Color(0.0f, 0.3764705882352941f, 0.7294117647058823f, fade)), 0);
-            //Log.Message("Colour:" + colourRed + " " + colourGreen + " " + colourBlue);
-            UnityEngine.Graphics.DrawMesh(Enhanced_Defence.ShieldUtils.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade), ShaderDatabase.MetaOverlay), 0);
+            //UnityEngine.Graphics.DrawMesh(Enhanced_Defence.ShieldUtils.Graphics.CircleMesh, matrix, SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, fade), ShaderDatabase.MetaOverlay), 0);
+            UnityEngine.Graphics.DrawMesh(Enhanced_Defence.ShieldUtils.Graphics.CircleMesh, matrix, currentMatrialColour, 0);
 
         }
 

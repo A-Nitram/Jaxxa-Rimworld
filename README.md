@@ -32,6 +32,10 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Fixed Wireless Power Node not loading icons correctly after the game has been reset.
 - Fix to the starting Ammo of some types of Mortars
 - Fixed what walls / doors can be covered by SIF Shields
+0.05
+- Fix for Memory leak relating to the Shield Display
+- Added option to Hide Shield visual display
+- Only one Laser Drill Can be active at a time
 ~~~
 
 ##License:

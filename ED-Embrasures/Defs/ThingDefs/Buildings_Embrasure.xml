@@ -69,5 +69,21 @@
 		<uiIconPath>UI/Metal</uiIconPath>
 		<graphicPathSingle>Things/Building/Embrasure</graphicPathSingle>
 	</ThingDef>
-
+	
+	<ThingDef ParentName="Embrasure">
+		<defName>EmbrasureConduit</defName>
+		<eType>Wall</eType>
+		<label>conduit embrasure</label>
+		<description>A Embrasure with a built-in power conduit.</description>
+		<CostList>
+		  <Metal>5</Metal>
+		</CostList>
+		<Comps>
+		  <li>
+			<compClass>CompPowerTransmitter</compClass>
+			<transmitsPower>true</transmitsPower>
+		  </li>
+		</Comps>
+	</ThingDef>
+	
 </ThingDefs>

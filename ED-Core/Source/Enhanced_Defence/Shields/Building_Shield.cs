@@ -26,10 +26,15 @@ namespace Enhanced_Defence.Shields
         private static Texture2D UI_REPAIR_ON;
         private static Texture2D UI_REPAIR_OFF;
 
+
+        private static Texture2D UI_SHOW_ON;
+        private static Texture2D UI_SHOW_OFF;
+        
         public bool flag_direct = true;
         public bool flag_indirect = true;
         public bool flag_fireSupression = true;
         public bool flag_shieldRepairMode = true;
+        public bool flag_showVisually = true;
 
         //variables that are read in from XML
         public int shieldMaxShieldStrength;
@@ -78,6 +83,9 @@ namespace Enhanced_Defence.Shields
             UI_FIRE_ON = ContentFinder<Texture2D>.Get("UI/FireOn", true);
             UI_REPAIR_ON = ContentFinder<Texture2D>.Get("UI/RepairON", true);
             UI_REPAIR_OFF = ContentFinder<Texture2D>.Get("UI/RepairOFF", true);
+
+            UI_SHOW_ON = ContentFinder<Texture2D>.Get("UI/ShieldShowOn", true);
+            UI_SHOW_OFF = ContentFinder<Texture2D>.Get("UI/ShieldShowOff", true);
 
 
             base.SpawnSetup();
@@ -207,12 +215,14 @@ namespace Enhanced_Defence.Shields
                 //Graphics.DrawMesh(MeshPool.plane20, matrix, FadedMaterialPool.FadedVersionOf(Building_Turret_Sentinel.TurretTopCharging, percentCharged), 0);
             }
         }
-        
+
         public override void Draw()
         {
             base.Draw();
-
-            DrawShieldField();
+            if (flag_showVisually)
+            {
+                DrawShieldField();
+            }
         }
         public override void DrawExtraSelectionOverlays()
         {
@@ -361,6 +371,30 @@ namespace Enhanced_Defence.Shields
                 CommandList.Add(command_Action_switchRepair);
             }
 
+            if (true)
+            {
+                //Switch Repair
+                Command_Action command_Action_switchShow = new Command_Action();
+                command_Action_switchShow.defaultLabel = "Show Visually";
+                if (flag_showVisually)
+                {
+                    command_Action_switchShow.icon = UI_SHOW_ON;
+                    command_Action_switchShow.defaultDesc = "Show";
+
+                }
+                else
+                {
+                    command_Action_switchShow.icon = UI_SHOW_OFF;
+                    command_Action_switchShow.defaultDesc = "Hide";
+                }
+
+                command_Action_switchShow.activateSound = SoundDef.Named("Click");
+                command_Action_switchShow.action = new Action(this.SwitchVisual);
+
+                CommandList.Add(command_Action_switchShow);
+            }
+
+
             return CommandList.AsEnumerable<Command>();
         }
 
@@ -377,6 +411,11 @@ namespace Enhanced_Defence.Shields
         private void SwitchFire()
         {
             flag_fireSupression = !flag_fireSupression;
+        }
+
+        private void SwitchVisual()
+        {
+            flag_showVisually = !flag_showVisually;
         }
 
         private void SwitchShieldRepairMode()
