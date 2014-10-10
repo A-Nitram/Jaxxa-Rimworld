@@ -197,7 +197,7 @@ namespace Enhanced_Defence.PersonalShields
 
                             ShieldedPawn newPawn = Enhanced_Defence.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
 
-                            Log.Message("Despawn");
+                            //Log.Message("Despawn");
                             currentPawn.Destroy();
 
                             GenSpawn.Spawn(newPawn, pawnPosition);

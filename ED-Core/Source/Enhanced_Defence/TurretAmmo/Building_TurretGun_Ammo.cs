@@ -260,7 +260,7 @@ namespace Enhanced_Defence.TurretAmmo
             {
                 if (internalAmmoCurrent >= ammoAmountUsedToFire)
                 {
-                    Log.Message("internalAmmoCurrent >= ammoAmountUsedToFire");
+                    //Log.Message("internalAmmoCurrent >= ammoAmountUsedToFire");
                     return true;
                 }
             }
@@ -270,7 +270,7 @@ namespace Enhanced_Defence.TurretAmmo
                 {
                     if (AmmoInHopper.stackCount >= this.ammoAmountUsedToFire)
                     {
-                        Log.Message("AmmoInHopper.stackCount >= this.ammoAmountUsedToFire");
+                        //Log.Message("AmmoInHopper.stackCount >= this.ammoAmountUsedToFire");
                         return true;
                     }
                 }

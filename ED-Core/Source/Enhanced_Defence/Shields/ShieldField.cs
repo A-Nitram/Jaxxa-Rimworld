@@ -360,12 +360,12 @@ namespace Enhanced_Defence.Shields
                         //Check IFF
                         if (IFFcheck == true)
                         {
-                            Log.Message("IFFcheck == true");
+                            //Log.Message("IFFcheck == true");
                             Thing launcher = ReflectionHelper.GetInstanceField(typeof(Projectile), pr, "launcher") as Thing;
 
                             if (launcher != null)
                             {
-                                Log.Message("launcher != null");
+                                //Log.Message("launcher != null");
                                 if (launcher.Faction.def == FactionDefOf.Colony)
                                 {
                                     wantToIntercept = false;
@@ -457,7 +457,7 @@ namespace Enhanced_Defence.Shields
                         }
                         else
                         {
-                            Log.Message("Skip");
+                            //Log.Message("Skip");
                         }
 
                     }
@@ -661,7 +661,7 @@ namespace Enhanced_Defence.Shields
 
             if (currentMatrialColour == null)
             {
-                Log.Message("Creating currentMatrialColour");
+                //Log.Message("Creating currentMatrialColour");
                 currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue,0.15f),ShaderDatabase.MetaOverlay);
             }
 

@@ -11,14 +11,14 @@ namespace Enhanced_Defence.PersonalShields.Saving
 
         public static void save(Pawn currentPawn, string fileLocation)
         {
-            Log.Message("Starting Save");
+            //Log.Message("Starting Save");
             //Save Pawn
             Scribe.InitWriting(fileLocation);
             Scribe_Deep.LookDeep<Pawn>(ref currentPawn, "currentPawn");
 
             Scribe.FinalizeWriting();
             Scribe.mode = LoadSaveMode.Inactive;
-            Log.Message("End Save");
+            //Log.Message("End Save");
 
         }
 

@@ -174,7 +174,7 @@ namespace Enhanced_Defence.Shields
             }
             else
             {
-                Log.Message("shieldField is null in tick event, creating new one.");
+                //Log.Message("shieldField is null in tick event, creating new one.");
                 shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
 

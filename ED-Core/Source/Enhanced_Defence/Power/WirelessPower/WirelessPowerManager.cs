@@ -84,7 +84,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                 WirelessPowerManager.suficentPower = false;
             }
 
-            Log.Message("CurrentPower: " + CurrentAvalablePower);
+            //Log.Message("CurrentPower: " + CurrentAvalablePower);
         }
 
         public static bool registerToGrid(WirelessPowerNode powerNode)

@@ -58,12 +58,12 @@ namespace Enhanced_Defence.Power.LaserDrill
                 //List<Thing> fireTo
                 foreach (Building_LaserDrill currentBuilding in LaserBuildings.ToList())
                 {
-                    Log.Message("Checking");
+                    //Log.Message("Checking");
                     if (currentBuilding != this)
                     {
                         if (currentBuilding.powerComp.DesirePowerOn)
                         {
-                            Messages.Message("Only One Laser Drill Can be active at a Time.", MessageSound.Reject);
+                            Messages.Message("Only One Laser Drill Can be active at a Time.", MessageSound.Negative);
                             currentBuilding.powerComp.DesirePowerOn = false;
                         }
 
@@ -72,7 +72,7 @@ namespace Enhanced_Defence.Power.LaserDrill
             }
             else
             {
-                Log.Error("List Null");
+               // Log.Error("List Null");
 
             }
                              

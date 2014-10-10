@@ -1,18 +1,23 @@
 Enhanced-Defence
 ======================
-Note: View this on GitHub for the correct formatting and most recent updates:  
+
+##About:
+Discussion and Latest Download available on the Official Rimworld forums at:  
+https://ludeon.com/forums/index.php?topic=6636.0
+
+View this document on GitHub for the correct formatting and most recent document updates:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence  
 
 Also check the GitHub wiki for more detailed information about the individual Modules:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
 
-Downloads are Available on the Nexus:  
-http://www.nexusmods.com/rimworld/mods/62/?  
+Please Report Bugs to the GitHub Issue tracker.
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/issues
 
-Discussion on the Official forums at:  
-https://ludeon.com/forums/index.php?topic=6636.0
+Note that the downloads on Github are to be considered development builds and may not be working at any time.  
+They also do not provide binaries and will have to be compiled from source in order to be played. Most people will want to download a binary release from the Forum page.
 
-##About:
+##Overview:
 This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to.
 
 ##How to use:

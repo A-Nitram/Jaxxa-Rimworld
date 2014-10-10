@@ -20,13 +20,13 @@ namespace Enhanced_Defence.PersonalShields
         public ShieldedPawn()
             : base()
         {
-            Log.Message("Creating ShieldedPawn");
+            //Log.Message("Creating ShieldedPawn");
         }
 
 
         public override void SpawnSetup()
         {
-            Log.Message("SpawnSetup");
+            //Log.Message("SpawnSetup");
             base.SpawnSetup();
 
             //setupDamageMultiplier();
@@ -42,7 +42,7 @@ namespace Enhanced_Defence.PersonalShields
 
             if (newValue == true)
             {
-                Log.Message("Change to True");
+                //Log.Message("Change to True");
                 baseShieldsActive = newValue;
 
                 /*
@@ -67,7 +67,7 @@ namespace Enhanced_Defence.PersonalShields
 
             if (newValue == false)
             {
-                Log.Message("Change to false");
+                //Log.Message("Change to false");
                 baseShieldsActive = newValue;
 
                 /*if (this.AvalableShieldResistance != null)
@@ -100,7 +100,7 @@ namespace Enhanced_Defence.PersonalShields
         public override void PreApplyDamage(DamageInfo dinfo)
         {
             //Log.Message("PreApplyDamage -> Resist:" + this.def.damageMultipliers.Count);
-            Log.Message("dinfo: " + dinfo.Amount);
+            //Log.Message("dinfo: " + dinfo.Amount);
             //this.currentShieldResistance = temp;
             //this.def.damageMultipliers.Add(temp);
             //dinfo.ForceSetAmount(0);
