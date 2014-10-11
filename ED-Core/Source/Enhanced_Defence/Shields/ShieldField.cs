@@ -226,7 +226,7 @@ namespace Enhanced_Defence.Shields
                 //Embrasures
                 ShieldField.validBuildings.Add("Embrasure");
                 ShieldField.validBuildings.Add("EmbrasureConduit");
-                
+
 
             }
         }
@@ -346,15 +346,12 @@ namespace Enhanced_Defence.Shields
             for (int i = 0, l = things.Count(); i < l; i++)
             {
 
-                //The "is" keyword is equal to java's "instanceof"
-                if (things[i] is Projectile)
+                if (things[i] != null && things[i] is Projectile)
                 {
                     //Assign to variable
                     pr = (Projectile)things[i];
-
                     if (!pr.Destroyed && ((shieldBlockIndirect && flag_indirect && pr.def.projectile.flyOverhead) || (shieldBlockDirect && flag_direct && !pr.def.projectile.flyOverhead)))
                     {
-
                         bool wantToIntercept = true;
 
                         //Check IFF
@@ -365,14 +362,20 @@ namespace Enhanced_Defence.Shields
 
                             if (launcher != null)
                             {
-                                //Log.Message("launcher != null");
-                                if (launcher.Faction.def == FactionDefOf.Colony)
+                                if (launcher.Faction != null)
                                 {
-                                    wantToIntercept = false;
-                                }
-                                else
-                                {
+                                    if (launcher.Faction.def != null)
+                                    {
+                                        //Log.Message("launcher != null");
+                                        if (launcher.Faction.def == FactionDefOf.Colony)
+                                        {
+                                            wantToIntercept = false;
+                                        }
+                                        else
+                                        {
 
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -626,7 +629,7 @@ namespace Enhanced_Defence.Shields
         }
 
         #region drawing
-        
+
         //Draw the field on map
         public void DrawField(Vector3 center)
         {
@@ -650,7 +653,7 @@ namespace Enhanced_Defence.Shields
                 }
             }
         }
-        
+
         public void DrawSubField(Vector3 position, float shieldShieldRadius)
         {
             position = position + (new Vector3(0.5f, 0f, 0.5f));
@@ -662,7 +665,7 @@ namespace Enhanced_Defence.Shields
             if (currentMatrialColour == null)
             {
                 //Log.Message("Creating currentMatrialColour");
-                currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue,0.15f),ShaderDatabase.MetaOverlay);
+                currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(colourRed, colourGreen, colourBlue, 0.15f), ShaderDatabase.MetaOverlay);
             }
 
             //float fade = this.status != ShieldStatus.Loading ? 0.15f : (((float)(60 - (shieldRecoverWarmup - warmupTicksCurrent)) * 0.10f) / 60.0f);

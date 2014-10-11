@@ -124,6 +124,8 @@ namespace Enhanced_Defence.Shields
                 shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
 
+            ShieldField.setupValidBuildings();
+
         }
 
 

@@ -53,12 +53,17 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Added option to Hide Shield visual display
 - Only one Laser Drill Can be active at a time
 - Power carrying Embrasures.
+0.06
+- Fix for SIF Shield not restoring correctly when loading a saved game.
+- Fix for potential null pointer errors relating to projectiles without a faction
+- Changed OmniGel textures to use the ones provided by Omni
 ~~~
 
 ##License:
 This work is licensed under http://creativecommons.org/licenses/by/4.0/
 
-##Credit:
+##Credit / Thanks:
+
 Thanks to Architect for:
 * Allowing the Code from BetterPower+ to be used.
  * Currently using the LaserDrill
@@ -67,12 +72,18 @@ Thanks to Darker for:
 * making the original Shield mod, and thanks for allowing anything to be done with it.
  * http://ludeon.com/forums/index.php?topic=2677.msg24772#msg24772
 
+Thanks to Kulverstukass for:
+* Awesome bug reporting and feedback.
+ 
 Thanks to mrofa for:
 * Providing code in "Clutter Mod" that was helpful to look at for figuring out better ways to do Fire Suppression and Command Switches
 * Allowing me to use his art from the BetterPower+ Mod
  * Laser Drill
  * NuclearLamp used for Power Node  
 
+Thanks to Omni for:
+* Providing new textures for the OmniGel system
+ 
 Thanks to PunisheR007 for:
 * Creating the Cannons and Turrets mod that is the basis for the Cannon Ammo and Turrets module (Unreleased)
  * http://ludeon.com/forums/index.php?topic=3878.0
