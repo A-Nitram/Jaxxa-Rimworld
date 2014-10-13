@@ -380,41 +380,20 @@ namespace Enhanced_Defence.Shields
                             }
                         }
 
-
-                        /*
-                        //Check overshoot
+                        //Check OverShoot
                         if (pr.def.projectile.flyOverhead)
                         {
-                            //IntVec3 destination = new IntVec3(reflectionHelper.GetInstanceField(typeof(Vector3), pr, "destination") as Vector3);
-                            Log.Message("GettingFunction");
-
-                            //MethodInfo function = reflectionHelper.GetInstanceMethod(typeof(Projectile), pr, "DestinationCell") as MethodInfo;
-                            //IntVec3 temp = null;
-                            object property = reflectionHelper.GetPropertyValue(pr, "ExactRotation");
-                            
-                            //var value = GetType().GetProperty("DestinationCell").GetValue(pr,null);
-                            Log.Message("Calling Function");
-                            if (property != null)
+                            if (this.WillTargetLandInRange(pr))
                             {
-                                Log.Message("Value not Null");
-                                IntVec3 temp = (IntVec3)property;
-                                Log.Message("Value Cast");
-                                //IntVec3 temp = (IntVec3)function.Invoke(pr, null);
-                                if (temp != null)
-                                {
-                                    Log.Error("Destination: " + temp.x + temp.y + temp.z);
-                                }
-                                else
-                                {
-                                    Log.Error("temp is null");
-                                }
+                                Log.Message("Fly Over");
                             }
                             else
                             {
-                                Log.Error("Function null");
-
+                                wantToIntercept = false;
+                                Log.Message("In Range");
                             }
-                        }*/
+                        }
+
 
                         if (wantToIntercept)
                         {
@@ -749,7 +728,32 @@ namespace Enhanced_Defence.Shields
                 return;
             this.shieldCurrentStrength -= (int)(((float)damage) * powerToDamage);
         }
+
+
+        public bool WillTargetLandInRange(Projectile projectile)
+        {
+            Vector3 targetLocation = GetTargetLocationFromProjectile(projectile);
+
+            if (Vector3.Distance(this.position.ToVector3() , targetLocation) > this.shieldShieldRadius)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public Vector3 GetTargetLocationFromProjectile(Projectile projectile)
+        {
+            FieldInfo fieldInfo = projectile.GetType().GetField("destination", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+            Vector3 reoveredVector = (Vector3)fieldInfo.GetValue(projectile);
+            Log.Message(reoveredVector.ToString());
+            return reoveredVector;
+        }
     }
+
+
 
     public enum ShieldStatus
     {
