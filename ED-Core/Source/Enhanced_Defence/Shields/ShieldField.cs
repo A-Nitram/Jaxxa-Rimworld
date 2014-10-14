@@ -292,6 +292,7 @@ namespace Enhanced_Defence.Shields
                     }
 
                     supressFire(flag_fireSupression);
+                    interceptPods();
                 }
             }
             //Regenerate shield if necessary
@@ -450,6 +451,21 @@ namespace Enhanced_Defence.Shields
                 currentThing.Destroy();
             }
 
+        }
+
+        private void interceptPods()
+        {
+            IEnumerable<Thing> dropPods = Find.ListerThings.ThingsOfDef(ThingDefOf.DropPod);
+
+            if (dropPods != null)
+            {
+                IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
+                foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
+                {
+                    currentDropPod.Destroy();
+                }
+
+            }
         }
 
         private void supressFire(bool flag_fireSupression)
@@ -734,7 +750,7 @@ namespace Enhanced_Defence.Shields
         {
             Vector3 targetLocation = GetTargetLocationFromProjectile(projectile);
 
-            if (Vector3.Distance(this.position.ToVector3() , targetLocation) > this.shieldShieldRadius)
+            if (Vector3.Distance(this.position.ToVector3(), targetLocation) > this.shieldShieldRadius)
             {
                 return false;
             }

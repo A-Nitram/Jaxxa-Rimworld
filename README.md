@@ -57,6 +57,10 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Fix for SIF Shield not restoring correctly when loading a saved game.
 - Fix for potential null pointer errors relating to projectiles without a faction
 - Changed OmniGel textures to use the ones provided by Omni
+0.07
+-Changes to Shields
+-Allow Artillery to FlyOver Shields
+-DropPod Intercept Mode
 ~~~
 
 ##License:
