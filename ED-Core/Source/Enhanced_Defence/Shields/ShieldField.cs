@@ -462,7 +462,24 @@ namespace Enhanced_Defence.Shields
                 IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
                 foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
                 {
-                    currentDropPod.Destroy();
+                    //currentDropPod.Destroy();
+
+                    currentDropPod.Destroy(DestroyMode.Vanish);
+                    BodyPartDamageInfo bodyPartDamageInfo = new BodyPartDamageInfo(new BodyPartHeight?(), new BodyPartDepth?(BodyPartDepth.Outside));
+                    new ExplosionInfo()
+                    {
+                        
+                        center = currentDropPod.Position,
+                        radius = 2,
+                        //dinfo = new DamageInfo(this.def.projectile.damageDef, 999, currentDropPod, new BodyPartDamageInfo?(bodyPartDamageInfo), (ThingDef)null),
+                        dinfo = new DamageInfo(DamageTypeDefOf.Flame,10,currentDropPod)
+                        //preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef,
+                        //postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef,
+                        //explosionSpawnChance = this.def.projectile.explosionSpawnChance,
+                        //explosionSound = this.def.projectile.soundExplode,
+                        //projectile = this.def
+                    }.Explode();
+
                 }
 
             }
