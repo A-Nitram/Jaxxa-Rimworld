@@ -44,6 +44,8 @@ namespace Enhanced_Defence.Shields
 
         public bool shieldFireSupression;
 
+        public bool shieldInterceptDropPod;
+
         public bool shieldStructuralIntegrityMode;
 
         List<IntVec3> squares = new List<IntVec3>();
@@ -175,7 +177,7 @@ namespace Enhanced_Defence.Shields
         #region Setup
 
         //Constructor
-        public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue)
+        public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldInterceptDropPod, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue)
         {
             this.shieldBuilding = shieldBuilding;
             position = pos;
@@ -191,7 +193,7 @@ namespace Enhanced_Defence.Shields
             this.shieldBlockDirect = shieldBlockDirect;
 
             this.shieldFireSupression = shieldFireSupression;
-
+            this.shieldInterceptDropPod = shieldInterceptDropPod;
             this.shieldStructuralIntegrityMode = shieldStructuralIntegrityMode;
 
             this.colourRed = colourRed;
@@ -242,7 +244,7 @@ namespace Enhanced_Defence.Shields
         }
 
         //Tick - here the projectiles are being found
-        public void ShieldTick(bool flag_direct, bool flag_indirect, bool flag_fireSupression, bool shieldRepairMode)
+        public void ShieldTick(bool flag_direct, bool flag_indirect, bool flag_fireSupression, bool flag_InterceptDropPod, bool shieldRepairMode)
         {
             //Sleep if disabled
             if (!this.enabled)
@@ -292,7 +294,7 @@ namespace Enhanced_Defence.Shields
                     }
 
                     supressFire(flag_fireSupression);
-                    interceptPods();
+                    interceptPods(flag_InterceptDropPod);
                 }
             }
             //Regenerate shield if necessary
@@ -453,38 +455,37 @@ namespace Enhanced_Defence.Shields
 
         }
 
-        private void interceptPods()
+        private void interceptPods(bool flag_InterceptDropPod)
         {
-            IEnumerable<Thing> dropPods = Find.ListerThings.ThingsOfDef(ThingDefOf.DropPod);
-
-            if (dropPods != null)
+            if (this.shieldInterceptDropPod && flag_InterceptDropPod)
             {
-                IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
-                foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
+                IEnumerable<Thing> dropPods = Find.ListerThings.ThingsOfDef(ThingDefOf.DropPod);
+
+                if (dropPods != null)
                 {
-                    //currentDropPod.Destroy();
-
-                    currentDropPod.Destroy(DestroyMode.Vanish);
-                    BodyPartDamageInfo bodyPartDamageInfo = new BodyPartDamageInfo(new BodyPartHeight?(), new BodyPartDepth?(BodyPartDepth.Outside));
-                    new ExplosionInfo()
+                    IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
+                    foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
                     {
-                        
-                        center = currentDropPod.Position,
-                        radius = 2,
-                        //dinfo = new DamageInfo(this.def.projectile.damageDef, 999, currentDropPod, new BodyPartDamageInfo?(bodyPartDamageInfo), (ThingDef)null),
-                        dinfo = new DamageInfo(DamageTypeDefOf.Flame,10,currentDropPod)
-                        //preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef,
-                        //postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef,
-                        //explosionSpawnChance = this.def.projectile.explosionSpawnChance,
-                        //explosionSound = this.def.projectile.soundExplode,
-                        //projectile = this.def
-                    }.Explode();
+                        //currentDropPod.Destroy();
 
+                        currentDropPod.Destroy(DestroyMode.Vanish);
+                        BodyPartDamageInfo bodyPartDamageInfo = new BodyPartDamageInfo(new BodyPartHeight?(), new BodyPartDepth?(BodyPartDepth.Outside));
+                        new ExplosionInfo()
+                        {
+                            center = currentDropPod.Position,
+                            radius = 1,
+                            //dinfo = new DamageInfo(this.def.projectile.damageDef, 999, currentDropPod, new BodyPartDamageInfo?(bodyPartDamageInfo), (ThingDef)null),
+                            dinfo = new DamageInfo(DamageTypeDefOf.Flame, 10, currentDropPod)
+                            //preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef,
+                            //postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef,
+                            //explosionSpawnChance = this.def.projectile.explosionSpawnChance,
+                            //explosionSound = this.def.projectile.soundExplode,
+                            //projectile = this.def
+                        }.Explode();
+                    }
                 }
-
             }
         }
-
         private void supressFire(bool flag_fireSupression)
         {
             if (this.shieldFireSupression && flag_fireSupression && (tick % FIRE_SUPRESSION_TICK_DELAY == 0))

@@ -21,6 +21,7 @@ namespace Enhanced_Defence.Shields
         public bool shieldBlockIndirect;
         public bool shieldBlockDirect;
         public bool shieldFireSupression;
+        public bool shieldInterceptDropPod;
 
         public bool shieldStructuralIntegrityMode;
 

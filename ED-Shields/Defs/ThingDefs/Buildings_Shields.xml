@@ -70,6 +70,7 @@
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
+		<shieldInterceptDropPod>false</shieldInterceptDropPod>
 		
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
 		
@@ -113,6 +114,7 @@
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
+		<shieldInterceptDropPod>false</shieldInterceptDropPod>
 		
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
 		
@@ -151,6 +153,7 @@
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>false</shieldBlockDirect>
 		<shieldFireSupression>false</shieldFireSupression>
+		<shieldInterceptDropPod>true</shieldInterceptDropPod>
 		
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
 		

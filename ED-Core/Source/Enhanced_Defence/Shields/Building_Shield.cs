@@ -23,6 +23,9 @@ namespace Enhanced_Defence.Shields
         private static Texture2D UI_FIRE_ON;
         private static Texture2D UI_FIRE_OFF;
 
+        private static Texture2D UI_INTERCEPT_DROPPOD_ON;
+        private static Texture2D UI_INTERCEPT_DROPPOD_OFF;
+
         private static Texture2D UI_REPAIR_ON;
         private static Texture2D UI_REPAIR_OFF;
 
@@ -35,6 +38,7 @@ namespace Enhanced_Defence.Shields
         public bool flag_fireSupression = true;
         public bool flag_shieldRepairMode = true;
         public bool flag_showVisually = true;
+        public bool flag_InterceptDropPod = true;
 
         //variables that are read in from XML
         public int shieldMaxShieldStrength;
@@ -48,6 +52,7 @@ namespace Enhanced_Defence.Shields
         public bool shieldBlockIndirect;
         public bool shieldBlockDirect;
         public bool shieldFireSupression;
+        public bool shieldInterceptDropPod;
 
         public bool shieldStructuralIntegrityMode;
 
@@ -81,6 +86,10 @@ namespace Enhanced_Defence.Shields
             UI_INDIRECT_ON = ContentFinder<Texture2D>.Get("UI/IndirectOn", true);
             UI_FIRE_OFF = ContentFinder<Texture2D>.Get("UI/FireOff", true);
             UI_FIRE_ON = ContentFinder<Texture2D>.Get("UI/FireOn", true);
+            UI_INTERCEPT_DROPPOD_OFF = ContentFinder<Texture2D>.Get("UI/FireOff", true);
+            UI_INTERCEPT_DROPPOD_ON = ContentFinder<Texture2D>.Get("UI/FireOn", true);
+
+            
             UI_REPAIR_ON = ContentFinder<Texture2D>.Get("UI/RepairON", true);
             UI_REPAIR_OFF = ContentFinder<Texture2D>.Get("UI/RepairOFF", true);
 
@@ -107,6 +116,7 @@ namespace Enhanced_Defence.Shields
                 shieldBlockIndirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockIndirect;
                 shieldBlockDirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockDirect;
                 shieldFireSupression = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldFireSupression;
+                shieldInterceptDropPod = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldInterceptDropPod;
 
                 shieldStructuralIntegrityMode = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldStructuralIntegrityMode;
 
@@ -121,7 +131,7 @@ namespace Enhanced_Defence.Shields
 
             if (shieldField == null)
             {
-                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
 
             ShieldField.setupValidBuildings();
@@ -148,7 +158,7 @@ namespace Enhanced_Defence.Shields
                     }
                 }
                 //Do tick for the shield field
-                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_shieldRepairMode);
+                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression,this.flag_InterceptDropPod, this.flag_shieldRepairMode);
                 //Change power requirements depending on shield status
                 switch (shieldField.status)
                 {
@@ -177,7 +187,7 @@ namespace Enhanced_Defence.Shields
             else
             {
                 //Log.Message("shieldField is null in tick event, creating new one.");
-                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
             }
 
         }
@@ -349,6 +359,28 @@ namespace Enhanced_Defence.Shields
 
                 CommandList.Add(command_Action_switchFire);
             }
+            
+            if (shieldInterceptDropPod)
+            {
+                //Switch Fire
+                Command_Action command_Action_switchIntercepDropPod = new Command_Action();
+                command_Action_switchIntercepDropPod.defaultLabel = "Intercept DropPod";
+                if (flag_InterceptDropPod)
+                {
+                    command_Action_switchIntercepDropPod.icon = UI_INTERCEPT_DROPPOD_ON;
+                    command_Action_switchIntercepDropPod.defaultDesc = "On";
+                }
+                else
+                {
+                    command_Action_switchIntercepDropPod.icon = UI_INTERCEPT_DROPPOD_OFF;
+                    command_Action_switchIntercepDropPod.defaultDesc = "Off";
+                }
+
+                command_Action_switchIntercepDropPod.activateSound = SoundDef.Named("Click");
+                command_Action_switchIntercepDropPod.action = new Action(this.SwitchInterceptDropPod);
+
+                CommandList.Add(command_Action_switchIntercepDropPod);
+            }
 
             if (shieldStructuralIntegrityMode)
             {
@@ -375,7 +407,7 @@ namespace Enhanced_Defence.Shields
 
             if (true)
             {
-                //Switch Repair
+                //Switch Visuals
                 Command_Action command_Action_switchShow = new Command_Action();
                 command_Action_switchShow.defaultLabel = "Show Visually";
                 if (flag_showVisually)
@@ -414,6 +446,11 @@ namespace Enhanced_Defence.Shields
         {
             flag_fireSupression = !flag_fireSupression;
         }
+        private void SwitchInterceptDropPod()
+        {
+            flag_InterceptDropPod = !flag_InterceptDropPod;
+        }
+
 
         private void SwitchVisual()
         {
