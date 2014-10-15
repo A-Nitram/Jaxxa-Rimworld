@@ -45,11 +45,11 @@
 	</ThingDef>
 	
 	<ThingDef Class="Enhanced_Defence.Shields.ShieldThingDef" ParentName="ShieldBase">
-		<defName>Building_ShieldBasic</defName>
-		<label>Basic shield</label>
+		<defName>Building_ShieldStandard</defName>
+		<label>Standard Shield</label>
 		<description>Creates shield field to protect important infrastructure.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
-		<researchPrerequisite>Building_ShieldBasic_research</researchPrerequisite>
+		<researchPrerequisite>Building_ShieldStandard_research</researchPrerequisite>
 		<graphicPathSingle>Things/ShieldBuilding</graphicPathSingle>
 		<uiIconPath>Things/ShieldBuilding</uiIconPath>
 		<comps>
@@ -127,11 +127,11 @@
 	</ThingDef>
   
   	<ThingDef Class="Enhanced_Defence.Shields.ShieldThingDef" ParentName="ShieldBase">
-		<defName>Building_Shield_CRAM</defName>
-		<label>Phalanx CRAM shield</label>
-		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, at the expense of being able to block direct fire weapons. (only stops Mortars)</description>
+		<defName>Building_Shield_Fortress</defName>
+		<label>Fortress shield</label>
+		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
-		<researchPrerequisite>Building_ShieldCRAM_research</researchPrerequisite>
+		<researchPrerequisite>Building_ShieldFortress_research</researchPrerequisite>
 		<graphicPathSingle>Things/ShieldBuilding_CRAM</graphicPathSingle>
 		<uiIconPath>Things/ShieldBuilding_CRAM</uiIconPath>
 		<comps>
@@ -142,7 +142,7 @@
 		</comps>
 		<specialDisplayRadius>20</specialDisplayRadius>
 		
-		<shieldMaxShieldStrength>200</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>20</shieldShieldRadius>
 
@@ -151,7 +151,7 @@
 		<shieldPowerRequiredSustaining>-1820</shieldPowerRequiredSustaining>
 		
 		<shieldBlockIndirect>true</shieldBlockIndirect>
-		<shieldBlockDirect>false</shieldBlockDirect>
+		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>false</shieldFireSupression>
 		<shieldInterceptDropPod>true</shieldInterceptDropPod>
 		
@@ -190,6 +190,7 @@
 		<shieldBlockIndirect>false</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
+		<shieldInterceptDropPod>false</shieldInterceptDropPod>
 		
 		<shieldStructuralIntegrityMode>true</shieldStructuralIntegrityMode>
 		

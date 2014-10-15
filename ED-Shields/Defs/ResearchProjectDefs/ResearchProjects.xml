@@ -2,8 +2,8 @@
 <ResearchProjectDefs>
 
 	<ResearchProjectDef>
-		<defName>Building_ShieldBasic_research</defName>
-		<label>Basic shield generator</label>
+		<defName>Building_ShieldStandard_research</defName>
+		<label>Standard Shield Generator</label>
 		<description>Magnetic shield field slows and heats any projectiles to the point of evaporating.
     
     The basics of the principle is the eddy current brake, however the complex system allows the barier to ignore projectiles that leave the shield. 
@@ -13,13 +13,13 @@
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Building_ShieldCRAM_research</defName>
-		<label>Shields CRAM</label>
-		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, at the expense of being able to block direct fire.
+		<defName>Building_ShieldFortress_research</defName>
+		<label>Fortress Shield</label>
+		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.
 		</description>
 		<totalCost>1500</totalCost>
 		<prerequisites>
-			<li>Building_ShieldBasic_research</li>
+			<li>Building_ShieldStandard_research</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
@@ -30,7 +30,7 @@
 		</description>
 		<totalCost>1000</totalCost>
 		<prerequisites>
-			<li>Building_ShieldBasic_research</li>
+			<li>Building_ShieldStandard_research</li>
 		</prerequisites>
 	</ResearchProjectDef>
 	
@@ -41,7 +41,7 @@
 		</description>
 		<totalCost>2000</totalCost>
 		<prerequisites>
-			<li>Building_ShieldBasic_research</li>
+			<li>Building_ShieldStandard_research</li>
 		</prerequisites>
 	</ResearchProjectDef>
 	
