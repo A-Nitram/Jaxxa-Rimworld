@@ -275,7 +275,10 @@ namespace Enhanced_Defence.Shields
             Scribe_Values.LookValue(ref flag_direct, "flag_direct");
             Scribe_Values.LookValue(ref flag_indirect, "flag_indirect");
             Scribe_Values.LookValue(ref flag_fireSupression, "flag_fireSupression");
+            Scribe_Values.LookValue(ref flag_InterceptDropPod, "flag_InterceptDropPod");
+            
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");
+            Scribe_Values.LookValue(ref flag_showVisually, "flag_showVisually");
         }
 
         public override IEnumerable<Command> GetCommands()

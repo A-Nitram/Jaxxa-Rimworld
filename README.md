@@ -61,6 +61,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Changes to Shields
 -Allow Artillery to FlyOver Shields
 -DropPod Intercept Mode
+-Fix to Toggle of Visually Showing Shields not being restored on Save Load
 ~~~
 
 ##License:
