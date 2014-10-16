@@ -59,6 +59,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 - Changed OmniGel textures to use the ones provided by Omni
 0.07
 -Changes to Shields
+--Standard / Small / Fortress / SIF Shields
 -Allow Artillery to FlyOver Shields
 -DropPod Intercept Mode
 -Fix to Toggle of Visually Showing Shields not being restored on Save Load
