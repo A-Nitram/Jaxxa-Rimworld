@@ -14,8 +14,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence
 Also check the GitHub wiki for more detailed information about the individual Modules:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
 
-Please Report Bugs to the GitHub Issue tracker:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/issues
+If you are having trouble please Read this FAQ, it has instructions on logging an issue at the end of it:  
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
 
 Note that the downloads on Github are to be considered development builds and may not be working at any time.  
 They also do not provide binaries and will have to be compiled from source in order to be played. Most people will want to download a binary release from the Forum page.
