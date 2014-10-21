@@ -197,7 +197,7 @@ namespace Enhanced_Defence.Stargate
 
             Log.Message("Expose Data - look list");
             //Scribe_Collections.LookList<Thing>(ref listOfThingLists, "listOfThingLists", LookMode.Deep, (object)null);
-            Scribe_Collections.LookList<Thing>(ref listOfOffworldThings, "listOfOffworldThings", LookMode.Deep, (object)null);
+            //Scribe_Collections.LookList<Thing>(ref listOfOffworldThings, "listOfOffworldThings", LookMode.Deep, (object)null);
 
             Log.Message("Expose Data about to start");
 
