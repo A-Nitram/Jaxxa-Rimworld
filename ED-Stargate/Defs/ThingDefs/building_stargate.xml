@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+  
+   <ThingDef ParentName="BuildingBase">
+    <defName>StargateSGC</defName>
+    <eType>BuildingComplex</eType>
+    <label>Stargate</label>
+    <thingClass>Enhanced_Defence.Stargate.Building_Stargate</thingClass>
+    <graphicPathSingle>Things/Buildings/NuclearLamp</graphicPathSingle>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToBuild>1800</WorkToBuild>
+      <MaxHealth>350</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>WirelessPowerNode.</description>
+    <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+    </building>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>false</startElectricalFires>
+        <basePowerConsumption>0</basePowerConsumption>
+      </li>
+    </comps>
+    <size>(2,2)</size>
+    <costList>
+      <Metal>200</Metal>
+    </costList>
+    <overdraw>false</overdraw>
+    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <hasInteractionSquare>false</hasInteractionSquare>
+    <killedLeavings>
+      <ChunkSlag>6</ChunkSlag>
+     </killedLeavings>
+    <filthLeavings>
+      <SlagRubble>3</SlagRubble>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.75</staticSunShadowHeight>
+  </ThingDef>
+
+
+</ThingDefs>

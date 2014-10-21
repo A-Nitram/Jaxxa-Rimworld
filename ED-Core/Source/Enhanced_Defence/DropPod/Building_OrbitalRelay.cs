@@ -146,7 +146,7 @@ namespace Enhanced_Defence.DropPod
         {
             if (power.PowerOn)
             {
-                Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindThingsInAutoLoader(this);
+                Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindItemThingsInAutoLoader(this);
 
                 if (foundThing != null)
                 {

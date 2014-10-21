@@ -22,7 +22,7 @@ namespace Enhanced_Defence.Utilities
             return null;
         }
 
-        static public Thing FindThingsInAutoLoader(Thing centerBuilding)
+        static public Thing FindItemThingsInAutoLoader(Thing centerBuilding)
         {
 
             ThingDef thingDefHopper = ThingDef.Named("AutoLoader");

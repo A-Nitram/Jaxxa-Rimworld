@@ -137,8 +137,7 @@ namespace Enhanced_Defence.Shields
             ShieldField.setupValidBuildings();
 
         }
-
-
+        
         public override void Tick()
         {
             base.Tick();
