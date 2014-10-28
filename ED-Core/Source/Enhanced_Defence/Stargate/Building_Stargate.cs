@@ -147,7 +147,6 @@ namespace Enhanced_Defence.Stargate
             return CommandList.AsEnumerable<Command>();
         }
 
-
         public void AddResources()
         {
 
