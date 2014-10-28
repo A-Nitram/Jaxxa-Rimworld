@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>SunLamp</defName>
+    <eType>BuildingComplex</eType>
+    <label>sun lamp</label>
+    <thingClass>Enhanced_Defence.VisibleRadius.Building</thingClass>
+    <category>Building</category>
+    <graphicPathSingle>Things/Building/Production/LampSun</graphicPathSingle>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHealth>50</MaxHealth>
+      <WorkToBuild>330</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<tickerType>Rare</tickerType>
+    <selectable>true</selectable>
+    <description>Lights an area brightly enough to grow crops.</description>
+    <size>(1,1)</size>
+    <costList>
+      <Metal>20</Metal>
+    </costList>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <comps>
+      <li>
+        <compClass>CompGlower</compClass>
+        <overlightRadius>7.0</overlightRadius>
+        <glowRadius>14</glowRadius>
+        <glowColor>(370,370,370,0)</glowColor>
+      </li>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+        <basePowerConsumption>600</basePowerConsumption>
+      </li>
+    </comps>
+    <!-- Determined by trial and error
+    This value isn't perfect because these radii use different algorithms
+    but it matches in this case-->
+    <specialDisplayRadius>5.8</specialDisplayRadius>
+    <designationCategory>Misc</designationCategory>
+    <sunShadowInfo>
+      <basewidth>0.2</basewidth>
+      <baseHeight>0.2</baseHeight>
+      <tallness>0.4</tallness>
+      <offset>(0,0,-0.1)</offset>
+    </sunShadowInfo>
+    <rotatable>false</rotatable>
+    <designationHotKey>U</designationHotKey>
+  </ThingDef>
+
+</Buildings>
