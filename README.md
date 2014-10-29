@@ -64,6 +64,11 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -DropPod Intercept Mode
 -Fix to Toggle of Visually Showing Shields not being restored on Save Load
 -Shield Texture Updates
+-
+0.08
+-Added ED-VisibleRadius
+--Allows you to keep the radius up for Trade beacons and SunLamps after deselecting them
+-Rebalanced (Reduced) research costs
 ~~~
 
 ##License:

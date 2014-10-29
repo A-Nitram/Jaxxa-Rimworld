@@ -6,7 +6,7 @@
 		<label>Personal Shield Research</label>
 		<description>Using nano technology and miniaturisation a personal version of the shield generator has been developed.
 		</description>
-		<totalCost>15000</totalCost>
+		<totalCost>2000</totalCost>
 		<prerequisites>
 		</prerequisites>
 	</ResearchProjectDef>

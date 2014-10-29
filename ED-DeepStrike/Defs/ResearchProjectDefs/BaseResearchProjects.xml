@@ -5,7 +5,7 @@
 		<defName>OrbitalDropCommand</defName>
 		<label>Orbital Drop Command</label>
 		<description>Allows you to build a transporter station and reactivate a derelict ship in orbit.</description>
-		<totalCost>2000</totalCost>
+		<totalCost>1200</totalCost>
 	</ResearchProjectDef>
 
 </ResearchProjectDefs>
