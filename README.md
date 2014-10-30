@@ -25,7 +25,7 @@ This mod has been created with a number of distinct modules. Theses are designed
 
 ##How to use:
 Extract the zip file and place the folders (ED-AutoLoader, ED-Core ... ) into your RimWorldxxx\mods folder.  
-Then enable the modules that you want to play with, some modules will have dependencies that you must enable before they themselves can be enabled.
+Then enable the modules that you want to play with, some modules will have dependencies that you must enable before they themselves can be enabled. These will be noted in their description.
 
 ##Details:
 For details on the individual modules please look at the GitHub wiki:  
@@ -64,7 +64,6 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -DropPod Intercept Mode
 -Fix to Toggle of Visually Showing Shields not being restored on Save Load
 -Shield Texture Updates
--
 0.08
 -Added ED-VisibleRadius
 --Allows you to keep the radius up for Trade beacons and SunLamps after deselecting them
