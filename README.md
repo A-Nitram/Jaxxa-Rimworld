@@ -71,6 +71,9 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Added ED-WallConnect
 --Visual update to allow walls and natural rock to connect with each other
 --Also applied to Embrasures
+-Added ED-Plants24H
+--Plants will grow 24 Hours a day if they have sufficient lighting
+--Effects PlantPotato, PlantStrawberry, PlantCotton, PlantDevilstrand, PlantRose, PlantDaylily
 ~~~
 
 ##License:
