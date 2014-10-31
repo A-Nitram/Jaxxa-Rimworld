@@ -49,11 +49,15 @@
   <ItemGroup>
     <Compile Include="DropPod\Building_OrbitalRelay.cs" />
     <Compile Include="DropPod\OrbitalRelayThingDef.cs" />
+    <Compile Include="Plants24H\Plant.cs" />
     <Compile Include="Power\LaserDrill\Building_LaserDrill.cs" />
     <Compile Include="Power\LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="Power\WirelessPower\WirelessPowerNode.cs" />
     <Compile Include="Power\WirelessPower\WirelessPowerManager.cs" />
     <Compile Include="Stargate\Building_Stargate.cs" />
+    <Compile Include="Stargate\Saving\Dialog\Dialog_LoadPreset.cs" />
+    <Compile Include="Stargate\Saving\Dialog\Dialog_Preset.cs" />
+    <Compile Include="Stargate\Saving\Dialog\Dialog_SavePreset.cs" />
     <Compile Include="Stargate\Saving\SaveThings.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />

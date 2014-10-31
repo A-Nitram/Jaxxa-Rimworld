@@ -68,6 +68,9 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Added ED-VisibleRadius
 --Allows you to keep the radius up for Trade beacons and SunLamps after deselecting them
 -Rebalanced (Reduced) research costs
+-Added ED-WallConnect
+--Visual update to allow walls and natural rock to connect with each other
+--Also applied to Embrasures
 ~~~
 
 ##License:
@@ -83,6 +86,9 @@ Thanks to Darker for:
 * making the original Shield mod, and thanks for allowing anything to be done with it.
  * http://ludeon.com/forums/index.php?topic=2677.msg24772#msg24772
 
+Thanks to EdB for:
+* Allowing people to look through his UI code.
+ 
 Thanks to Kulverstukass for:
 * Awesome bug reporting and feedback.
  
