@@ -74,6 +74,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Added ED-Plants24H
 --Plants will grow 24 Hours a day if they have sufficient lighting
 --Effects PlantPotato, PlantStrawberry, PlantCotton, PlantDevilstrand, PlantRose, PlantDaylily
+-Removed EMRG from spawning on mechanoids
 ~~~
 
 ##License:

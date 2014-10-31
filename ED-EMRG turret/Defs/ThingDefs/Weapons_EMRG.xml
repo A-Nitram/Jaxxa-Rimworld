@@ -70,7 +70,6 @@
     <baseMarketValue>900</baseMarketValue>
     <techLevel>Spacer</techLevel>
     <weaponTags>
-      <li>MechanoidGunHeavy</li>
     </weaponTags>
     <equippedStatOffsets>
       <MoveSpeed>-0.25</MoveSpeed>
