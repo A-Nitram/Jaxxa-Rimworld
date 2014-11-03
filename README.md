@@ -102,6 +102,9 @@ Thanks to mrofa for:
  * Laser Drill
  * NuclearLamp used for Power Node  
 
+Thanks to obuw for:
+* Providing the base of some new icons
+
 Thanks to Omni for:
 * Providing new textures for the OmniGel system
  
