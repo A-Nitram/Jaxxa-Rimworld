@@ -1,16 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Plants>
-
-		<statBases>
-			<MaxHealth>85</MaxHealth>
-			<Beauty>12</Beauty>
-			<Flammability>1.0</Flammability>
-		</statBases>
 		
   <ThingDef Name="PlantBase" Abstract="True">
     <eType>Plant</eType>
     <category>Plant</category>
-    <thingClass>Plant</thingClass>
+    <thingClass>Enhanced_Defence.Plants24H.Plant</thingClass>
     <altitudeLayer>LowPlant</altitudeLayer>
     <useStandardHealth>True</useStandardHealth>
 	<statBases>

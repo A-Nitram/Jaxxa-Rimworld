@@ -4,5 +4,7 @@
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 7</targetVersion>
-  <description>Adds Omnigel into the game. Allows you to grow a new resource and refine it into resources such as stone or metal</description>
+  <description>
+	Requires: ED-Core
+	Adds Omnigel into the game. Allows you to grow a new resource and refine it into resources such as stone or metal</description>
 </ModMetaData>

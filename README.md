@@ -65,16 +65,17 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Fix to Toggle of Visually Showing Shields not being restored on Save Load
 -Shield Texture Updates
 0.08
--Added ED-VisibleRadius
+-Added ED-VisibleRadius module
 --Allows you to keep the radius up for Trade beacons and SunLamps after deselecting them
 -Rebalanced (Reduced) research costs
--Added ED-WallConnect
+-Added ED-WallConnect module
 --Visual update to allow walls and natural rock to connect with each other
 --Also applied to Embrasures
--Added ED-Plants24H
+-Added ED-Plants24H module
 --Plants will grow 24 Hours a day if they have sufficient lighting
 --Effects PlantPotato, PlantStrawberry, PlantCotton, PlantDevilstrand, PlantRose, PlantDaylily
--Removed EMRG from spawning on mechanoids
+--Also changes OmniGel
+-Fixed bug that allowed EMRG to spawn on mechanoids
 ~~~
 
 ##License:
