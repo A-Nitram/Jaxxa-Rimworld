@@ -219,15 +219,15 @@ namespace Enhanced_Defence.Shields
                 //if (building.def.defName.Contains("Embrasure"))
 
                 //Core
-                ShieldField.validBuildings.Add("Door");
-                ShieldField.validBuildings.Add("Autodoor");
-                ShieldField.validBuildings.Add("Wall");
-                ShieldField.validBuildings.Add("WallConduit");
+                //ShieldField.validBuildings.Add("Door");
+                //ShieldField.validBuildings.Add("Autodoor");
+                //ShieldField.validBuildings.Add("Wall");
+                //ShieldField.validBuildings.Add("WallConduit");
                 ShieldField.validBuildings.Add("Sandbags");
 
                 //Embrasures
-                ShieldField.validBuildings.Add("Embrasure");
-                ShieldField.validBuildings.Add("EmbrasureConduit");
+                //ShieldField.validBuildings.Add("Embrasure");
+                //ShieldField.validBuildings.Add("EmbrasureConduit");
 
 
             }
@@ -636,6 +636,12 @@ namespace Enhanced_Defence.Shields
             else
             {
                 Log.Error("ShieldField.validBuildings Not set up properly");
+            }
+
+            
+            if (currentBuilding.def.eType == EntityType.Wall || currentBuilding.def.eType == EntityType.Door)
+            {
+                return true;
             }
 
             return false;

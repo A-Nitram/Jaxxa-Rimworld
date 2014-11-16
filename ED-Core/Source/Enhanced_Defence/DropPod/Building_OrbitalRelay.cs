@@ -127,19 +127,27 @@ namespace Enhanced_Defence.DropPod
             //DropPodUtility.DropThingGroupsNear(this.Position, Building_OrbitalRelay.listOfThingLists);
             //Building_OrbitalRelay.listOfThingLists.Clear();
 
-            List<List<Thing>> listOfListOfThings = new List<List<Thing>>();
-
-            foreach (Thing currentThing in Building_OrbitalRelay.listOfThings)
+            if (Find.RoofGrid.Roofed(this.Position))
             {
-                List<Thing> newList = new List<Thing>();
-                newList.Add(currentThing);
-
-                listOfListOfThings.Add(newList);
+                Messages.Message("Do you really think it is a good idea to use DropPods indoors?", MessageSound.Reject);
             }
+            else
+            {
 
-            DropPodUtility.DropThingGroupsNear(this.Position, listOfListOfThings);
+                List<List<Thing>> listOfListOfThings = new List<List<Thing>>();
 
-            Building_OrbitalRelay.listOfThings.Clear();
+                foreach (Thing currentThing in Building_OrbitalRelay.listOfThings)
+                {
+                    List<Thing> newList = new List<Thing>();
+                    newList.Add(currentThing);
+
+                    listOfListOfThings.Add(newList);
+                }
+
+                DropPodUtility.DropThingGroupsNear(this.Position, listOfListOfThings);
+
+                Building_OrbitalRelay.listOfThings.Clear();
+            }
         }
 
         public void AddResources()

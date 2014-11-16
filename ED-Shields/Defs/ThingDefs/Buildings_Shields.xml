@@ -140,6 +140,7 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 		</comps>
+		<size>(2,2)</size>
 		<specialDisplayRadius>20</specialDisplayRadius>
 		
 		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>

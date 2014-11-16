@@ -67,15 +67,17 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 0.08
 -Added ED-VisibleRadius module
 --Allows you to keep the radius up for Trade beacons and SunLamps after deselecting them
--Rebalanced (Reduced) research costs
+-Rebalanced (Reduced) various research costs
 -Added ED-WallConnect module
 --Visual update to allow walls and natural rock to connect with each other
---Also applied to Embrasures
+--Also applied to Embrasures (by default)
 -Added ED-Plants24H module
 --Plants will grow 24 Hours a day if they have sufficient lighting
 --Effects PlantPotato, PlantStrawberry, PlantCotton, PlantDevilstrand, PlantRose, PlantDaylily
 --Also changes OmniGel
 -Fixed bug that allowed EMRG to spawn on mechanoids
+-Fortress shield is now 2x2 in size
+-SIF Shield should now function for any Wall and Door
 ~~~
 
 ##License:
