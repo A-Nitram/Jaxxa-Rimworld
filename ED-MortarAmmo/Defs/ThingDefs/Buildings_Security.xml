@@ -16,14 +16,15 @@
     <eType>Building_Turret</eType>
     <label>incendiary mortar</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
-    <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
+    <graphicPath>Things/Building/Security/TurretMortarBase</graphicPath>
+	<graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
-    <hasInteractionSquare>True</hasInteractionSquare>
+    <hasInteractionCell>True</hasInteractionCell>
     <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
     <statBases>
       <MaxHealth>180</MaxHealth>
       <Flammability>1.0</Flammability>
-      <WorkToBuild>2700</WorkToBuild>
+      <WorkToMake>2700</WorkToMake>
       <Beauty>-60</Beauty>
     </statBases>
 	<ammoType>Shells</ammoType>
@@ -53,9 +54,9 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
     <costList>
-      <Metal>250</Metal>
+      <Steel>250</Steel>
     </costList>
-    <overdraw>true</overdraw>
+    <graphicOverdraw>true</graphicOverdraw>
     <combatTargetBuilding>true</combatTargetBuilding>
     <filthLeavings>
       <SlagRubble>2</SlagRubble>
@@ -68,16 +69,16 @@
       <turretGunDef>Artillery_MortarIncendiary</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretburstCooldownTicks>3000</turretburstCooldownTicks>
-      <turretTopgraphicPathSingle>Things/Building/Security/TurretMortarIncendiary_Top</turretTopgraphicPathSingle>
+      <turretTopgraphicPath>Things/Building/Security/TurretMortarIncendiary_Top</turretTopgraphicPath>
       <buildingTags>
         <li>Artillery</li>
         <li>Artillery_BaseDestroyer</li>
       </buildingTags>
     </building>
     <designationHotKey>U</designationHotKey>
-    <placementRestricters>
-      <li>PlacementRestricter_NotUnderRoof</li>
-    </placementRestricters>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
     <researchPrerequisite>Mortars</researchPrerequisite>
   </ThingDef>
 
@@ -91,14 +92,15 @@
     <eType>Building_Turret</eType>
     <label>mortar</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
-    <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
+    <graphicPath>Things/Building/Security/TurretMortarBase</graphicPath>
+	<graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
-    <hasInteractionSquare>True</hasInteractionSquare>
+    <hasInteractionCell>True</hasInteractionCell>
     <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
     <statBases>
       <MaxHealth>180</MaxHealth>
       <Flammability>1.0</Flammability>
-      <WorkToBuild>2700</WorkToBuild>
+      <WorkToMake>2700</WorkToMake>
       <Beauty>-60</Beauty>
     </statBases>
 	<ammoType>Shells</ammoType>
@@ -128,9 +130,9 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
     <costList>
-      <Metal>250</Metal>
+      <Steel>250</Steel>
     </costList>
-    <overdraw>true</overdraw>
+    <graphicOverdraw>true</graphicOverdraw>
     <combatTargetBuilding>true</combatTargetBuilding>
     <filthLeavings>
       <SlagRubble>2</SlagRubble>
@@ -143,16 +145,16 @@
       <turretGunDef>Artillery_MortarBomb</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretburstCooldownTicks>3000</turretburstCooldownTicks>
-      <turretTopgraphicPathSingle>Things/Building/Security/TurretMortarBomb_Top</turretTopgraphicPathSingle>
+      <turretTopgraphicPath>Things/Building/Security/TurretMortarBomb_Top</turretTopgraphicPath>
       <buildingTags>
         <li>Artillery</li>
         <li>Artillery_BaseDestroyer</li>
       </buildingTags>
     </building>
     <designationHotKey>U</designationHotKey>
-    <placementRestricters>
-      <li>PlacementRestricter_NotUnderRoof</li>
-    </placementRestricters>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
     <researchPrerequisite>Mortars</researchPrerequisite>
   </ThingDef>
 
@@ -162,14 +164,15 @@
     <eType>Building_Turret</eType>
     <label>EMP mortar</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
-    <graphicPathSingle>Things/Building/Security/TurretMortarBase</graphicPathSingle>
+    <graphicPath>Things/Building/Security/TurretMortarBase</graphicPath>
+	<graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
-    <hasInteractionSquare>True</hasInteractionSquare>
+    <hasInteractionCell>True</hasInteractionCell>
     <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
     <statBases>
       <MaxHealth>180</MaxHealth>
       <Flammability>1.0</Flammability>
-      <WorkToBuild>2700</WorkToBuild>
+      <WorkToMake>2700</WorkToMake>
       <Beauty>-60</Beauty>
     </statBases>
 	<ammoType>Shells</ammoType>
@@ -199,9 +202,9 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
     <costList>
-      <Metal>250</Metal>
-     </costList>
-    <overdraw>true</overdraw>
+      <Steel>250</Steel>
+    </costList>
+    <graphicOverdraw>true</graphicOverdraw>
     <combatTargetBuilding>true</combatTargetBuilding>
     <filthLeavings>
       <SlagRubble>2</SlagRubble>
@@ -214,14 +217,14 @@
       <turretGunDef>Artillery_MortarEMP</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretburstCooldownTicks>3000</turretburstCooldownTicks>
-      <turretTopgraphicPathSingle>Things/Building/Security/TurretMortarEMP_Top</turretTopgraphicPathSingle>
+      <turretTopgraphicPath>Things/Building/Security/TurretMortarEMP_Top</turretTopgraphicPath>
       <buildingTags>
         <li>Artillery</li>
       </buildingTags>
     </building>
-    <placementRestricters>
-      <li>PlacementRestricter_NotUnderRoof</li>
-    </placementRestricters>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
     <researchPrerequisite>Mortars</researchPrerequisite>
   </ThingDef>
 

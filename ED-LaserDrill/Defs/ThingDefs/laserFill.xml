@@ -16,14 +16,15 @@
     <label>Laser Filler</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
 	<researchPrerequisite>Research_LaserFiller</researchPrerequisite>
-    <graphicPathSingle>Things/Buildings/LaserFiller</graphicPathSingle>
+    <graphicPath>Things/Buildings/LaserFiller</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
     <tickerType>Rare</tickerType>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToMake>1800</WorkToMake>
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -40,21 +41,24 @@
     </comps>
     <size>(4,4)</size>
     <costList>
-      <Metal>100</Metal>
-      <StoneBlocks>500</StoneBlocks>
+      <Steel>100</Steel>
     </costList>
-    <overdraw>false</overdraw>
+    <costStuffCount>500</costStuffCount>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>6</ChunkSlag>
      </killedLeavings>
     <filthLeavings>
       <SlagRubble>3</SlagRubble>
     </filthLeavings>
-    <placementRestricters>
-      <li>PlacementRestricter_OnSteamGeyser</li>
-    </placementRestricters>
+    <placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Power</designationCategory>

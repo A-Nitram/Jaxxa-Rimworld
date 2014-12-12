@@ -19,13 +19,20 @@
     <description>An impassable wall. Capable of holding up a roof.</description>
     <!--<graphicPathFolderAppearances>Things/Building/Linked/Wall</graphicPathFolderAppearances>-->
     <uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
-    <blueprintgraphicPathSingle>Things/Building/Linked/Wall_Blueprint_Atlas</blueprintgraphicPathSingle>
+    <blueprintgraphicPath>Things/Building/Linked/Wall_Blueprint_Atlas</blueprintgraphicPath>
+    <graphicPath>Things/Building/Embrasure</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <statBases>
       <MaxHealth>225</MaxHealth>
-      <WorkToBuild>100</WorkToBuild>
+      <WorkToMake>100</WorkToMake>
       <Flammability>1.0</Flammability>
     </statBases>
     <costStuffCount>6</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
@@ -41,7 +48,6 @@
     <designationCategory>Structure</designationCategory>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <blockLight>true</blockLight>
-    <madeFromStuff>true</madeFromStuff>
     <building>
       <ignoreNeedsPower>true</ignoreNeedsPower>
     </building>
@@ -68,7 +74,6 @@
 		<description>An opening in the metal wall allows shooting and throwing grenades from the safety of your home.</description>
 		<fillPercent>0.99</fillPercent>
 		<uiIconPath>UI/Metal</uiIconPath>
-		<graphicPathSingle>Things/Building/Embrasure</graphicPathSingle>
 	</ThingDef>
 	
 	<ThingDef ParentName="Embrasure">
@@ -77,7 +82,7 @@
 		<label>conduit embrasure</label>
 		<description>A Embrasure with a built-in power conduit.</description>
 		<CostList>
-		  <Metal>5</Metal>
+		  <Steel>5</Steel>
 		</CostList>
 		<Comps>
 		  <li>

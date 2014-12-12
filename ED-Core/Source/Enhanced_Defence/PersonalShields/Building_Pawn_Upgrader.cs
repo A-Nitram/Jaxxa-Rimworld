@@ -228,7 +228,7 @@ namespace Enhanced_Defence.PersonalShields
 
         public void rechargePawns()
         {
-            int currentTick = Find.TickManager.tickCount;
+            int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
             if (currentTick % 10 == 0)
             {

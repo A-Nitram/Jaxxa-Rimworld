@@ -13,17 +13,18 @@
    <ThingDef ParentName="BuildingBase">
     <defName>LaserDrill</defName>
     <eType>BuildingComplex</eType>
-    <label>Laser drill</label>
+    <label>Laser Drill</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserDrill</thingClass>
 	<researchPrerequisite>Research_LaserDrill</researchPrerequisite>
-    <graphicPathSingle>Things/Buildings/LaserDrill</graphicPathSingle>
+    <graphicPath>Things/Buildings/LaserDrill</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
     <tickerType>Rare</tickerType>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToMake>1800</WorkToMake>
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -40,12 +41,12 @@
     </comps>
     <size>(4,4)</size>
     <costList>
-      <Metal>500</Metal>
+      <Steel>500</Steel>
       <Uranium>100</Uranium>
     </costList>
-    <overdraw>false</overdraw>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>6</ChunkSlag>
      </killedLeavings>

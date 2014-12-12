@@ -45,6 +45,7 @@ namespace Enhanced_Defence.TurretAmmo
         {
             base.PostMake();
         }
+
         //On spawn, get the power component reference
         public override void SpawnSetup()
         {
@@ -58,11 +59,10 @@ namespace Enhanced_Defence.TurretAmmo
 
                 this.internalAmmoMAX = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMAX;
                 this.internalAmmoMultiplier = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMultiplier;
+                Log.Warning("Setting internalAmmoCurrent");
                 this.internalAmmoCurrent = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoCurrent;
 
-
                 this.internalAmmoStartColonist = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoStartColonist;
-
 
                 if (this.Faction.Equals(Faction.OfColony))
                 {
@@ -286,11 +286,13 @@ namespace Enhanced_Defence.TurretAmmo
             get
             {
                 ThingDef thingDef = ThingDef.Named("AutoLoader");
-                foreach (IntVec3 loc in GenAdj.AdjacentSquaresCardinal((Thing)this))
+                foreach (IntVec3 loc in GenAdj.CellsAdjacentCardinal((Thing)this))
                 {
-                    Building building = Find.BuildingGrid.BuildingAt(loc);
+                    Thing building = Find.ThingGrid.ThingAt(loc, thingDef);
                     if (building != null && building.def == thingDef)
-                        return building;
+                    {
+                        return (Building)building;
+                    }
                 }
                 return (Building)null;
             }
@@ -306,7 +308,7 @@ namespace Enhanced_Defence.TurretAmmo
                 //ThingDef thingDefAmmoType = ThingDef.Named("Shells");
                 ThingDef thingDefAmmoType = ThingDef.Named(this.ammoType);
 
-                foreach (IntVec3 sq in GenAdj.AdjacentSquaresCardinal((Thing)this))
+                foreach (IntVec3 sq in GenAdj.CellsAdjacentCardinal((Thing)this))
                 {
                     Thing thingAmmo = (Thing)null;
                     Thing thingContainer = (Thing)null;

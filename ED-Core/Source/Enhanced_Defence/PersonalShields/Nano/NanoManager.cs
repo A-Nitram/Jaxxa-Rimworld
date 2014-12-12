@@ -29,7 +29,7 @@ namespace Enhanced_Defence.PersonalShields.Nano
         //TODO: Move to rare tick?
         public static void tick()
         {
-            int currentTick = Find.TickManager.tickCount;
+            int currentTick = Find.TickManager.TicksGame;
 
             //Only every 20 ticks
             if (currentTick % 20 == 0)

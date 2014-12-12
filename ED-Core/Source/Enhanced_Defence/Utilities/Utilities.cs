@@ -29,7 +29,7 @@ namespace Enhanced_Defence.Utilities
             //ThingDef thingDefAmmoType = ThingDef.Named("Shells");
             //ThingDef thingDefAmmoType = ThingDef.Named(this.ammoType);
 
-            foreach (IntVec3 sq in GenAdj.AdjacentSquaresCardinal(centerBuilding))
+            foreach (IntVec3 sq in GenAdj.CellsAdjacentCardinal(centerBuilding))
             {
                 Thing thingAmmo = (Thing)null;
                 Thing thingContainer = (Thing)null;

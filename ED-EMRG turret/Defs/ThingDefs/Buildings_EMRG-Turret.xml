@@ -17,12 +17,13 @@
     <label>ElectroMagnetic RailGun</label>
     <thingClass>Enhanced_Defence.TurretAmmo.Building_TurretGun_Ammo</thingClass>
 	<researchPrerequisite>Building_EMRG_research</researchPrerequisite>
-    <graphicPathSingle>Things/Building/emrgBase</graphicPathSingle>
+    <graphicPath>Things/Building/emrgBase</graphicPath>
+	<graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
     <statBases>
       <MaxHealth>200</MaxHealth>
       <Flammability>1.0</Flammability>
-      <WorkToBuild>2500</WorkToBuild>
+      <WorkToMake>2500</WorkToMake>
       <Beauty>-60</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -33,7 +34,6 @@
 	<internalAmmoMAX>10</internalAmmoMAX>
 	<internalAmmoMultiplier>1</internalAmmoMultiplier>
 	<internalAmmoCurrent>10</internalAmmoCurrent>
-	
 	
     <comps>
       <li>
@@ -54,9 +54,9 @@
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
-    <overdraw>true</overdraw>
+    <graphicOverdraw>true</graphicOverdraw>
     <costList>
-      <Metal>160</Metal>
+      <Steel>160</Steel>
     </costList>
     <combatTargetBuilding>true</combatTargetBuilding>
     <filthLeavings>
@@ -70,7 +70,7 @@
 	  <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Gun_EMRG</turretGunDef>
       <turretburstCooldownTicks>400</turretburstCooldownTicks>
-      <turretTopgraphicPathSingle>Things/Building/emrgTop</turretTopgraphicPathSingle>
+      <turretTopgraphicPath>Things/Building/emrgTop</turretTopgraphicPath>
     </building>
     <designationHotKey>R</designationHotKey>
   </ThingDef>

@@ -104,7 +104,7 @@ namespace Enhanced_Defence.Power.WirelessPower
         //public static void TickRare()
         public static void Tick()
         {
-            int currentTick = Find.TickManager.tickCount;
+            int currentTick = Find.TickManager.TicksGame;
 
             //Check to not have multiple ticks at the same time
             if (currentTick != previousTickExecuted)

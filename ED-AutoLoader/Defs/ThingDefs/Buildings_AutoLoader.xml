@@ -16,7 +16,8 @@
     <label>AutoLoader</label>
     <thingClass>Building_Storage</thingClass>
 	<researchPrerequisite>research_building_autoLoader</researchPrerequisite>
-    <graphicPathSingle>Things/Building/AutoLoader</graphicPathSingle>
+    <graphicPath>Things/Building/AutoLoader</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
     <passability>Impassable</passability>
     <building>
@@ -45,13 +46,13 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
     <statBases>
-      <WorkToBuild>330</WorkToBuild>
+      <WorkToMake>450</WorkToMake>
       <MaxHealth>100</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
     <description>Holds Ammunition for use with Turrets</description>
     <costList>
-      <Metal>15</Metal>
+      <Steel>15</Steel>
     </costList>
     <tickerType>Never</tickerType>
     <rotatable>true</rotatable>
@@ -65,9 +66,9 @@
     <designationCategory>Security</designationCategory>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <itemSurface>true</itemSurface>
-    <placementRestricters>
-      <li>PlacementRestricter_NextToHopperAccepter</li>
-    </placementRestricters>
+    <placeWorkers>
+      <li>PlaceWorker_NextToHopperAccepter</li>
+    </placeWorkers>
     <designationHotKey>H</designationHotKey>
   </ThingDef>
 

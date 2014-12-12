@@ -16,7 +16,8 @@
     <label>Orbital Command</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-    <graphicPathSingle>Things/Buildings/OrbitalCommand</graphicPathSingle>
+    <graphicPath>Things/Buildings/OrbitalCommand</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
@@ -27,7 +28,7 @@
 	<DropPodAddResources>true</DropPodAddResources>
 	<DropPodAddUnitRadius>3</DropPodAddUnitRadius>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToMake>1800</WorkToMake>
       <MaxHealth>500</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -45,12 +46,12 @@
     </comps>
     <size>(3,3)</size>
     <costList>
-      <Metal>500</Metal>
+      <Steel>500</Steel>
       <Uranium>20</Uranium>
     </costList>
-    <overdraw>false</overdraw>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>6</ChunkSlag>
      </killedLeavings>
@@ -69,7 +70,8 @@
     <label>Orbital Beacon</label>
     <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-    <graphicPathSingle>Things/Buildings/OrbitalRelay</graphicPathSingle>
+    <graphicPath>Things/Buildings/OrbitalRelay</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
@@ -80,7 +82,7 @@
 	<DropPodAddResources>false</DropPodAddResources>
 	<DropPodAddUnitRadius>0</DropPodAddUnitRadius>
     <statBases>
-      <WorkToBuild>0</WorkToBuild>
+      <WorkToMake>0</WorkToMake>
       <MaxHealth>30</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -93,9 +95,9 @@
     <size>(1,1)</size>
     <costList>
     </costList>
-    <overdraw>false</overdraw>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>0</ChunkSlag>
      </killedLeavings>
