@@ -9,8 +9,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
 		<filter>
@@ -30,10 +30,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   
@@ -45,8 +42,8 @@
 		<workAmount>500</workAmount>
 		<workSpeedStat>GelSpeed</workSpeedStat>
 		<efficiencyStat>GelEfficiency</efficiencyStat>
-		<workEffect>UseMetalRefinery</workEffect>
-		<sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
 			<li>
 				<filter>
@@ -58,19 +55,16 @@
 			</li>
 		</ingredients>
 		<products>
-			<ChunkRock>1</ChunkRock>
+			<ChunkGranite>1</ChunkGranite>
 		</products>
 		<fixedIngredientFilter>
 		  <thingDefs>
 			<li>OmniGel</li>
 		  </thingDefs>
 		</fixedIngredientFilter>
-		<skillGains>
-		  <li>
-			<skill>Crafting</skill>
-			<xp>120</xp>
-		  </li>
-		</skillGains>
+    <skillGains>
+        <Crafting>120</Crafting>
+    </skillGains>
 	</RecipeDef>
 
     
@@ -82,8 +76,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -95,7 +89,7 @@
       </li>
     </ingredients>
     <products>
-        <Metal>50</Metal>
+        <Steel>50</Steel>
     </products>
     <fixedIngredientFilter>
       <thingDefs>
@@ -103,10 +97,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   
@@ -119,8 +110,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -132,7 +123,7 @@
       </li>
     </ingredients>
     <products>
-        <StoneBlocks>50</StoneBlocks>
+        <BlocksGranite>50</BlocksGranite>
     </products>
     <fixedIngredientFilter>
       <thingDefs>
@@ -140,10 +131,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   
@@ -156,8 +144,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -177,10 +165,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   
@@ -193,8 +178,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -214,10 +199,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   
@@ -230,8 +212,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -251,10 +233,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   <!--
@@ -302,8 +281,8 @@
     <workAmount>500</workAmount>
     <workSpeedStat>GelSpeed</workSpeedStat>
     <efficiencyStat>GelEfficiency</efficiencyStat>
-    <workEffect>UseMetalRefinery</workEffect>
-    <sustainerSoundDef>Recipe_ExtractMetalFromSlag</sustainerSoundDef>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
@@ -323,10 +302,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <skillGains>
-      <li>
-        <skill>Crafting</skill>
-        <xp>120</xp>
-      </li>
+        <Crafting>120</Crafting>
     </skillGains>
   </RecipeDef>
   

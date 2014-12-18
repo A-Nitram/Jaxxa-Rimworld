@@ -30,14 +30,17 @@
 	<defName>OmniGel</defName>
 	<label>Omni Gel</label>
 	<description>For refining into things.</description>
-	<graphicPathSingle>Things/Items/PurpleBucket</graphicPathSingle>
+	<graphicPath>Things/Items/PurpleBucket</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
 	<soundInteract>Metal_Drop</soundInteract>
 	<soundDrop>Metal_Drop</soundDrop>
-	<baseMarketValue>1</baseMarketValue>
+    <statBases>
+      <MarketValue>1</MarketValue>
+    </statBases>
 	<useStandardHealth>false</useStandardHealth>
-	<storeCategories>
-		<li>ResourcesRaw</li>
-	</storeCategories>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
 	</ThingDef>
 
 </Resources>

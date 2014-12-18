@@ -4,35 +4,31 @@
   <ThingDef Name="PlantBase" Abstract="True">
     <eType>Plant</eType>
     <category>Plant</category>
-    <thingClass>Enhanced_Defence.Plants24H.Plant</thingClass>
+    <thingClass>Plant</thingClass>
     <altitudeLayer>LowPlant</altitudeLayer>
     <useStandardHealth>True</useStandardHealth>
-	<statBases>
-		<MaxHealth>85</MaxHealth>
-		<Beauty>12</Beauty>
-		<Flammability>1.0</Flammability>
-	</statBases>
+    <statBases>
+      <Flammability>0.8</Flammability>
+    </statBases>
     <tickerType>Rare</tickerType>
     <selectable>False</selectable>
     <neverMultiSelect>True</neverMultiSelect>
     <drawerType>MapMeshOnly</drawerType>
     <shaderType>CutoutPlant</shaderType>
     <plant>
-		<harvestDestroys>true</harvestDestroys>
-		<harvestingSound>Harvest_Standard</harvestingSound>
-		<harvestFinishSound>Harvest_Standard_Finish</harvestFinishSound>
-		<sowWork>150</sowWork>
-		<fertilityMin>0.5</fertilityMin>
-		<fertilityFactorGrowthRate>1.0</fertilityFactorGrowthRate>
-		<topWindExposure>0.1</topWindExposure>
-		<growthPer20kTicks>0.48</growthPer20kTicks>
-		<growMinGlow>Overlit</growMinGlow>
-		<lifeSpan>200000</lifeSpan>
-		<seedShootMinGrowthPercent>0.6</seedShootMinGrowthPercent>
-		<visualSizeRange>
-			<min>0.3</min>
-			<max>1.00</max>
-		</visualSizeRange>
+      <harvestDestroys>true</harvestDestroys>
+      <soundHarvesting>Harvest_Standard</soundHarvesting>
+      <soundHarvestFinish>Harvest_Standard_Finish</soundHarvestFinish>
+      <sowWork>150</sowWork>
+      <fertilityMin>0.5</fertilityMin>
+      <fertilityFactorGrowthRate>1.0</fertilityFactorGrowthRate>
+      <topWindExposure>0.1</topWindExposure>
+      <growthPer20kTicks>0.48</growthPer20kTicks>
+      <growMinGlow>Overlit</growMinGlow>
+      <visualSizeRange>
+        <min>0.3</min>
+        <max>1.00</max>
+      </visualSizeRange>
     </plant>
   </ThingDef>
 
@@ -42,7 +38,8 @@
 		<defName>PlantOmniGel</defName>
 		<label>OmniGel Plant</label>
 		<description>An OmniGel plant.</description>
-		<graphicPathFolderRandom>Things/Items/GelPlant</graphicPathFolderRandom>
+		<graphicPath>Things/Items/GelPlant</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<plant>
@@ -53,8 +50,10 @@
         <min>1</min>
         <max>2</max>
       </harvestYieldRange>
-      <sowableGround>true</sowableGround>
-      <sowableHydroponic>true</sowableHydroponic>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
       <topWindExposure>0.1</topWindExposure>
 			<growthPer20kTicks>0.48</growthPer20kTicks>
 			<lifeSpan>200000</lifeSpan>
