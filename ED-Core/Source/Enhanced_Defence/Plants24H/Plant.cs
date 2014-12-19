@@ -25,10 +25,10 @@ namespace Enhanced_Defence.Plants24H
             local_ticksSinceLit = (int)returnValue;
             Log.Message("Assigned Object");*/
 
-            Log.Message("Setting up");
+            //Log.Message("Setting up");
             field_ticksSinceLit = typeof(RimWorld.Plant).GetField("ticksSinceLit", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
 
-            Log.Message("SetUp");
+            //Log.Message("SetUp");
             //local_ticksSinceLit = (int)fieldInfo.GetValue(this);
             
             base.SpawnSetup();

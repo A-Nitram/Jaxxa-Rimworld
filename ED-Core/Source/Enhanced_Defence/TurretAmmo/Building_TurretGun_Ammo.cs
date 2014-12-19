@@ -14,6 +14,8 @@ namespace Enhanced_Defence.TurretAmmo
         CompPowerTrader power;
         public int previousburstCooldownTicksLeft = 0;
 
+        public bool initialRun = false;
+
         /// <summary>
         /// This is the Type of Ammunition that this Turret Requires
         /// </summary>
@@ -40,15 +42,19 @@ namespace Enhanced_Defence.TurretAmmo
         public int internalAmmoCurrent = 20;
 
         public int internalAmmoStartColonist = -1;
-        //Dummy override
+
+        //Only Run initially
         public override void PostMake()
         {
+            //Log.Error("PostMake()");
+            this.initialRun = true;
             base.PostMake();
         }
 
         //On spawn, get the power component reference
         public override void SpawnSetup()
         {
+            //Log.Error("SpawnSetup()");
             //Load variables from XML
             if (def is TurretAmmoThingDef)
             {
@@ -60,18 +66,27 @@ namespace Enhanced_Defence.TurretAmmo
                 this.internalAmmoMAX = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMAX;
                 this.internalAmmoMultiplier = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMultiplier;
                 Log.Warning("Setting internalAmmoCurrent");
-                this.internalAmmoCurrent = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoCurrent;
 
                 this.internalAmmoStartColonist = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoStartColonist;
 
-                if (this.Faction.Equals(Faction.OfColony))
+                if (this.initialRun)
                 {
-                    if (this.internalAmmoStartColonist != 0)
+                    this.initialRun = false;
+
+
+                    this.internalAmmoCurrent = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoCurrent;
+
+                    if (this.Faction.Equals(Faction.OfColony))
                     {
-                        this.internalAmmoCurrent = this.internalAmmoStartColonist;
-                        if (this.internalAmmoCurrent < 0)
+
+                        //Log.Message("Setting to colonist custom ammo");
+                        if (this.internalAmmoStartColonist != 0)
                         {
-                            this.internalAmmoCurrent = 0;
+                            this.internalAmmoCurrent = this.internalAmmoStartColonist;
+                            if (this.internalAmmoCurrent < 0)
+                            {
+                                this.internalAmmoCurrent = 0;
+                            }
                         }
                     }
                 }
@@ -135,7 +150,7 @@ namespace Enhanced_Defence.TurretAmmo
                     this.burstCooldownTicksLeft = 1;
                 }
 
-                if(this.power != null)
+                if (this.power != null)
                 {
                     power.DesirePowerOn = false;
                 }
@@ -147,6 +162,7 @@ namespace Enhanced_Defence.TurretAmmo
         //Saving game
         public override void ExposeData()
         {
+            //Log.Error("ExposeData()");
             base.ExposeData();
 
             Scribe_Values.LookValue<string>(ref this.ammoType, "ammoType", "", false);
