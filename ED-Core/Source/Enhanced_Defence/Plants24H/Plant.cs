@@ -12,48 +12,34 @@ namespace Enhanced_Defence.Plants24H
 {
     public class Plant : RimWorld.Plant
     {
-        //int local_ticksSinceLit;
 
-        FieldInfo field_ticksSinceLit;
+        private int ticksSinceLit;
 
-        public override void SpawnSetup()
+
+        public override void ExposeData()
         {
-            /*Plant tempPlant = this;
-            Log.Message("Setting up");
-            object returnValue = Enhanced_Defence.ShieldUtils.ReflectionHelper.GetInstanceField(typeof(Plant), tempPlant, "ticksSinceLit") as int;
-            Log.Message("Got Object");
-            local_ticksSinceLit = (int)returnValue;
-            Log.Message("Assigned Object");*/
-
-            //Log.Message("Setting up");
-            field_ticksSinceLit = typeof(RimWorld.Plant).GetField("ticksSinceLit", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
-
-            //Log.Message("SetUp");
-            //local_ticksSinceLit = (int)fieldInfo.GetValue(this);
-            
-            base.SpawnSetup();
+            base.ExposeData();
+            Scribe_Values.LookValue<int>(ref this.ticksSinceLit, "ticksSinceLit", 0, false);
         }
 
         public override void TickRare()
         {
-            //Log.Error("local_ticksSinceLit:" + (int)this.field_ticksSinceLit.GetValue(this));
-            //base.TickRare();
-            
+            this.CheckTemperatureMakeLeafless();
+            if (!GenPlant.GrowthSeasonNow(this.Position))
+                return;
             if (!this.HasEnoughLightToGrow)
-            {
-                //this.ticksSinceLit += 250;
-                this.incrimentTicksSinceLit();
-            }
+                this.ticksSinceLit += 250;
             else
-            {
-                //this.ticksSinceLit = 0;
-                this.clearTicksSinceLit();
-            }
+                this.ticksSinceLit = 0;
             if (this.GrowingNow)
             {
-                this.growthPercent += this.GrowthPerTickRare;
-                if (this.LifeStage == PlantLifeStage.Mature && (double)Find.Map.Biome.CommonalityOfPlant(this.def) == 0.0)
-                    SoundStarter.PlayOneShot(Plant.SoundHarvestReady, (SoundInfo)this.Position);
+                this.growthPercent += this.GrowthPerTickRare * this.TemperatureEfficiency;
+                if (this.LifeStage == PlantLifeStage.Mature)
+                {
+                    Find.MapDrawer.MapChanged(this.Position, MapChangeType.Things);
+                    if ((double)Find.Map.Biome.CommonalityOfPlant(this.def) == 0.0)
+                        SoundStarter.PlayOneShot(Plant.SoundHarvestReady, (SoundInfo)this.Position);
+                }
             }
             if (this.def.plant.LimitedLifespan)
             {
@@ -69,22 +55,69 @@ namespace Enhanced_Defence.Plants24H
             GenPlantReproduction.TickReproduceFrom(this);
         }
 
-        private void incrimentTicksSinceLit()
+        private float GrowthPerTick
         {
-            int temp = (int)this.field_ticksSinceLit.GetValue(this);
-            temp += 250;
-            this.field_ticksSinceLit.SetValue(this, temp);
+            get
+            {
+                return (float)((double)this.LocalFertility * (double)this.def.plant.fertilityFactorGrowthRate + (1.0 - (double)this.def.plant.fertilityFactorGrowthRate)) * (this.def.plant.growthPer20kTicks / 20000f);
+            }
         }
-        private void clearTicksSinceLit()
+
+        private float GrowthPerTickRare
         {
-            this.field_ticksSinceLit.SetValue(this, 0);
+            get
+            {
+                return this.GrowthPerTick * 250f;
+            }
         }
-        
+
+        private void CheckTemperatureMakeLeafless()
+        {
+            float num = 8f;
+            if ((double)GridsUtility.GetTemperature(this.Position) >= (double)Gen.HashOffset((Thing)this) * 0.00999999977648258 % (double)num - (double)num - 2.0)
+                return;
+            this.MakeLeafless();
+        }
+
+        private bool HasEnoughLightToGrow
+        {
+            get
+            {
+                return Find.GlowGrid.PsychGlowAt(this.Position) >= this.def.plant.growMinGlow;
+            }
+        }
+
+        private float LocalFertility
+        {
+            get
+            {
+                return Find.FertilityGrid.FertilityAt(this.Position);
+            }
+        }
+
+
+        public bool GrowingNow
+        {
+            get
+            {
+                Log.Message("Custom GrowingNow()");
+                if (this.LifeStage == PlantLifeStage.Growing && this.HasEnoughLightToGrow)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
         public override string GetInspectString()
         {
             StringBuilder stringBuilder1 = new StringBuilder();
             //stringBuilder1.Append(base.GetInspectString());
-            stringBuilder1.AppendLine();
+            //stringBuilder1.AppendLine();
             StringBuilder stringBuilder2 = stringBuilder1;
             string key1 = "PercentGrowth";
             object[] objArray1 = new object[1];
@@ -109,7 +142,7 @@ namespace Enhanced_Defence.Plants24H
                         stringBuilder3.AppendLine(str3);
                     }
                     else if (!this.GrowingNow)
-                        stringBuilder1.AppendLine(Translator.Translate("NotGrowingNowNight"));
+                        stringBuilder1.AppendLine(Translator.Translate("NotGrowingNowResting"));
                     else
                         stringBuilder1.AppendLine(Translator.Translate("Growing"));
                     StringBuilder stringBuilder4 = stringBuilder1;
@@ -120,6 +153,25 @@ namespace Enhanced_Defence.Plants24H
                     objArray3[index3] = (object)str4;
                     string str5 = Translator.Translate(key3, objArray3);
                     stringBuilder4.AppendLine(str5);
+                    float temperatureEfficiency = this.TemperatureEfficiency;
+                    if (!Mathf.Approximately(temperatureEfficiency, 1f))
+                    {
+                        if (Mathf.Approximately(temperatureEfficiency, 0.0f))
+                        {
+                            stringBuilder1.AppendLine(Translator.Translate("OutOfIdealTemperatureRangeNotGrowing"));
+                        }
+                        else
+                        {
+                            StringBuilder stringBuilder3 = stringBuilder1;
+                            string key2 = "OutOfIdealTemperatureRange";
+                            object[] objArray2 = new object[1];
+                            int index2 = 0;
+                            string str2 = Mathf.RoundToInt(temperatureEfficiency * 100f).ToString();
+                            objArray2[index2] = (object)str2;
+                            string str3 = Translator.Translate(key2, objArray2);
+                            stringBuilder3.AppendLine(str3);
+                        }
+                    }
                 }
                 else if (this.LifeStage == PlantLifeStage.Mature)
                 {
@@ -132,64 +184,6 @@ namespace Enhanced_Defence.Plants24H
             return stringBuilder1.ToString();
         }
 
-        public bool GrowingNow
-        {
-            get
-            {
-                //if (this.LifeStage == PlantLifeStage.Growing && this.HasEnoughLightToGrow && (double)GenDate.CurFullDayPercent > 0.25)
-                if (this.LifeStage == PlantLifeStage.Growing && this.HasEnoughLightToGrow)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
-        private bool HasEnoughLightToGrow
-        {
-            get
-            {
-                return Find.GlowGrid.PsychGlowAt(this.Position) >= this.def.plant.growMinGlow;
-            }
-        }
-
-        private float GrowthPerTickRare
-        {
-            get
-            {
-                return this.GrowthPerTick * 250f;
-            }
-        }
-
-        private int TicksUntilFullyGrown
-        {
-            get
-            {
-                if ((double)this.growthPercent > 0.999899983406067)
-                    return 0;
-                else
-                    return (int)((1.0 - (double)this.growthPercent) / (double)this.GrowthPerTick);
-            }
-        }
-
-        private float GrowthPerTick
-        {
-            get
-            {
-                return (float)((double)this.LocalFertility * (double)this.def.plant.fertilityFactorGrowthRate + (1.0 - (double)this.def.plant.fertilityFactorGrowthRate)) * (this.def.plant.growthPer20kTicks / 20000f);
-            }
-        }
-
-        private float LocalFertility
-        {
-            get
-            {
-                return Find.FertilityGrid.FertilityAt(this.Position);
-            }
-        }
 
         private string GrowthPercentString
         {
@@ -199,6 +193,18 @@ namespace Enhanced_Defence.Plants24H
                 if ((double)num > 100.0)
                     num = 100.1f;
                 return num.ToString("##0");
+            }
+        }
+
+
+        private int TicksUntilFullyGrown
+        {
+            get
+            {
+                if ((double)this.growthPercent > 0.999899983406067)
+                    return 0;
+                else
+                    return (int)((1.0 - (double)this.growthPercent) / (double)this.GrowthPerTick);
             }
         }
     }
