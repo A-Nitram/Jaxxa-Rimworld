@@ -34,23 +34,25 @@
       <baseHeight>0.4</baseHeight>
       <tallness>0.8</tallness>
     </sunShadowInfo>
-    <baseMarketValue>500</baseMarketValue>
     <statBases>
+      <MarketValue>1500</MarketValue>
       <MoveSpeed>4.61</MoveSpeed>
       <Flammability>1.0</Flammability>
+      <ComfyTemperatureMin>12</ComfyTemperatureMin>
+      <ComfyTemperatureMax>32</ComfyTemperatureMax>
     </statBases>
     <verbs>
       <li>
         <verbClass>Verb_MeleeAttack</verbClass>
-        <cooldownTicks>100</cooldownTicks>
-        <meleeDamageAmount>7</meleeDamageAmount>
+        <baseCooldownTicks>100</baseCooldownTicks>
+        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
         <meleeDamageDef>Blunt</meleeDamageDef>
         <linkedBodyPartsGroup>LeftFist</linkedBodyPartsGroup>
       </li>
       <li>
         <verbClass>Verb_MeleeAttack</verbClass>
-        <cooldownTicks>100</cooldownTicks>
-        <meleeDamageAmount>7</meleeDamageAmount>
+        <baseCooldownTicks>100</baseCooldownTicks>
+        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
         <meleeDamageDef>Blunt</meleeDamageDef>
         <linkedBodyPartsGroup>RightFist</linkedBodyPartsGroup>
       </li>

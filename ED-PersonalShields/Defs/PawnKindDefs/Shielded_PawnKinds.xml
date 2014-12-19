@@ -9,16 +9,14 @@
     <defaultFactionType>Colony</defaultFactionType>
 		<baseRecruitDifficulty>60</baseRecruitDifficulty>
 		<backstoryCategory>Civil</backstoryCategory>
-		<outfits>
-			<li>
-				<def>BasicsSpace</def>
-				<commonality>10</commonality>
-			</li>
-		</outfits>
+    <apparelTags>
+      <li>Spacer</li>
+    </apparelTags>
     <apparelMoney>
       <min>2000</min>
       <max>3000</max>
     </apparelMoney>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
 	</PawnKindDef>
 
 </PawnKindDefs>
