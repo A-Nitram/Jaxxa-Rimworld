@@ -11,20 +11,19 @@
     <repairEffect>Repair</repairEffect>
   </ThingDef>
 
-
-
   <ThingDef ParentName="BuildingBase">
     <defName>SunLamp</defName>
     <eType>BuildingComplex</eType>
     <label>sun lamp</label>
     <thingClass>Enhanced_Defence.VisibleRadius.Building</thingClass>
     <category>Building</category>
-    <graphicPathSingle>Things/Building/Production/LampSun</graphicPathSingle>
+    <graphicPath>Things/Building/Production/LampSun</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <statBases>
       <MaxHealth>50</MaxHealth>
-      <WorkToBuild>330</WorkToBuild>
+      <WorkToMake>330</WorkToMake>
       <Flammability>1.0</Flammability>
     </statBases>
 	<tickerType>Rare</tickerType>
@@ -32,7 +31,7 @@
     <description>Lights an area brightly enough to grow crops.</description>
     <size>(1,1)</size>
     <costList>
-      <Metal>20</Metal>
+      <Steel>20</Steel>
     </costList>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
@@ -64,6 +63,46 @@
     </sunShadowInfo>
     <rotatable>false</rotatable>
     <designationHotKey>U</designationHotKey>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>OrbitalTradeBeacon</defName>
+    <eType>BuildingComplex</eType>
+    <label>orbital trade beacon</label>
+    <thingClass>Enhanced_Defence.VisibleRadius.Building</thingClass>
+    <graphicPath>Things/Building/Misc/DropBeacon</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>Waist</altitudeLayer>
+    <statBases>
+      <MaxHealth>75</MaxHealth>
+      <WorkToMake>1300</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<tickerType>Rare</tickerType>
+    <description>Required for orbital trading. You can only sell goods that are near an orbital trade beacon and not under a roof. Orbital traders will also drop goods near this.</description>
+    <size>(1,1)</size>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <specialDisplayRadius>7.9</specialDisplayRadius>
+    <costList>
+      <Steel>60</Steel>
+    </costList>
+    <filthLeavings>
+      <SlagRubble>1</SlagRubble>
+    </filthLeavings>
+    <graphicOverdraw>false</graphicOverdraw>
+    <pathCost>30</pathCost>
+    <designationCategory>Misc</designationCategory>
+    <sunShadowInfo>
+      <basewidth>0.3</basewidth>
+      <baseHeight>0.3</baseHeight>
+      <tallness>0.6</tallness>
+    </sunShadowInfo>
+    <rotatable>false</rotatable>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <designationHotKey>O</designationHotKey>
   </ThingDef>
 
 </Buildings>
