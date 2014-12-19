@@ -16,14 +16,15 @@
     <label>Wireless Power Node</label>
     <thingClass>Enhanced_Defence.Power.WirelessPower.WirelessPowerNode</thingClass>
 	<researchPrerequisite>WirelessPower_Research</researchPrerequisite>
-    <graphicPathSingle>Things/Buildings/NuclearLamp</graphicPathSingle>
+    <graphicPath>Things/Buildings/NuclearLamp</graphicPath>
+	<graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
     <tickerType>Normal</tickerType>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToMake>1800</WorkToMake>
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -40,11 +41,11 @@
     </comps>
     <size>(2,2)</size>
     <costList>
-      <Metal>200</Metal>
+      <Steel>200</Steel>
     </costList>
-    <overdraw>false</overdraw>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>6</ChunkSlag>
      </killedLeavings>
