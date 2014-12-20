@@ -42,7 +42,11 @@
     <constructEffect>ConstructMetal</constructEffect>
     <recipes>
       <li>Replicate_MK1_SlagFromOmniGel</li>
-      <li>Replicate_MK1_RockFromOmniGel</li>
+      <li>Replicate_MK1_ChunkSandstoneFromOmniGel</li>
+      <li>Replicate_MK1_ChunkGraniteFromOmniGel</li>
+      <li>Replicate_MK1_ChunkLimestoneFromOmniGel</li>
+      <li>Replicate_MK1_ChunkSlateFromOmniGel</li>
+      <li>Replicate_MK1_ChunkMarbleFromOmniGel</li>
     </recipes>
     <inspectorTabs>
       <li>ITab_Bills</li>
@@ -91,9 +95,13 @@
     <itemSurface>True</itemSurface>
     <constructEffect>ConstructMetal</constructEffect>
     <recipes>
-      <li>Replicate_MK2_MetalFromOmniGel</li>
-      <li>Replicate_MK2_StoneFromOmniGel</li>
+      <li>Replicate_MK2_SteelFromOmniGel</li>
       <li>Replicate_MK2_SilverFromOmniGel</li>
+      <li>Replicate_MK2_BlocksSandstoneFromOmniGel</li>
+      <li>Replicate_MK2_BlocksGraniteFromOmniGel</li>
+      <li>Replicate_MK2_BlocksLimestoneFromOmniGel</li>
+      <li>Replicate_MK2_BlocksSlateFromOmniGel</li>
+      <li>Replicate_MK2_BlocksMarbleromOmniGel</li>
     </recipes>
     <inspectorTabs>
       <li>ITab_Bills</li>
@@ -143,8 +151,10 @@
     <recipes>
       <li>Replicate_MK3_UraniumFromOmniGel</li>
       <li>Replicate_MK3_ShellsFromOmniGel</li>
-      <!--<li>Replicate_MK3_MissilesFromOmniGel</li>-->
       <li>Replicate_MK3_MedicineFromOmniGel</li>
+      <li>Replicate_MK3_GoldFromOmniGel</li>
+      <li>Replicate_MK3_PlasteelFromOmniGel</li>
+	  
     </recipes>
     <inspectorTabs>
       <li>ITab_Bills</li>

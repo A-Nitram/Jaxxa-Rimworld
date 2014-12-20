@@ -83,6 +83,11 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Updated to Alpha8
 -Removed ED-WallConnect
 --Now implemented in new Alpha of base Game
+0.10
+-Removed VisibleRadius for TradeBeacons until it can work properly
+-Fixed Omnigel not being processed into anything
+-Added more things that can be made from Omnigel
+--Balancing ideas welcome
 ~~~
 
 ##License:

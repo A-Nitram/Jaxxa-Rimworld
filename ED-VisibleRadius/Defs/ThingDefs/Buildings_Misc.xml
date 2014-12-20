@@ -65,7 +65,7 @@
     <designationHotKey>U</designationHotKey>
   </ThingDef>
 
-
+	<!--
   <ThingDef ParentName="BuildingBase">
     <defName>OrbitalTradeBeacon</defName>
     <eType>BuildingComplex</eType>
@@ -104,5 +104,5 @@
     </placeWorkers>
     <designationHotKey>O</designationHotKey>
   </ThingDef>
-
+	-->
 </Buildings>

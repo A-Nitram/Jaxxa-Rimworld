@@ -7,8 +7,7 @@ using Verse;
 
 namespace Enhanced_Defence.VisibleRadius
 {
-
-    class Building : Verse.Building
+    class Building_OrbitalTradeBeacon : RimWorld.Building_OrbitalTradeBeacon
     {
         private static Texture2D UI_SHOW_ON;
         private static Texture2D UI_SHOW_OFF;
@@ -55,6 +54,7 @@ namespace Enhanced_Defence.VisibleRadius
             base.Draw();
             if (flag_showVisually)
             {
+
                 Verse.GenDraw.DrawRadiusRing(this.Position, this.def.specialDisplayRadius);
             }
         }

@@ -6,6 +6,7 @@
     <giverClass>WorkGiver_DoBill</giverClass>
     <workType>Crafting</workType>
     <priorityInType>91</priorityInType>
+    <singleBillGiverDef>Table_MK1_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
 	<requiredActivities>
@@ -18,6 +19,7 @@
     <giverClass>WorkGiver_DoBill</giverClass>
     <workType>Crafting</workType>
     <priorityInType>92</priorityInType>
+    <singleBillGiverDef>Table_MK2_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
 	<requiredActivities>
@@ -30,6 +32,7 @@
     <giverClass>WorkGiver_DoBill</giverClass>
     <workType>Crafting</workType>
     <priorityInType>93</priorityInType>
+    <singleBillGiverDef>Table_MK3_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
 	<requiredActivities>
