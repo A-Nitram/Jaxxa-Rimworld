@@ -88,6 +88,13 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Fixed Omnigel not being processed into anything
 -Added more things that can be made from Omnigel
 --Balancing ideas welcome
+0.11
+-Added Vent System
+--Shares graphics with cooler.
+--Power it on to equalise the temperature between two rooms.
+--Made out of Stuff, same health as a wall from that stuff.
+--Omnidirectional
+--All the buttons except the power button do nothing.
 ~~~
 
 ##License:
