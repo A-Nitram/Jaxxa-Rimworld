@@ -59,6 +59,7 @@
     <Compile Include="Stargate\Saving\Dialog\Dialog_Preset.cs" />
     <Compile Include="Stargate\Saving\Dialog\Dialog_SavePreset.cs" />
     <Compile Include="Stargate\Saving\SaveThings.cs" />
+    <Compile Include="Temperature\Vent.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
     <Compile Include="PersonalShields\Nano\NanoManager.cs" />
@@ -77,8 +78,8 @@
     <Compile Include="TurretAmmo\TurretAmmoThingDef.cs" />
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include="Utilities\Vectors.cs" />
-    <Compile Include="VisibleRadius\Building_OrbitalTradeBeacon.cs" />
     <Compile Include="VisibleRadius\Building.cs" />
+    <Compile Include="VisibleRadius\Building_OrbitalTradeBeacon.cs" />
     <Compile Include="VisibleRadius\Enum.cs" />
   </ItemGroup>
   <ItemGroup />
