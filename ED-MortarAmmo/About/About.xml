@@ -6,7 +6,6 @@
   <targetVersion>Alpha 7</targetVersion>
   <description>
 	Requires: ED-Core, ED-AutoLoader
-	Adds the requirement for the base Mortars to require Ammunition to fire.
-	Also changes Raider constructed Mortars during sieges, but they start with a high initial Ammunition.
+Adds the requirement for the base Mortars to require Ammunition to fire, Also changes Raider constructed Mortars during sieges, but they start with a high initial Ammunition.
   </description>
 </ModMetaData>

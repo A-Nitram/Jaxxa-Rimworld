@@ -5,7 +5,7 @@
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 7</targetVersion>
   <description>
-  This is the Core module of Enhanced Defence. It contains all of the .dll code that can be used by the other modules.
-  This will usually have to be the first part that you activate.
+This is the Core module of Enhanced Defence. It contains all of the .dll code that can be used by the other modules.
+This will usually have to be the first part that you activate.
   </description>
 </ModMetaData>

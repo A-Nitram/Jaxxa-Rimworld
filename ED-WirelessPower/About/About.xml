@@ -6,6 +6,6 @@
   <targetVersion>Alpha 7</targetVersion>
   <description>
 	Requires: ED-Core
-	Adds a wireless power system that allows you to move power to any point on the map.
+Adds a wireless power system that allows you to move power to any point on the map.
   </description>
 </ModMetaData>

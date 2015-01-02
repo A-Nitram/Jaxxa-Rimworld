@@ -23,9 +23,20 @@ They also do not provide binaries and will have to be compiled from source in or
 ##Overview:
 This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to.
 
-##How to use:
-Extract the zip file and place the folders (ED-AutoLoader, ED-Core ... ) into your RimWorldxxx\mods folder.  
-Then enable the modules that you want to play with, some modules will have dependencies that you must enable before they themselves can be enabled. These will be noted in their description.
+##Installation instructions
+~~~
+1. Extract the .zip file somewhere temporarily (desktop works)
+2. Enter the folder that you extracted until you go into the folder that contains README.md (this document) and a number of folder starting with "ED-", these folders are the different modules that are available in this mod.
+3. Find your Rimworld mods folder. This will be wherever you installed/extracted Rimworld to, and the "Mods" folder will be inside it. It will contain a folder called "Core" and folders for any other mods that you have installed previously.
+4. If you have an old version please delete the existing ED- Modules.
+5. Copy the modules (the different folders from step 2) into the Rimworld mods folder (found in step 3)
+6. Open Rimworld and Enable the Enhanced Defence Core Mod "ED-Core" (because other things depend on the core module this has to be enabled first)
+7. Restart Rimworld
+8. Enable any other modules that you want to use
+9. Play the game
+~~~
+If you are having trouble please Read this FAQ:  
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
 
 ##Details:
 For details on the individual modules please look at the GitHub wiki:  
@@ -97,6 +108,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --All the buttons except the power button do nothing.
 0.12
 -Updated Graphic for Vent
+-More specific install instructions.
 ~~~
 
 ##License:
