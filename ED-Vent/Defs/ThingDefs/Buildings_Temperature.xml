@@ -16,7 +16,7 @@
     <eType>Building_TempController</eType>
     <label>vent</label>
     <thingClass>Enhanced_Defence.Temperature.Building_Vent</thingClass>
-    <graphicPath>Things/Building/Misc/TempControl/Cooler</graphicPath>
+    <graphicPath>Things/Vent</graphicPath>
     <graphicClass>Graphic_Multi</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>

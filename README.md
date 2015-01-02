@@ -95,6 +95,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Made out of Stuff, same health as a wall from that stuff.
 --Omnidirectional
 --All the buttons except the power button do nothing.
+0.12
+-Updated Graphic for Vent
 ~~~
 
 ##License:

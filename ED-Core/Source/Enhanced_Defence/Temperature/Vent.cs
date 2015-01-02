@@ -66,5 +66,35 @@ namespace Enhanced_Defence.Temperature
             }
 
         }
+
+        public override IEnumerable<Command> GetCommands()
+        {
+            return compPowerTrader.CompGetCommandsExtra();
+            //return base.GetCommands();
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (this.compPowerTrader.PowerOn)
+            {
+                stringBuilder.AppendLine("Vent Open");
+            }
+            else
+            {
+                stringBuilder.AppendLine("Vent Closed");
+            }
+
+            //Power info
+            if (this.compPowerTrader != null)
+            {
+                //string str1 = (this.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick).ToString("F0");
+                stringBuilder.AppendLine("Power: " + -this.compPowerTrader.powerOutput + " / " + (this.compPowerTrader.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick) + " - Stored: " + this.compPowerTrader.PowerNet.CurrentStoredEnergy().ToString("F0"));
+            }
+
+            return stringBuilder.ToString();
+        }
+
     }
 }
