@@ -24,7 +24,8 @@ They also do not provide binaries and will have to be compiled from source in or
 This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to.
 
 ##Installation instructions
-~~~
+
+
 1. Extract the .zip file somewhere temporarily (desktop works)
 2. Enter the folder that you extracted until you go into the folder that contains README.md (this document) and a number of folder starting with "ED-", these folders are the different modules that are available in this mod.
 3. Find your Rimworld mods folder. This will be wherever you installed/extracted Rimworld to, and the "Mods" folder will be inside it. It will contain a folder called "Core" and folders for any other mods that you have installed previously.
@@ -34,7 +35,7 @@ This mod has been created with a number of distinct modules. Theses are designed
 7. Restart Rimworld
 8. Enable any other modules that you want to use
 9. Play the game
-~~~
+
 If you are having trouble please Read this FAQ:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
 
