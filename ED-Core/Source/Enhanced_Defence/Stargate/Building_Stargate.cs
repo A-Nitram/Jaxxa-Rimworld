@@ -202,7 +202,15 @@ namespace Enhanced_Defence.Stargate
 
         public void StargateDialOut()
         {
-            Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
+            if (System.IO.File.Exists(this.FileLocationPrimary))
+            {
+                Messages.Message("Please Recalling Offworld Teams First", MessageSound.Reject);
+            }
+            else
+            {
+                Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
+            }
+
         }
 
         public void StargateIncomingWormhole()
@@ -210,7 +218,6 @@ namespace Enhanced_Defence.Stargate
             if (System.IO.File.Exists(this.FileLocationPrimary))
             {
                 Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
-                //listOfOffworldThings.Clear();
 
                 Log.Message("start list contains: " + listOfBufferThings.Count);
                 Enhanced_Defence.Stargate.Saving.SaveThings.load(ref listOfBufferThings, this.FileLocationPrimary, this);
@@ -248,14 +255,12 @@ namespace Enhanced_Defence.Stargate
                     {
                         if (currentPawn.SpawnedInWorld)
                         {
-
                             List<Thing> thingList = new List<Thing>();
                             listOfBufferThings.Add(currentPawn);
                             //currentPawn.DeSpawn();
                             currentPawn.Destroy(DestroyMode.Vanish);
                         }
                     }
-
                 }
             }
             else
