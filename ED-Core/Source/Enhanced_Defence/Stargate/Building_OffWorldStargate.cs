@@ -87,7 +87,7 @@ namespace Enhanced_Defence.Stargate
                 Messages.Message("Are you really certain you want to do that?", MessageSound.SeriousAlert);
                 warned += 1;
             }
-            else if (warned == 2)
+            else if (warned >= 2)
             {
                 Messages.Message("Ok Fine.", MessageSound.SeriousAlert);
 
@@ -98,7 +98,6 @@ namespace Enhanced_Defence.Stargate
                 {
                     currentPawn.Destroy(DestroyMode.Vanish);
                 }
-
             }
         }
 

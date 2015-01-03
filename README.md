@@ -25,11 +25,10 @@ This mod has been created with a number of distinct modules. Theses are designed
 
 ##Installation instructions
 
-
 1. Extract the .zip file somewhere temporarily (desktop works)
 2. Enter the folder that you extracted until you go into the folder that contains README.md (this document) and a number of folder starting with "ED-", these folders are the different modules that are available in this mod.
 3. Find your Rimworld mods folder. This will be wherever you installed/extracted Rimworld to, and the "Mods" folder will be inside it. It will contain a folder called "Core" and folders for any other mods that you have installed previously.
-4. If you have an old version please delete the existing ED- Modules.
+4. If you have an old version please delete the existing ED- Modules. (or move them, see next section on Upgrading)
 5. Copy the modules (the different folders from step 2) into the Rimworld mods folder (found in step 3)
 6. Open Rimworld and Enable the Enhanced Defence Core Mod "ED-Core" (because other things depend on the core module this has to be enabled first)
 7. Restart Rimworld
@@ -38,6 +37,21 @@ This mod has been created with a number of distinct modules. Theses are designed
 
 If you are having trouble please Read this FAQ:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
+
+##Upgrading
+
+I cant guarantee that upgrading mid game will work and I would suggest that it would be better to start a completely new colony.  
+That said a lot of the time it has worked perfectly and if you want to try this I suggest doing the following steps.
+
+1. Before upgrading create a save called something like "Pre upgrade" of your current colony.
+2. Follow the Installation instructions in the previous section, with the exception of moving the existing ED modules instead of deleting them.
+3. Fire up the game and test if it is working, if so then all is good.
+4. If not you can delete the new modules that you installed and copy back the old working modules
+5. Load your saved game and de-construct all of the buildings that were added by this mod
+6. Save the game
+7. Follow the Installation instructions in the previous section again.
+8. Fire up the game again and see if it works, if so you should be able to now build the new buildings
+9. If it still does not work you will have to make a choice to continue with your current colony or get the updated version now.
 
 ##Details:
 For details on the individual modules please look at the GitHub wiki:  
