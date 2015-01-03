@@ -28,7 +28,7 @@ namespace Enhanced_Defence.Stargate
         public bool StargateRetreave = true;
 
         private string FileLocationPrimary = @"Stargate.xml";
-        private string FileLocationSecondary = @"StargateBackup.xml";
+        private string FileLocationSecondary = @"StargateBackup.xml.bak";
 
         Graphic graphicActive;
         Graphic graphicInactive;
@@ -111,7 +111,7 @@ namespace Enhanced_Defence.Stargate
         {
             get
             {
-                return(this.currentCapacitorCharge >= this.requiredCapacitorCharge);
+                return (this.currentCapacitorCharge >= this.requiredCapacitorCharge);
             }
         }
 
@@ -303,6 +303,8 @@ namespace Enhanced_Defence.Stargate
                     //Setup the New ID for the Thing
                     currentThing.thingIDNumber = -1;
                     Verse.ThingIDCounter.GiveIDTo(currentThing);
+
+                    currentThing.SetFactionDirect(RimWorld.Faction.OfColony);
 
                     GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0, 0, -2), ThingPlaceMode.Near);
                 }

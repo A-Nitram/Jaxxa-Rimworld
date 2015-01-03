@@ -24,9 +24,9 @@
     <specialDisplayRadius>5</specialDisplayRadius>
     <tickerType>Rare</tickerType>
     <statBases>
-      <WorkToMake>1800</WorkToMake>
-      <MaxHealth>350</MaxHealth>
-      <Flammability>1.0</Flammability>
+      <WorkToMake>20000</WorkToMake>
+      <MaxHealth>1000000</MaxHealth>
+      <Flammability>0.0</Flammability>
     </statBases>
     <description>Stargate</description>
 	<researchPrerequisite>
@@ -56,7 +56,7 @@
     <filthLeavings>
       <SlagRubble>3</SlagRubble>
     </filthLeavings>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
