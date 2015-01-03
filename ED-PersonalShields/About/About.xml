@@ -3,7 +3,7 @@
   <name>ED-PersonalShields</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 7</targetVersion>
+  <targetVersion>Alpha 8</targetVersion>
   <description>
 	Requires: ED-Core
 Adds Personal Shields into the game. Allows you to construct a building capable of upgrading your colonists to have a personal shield capable of protecting them from damage.

@@ -111,10 +111,9 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Updated Graphic for Vent
 -More specific install instructions.
 0.13
+-Initial Stargate Release
 -Moved Common Textures into Core Mod
 --Mainly UI in modules that already require Core
--More Work on Stargate
-
 ~~~
 
 ##License:

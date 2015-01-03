@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>ED-WirelessPower</name>
+  <name>ED-Vehicles</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 8</targetVersion>
   <description>
+  		WORK IN PROGRESS, NOT RELEASE READY
+		
 	Requires: ED-Core
-Adds a wireless power system that allows you to move power to any point on the map.
+Adds Vehicles.
   </description>
 </ModMetaData>

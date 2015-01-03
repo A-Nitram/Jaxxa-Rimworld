@@ -3,13 +3,8 @@
   <name>ED-Stargate</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 7</targetVersion>
+  <targetVersion>Alpha 8</targetVersion>
   <description>
-  
-  
-		WORK IN PROGRESS, NOT RELEASE READY
-		
-		
 	Requires: ED-Core
 Adds a Stargate System, Allows for the Transport of Personal and Supplies between Colonies.
   </description>

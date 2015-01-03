@@ -3,7 +3,7 @@
   <name>ED-EMRG Turret</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 7</targetVersion>
+  <targetVersion>Alpha 8</targetVersion>
   <description>
 	Requires: ED-Core, ED-AutoLoader
 Adds a Railgun turret that fires a large number of rounds very quickly, However it requires a supply of ammunition to keep firing.

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Verse;
 using UnityEngine;
+using RimWorld;
+using VerseBase;
 
 namespace Enhanced_Defence.Stargate
 {
@@ -16,6 +18,9 @@ namespace Enhanced_Defence.Stargate
         private static Texture2D UI_ADD_COLONIST;
         private static Texture2D UI_DROPPOD;
 
+        private static Texture2D UI_GATE_IN;
+        private static Texture2D UI_GATE_OUT;
+
         public bool StargateAddResources = true;
         public bool StargateAddUnits = true;
         public bool StargateRetreave = true;
@@ -23,14 +28,30 @@ namespace Enhanced_Defence.Stargate
         private string FileLocationPrimary = @"Stargate.xml";
         private string FileLocationSecondary = @"StargateBackup.xml";
 
+        Graphic graphicActive;
+        Graphic graphicInactive;
+
+        CompPowerTrader power;
+
         public override void SpawnSetup()
         {
             base.SpawnSetup();
+
+            this.power = base.GetComp<CompPowerTrader>();
 
             UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/ADD_RESOURCES", true);
             UI_ADD_COLONIST = ContentFinder<Texture2D>.Get("UI/ADD_COLONIST", true);
             UI_DROPPOD = ContentFinder<Texture2D>.Get("UI/DEEP_STRIKE", true);
 
+            UI_GATE_IN = ContentFinder<Texture2D>.Get("UI/StargateGUI-In", true);
+            UI_GATE_OUT = ContentFinder<Texture2D>.Get("UI/StargateGUI-Out", true);
+
+            // Set the graphic
+            Material matActive = MaterialPool.MatFrom("Things/Buildings/Stargate-Active", def.shader);
+            graphicActive = new Graphic_Single(matActive, false);
+
+            Material matInactive = MaterialPool.MatFrom("Things/Buildings/Stargate", def.shader);
+            graphicInactive = new Graphic_Single(matInactive, false);
         }
 
         //Saving game
@@ -38,7 +59,7 @@ namespace Enhanced_Defence.Stargate
         {
 
             Log.Message("Expose Data start");
-            //base.ExposeData();
+            base.ExposeData();
 
             //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
 
@@ -48,7 +69,7 @@ namespace Enhanced_Defence.Stargate
             Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");*/
 
             Log.Message("Expose Data - look list");
-            //Scribe_Collections.LookList<Thing>(ref listOfThingLists, "listOfThingLists", LookMode.Deep, (object)null);
+            Scribe_Collections.LookList<Thing>(ref listOfBufferThings, "listOfBufferThings", LookMode.Deep, (object)null);
             //Scribe_Collections.LookList<Thing>(ref listOfOffworldThings, "listOfOffworldThings", LookMode.Deep, (object)null);
 
             Log.Message("Expose Data about to start");
@@ -83,7 +104,6 @@ namespace Enhanced_Defence.Stargate
 
             if (true)
             {
-                //Upgrading
                 Command_Action command_Action_AddColonist = new Command_Action();
 
                 command_Action_AddColonist.defaultLabel = "Add Colonist";
@@ -96,22 +116,6 @@ namespace Enhanced_Defence.Stargate
 
                 CommandList.Add(command_Action_AddColonist);
             }
-            /*
-            if (this.StargateRetreave)
-            {
-                //Upgrading
-                Command_Action command_Action_IncomingWormehole = new Command_Action();
-
-                command_Action_IncomingWormehole.defaultLabel = "IncomingWormehole";
-
-                command_Action_IncomingWormehole.icon = UI_DROPPOD;
-                command_Action_IncomingWormehole.defaultDesc = "IncomingWormehole";
-
-                command_Action_IncomingWormehole.activateSound = SoundDef.Named("Click");
-                //command_Action_InstallShield.action = new Action(this.DeepStrike);
-
-                CommandList.Add(command_Action_IncomingWormehole);
-            }*/
 
             if (true)
             {
@@ -120,7 +124,7 @@ namespace Enhanced_Defence.Stargate
 
                 command_Action_DialOut.defaultLabel = "Dial Out";
 
-                command_Action_DialOut.icon = UI_DROPPOD;
+                command_Action_DialOut.icon = UI_GATE_OUT;
                 command_Action_DialOut.defaultDesc = "Dial Out";
 
                 command_Action_DialOut.activateSound = SoundDef.Named("Click");
@@ -134,10 +138,10 @@ namespace Enhanced_Defence.Stargate
                 //Upgrading
                 Command_Action command_Action_IncomingWormhole = new Command_Action();
 
-                command_Action_IncomingWormhole.defaultLabel = "Incoming WormHole";
+                command_Action_IncomingWormhole.defaultLabel = "Inbound WormHole";
 
-                command_Action_IncomingWormhole.icon = UI_DROPPOD;
-                command_Action_IncomingWormhole.defaultDesc = "Incoming WormHole";
+                command_Action_IncomingWormhole.icon = UI_GATE_IN;
+                command_Action_IncomingWormhole.defaultDesc = "Inbound Wormhole";
 
                 command_Action_IncomingWormhole.activateSound = SoundDef.Named("Click");
                 command_Action_IncomingWormhole.action = new Action(this.StargateIncomingWormhole);
@@ -152,8 +156,7 @@ namespace Enhanced_Defence.Stargate
         public void AddResources()
         {
 
-            //if (power.PowerOn)
-            if (true)
+            if (power.PowerOn)
             {
 
                 Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindItemThingsInAutoLoader(this);
@@ -174,6 +177,9 @@ namespace Enhanced_Defence.Stargate
                         this.AddResources();
                     }
                 }
+
+                // Tell the MapDrawer that here is something thats changed
+                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
             }
             else
             {
@@ -204,11 +210,16 @@ namespace Enhanced_Defence.Stargate
         {
             if (System.IO.File.Exists(this.FileLocationPrimary))
             {
-                Messages.Message("Please Recalling Offworld Teams First", MessageSound.Reject);
+                Messages.Message("Please Recall Offworld Teams First", MessageSound.Reject);
             }
             else
             {
                 Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
+
+                this.listOfBufferThings.Clear();
+
+                // Tell the MapDrawer that here is something thats changed
+                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
             }
 
         }
@@ -219,17 +230,22 @@ namespace Enhanced_Defence.Stargate
             {
                 Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
 
-                Log.Message("start list contains: " + listOfBufferThings.Count);
-                Enhanced_Defence.Stargate.Saving.SaveThings.load(ref listOfBufferThings, this.FileLocationPrimary, this);
-                Log.Message("end list contains: " + listOfBufferThings.Count);
+                List<Thing> inboundBuffer = new List<Thing>();
 
-                foreach (Thing currentThing in listOfBufferThings)
+                Log.Message("start list contains: " + inboundBuffer.Count);
+                Enhanced_Defence.Stargate.Saving.SaveThings.load(ref inboundBuffer, this.FileLocationPrimary, this);
+                Log.Message("end list contains: " + inboundBuffer.Count);
+
+                foreach (Thing currentThing in inboundBuffer)
                 {
                     Log.Message("Placing Thing");
-                    GenPlace.TryPlaceThing(currentThing, this.Position, ThingPlaceMode.Near);
+                    GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0,0,-2), ThingPlaceMode.Near);
                 }
                 Log.Message("End of Placing");
-                listOfBufferThings.Clear();
+                inboundBuffer.Clear();
+
+                // Tell the MapDrawer that here is something thats changed
+                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
 
                 this.MoveToBackup();
 
@@ -243,8 +259,7 @@ namespace Enhanced_Defence.Stargate
 
         public void AddColonist()
         {
-            if (true)
-            //if (power.PowerOn)
+            if (power.PowerOn)
             {
                 //Log.Message("CLick AddColonist");
                 IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, 5);
@@ -262,11 +277,41 @@ namespace Enhanced_Defence.Stargate
                         }
                     }
                 }
+
+                // Tell the MapDrawer that here is something thats changed
+                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
             }
             else
             {
                 Messages.Message("Insufficient Power to add Colonist");
             }
+        }
+
+        public override Graphic Graphic
+        {
+            get
+            {
+                if (this.listOfBufferThings.Count > 0)
+                {
+                    return this.graphicActive;
+                }
+                else
+                {
+                    return this.graphicInactive;
+
+                }
+                return base.Graphic;
+            }
+        }
+
+        public override string GetInspectString()
+        {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(base.GetInspectString());
+            stringBuilder.AppendLine("Buffer Items: " + this.listOfBufferThings.Count);
+
+            return stringBuilder.ToString();
         }
     }
 }
