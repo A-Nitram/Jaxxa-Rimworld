@@ -13,10 +13,7 @@ namespace Enhanced_Defence.Temperature
 
         public CompTempControl compTempControl;
         public CompPowerTrader compPowerTrader;
-
-        private const float HeatOutputMultiplier = 1.25f;
-        private const float EfficiencyLossPerDegreeDifference = 0.007692308f;
-
+        
         public override void SpawnSetup()
         {
             base.SpawnSetup();

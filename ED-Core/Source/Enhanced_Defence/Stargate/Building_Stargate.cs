@@ -10,7 +10,7 @@ namespace Enhanced_Defence.Stargate
     class Building_Stargate : Building
     {
         //TODO: Saving the Building
-        List<Thing> listOfOffworldThings = new List<Thing>();
+        List<Thing> listOfBufferThings = new List<Thing>();
 
         private static Texture2D UI_ADD_RESOURCES;
         private static Texture2D UI_ADD_COLONIST;
@@ -19,6 +19,9 @@ namespace Enhanced_Defence.Stargate
         public bool StargateAddResources = true;
         public bool StargateAddUnits = true;
         public bool StargateRetreave = true;
+
+        private string FileLocationPrimary = @"Stargate.xml";
+        private string FileLocationSecondary = @"StargateBackup.xml";
 
         public override void SpawnSetup()
         {
@@ -36,7 +39,6 @@ namespace Enhanced_Defence.Stargate
 
             Log.Message("Expose Data start");
             //base.ExposeData();
-
 
             //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
 
@@ -162,7 +164,7 @@ namespace Enhanced_Defence.Stargate
                     {
                         List<Thing> thingList = new List<Thing>();
                         //thingList.Add(foundThing);
-                        listOfOffworldThings.Add(foundThing);
+                        listOfBufferThings.Add(foundThing);
                         foundThing.DeSpawn();
 
                         //Building_OrbitalRelay.listOfThingLists.Add(thingList);
@@ -180,51 +182,80 @@ namespace Enhanced_Defence.Stargate
 
         }
 
+        private void MoveToBackup()
+        {
+
+            if (System.IO.File.Exists(this.FileLocationSecondary))
+            {
+                System.IO.File.Delete(this.FileLocationSecondary);
+            }
+
+            if (System.IO.File.Exists(this.FileLocationPrimary))
+            {
+                System.IO.File.Move(this.FileLocationPrimary, this.FileLocationSecondary);
+            }
+            else
+            {
+                Log.Warning("Building_Stargate.MoveToBackup(), file at FileLocationPrimary not found.");
+            }
+        }
+
         public void StargateDialOut()
         {
-            Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfOffworldThings, @"C:\Stargate.txt", this);
+            Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
         }
 
         public void StargateIncomingWormhole()
         {
-            //listOfOffworldThings.Clear();
-
-            Log.Message("start list contains: " + listOfOffworldThings.Count);
-            Enhanced_Defence.Stargate.Saving.SaveThings.load(ref listOfOffworldThings, @"C:\Stargate.txt", this);
-            Log.Message("end list contains: " + listOfOffworldThings.Count);
-
-            foreach (Thing currentThing in listOfOffworldThings)
+            if (System.IO.File.Exists(this.FileLocationPrimary))
             {
-                Log.Message("Placing Thing");
-                GenPlace.TryPlaceThing(currentThing, this.Position, ThingPlaceMode.Near);
+                Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
+                //listOfOffworldThings.Clear();
+
+                Log.Message("start list contains: " + listOfBufferThings.Count);
+                Enhanced_Defence.Stargate.Saving.SaveThings.load(ref listOfBufferThings, this.FileLocationPrimary, this);
+                Log.Message("end list contains: " + listOfBufferThings.Count);
+
+                foreach (Thing currentThing in listOfBufferThings)
+                {
+                    Log.Message("Placing Thing");
+                    GenPlace.TryPlaceThing(currentThing, this.Position, ThingPlaceMode.Near);
+                }
+                Log.Message("End of Placing");
+                listOfBufferThings.Clear();
+
+                this.MoveToBackup();
+
             }
-            Log.Message("End of Placing");
+            else
+            {
+                Messages.Message("No Offworld Teams Found", MessageSound.Reject);
+                Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
+            }
         }
 
         public void AddColonist()
         {
             if (true)
-                //if (power.PowerOn)
+            //if (power.PowerOn)
             {
                 //Log.Message("CLick AddColonist");
                 IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, 5);
 
                 if (closePawns != null)
                 {
-                    foreach (Pawn currentPawn in closePawns)
+                    foreach (Pawn currentPawn in closePawns.ToList())
                     {
                         if (currentPawn.SpawnedInWorld)
                         {
 
                             List<Thing> thingList = new List<Thing>();
-                            //thingList.Add(foundThing);
-                            listOfOffworldThings.Add(currentPawn);
-                            currentPawn.DeSpawn();
-
-                            //Building_OrbitalRelay.listOfThings.Add(currentPawn);
+                            listOfBufferThings.Add(currentPawn);
                             //currentPawn.DeSpawn();
+                            currentPawn.Destroy(DestroyMode.Vanish);
                         }
                     }
+
                 }
             }
             else

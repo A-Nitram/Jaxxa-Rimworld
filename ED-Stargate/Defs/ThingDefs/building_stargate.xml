@@ -15,18 +15,20 @@
     <eType>BuildingComplex</eType>
     <label>Stargate</label>
     <thingClass>Enhanced_Defence.Stargate.Building_Stargate</thingClass>
-    <graphicPathSingle>Things/Buildings/NuclearLamp</graphicPathSingle>
+    <graphicPath>Things/Buildings/Stargate</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
+    <specialDisplayRadius>5</specialDisplayRadius>
     <tickerType>Normal</tickerType>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToMake>1800</WorkToMake>
       <MaxHealth>350</MaxHealth>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>WirelessPowerNode.</description>
+    <description>Stargate</description>
     <building>
       <wantsHopperAdjacent>true</wantsHopperAdjacent>
     </building>
@@ -37,13 +39,13 @@
         <basePowerConsumption>0</basePowerConsumption>
       </li>
     </comps>
-    <size>(2,2)</size>
+    <size>(1,1)</size>
     <costList>
-      <Metal>200</Metal>
+      <Steel>200</Steel>
     </costList>
-    <overdraw>false</overdraw>
+    <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionSquare>false</hasInteractionSquare>
+    <hasInteractionCell>false</hasInteractionCell>
     <killedLeavings>
       <ChunkSlag>6</ChunkSlag>
      </killedLeavings>
@@ -52,7 +54,7 @@
     </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
+    <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
   </ThingDef>
 

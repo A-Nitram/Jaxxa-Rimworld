@@ -100,7 +100,7 @@ namespace Enhanced_Defence.Plants24H
         {
             get
             {
-                Log.Message("Custom GrowingNow()");
+                //Log.Message("Custom GrowingNow()");
                 if (this.LifeStage == PlantLifeStage.Growing && this.HasEnoughLightToGrow)
                 {
                     return true;
