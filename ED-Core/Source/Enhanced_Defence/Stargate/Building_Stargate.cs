@@ -11,6 +11,8 @@ namespace Enhanced_Defence.Stargate
 {
     class Building_Stargate : Building
     {
+
+        #region Variables
         //TODO: Saving the Building
         List<Thing> listOfBufferThings = new List<Thing>();
 
@@ -32,6 +34,14 @@ namespace Enhanced_Defence.Stargate
         Graphic graphicInactive;
 
         CompPowerTrader power;
+
+        int currentCapacitorCharge = 1000;
+        int requiredCapacitorCharge = 1000;
+        int chargeSpeed = 1;
+
+        #endregion
+
+        #region Override
 
         public override void SpawnSetup()
         {
@@ -63,8 +73,10 @@ namespace Enhanced_Defence.Stargate
 
             //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
 
-            /*Scribe_Values.LookValue<int>(ref DropPodAddUnitRadius, "DropPodAddUnitRadius");
-            Scribe_Values.LookValue<bool>(ref DropPodDeepStrike, "DropPodDeepStrike");
+            Scribe_Values.LookValue<int>(ref currentCapacitorCharge, "currentCapacitorCharge");
+            Scribe_Values.LookValue<int>(ref requiredCapacitorCharge, "requiredCapacitorCharge");
+
+            /*Scribe_Values.LookValue<bool>(ref DropPodDeepStrike, "DropPodDeepStrike");
             Scribe_Values.LookValue<bool>(ref DropPodAddUnits, "DropPodAddUnits");
             Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");*/
 
@@ -74,6 +86,33 @@ namespace Enhanced_Defence.Stargate
 
             Log.Message("Expose Data about to start");
 
+        }
+
+        public override void TickRare()
+        {
+            base.TickRare();
+            if (this.power.PowerOn)
+            {
+                currentCapacitorCharge += 1;
+            }
+
+            if (currentCapacitorCharge > requiredCapacitorCharge)
+            {
+                currentCapacitorCharge = requiredCapacitorCharge;
+            }
+
+        }
+
+        #endregion
+
+        #region Commands
+
+        private bool fullyCharged
+        {
+            get
+            {
+                return(this.currentCapacitorCharge >= this.requiredCapacitorCharge);
+            }
         }
 
         public override IEnumerable<Command> GetCommands()
@@ -156,7 +195,7 @@ namespace Enhanced_Defence.Stargate
         public void AddResources()
         {
 
-            if (power.PowerOn)
+            if (this.fullyCharged)
             {
 
                 Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindItemThingsInAutoLoader(this);
@@ -188,78 +227,9 @@ namespace Enhanced_Defence.Stargate
 
         }
 
-        private void MoveToBackup()
-        {
-
-            if (System.IO.File.Exists(this.FileLocationSecondary))
-            {
-                System.IO.File.Delete(this.FileLocationSecondary);
-            }
-
-            if (System.IO.File.Exists(this.FileLocationPrimary))
-            {
-                System.IO.File.Move(this.FileLocationPrimary, this.FileLocationSecondary);
-            }
-            else
-            {
-                Log.Warning("Building_Stargate.MoveToBackup(), file at FileLocationPrimary not found.");
-            }
-        }
-
-        public void StargateDialOut()
-        {
-            if (System.IO.File.Exists(this.FileLocationPrimary))
-            {
-                Messages.Message("Please Recall Offworld Teams First", MessageSound.Reject);
-            }
-            else
-            {
-                Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
-
-                this.listOfBufferThings.Clear();
-
-                // Tell the MapDrawer that here is something thats changed
-                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
-            }
-
-        }
-
-        public void StargateIncomingWormhole()
-        {
-            if (System.IO.File.Exists(this.FileLocationPrimary))
-            {
-                Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
-
-                List<Thing> inboundBuffer = new List<Thing>();
-
-                Log.Message("start list contains: " + inboundBuffer.Count);
-                Enhanced_Defence.Stargate.Saving.SaveThings.load(ref inboundBuffer, this.FileLocationPrimary, this);
-                Log.Message("end list contains: " + inboundBuffer.Count);
-
-                foreach (Thing currentThing in inboundBuffer)
-                {
-                    Log.Message("Placing Thing");
-                    GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0,0,-2), ThingPlaceMode.Near);
-                }
-                Log.Message("End of Placing");
-                inboundBuffer.Clear();
-
-                // Tell the MapDrawer that here is something thats changed
-                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
-
-                this.MoveToBackup();
-
-            }
-            else
-            {
-                Messages.Message("No Offworld Teams Found", MessageSound.Reject);
-                Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
-            }
-        }
-
         public void AddColonist()
         {
-            if (power.PowerOn)
+            if (this.fullyCharged)
             {
                 //Log.Message("CLick AddColonist");
                 IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, 5);
@@ -287,6 +257,76 @@ namespace Enhanced_Defence.Stargate
             }
         }
 
+        public void StargateDialOut()
+        {
+
+            if (this.fullyCharged)
+            {
+                if (System.IO.File.Exists(this.FileLocationPrimary))
+                {
+                    Messages.Message("Please Recall Offworld Teams First", MessageSound.Reject);
+                }
+                else
+                {
+                    Enhanced_Defence.Stargate.Saving.SaveThings.save(listOfBufferThings, this.FileLocationPrimary, this);
+
+                    this.listOfBufferThings.Clear();
+
+                    // Tell the MapDrawer that here is something thats changed
+                    Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+
+                    this.currentCapacitorCharge -= this.requiredCapacitorCharge;
+                }
+            }
+            else
+            {
+                Messages.Message("Insufficient power to establish connection.", MessageSound.Reject);
+            }
+        }
+
+        public void StargateIncomingWormhole()
+        {
+            if (System.IO.File.Exists(this.FileLocationPrimary))
+            {
+                Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
+
+                List<Thing> inboundBuffer = new List<Thing>();
+
+                Log.Message("start list contains: " + inboundBuffer.Count);
+                Enhanced_Defence.Stargate.Saving.SaveThings.load(ref inboundBuffer, this.FileLocationPrimary, this);
+                Log.Message("end list contains: " + inboundBuffer.Count);
+
+                foreach (Thing currentThing in inboundBuffer)
+                {
+                    Log.Message("Placing Thing");
+
+                    //Setup the New ID for the Thing
+                    currentThing.thingIDNumber = -1;
+                    Verse.ThingIDCounter.GiveIDTo(currentThing);
+
+                    GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0, 0, -2), ThingPlaceMode.Near);
+                }
+                Log.Message("End of Placing");
+                inboundBuffer.Clear();
+
+                // Tell the MapDrawer that here is something thats changed
+                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+
+                this.MoveToBackup();
+
+            }
+            else
+            {
+
+                Messages.Message("No Offworld Teams Found", MessageSound.Reject);
+                Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
+            }
+        }
+
+        #endregion
+
+        #region Graphics-text
+
         public override Graphic Graphic
         {
             get
@@ -310,8 +350,30 @@ namespace Enhanced_Defence.Stargate
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
             stringBuilder.AppendLine("Buffer Items: " + this.listOfBufferThings.Count);
+            stringBuilder.AppendLine("Capacitor Charge: " + this.currentCapacitorCharge + " / " + this.requiredCapacitorCharge);
 
             return stringBuilder.ToString();
         }
+
+        #endregion
+
+        private void MoveToBackup()
+        {
+
+            if (System.IO.File.Exists(this.FileLocationSecondary))
+            {
+                System.IO.File.Delete(this.FileLocationSecondary);
+            }
+
+            if (System.IO.File.Exists(this.FileLocationPrimary))
+            {
+                System.IO.File.Move(this.FileLocationPrimary, this.FileLocationSecondary);
+            }
+            else
+            {
+                Log.Warning("Building_Stargate.MoveToBackup(), file at FileLocationPrimary not found.");
+            }
+        }
+
     }
 }

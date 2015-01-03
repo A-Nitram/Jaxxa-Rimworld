@@ -135,7 +135,10 @@ Thanks to Darker for:
 
 Thanks to EdB for:
 * Allowing people to look through his UI code.
- 
+
+Thanks to Haplo for:
+* Providing a tutorial on animating images.
+
 Thanks to Kulverstukass for:
 * Awesome bug reporting and feedback.
  

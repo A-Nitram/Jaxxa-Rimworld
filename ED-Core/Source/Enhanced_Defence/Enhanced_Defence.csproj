@@ -55,6 +55,7 @@
     <Compile Include="Power\WirelessPower\WirelessPowerNode.cs" />
     <Compile Include="Power\WirelessPower\WirelessPowerManager.cs" />
     <Compile Include="Stargate\Building_Stargate.cs" />
+    <Compile Include="Stargate\Building_OffWorldStargate.cs" />
     <Compile Include="Stargate\Saving\Dialog\Dialog_LoadPreset.cs" />
     <Compile Include="Stargate\Saving\Dialog\Dialog_Preset.cs" />
     <Compile Include="Stargate\Saving\Dialog\Dialog_SavePreset.cs" />

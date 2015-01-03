@@ -11,7 +11,7 @@
   </ThingDef>
   
    <ThingDef ParentName="BuildingBase">
-    <defName>StargateSGC</defName>
+    <defName>Stargate</defName>
     <eType>BuildingComplex</eType>
     <label>Stargate</label>
     <thingClass>Enhanced_Defence.Stargate.Building_Stargate</thingClass>
@@ -22,7 +22,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1</fillPercent>
     <specialDisplayRadius>5</specialDisplayRadius>
-    <tickerType>Normal</tickerType>
+    <tickerType>Rare</tickerType>
     <statBases>
       <WorkToMake>1800</WorkToMake>
       <MaxHealth>350</MaxHealth>
@@ -36,7 +36,7 @@
       <li>
         <compClass>CompPowerTrader</compClass>
         <startElectricalFires>false</startElectricalFires>
-        <basePowerConsumption>0</basePowerConsumption>
+        <basePowerConsumption>500</basePowerConsumption>
       </li>
     </comps>
     <size>(3,3)</size>
@@ -57,6 +57,48 @@
     <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
   </ThingDef>
-
+  
+   <ThingDef ParentName="BuildingBase">
+    <defName>OffWorldStargate</defName>
+    <eType>BuildingComplex</eType>
+    <label>Off World Stargate</label>
+    <thingClass>Enhanced_Defence.Stargate.Building_OffWorldStargate</thingClass>
+    <graphicPath>Things/Buildings/Stargate</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <specialDisplayRadius>5</specialDisplayRadius>
+    <tickerType>Rare</tickerType>
+    <uiIconPath>UI/nuke</uiIconPath>
+    <statBases>
+      <WorkToMake>0</WorkToMake>
+      <MaxHealth>350</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Offworld Stargate</description>
+    <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+    </building>
+    <comps>
+    </comps>
+    <size>(3,3)</size>
+    <costList>
+    </costList>
+    <graphicOverdraw>false</graphicOverdraw>
+    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <hasInteractionCell>false</hasInteractionCell>
+    <killedLeavings>
+      <ChunkSlag>6</ChunkSlag>
+     </killedLeavings>
+    <filthLeavings>
+      <SlagRubble>3</SlagRubble>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <staticSunShadowHeight>0.75</staticSunShadowHeight>
+  </ThingDef>
 
 </ThingDefs>
