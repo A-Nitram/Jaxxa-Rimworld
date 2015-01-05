@@ -65,7 +65,7 @@ namespace Enhanced_Defence.TurretAmmo
 
                 this.internalAmmoMAX = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMAX;
                 this.internalAmmoMultiplier = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoMultiplier;
-                Log.Warning("Setting internalAmmoCurrent");
+               //Log.Warning("Setting internalAmmoCurrent");
 
                 this.internalAmmoStartColonist = ((TurretAmmo.TurretAmmoThingDef)def).internalAmmoStartColonist;
 
