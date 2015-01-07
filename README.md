@@ -129,8 +129,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Moved Common Textures into Core Mod
 --Mainly UI in modules that already require Core
 0.14
--Fixes to Turrets
-
+-Fixes to Mortar turrets correctly using the stuff system.
+-Increased Cost of Stargate
 ~~~
 
 ##License:
