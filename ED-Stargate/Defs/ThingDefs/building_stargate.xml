@@ -10,7 +10,7 @@
     <repairEffect>Repair</repairEffect>
   </ThingDef>
   
-   <ThingDef ParentName="BuildingBase">
+   <ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
     <defName>Stargate</defName>
     <eType>BuildingComplex</eType>
     <label>Stargate</label>
@@ -23,6 +23,8 @@
     <fillPercent>1</fillPercent>
     <specialDisplayRadius>3</specialDisplayRadius>
     <tickerType>Rare</tickerType>
+	<FileLocationPrimary>StargateJ.xml</FileLocationPrimary>
+	<FileLocationSecondary>StargateBackupJ.xml.bak</FileLocationSecondary>
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <MaxHealth>1000000</MaxHealth>

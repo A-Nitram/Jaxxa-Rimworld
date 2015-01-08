@@ -27,8 +27,8 @@ namespace Enhanced_Defence.Stargate
         public bool StargateAddUnits = true;
         public bool StargateRetreave = true;
 
-        private string FileLocationPrimary = @"Stargate.xml";
-        private string FileLocationSecondary = @"StargateBackup.xml.bak";
+        private string FileLocationPrimary;
+        private string FileLocationSecondary;
 
         Graphic graphicActive;
         Graphic graphicInactive;
@@ -62,6 +62,19 @@ namespace Enhanced_Defence.Stargate
 
             Material matInactive = MaterialPool.MatFrom("Things/Buildings/Stargate", def.shader);
             graphicInactive = new Graphic_Single(matInactive, false);
+
+            if (def is StargateThingDef)
+            {
+                //Read in variables from the custom MyThingDef
+                FileLocationPrimary = ((Enhanced_Defence.Stargate.StargateThingDef)def).FileLocationPrimary;
+                FileLocationSecondary = ((Enhanced_Defence.Stargate.StargateThingDef)def).FileLocationSecondary;
+
+                Log.Message("Setting FileLocationPrimary:" + FileLocationPrimary + " and FileLocationSecondary:" + FileLocationSecondary);
+            }
+            else
+            {
+                Log.Error("Stargate definition not of type \"StargateThingDef\"");
+            }
         }
 
         //Saving game

@@ -136,7 +136,9 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Increase the power consumption of the Stargate for a reduction in charge time
 -Removed Autoloader Research Requirment
 --Would have been problomatic to be used with offworld gates
-
+-Stargate Dynamic Save location
+--Change where the stargate .xml files are saved and read from
+--Most people will want to leav this alone, but it might be helpful for trying more complex stuff or bug fixing.
 ~~~
 
 ##License:
