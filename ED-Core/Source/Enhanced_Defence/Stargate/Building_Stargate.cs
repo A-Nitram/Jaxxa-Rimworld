@@ -75,7 +75,9 @@ namespace Enhanced_Defence.Stargate
 
             Scribe_Values.LookValue<int>(ref currentCapacitorCharge, "currentCapacitorCharge");
             Scribe_Values.LookValue<int>(ref requiredCapacitorCharge, "requiredCapacitorCharge");
+            Scribe_Values.LookValue<int>(ref chargeSpeed, "chargeSpeed");
 
+            
             /*Scribe_Values.LookValue<bool>(ref DropPodDeepStrike, "DropPodDeepStrike");
             Scribe_Values.LookValue<bool>(ref DropPodAddUnits, "DropPodAddUnits");
             Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");*/
@@ -93,12 +95,19 @@ namespace Enhanced_Defence.Stargate
             base.TickRare();
             if (this.power.PowerOn)
             {
-                currentCapacitorCharge += 1;
+                currentCapacitorCharge += chargeSpeed;
             }
 
             if (currentCapacitorCharge > requiredCapacitorCharge)
             {
                 currentCapacitorCharge = requiredCapacitorCharge;
+            }
+
+            if (this.currentCapacitorCharge < 0)
+            {
+                this.currentCapacitorCharge = 0;
+                this.chargeSpeed = 0;
+                this.updatePowerDrain();
             }
 
         }
@@ -188,6 +197,38 @@ namespace Enhanced_Defence.Stargate
                 CommandList.Add(command_Action_IncomingWormhole);
             }
 
+            if (true)
+            {
+                //Upgrading
+                Command_Action command_Action_IncreasePower = new Command_Action();
+
+                command_Action_IncreasePower.defaultLabel = "Increase Power";
+
+                command_Action_IncreasePower.icon = UI_GATE_IN;
+                command_Action_IncreasePower.defaultDesc = "Increase Power";
+
+                command_Action_IncreasePower.activateSound = SoundDef.Named("Click");
+                command_Action_IncreasePower.action = new Action(this.PowerRateIncrease);
+
+                CommandList.Add(command_Action_IncreasePower);
+            }
+
+            if (true)
+            {
+                //Upgrading
+                Command_Action command_Action_DecreasePower = new Command_Action();
+
+                command_Action_DecreasePower.defaultLabel = "Decrease Power";
+
+                command_Action_DecreasePower.icon = UI_GATE_IN;
+                command_Action_DecreasePower.defaultDesc = "Decrease Power";
+
+                command_Action_DecreasePower.activateSound = SoundDef.Named("Click");
+                command_Action_DecreasePower.action = new Action(this.PowerRateDecrease);
+
+                CommandList.Add(command_Action_DecreasePower);
+            }
+
 
             return CommandList.AsEnumerable<Command>();
         }
@@ -232,7 +273,7 @@ namespace Enhanced_Defence.Stargate
             if (this.fullyCharged)
             {
                 //Log.Message("CLick AddColonist");
-                IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, 5);
+                IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, 3);
 
                 if (closePawns != null)
                 {
@@ -323,6 +364,23 @@ namespace Enhanced_Defence.Stargate
                 Messages.Message("No Offworld Teams Found", MessageSound.Reject);
                 Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
             }
+        }
+
+        private void PowerRateIncrease()
+        {
+            this.chargeSpeed += 1;
+            this.updatePowerDrain();
+        }
+
+        private void PowerRateDecrease()
+        {
+            this.chargeSpeed -= 1;
+            this.updatePowerDrain();
+        }
+
+        private void updatePowerDrain()
+        {
+            this.power.powerOutput = -1000 * this.chargeSpeed;
         }
 
         #endregion

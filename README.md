@@ -116,21 +116,27 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Balancing ideas welcome
 0.11
 -Added Vent System
---Shares graphics with cooler.
---Power it on to equalise the temperature between two rooms.
---Made out of Stuff, same health as a wall from that stuff.
+--Shares graphics with cooler
+--Power it on to equalise the temperature between two rooms
+--Made out of Stuff, same health as a wall from that stuff
 --Omnidirectional
---All the buttons except the power button do nothing.
+--All the buttons except the power button do nothing
 0.12
 -Updated Graphic for Vent
--More specific install instructions.
+-More specific install instructions
 0.13
 -Initial Stargate Release
 -Moved Common Textures into Core Mod
 --Mainly UI in modules that already require Core
 0.14
--Fixes to Mortar turrets correctly using the stuff system.
+-Fixes to Mortar turrets to bring them in line with Alpha 8 changes
 -Increased Cost of Stargate
+-Increased Stargate Power Consumption
+-Added charge options
+--Increase the power consumption of the Stargate for a reduction in charge time
+-Removed Autoloader Research Requirment
+--Would have been problomatic to be used with offworld gates
+
 ~~~
 
 ##License:
