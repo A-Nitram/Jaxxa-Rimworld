@@ -138,7 +138,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Would have been problomatic to be used with offworld gates
 -Stargate Dynamic Save location
 --Change where the stargate .xml files are saved and read from
---Most people will want to leav this alone, but it might be helpful for trying more complex stuff or bug fixing.
+--Most people will want to leave this alone, but it might be helpful for trying more complex stuff or bug fixing.
+-Updating / Balancing OmniGel recipies based on resource cost
 ~~~
 
 ##License:
