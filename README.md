@@ -150,7 +150,7 @@ This work is licensed under http://creativecommons.org/licenses/by/4.0/
 ##Credit / Thanks:
 
 Thanks to Alphathon for:
-*Creating the Stargate graphic that I edited slightly
+* Creating the Stargate graphic that I edited slightly
  * http://commons.wikimedia.org/wiki/File:Stargate.svg
 
 Thanks to Architect for:
