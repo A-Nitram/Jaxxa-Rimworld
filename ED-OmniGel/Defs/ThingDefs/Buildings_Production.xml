@@ -152,8 +152,10 @@
       <li>Replicate_MK3_UraniumFromOmniGel</li>
       <li>Replicate_MK3_ShellsFromOmniGel</li>
       <li>Replicate_MK3_MedicineFromOmniGel</li>
+      <li>Replicate_MK3_GlitterMedicineFromOmniGel</li>
       <li>Replicate_MK3_GoldFromOmniGel</li>
       <li>Replicate_MK3_PlasteelFromOmniGel</li>
+	  
 	  
     </recipes>
     <inspectorTabs>
