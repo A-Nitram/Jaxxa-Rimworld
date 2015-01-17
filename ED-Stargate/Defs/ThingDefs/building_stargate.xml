@@ -23,8 +23,8 @@
     <fillPercent>1</fillPercent>
     <specialDisplayRadius>3</specialDisplayRadius>
     <tickerType>Rare</tickerType>
-	<FileLocationPrimary>StargateJ.xml</FileLocationPrimary>
-	<FileLocationSecondary>StargateBackupJ.xml.bak</FileLocationSecondary>
+	<FileLocationPrimary>Stargate.xml</FileLocationPrimary>
+	<FileLocationSecondary>StargateBackup.xml.bak</FileLocationSecondary>
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <MaxHealth>1000000</MaxHealth>
