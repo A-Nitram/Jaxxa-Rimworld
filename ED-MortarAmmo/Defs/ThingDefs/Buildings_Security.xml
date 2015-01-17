@@ -71,6 +71,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Artillery_MortarIncendiary</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretBurstCooldownTicks>3000</turretBurstCooldownTicks>
@@ -146,6 +147,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Artillery_MortarBomb</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretBurstCooldownTicks>3000</turretBurstCooldownTicks>
@@ -221,6 +223,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <turretGunDef>Artillery_MortarEMP</turretGunDef>
       <turretBurstWarmupTicks>300</turretBurstWarmupTicks>
       <turretBurstCooldownTicks>3000</turretBurstCooldownTicks>
