@@ -13,6 +13,11 @@ namespace Enhanced_Defence.Temperature
 
         public CompTempControl compTempControl;
         public CompPowerTrader compPowerTrader;
+        float energyLimit = 0;
+
+        float temperature1 = 0;
+        float temperature2 = 0;
+        float temperatureDiff = 0;
 
         public override void SpawnSetup()
         {
@@ -23,6 +28,11 @@ namespace Enhanced_Defence.Temperature
 
         public override void TickRare()
         {
+            energyLimit = 0;
+            temperature1 = 0;
+            temperature2 = 0;
+            temperatureDiff = 0;
+
             if (!this.compPowerTrader.PowerOn)
             {
                 return;
@@ -34,9 +44,9 @@ namespace Enhanced_Defence.Temperature
 
             if (!GenGrid.Impassable(intVec3_2) && !GenGrid.Impassable(intVec3_1))
             {
-                float temperature1 = GridsUtility.GetTemperature(intVec3_1);
-                float temperature2 = GridsUtility.GetTemperature(intVec3_2);
-                float temperatureDiff = temperature1 - temperature2;
+                temperature1 = GridsUtility.GetTemperature(intVec3_1);
+                temperature2 = GridsUtility.GetTemperature(intVec3_2);
+                temperatureDiff = temperature1 - temperature2;
                 /*
                 //float energyLimit = (float)((double)this.compTempControl.props.energyPerSecond * temperatureDiff);
 
@@ -49,16 +59,16 @@ namespace Enhanced_Defence.Temperature
 
                 //float energyLimit = 100.0f;
 
-                float energyLimit = Math.Abs (temperatureDiff *25.0f);
+                energyLimit = Math.Abs (temperatureDiff *25.0f);
 
-                float maxEnergyLimit = 400.0f;
+                float maxEnergyLimit = 1000.0f;
 
                 if (energyLimit > maxEnergyLimit)
                 {
                     energyLimit = maxEnergyLimit;
                 }
 
-                Log.Message("Limit: " + energyLimit + " temperature1 " + temperature1 + " temperature2 " + temperature2);
+                //Log.Message("Limit: " + energyLimit + " temperature1 " + temperature1 + " temperature2 " + temperature2);
 
                 if (temperature1 > temperature2)
                 {
@@ -158,6 +168,8 @@ namespace Enhanced_Defence.Temperature
             {
                 stringBuilder.AppendLine("Vent Closed");
             }
+
+            stringBuilder.AppendLine("EnergyLimit: " + energyLimit + " temperature1: " + temperature1 + " temperature2: " + temperature2 + " temperatureDiff: " + temperatureDiff);
 
             //Power info
             if (this.compPowerTrader != null)
