@@ -144,6 +144,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Redone vent logic
 -increased stack amount for OmniGel
 -Adds reverse cycle Cooler
+--Identical to the standard cooler except that it can be freely rotated after being placed.
 ~~~
 
 ##License:
