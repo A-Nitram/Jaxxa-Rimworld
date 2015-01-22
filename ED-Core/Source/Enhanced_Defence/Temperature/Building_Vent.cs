@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace Enhanced_Defence.Temperature
 {
@@ -19,12 +20,30 @@ namespace Enhanced_Defence.Temperature
         float temperature2 = 0;
         float temperatureDiff = 0;
 
+       //bool ventOpen = true;
+
+        //private static Texture2D UI_CLOSE;
+       // private static Texture2D UI_OPEN;
+
         public override void SpawnSetup()
         {
             base.SpawnSetup();
             this.compTempControl = this.GetComp<CompTempControl>();
             this.compPowerTrader = this.GetComp<CompPowerTrader>();
+
+            //UI_CLOSE = ContentFinder<Texture2D>.Get("UI/RotRight", true);
+            //UI_OPEN = ContentFinder<Texture2D>.Get("UI/RotRight", true);
         }
+
+
+        //Saving game
+        /*public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.LookValue<bool>(ref ventOpen, "ventOpen");
+
+        }*/
 
         public override void TickRare()
         {
@@ -37,6 +56,14 @@ namespace Enhanced_Defence.Temperature
             {
                 return;
             }
+
+            /*
+            if (!this.ventOpen)
+            {
+                return;
+            }*/
+
+            
             IntVec3 intVec3_1 = this.Position + Gen.RotatedBy(IntVec3.south, this.Rotation);
             IntVec3 intVec3_2 = this.Position + Gen.RotatedBy(IntVec3.north, this.Rotation);
 
@@ -59,9 +86,11 @@ namespace Enhanced_Defence.Temperature
 
                 //float energyLimit = 100.0f;
 
-                energyLimit = Math.Abs (temperatureDiff *25.0f);
+                float halfTemp = Math.Abs(temperatureDiff) / 2;
 
-                float maxEnergyLimit = 1000.0f;
+                energyLimit = Math.Abs(temperatureDiff * 25.0f);
+
+                float maxEnergyLimit = 500.0f;
 
                 if (energyLimit > maxEnergyLimit)
                 {
@@ -72,13 +101,13 @@ namespace Enhanced_Defence.Temperature
 
                 if (temperature1 > temperature2)
                 {
-                    GenTemperature.TryControlTemperature(intVec3_1, -energyLimit, temperature2);
-                    GenTemperature.TryControlTemperature(intVec3_2, energyLimit, temperature1);
+                    GenTemperature.TryControlTemperature(intVec3_1, -energyLimit, temperature2 + halfTemp);
+                    GenTemperature.TryControlTemperature(intVec3_2, energyLimit, temperature1 - halfTemp);
                 }
                 else
                 {
-                    GenTemperature.TryControlTemperature(intVec3_1, energyLimit, temperature2);
-                    GenTemperature.TryControlTemperature(intVec3_2, -energyLimit, temperature1);
+                    GenTemperature.TryControlTemperature(intVec3_1, energyLimit, temperature2 - halfTemp);
+                    GenTemperature.TryControlTemperature(intVec3_2, -energyLimit, temperature1 + halfTemp);
                 }
 
 
@@ -149,13 +178,73 @@ namespace Enhanced_Defence.Temperature
             }
 
         }*/
-
+        /*
         public override IEnumerable<Command> GetCommands()
         {
-            return compPowerTrader.CompGetCommandsExtra();
+            IList<Command> CommandList = new List<Command>();
+            IEnumerable<Command> baseCommands = base.GetCommands();
+
+            if (baseCommands != null)
+            {
+                CommandList = baseCommands.ToList();
+            }
+
+            if (ventOpen)
+            {
+                //Upgrading
+                Command_Action command_Action_AddResources = new Command_Action();
+
+                command_Action_AddResources.defaultLabel = "Close Vent";
+
+                command_Action_AddResources.icon = UI_CLOSE;
+                command_Action_AddResources.defaultDesc = "Close Vent";
+
+                command_Action_AddResources.activateSound = SoundDef.Named("Click");
+                command_Action_AddResources.action = new Action(this.toggleVent);
+
+                CommandList.Add(command_Action_AddResources);
+            }
+            else
+            {
+                //Upgrading
+                Command_Action command_Action_AddResources = new Command_Action();
+
+                command_Action_AddResources.defaultLabel = "Open Vent";
+
+                command_Action_AddResources.icon = UI_OPEN;
+                command_Action_AddResources.defaultDesc = "Open Vent";
+
+                command_Action_AddResources.activateSound = SoundDef.Named("Click");
+                command_Action_AddResources.action = new Action(this.toggleVent);
+
+                CommandList.Add(command_Action_AddResources);
+            }
+
+
+            return CommandList.AsEnumerable<Command>();
+            //return compPowerTrader.CompGetCommandsExtra();
             //return base.GetCommands();
         }
 
+        public void toggleVent()
+        {
+            if (this.compPowerTrader.PowerOn)
+            {
+                this.ventOpen = !this.ventOpen;
+            }
+            else
+            {
+                if (this.ventOpen)
+                {
+                    Messages.Message("Insufficient Power to Close Vent", MessageSound.Reject);
+                }
+                else
+                {
+                    Messages.Message("Insufficient Power to Open Vent", MessageSound.Reject);
+                }
+            }
+        }
+        */
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();

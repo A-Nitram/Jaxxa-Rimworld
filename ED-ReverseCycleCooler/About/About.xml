@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>ED-RCCooler</name>
+  <name>ED-ReverseCycleCooler</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 8</targetVersion>
   <description>
 	Requires: ED-Core
-Adds a RC Cooler
+Adds a Reverse Cycle Cooler. Identical to the standard cooler except that it can easily be rotated to reverse the direction of the temperature flow.
   </description>
 </ModMetaData>
