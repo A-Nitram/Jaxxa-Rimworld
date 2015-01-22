@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ED-RCCooler</name>
+  <author>Jaxxa</author>
+  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
+  <targetVersion>Alpha 8</targetVersion>
+  <description>
+	Requires: ED-Core
+Adds a RC Cooler
+  </description>
+</ModMetaData>

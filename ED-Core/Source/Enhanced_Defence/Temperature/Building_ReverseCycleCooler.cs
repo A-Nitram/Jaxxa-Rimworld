@@ -15,7 +15,7 @@ namespace Enhanced_Defence.Temperature
         public override void SpawnSetup()
         {
             base.SpawnSetup();
-            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/ADD_RESOURCES", true);
+            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/RotRight", true);
         }
 
        /* public override void TickRare()
