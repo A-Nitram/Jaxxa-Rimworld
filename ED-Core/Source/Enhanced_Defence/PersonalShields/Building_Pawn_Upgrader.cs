@@ -112,6 +112,58 @@ namespace Enhanced_Defence.PersonalShields
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");*/
         }
 
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.tryReplacePawn();
+                act.icon = UI_UPGRADE;
+                act.defaultLabel = "Upgrade To NanoShield";
+                act.defaultDesc = "Upgrade To NanoShield";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (flag_charge)
+	        {
+		        Command_Action act = new Command_Action();
+		        //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+		        act.action = () => this.SwitchCharge();
+		        act.icon = UI_CHARGE_ON;
+		        act.defaultLabel = "Charge Shields";
+		        act.defaultDesc = "On";
+		        act.activateSound = SoundDef.Named("Click");
+		        //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+		        //act.groupKey = 689736;
+		        yield return act;
+	        }
+            else
+            {
+		        Command_Action act = new Command_Action();
+		        //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+		        act.action = () => this.SwitchCharge();
+		        act.icon = UI_CHARGE_OFF;
+		        act.defaultLabel = "Charge Shields";
+		        act.defaultDesc = "Off";
+		        act.activateSound = SoundDef.Named("Click");
+		        //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+		        //act.groupKey = 689736;
+		        yield return act;
+            }
+        }
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -166,7 +218,7 @@ namespace Enhanced_Defence.PersonalShields
 
             return CommandList.AsEnumerable<Command>();
         }
-
+        */
         private void SwitchCharge()
         {
             flag_charge = !flag_charge;
@@ -236,7 +288,7 @@ namespace Enhanced_Defence.PersonalShields
 
                 if (pawns != null)
                 {
-                    IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.WithinHorizontalDistanceOf(this.Position, this.MAX_DISTANCE));
+                    IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
 
                     if (closePawns != null)
                     {

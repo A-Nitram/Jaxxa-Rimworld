@@ -97,7 +97,7 @@ namespace Enhanced_Defence.PersonalShields
             }
         }
 
-        public override void PreApplyDamage(DamageInfo dinfo)
+        public override void PreApplyDamage(DamageInfo dinfo, out bool absorbed)
         {
             //Log.Message("PreApplyDamage -> Resist:" + this.def.damageMultipliers.Count);
             //Log.Message("dinfo: " + dinfo.Amount);
@@ -118,7 +118,7 @@ namespace Enhanced_Defence.PersonalShields
                     this.setShieldsActive(false);
                 }
             }
-            base.PreApplyDamage(dinfo);
+            base.PreApplyDamage(dinfo, out absorbed);
         }
 
         public override void PostApplyDamage(DamageInfo dinfo)

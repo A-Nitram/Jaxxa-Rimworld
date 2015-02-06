@@ -5,7 +5,6 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using VerseBase;
 using RimWorld;
 using System.Reflection;
 using Enhanced_Defence.ShieldUtils;
@@ -425,7 +424,7 @@ namespace Enhanced_Defence.Shields
                                 //pr.def.projectile.
 
                                 //On hit effects
-                                MoteMaker.ThrowLightningGlow(pr.ExactPosition, 0.5f);
+                                MoteThrower.ThrowLightningGlow(pr.ExactPosition, 0.5f);
                                 //On hit sound
                                 HitSoundDef.PlayOneShot(pr.Position);
                                 //Damage the shield
@@ -463,7 +462,7 @@ namespace Enhanced_Defence.Shields
 
                 if (dropPods != null)
                 {
-                    IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
+                    IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.InHorDistOf(this.position, this.shieldShieldRadius));
                     foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
                     {
                         //currentDropPod.Destroy();
@@ -475,13 +474,13 @@ namespace Enhanced_Defence.Shields
                             center = currentDropPod.Position,
                             radius = 1,
                             //dinfo = new DamageInfo(this.def.projectile.damageDef, 999, currentDropPod, new BodyPartDamageInfo?(bodyPartDamageInfo), (ThingDef)null),
-                            dinfo = new DamageInfo(DamageTypeDefOf.Flame, 10, currentDropPod)
+                            dinfo = new DamageInfo(DamageDefOf.Flame, 10, currentDropPod)
                             //preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef,
                             //postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef,
                             //explosionSpawnChance = this.def.projectile.explosionSpawnChance,
                             //explosionSound = this.def.projectile.soundExplode,
                             //projectile = this.def
-                        }.Explode();
+                        }.DoExplosion();
                     }
                 }
             }
@@ -494,7 +493,7 @@ namespace Enhanced_Defence.Shields
 
                 if (fires != null)
                 {
-                    IEnumerable<Thing> closeFires = fires.Where<Thing>(t => t.Position.WithinHorizontalDistanceOf(this.position, this.shieldShieldRadius));
+                    IEnumerable<Thing> closeFires = fires.Where<Thing>(t => t.Position.InHorDistOf(this.position, this.shieldShieldRadius));
 
                     if (closeFires != null)
                     {
@@ -508,7 +507,7 @@ namespace Enhanced_Defence.Shields
                                 //Damage the shield
                                 ProcessDamage(DAMAGE_FROM_FIRE);
 
-                                currentFire.TakeDamage(new DamageInfo(DamageTypeDefOf.Extinguish, DAMAGE_TO_FIRE, this.shieldBuilding));
+                                currentFire.TakeDamage(new DamageInfo(DamageDefOf.Extinguish, DAMAGE_TO_FIRE, this.shieldBuilding));
                             }
                         }
                     }
@@ -546,7 +545,7 @@ namespace Enhanced_Defence.Shields
                         //Damage the shield
                         ProcessDamage(DAMAGE_FROM_FIRE);
 
-                        currentFire.TakeDamage(new DamageInfo(DamageTypeDefOf.Extinguish, DAMAGE_TO_FIRE, this.shieldBuilding));
+                        currentFire.TakeDamage(new DamageInfo(DamageDefOf.Extinguish, DAMAGE_TO_FIRE, this.shieldBuilding));
                     }
                 }
             }
@@ -562,7 +561,7 @@ namespace Enhanced_Defence.Shields
                 {
                     if (thing is Building)
                     {
-                        if (thing.health < thing.MaxHealth)
+                        if (thing.Health < thing.MaxHealth)
                         {
                             if (this.shieldCurrentStrength > 1)
                             {
@@ -573,7 +572,7 @@ namespace Enhanced_Defence.Shields
                                 //Damage the shield
                                 ProcessDamage(1);
 
-                                thing.health += 1;
+                                thing.Health += 1;
                             }
                         }
                     }

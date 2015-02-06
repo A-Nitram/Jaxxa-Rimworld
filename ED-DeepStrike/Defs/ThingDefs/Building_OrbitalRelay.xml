@@ -8,6 +8,8 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   
    <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
@@ -52,12 +54,6 @@
     <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
     <hasInteractionCell>false</hasInteractionCell>
-    <killedLeavings>
-      <ChunkSlag>6</ChunkSlag>
-     </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
@@ -98,12 +94,6 @@
     <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
     <hasInteractionCell>false</hasInteractionCell>
-    <killedLeavings>
-      <ChunkSlag>0</ChunkSlag>
-     </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>0</SlagRubble>
-    </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>

@@ -8,6 +8,8 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   
    <ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
@@ -52,13 +54,6 @@
     <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
     <hasInteractionCell>false</hasInteractionCell>
-    <killedLeavings>
-      <ChunkSlag>6</ChunkSlag>
-     </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
@@ -95,13 +90,6 @@
     <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
     <hasInteractionCell>false</hasInteractionCell>
-    <killedLeavings>
-      <ChunkSlag>6</ChunkSlag>
-     </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>

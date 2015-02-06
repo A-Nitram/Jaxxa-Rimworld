@@ -5,7 +5,6 @@ using System.Text;
 using Verse;
 using UnityEngine;
 using RimWorld;
-using VerseBase;
 
 namespace Enhanced_Defence.Stargate
 {
@@ -56,13 +55,14 @@ namespace Enhanced_Defence.Stargate
             UI_GATE_IN = ContentFinder<Texture2D>.Get("UI/StargateGUI-In", true);
             UI_GATE_OUT = ContentFinder<Texture2D>.Get("UI/StargateGUI-Out", true);
 
-            // Set the graphic
-            Material matActive = MaterialPool.MatFrom("Things/Buildings/Stargate-Active", def.shader);
-            graphicActive = new Graphic_Single(matActive, false);
+            GraphicRequest requestActive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate-Active", def.shader, new IntVec2(3, 3), Color.white, Color.white);
+            graphicActive = new Graphic_Single();
+            graphicActive.Init(requestActive);
 
-            Material matInactive = MaterialPool.MatFrom("Things/Buildings/Stargate", def.shader);
-            graphicInactive = new Graphic_Single(matInactive, false);
-
+            GraphicRequest requestInactive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate", def.shader, new IntVec2(3, 3), Color.white, Color.white);
+            graphicInactive = new Graphic_Single();
+            graphicInactive.Init(requestInactive);
+            
             if (def is StargateThingDef)
             {
                 //Read in variables from the custom MyThingDef
@@ -137,6 +137,102 @@ namespace Enhanced_Defence.Stargate
             }
         }
 
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.AddResources();
+                act.icon = UI_ADD_RESOURCES;
+                act.defaultLabel = "Add Resources";
+                act.defaultDesc = "Add Resources";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.AddColonist();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Add Colonist";
+                act.defaultDesc = "Add Colonist";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.StargateDialOut();
+                act.icon = UI_GATE_OUT;
+                act.defaultLabel = "Dial Out";
+                act.defaultDesc = "Dial Out";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.StargateRecall();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Recall";
+                act.defaultDesc = "Recall";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerRateIncrease();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Increase Power";
+                act.defaultDesc = "Increase Power";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerRateDecrease();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Decrease Power";
+                act.defaultDesc = "Decrease Power";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+        }
+
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -245,7 +341,7 @@ namespace Enhanced_Defence.Stargate
 
             return CommandList.AsEnumerable<Command>();
         }
-
+        */
         public void AddResources()
         {
 
@@ -297,7 +393,9 @@ namespace Enhanced_Defence.Stargate
                             List<Thing> thingList = new List<Thing>();
                             listOfBufferThings.Add(currentPawn);
                             //currentPawn.DeSpawn();
+                            int tempHealth = currentPawn.Health;
                             currentPawn.Destroy(DestroyMode.Vanish);
+                            currentPawn.Health = tempHealth;
                         }
                     }
                 }
@@ -338,7 +436,7 @@ namespace Enhanced_Defence.Stargate
             }
         }
 
-        public void StargateIncomingWormhole()
+        public void StargateRecall()
         {
             if (System.IO.File.Exists(this.FileLocationPrimary))
             {
@@ -356,7 +454,7 @@ namespace Enhanced_Defence.Stargate
 
                     //Setup the New ID for the Thing
                     currentThing.thingIDNumber = -1;
-                    Verse.ThingIDCounter.GiveIDTo(currentThing);
+                    Verse.ThingIDMaker.GiveIDTo(currentThing);
 
                     currentThing.SetFactionDirect(RimWorld.Faction.OfColony);
 

@@ -8,6 +8,8 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
 
   <!--=============== Improvised turret ===============-->
@@ -59,9 +61,6 @@
       <Steel>160</Steel>
     </costList>
     <combatTargetBuilding>true</combatTargetBuilding>
-    <filthLeavings>
-      <SlagRubble>1</SlagRubble>
-    </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>

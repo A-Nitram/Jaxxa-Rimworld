@@ -16,7 +16,7 @@ namespace Enhanced_Defence.Utilities
 
             if (pawns != null)
             {
-                closePawns = pawns.Where<Pawn>(t => t.Position.WithinHorizontalDistanceOf(position, radius));
+                closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(position, radius));
                 return closePawns;
             }
             return null;

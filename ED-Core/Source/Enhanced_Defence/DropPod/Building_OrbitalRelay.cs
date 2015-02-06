@@ -55,7 +55,59 @@ namespace Enhanced_Defence.DropPod
             }
 
         }
+        
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
 
+            if (this.DropPodAddResources)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.AddResources();
+                act.icon = UI_ADD_RESOURCES;
+                act.defaultLabel = "Add Resources";
+                act.defaultDesc = "Add Resources";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (this.DropPodAddUnits)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.AddColonist();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Add Colonist";
+                act.defaultDesc = "Add Colonist";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (this.DropPodDeepStrike)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.DeepStrike();
+                act.icon = UI_DROPPOD;
+                act.defaultLabel = "DeepStrike";
+                act.defaultDesc = "DeepStrike";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+        }
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -117,7 +169,7 @@ namespace Enhanced_Defence.DropPod
 
             return CommandList.AsEnumerable<Command>();
         }
-
+        */
         public void DeepStrike()
         {
             //List<Thing> thingList = new List<Thing>();

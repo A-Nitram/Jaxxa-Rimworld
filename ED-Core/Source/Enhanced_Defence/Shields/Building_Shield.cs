@@ -280,6 +280,214 @@ namespace Enhanced_Defence.Shields
             Scribe_Values.LookValue(ref flag_showVisually, "flag_showVisually");
         }
 
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+            if (shieldBlockDirect)
+            {
+                if (flag_direct)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchDirect();
+                    act.icon = UI_DIRECT_ON;
+                    act.defaultLabel = "Block Direct";
+                    act.defaultDesc = "On";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchDirect();
+                    act.icon = UI_DIRECT_OFF;
+                    act.defaultLabel = "Block Direct";
+                    act.defaultDesc = "Off";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+            if (shieldBlockIndirect)
+            {
+                if (flag_indirect)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchIndirect();
+                    act.icon = UI_INDIRECT_ON;
+                    act.defaultLabel = "Block Indirect";
+                    act.defaultDesc = "On";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchIndirect();
+                    act.icon = UI_INDIRECT_OFF;
+                    act.defaultLabel = "Block Indirect";
+                    act.defaultDesc = "Off";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+            if (shieldFireSupression)
+            {
+                if (flag_fireSupression)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchFire();
+                    act.icon = UI_INDIRECT_ON;
+                    act.defaultLabel = "Fire Suppression";
+                    act.defaultDesc = "On";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchFire();
+                    act.icon = UI_INDIRECT_OFF;
+                    act.defaultLabel = "Fire Suppression";
+                    act.defaultDesc = "Off";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+            if (shieldInterceptDropPod)
+            {
+                if (flag_InterceptDropPod)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchInterceptDropPod();
+                    act.icon = UI_INTERCEPT_DROPPOD_ON;
+                    act.defaultLabel = "Intercept DropPod";
+                    act.defaultDesc = "On";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchInterceptDropPod();
+                    act.icon = UI_INTERCEPT_DROPPOD_OFF;
+                    act.defaultLabel = "Intercept DropPod";
+                    act.defaultDesc = "Off";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+
+            if (shieldStructuralIntegrityMode)
+            {
+                if (flag_shieldRepairMode)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchShieldRepairMode();
+                    act.icon = UI_REPAIR_ON;
+                    act.defaultLabel = "Repair Mode";
+                    act.defaultDesc = "On";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchShieldRepairMode();
+                    act.icon = UI_REPAIR_OFF;
+                    act.defaultLabel = "Repair Mode";
+                    act.defaultDesc = "Off";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+
+            if (true)
+            {
+                if (flag_showVisually)
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchVisual();
+                    act.icon = UI_SHOW_ON;
+                    act.defaultLabel = "Repair Mode";
+                    act.defaultDesc = "Show";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+                else
+                {
+
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.SwitchVisual();
+                    act.icon = UI_SHOW_OFF;
+                    act.defaultLabel = "Repair Mode";
+                    act.defaultDesc = "Hide";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
+
+
+        }
+
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -433,7 +641,7 @@ namespace Enhanced_Defence.Shields
 
             return CommandList.AsEnumerable<Command>();
         }
-
+        */
         private void SwitchDirect()
         {
             flag_direct = !flag_direct;

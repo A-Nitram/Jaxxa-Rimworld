@@ -97,7 +97,7 @@ namespace Enhanced_Defence.VisibleRadius
         }
 
 
-
+        /*
         public override IEnumerable<Command> GetCommands()
         {
 
@@ -145,7 +145,7 @@ namespace Enhanced_Defence.VisibleRadius
 
 
             return CommandList.AsEnumerable<Command>();
-        }
+        }*/
 
         public override void ExposeData()
         {

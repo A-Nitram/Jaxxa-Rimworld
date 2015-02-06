@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Enhanced_Defence.Plants24H
                 if (this.Rotting)
                 {
                     int amount = Mathf.CeilToInt(1.25f);
-                    this.TakeDamage(new DamageInfo(DamageTypeDefOf.Rotting, amount, (Thing)null, new BodyPartDamageInfo?(), (ThingDef)null));
+                    this.TakeDamage(new DamageInfo(DamageDefOf.Rotting, amount, (Thing)null, new BodyPartDamageInfo?(), (ThingDef)null));
                 }
             }
             if (this.Destroyed)

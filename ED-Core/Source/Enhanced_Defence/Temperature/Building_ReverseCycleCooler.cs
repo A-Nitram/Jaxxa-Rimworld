@@ -10,12 +10,12 @@ namespace Enhanced_Defence.Temperature
 {
     public class Building_ReverseCycleCooler : Building_Cooler
     {
-        private static Texture2D UI_ADD_RESOURCES;
+        private static Texture2D UI_ROTATE_RIGHT;
         
         public override void SpawnSetup()
         {
             base.SpawnSetup();
-            UI_ADD_RESOURCES = ContentFinder<Texture2D>.Get("UI/RotRight", true);
+            UI_ROTATE_RIGHT = ContentFinder<Texture2D>.Get("UI/RotRight", true);
         }
 
        /* public override void TickRare()
@@ -29,6 +29,32 @@ namespace Enhanced_Defence.Temperature
 
         }*/
 
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.ChangeRotation();
+                act.icon = UI_ROTATE_RIGHT;
+                act.defaultLabel = "Rotate";
+                act.defaultDesc = "Rotates";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+        }
+
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -60,7 +86,7 @@ namespace Enhanced_Defence.Temperature
             //return compPowerTrader.CompGetCommandsExtra();
             //return base.GetCommands();
         }
-
+        */
         public void ChangeRotation()
         {
             //Log.Error("Rotation");

@@ -91,85 +91,73 @@ namespace Enhanced_Defence.Power.WirelessPower
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");*/
         }
 
-        public override IEnumerable<Command> GetCommands()
+
+        public override IEnumerable<Gizmo> GetGizmos()
         {
-            IList<Command> CommandList = new List<Command>();
-            IEnumerable<Command> baseCommands = base.GetCommands();
-
-            if (baseCommands != null)
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
             {
-                CommandList = baseCommands.ToList();
-            }
-
-
-            //Power Down
-            if (true)
-            {
-                //PowerUp
-                Command_Action command_Action_PowerDown = new Command_Action();
-
-                command_Action_PowerDown.defaultLabel = "Power Receive 1000";
-
-                command_Action_PowerDown.icon = UI_POWER_RECEIVE;
-                command_Action_PowerDown.defaultDesc = "Power Receive 1000";
-
-                command_Action_PowerDown.activateSound = SoundDef.Named("Click");
-                command_Action_PowerDown.action = new Action(this.PowerReceive1000);
-
-                CommandList.Add(command_Action_PowerDown);
-            }
-
-            //Power Down
-            if (true)
-            {
-                //PowerUp
-                Command_Action command_Action_PowerDown = new Command_Action();
-
-                command_Action_PowerDown.defaultLabel = "Power Receive 100";
-
-                command_Action_PowerDown.icon = UI_POWER_RECEIVE;
-                command_Action_PowerDown.defaultDesc = "Power Receive 100";
-
-                command_Action_PowerDown.activateSound = SoundDef.Named("Click");
-                command_Action_PowerDown.action = new Action(this.PowerReceive100);
-
-                CommandList.Add(command_Action_PowerDown);
+                yield return g;
             }
 
             if (true)
             {
-                //PowerUp
-                Command_Action command_Action_PowerUp = new Command_Action();
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerReceive1000();
+                act.icon = UI_POWER_RECEIVE;
+                act.defaultLabel = "Power Receive 1000";
+                act.defaultDesc = "Power Receive 1000";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
 
-                command_Action_PowerUp.defaultLabel = "Power Transmit 100";
 
-                command_Action_PowerUp.icon = UI_POWER_TRANSMIT;
-                command_Action_PowerUp.defaultDesc = "Power Transmit 100";
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerReceive100();
+                act.icon = UI_POWER_RECEIVE;
+                act.defaultLabel = "Power Receive 100";
+                act.defaultDesc = "Power Receive 100";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
 
-                command_Action_PowerUp.activateSound = SoundDef.Named("Click");
-                command_Action_PowerUp.action = new Action(this.PowerTransmit100);
 
-                CommandList.Add(command_Action_PowerUp);
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerTransmit100();
+                act.icon = UI_POWER_TRANSMIT;
+                act.defaultLabel = "Power Transmit 100";
+                act.defaultDesc = "Power Transmit 100";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
             }
 
             if (true)
             {
-                //PowerUp
-                Command_Action command_Action_PowerUp = new Command_Action();
-
-                command_Action_PowerUp.defaultLabel = "Power Transmit 1000";
-
-                command_Action_PowerUp.icon = UI_POWER_TRANSMIT;
-                command_Action_PowerUp.defaultDesc = "Power Transmit 1000";
-
-                command_Action_PowerUp.activateSound = SoundDef.Named("Click");
-                command_Action_PowerUp.action = new Action(this.PowerTransmit1000);
-
-                CommandList.Add(command_Action_PowerUp);
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.PowerTransmit1000();
+                act.icon = UI_POWER_TRANSMIT;
+                act.defaultLabel = "Power Transmit 1000";
+                act.defaultDesc = "Power Transmit 1000";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
             }
-
-
-            return CommandList.AsEnumerable<Command>();
+            
         }
 
         private void PowerTransmit100()

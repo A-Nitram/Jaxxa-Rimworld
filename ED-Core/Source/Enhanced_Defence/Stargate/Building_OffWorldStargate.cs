@@ -5,7 +5,6 @@ using System.Text;
 using Verse;
 using UnityEngine;
 using RimWorld;
-using VerseBase;
 
 namespace Enhanced_Defence.Stargate
 {
@@ -44,8 +43,31 @@ namespace Enhanced_Defence.Stargate
 
         #region Commands
 
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            //Add the stock Gizmoes
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
 
 
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.ActivateGate();
+                act.icon = UI_ACTIVATE_GATE;
+                act.defaultLabel = "Activate Gate";
+                act.defaultDesc = "Activate Gate";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+        }
+
+        /*
         public override IEnumerable<Command> GetCommands()
         {
             IList<Command> CommandList = new List<Command>();
@@ -67,15 +89,15 @@ namespace Enhanced_Defence.Stargate
                 command_Action_AddResources.defaultDesc = "Activate Gate";
 
                 command_Action_AddResources.activateSound = SoundDef.Named("Click");
-                command_Action_AddResources.action = new Action(this.AddResources);
+                command_Action_AddResources.action = new Action(this.ActivateGate);
 
                 CommandList.Add(command_Action_AddResources);
             }
 
             return CommandList.AsEnumerable<Command>();
         }
-
-        public void AddResources()
+        */
+        public void ActivateGate()
         {
             if (warned == 0)
             {

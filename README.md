@@ -145,6 +145,10 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -increased stack amount for OmniGel
 -Adds reverse cycle Cooler
 --Identical to the standard cooler except that it can be freely rotated after being placed.
+0.16
+-Update to Alpha 9
+-Removed "ED-MortarAmmo"
+--Similar feature now implimented in the base game
 ~~~
 
 ##License:
