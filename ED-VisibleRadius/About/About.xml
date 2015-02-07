@@ -7,7 +7,7 @@
   <description>
 	Requires: ED-Core
 Adds the option to keep the special display radius visible when some buildings are not selected.
-Currently supports Sun Lamps, Trade Beacons will be enabled when they are working correctly.
+Currently supports Sun Lamps.
 By default it will be on a timer to turn off after about 40 seconds, can be switched to permanently on or off.
   </description>
 </ModMetaData>

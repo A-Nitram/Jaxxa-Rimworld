@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   
   <ThingDef Name="BuildingBase" Abstract="True">
     <category>Building</category>
@@ -9,12 +8,14 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
-    
+
   <ThingDef ParentName="BuildingBase">
-    <defName>ReversableCooler</defName>
+    <defName>Cooler</defName>
     <eType>Building_TempController</eType>
-    <label>Reversable Cooler</label>
+    <label>cooler</label>
     <thingClass>Enhanced_Defence.Temperature.Building_ReverseCycleCooler</thingClass>
     <graphicPath>Things/Building/Misc/TempControl/Cooler</graphicPath>
     <graphicClass>Graphic_Multi</graphicClass>
@@ -33,13 +34,6 @@
     <costList>
       <Steel>100</Steel>
     </costList>
-    <killedLeavings>
-      <ChunkSlag>1</ChunkSlag>
-    </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <placeWorkers>
       <li>PlaceWorker_Cooler</li>

@@ -149,6 +149,12 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Update to Alpha 9
 -Removed "ED-MortarAmmo"
 --Similar feature now implimented in the base game
+-Increased size of Lazer Drill, brought in line with geotherman plant
+-Reduced size of Laser Filler to better fill in tight spaces.
+
+Not Updated:
+-ED-EMRG turret
+-ED-PersonalShields
 ~~~
 
 ##License:

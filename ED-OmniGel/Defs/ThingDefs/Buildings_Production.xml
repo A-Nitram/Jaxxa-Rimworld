@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
-
-  <ThingDef Name="BuildingBase" Abstract="True">
+  
+    <ThingDef Name="BuildingBase" Abstract="True">
     <category>Building</category>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <selectable>true</selectable>
@@ -13,6 +13,8 @@
 		<MaxHealth>350</MaxHealth>
 		<Flammability>1.0</Flammability>
 	</statBases>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   
   <!-- ========================= Work tables ==========================-->

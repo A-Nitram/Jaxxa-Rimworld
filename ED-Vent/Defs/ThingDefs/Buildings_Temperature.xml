@@ -9,6 +9,8 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -39,12 +41,6 @@
     <costList>
       <Steel>10</Steel>
     </costList>
-    <killedLeavings>
-      <ChunkSlag>1</ChunkSlag>
-    </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <placeWorkers>

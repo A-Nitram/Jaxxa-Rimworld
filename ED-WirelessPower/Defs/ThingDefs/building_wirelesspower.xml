@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
+
   <ThingDef Name="BuildingBase" Abstract="True">
     <category>Building</category>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
@@ -8,6 +9,8 @@
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   
    <ThingDef ParentName="BuildingBase">
@@ -46,12 +49,6 @@
     <graphicOverdraw>false</graphicOverdraw>
     <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
     <hasInteractionCell>false</hasInteractionCell>
-    <killedLeavings>
-      <ChunkSlag>6</ChunkSlag>
-     </killedLeavings>
-    <filthLeavings>
-      <SlagRubble>3</SlagRubble>
-    </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Power</designationCategory>

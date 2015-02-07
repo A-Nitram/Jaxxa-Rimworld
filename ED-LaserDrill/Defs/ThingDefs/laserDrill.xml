@@ -41,7 +41,7 @@
         <basePowerConsumption>1200</basePowerConsumption>
       </li>
     </comps>
-    <size>(4,4)</size>
+    <size>(6,6)</size>
     <costList>
       <Steel>500</Steel>
       <Uranium>100</Uranium>

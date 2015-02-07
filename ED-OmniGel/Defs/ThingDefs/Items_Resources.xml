@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Resources>
 
+  <!-- =========== bases =========== -->
+
   <ThingDef Name="ResourceBase" Abstract="True">
     <thingClass>ThingWithComponents</thingClass>
     <label>unspecified resource</label>
@@ -11,7 +13,6 @@
     <selectable>true</selectable>
     <altitudeLayer>Item</altitudeLayer>
     <stackLimit>75</stackLimit>
-    <tradersCarry>true</tradersCarry>
     <comps>
       <li>
         <compClass>CompForbiddable</compClass>
