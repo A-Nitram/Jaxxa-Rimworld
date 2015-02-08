@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Things>
-	<ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-	</ThingDef>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
 	
 	<ThingDef Class="Enhanced_Defence.Shields.ShieldThingDef" ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
 		<eType>Building_Turret</eType>
@@ -35,9 +38,6 @@
 			<Steel>100</Steel>
 			<Silver>500</Silver>
 		</costList>
-		<filthLeavings>
-			<SlagRubble>2</SlagRubble>
-		</filthLeavings>
 		<passability>Impassable</passability>
 		<combatTargetBuilding>true</combatTargetBuilding>
 		<selectable>true</selectable>

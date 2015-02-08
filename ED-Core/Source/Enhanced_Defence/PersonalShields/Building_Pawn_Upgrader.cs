@@ -51,7 +51,7 @@ namespace Enhanced_Defence.PersonalShields
             if (this.power.PowerOn == true)
             {
                 NanoManager.tick();
-                this.rechargePawns();
+                //this.rechargePawns();
             }
         }
 
@@ -228,11 +228,11 @@ namespace Enhanced_Defence.PersonalShields
         {
             if (this.power.PowerOn == true)
             {
-                this.replacePawns();
+                this.upgradePawns();
             }
         }
 
-        private bool replacePawns()
+        private bool upgradePawns()
         {
             IEnumerable<Pawn> closePawns = Enhanced_Defence.Utilities.Utilities.findPawns(this.Position, this.MAX_DISTANCE);
 
@@ -241,6 +241,16 @@ namespace Enhanced_Defence.PersonalShields
                 //List<Thing> fireTo
                 foreach (Pawn currentPawn in closePawns.ToList())
                 {
+                    //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
+                    if ( currentPawn.apparel.CanWearWithoutDroppingAnything(ThingDefOf.Apparel_PersonalShield))
+                    {
+                        //Apparel shield = new Apparel();
+                        //shield.
+                        currentPawn.apparel.Wear((Apparel)ThingMaker.MakeThing(ThingDefOf.Apparel_PersonalShield));
+                        //currentPawn.inventory.container.TryAdd(ThingMaker.MakeThing(ThingDefOf.Apparel_PersonalShield)  );
+                    }
+
+                    /*
                     if (currentPawn.GetType() == typeof(Pawn))
                     {
                         if (NanoManager.requestCharge(100))
@@ -272,12 +282,14 @@ namespace Enhanced_Defence.PersonalShields
                     {
                         Log.Error("Unknown Pawn Type");
                     }
+
+                    */
                 }
             }
 
             return false;
         }
-
+        /*
         public void rechargePawns()
         {
             int currentTick = Find.TickManager.TicksGame;
@@ -313,7 +325,7 @@ namespace Enhanced_Defence.PersonalShields
                     }
                 }
             }
-        }
+        }*/
 
     }
 }

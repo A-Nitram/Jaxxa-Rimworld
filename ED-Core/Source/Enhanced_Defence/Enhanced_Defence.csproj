@@ -66,11 +66,8 @@
     <Compile Include="TurretAmmo\Building_TurretGun.cs" />
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
     <Compile Include="PersonalShields\Nano\NanoManager.cs" />
-    <Compile Include="PersonalShields\PawnKindDef_ShieldedPawn.cs" />
     <Compile Include="Utilities\ReflectionHelper.cs" />
     <Compile Include="PersonalShields\Saving\PawnSaver.cs" />
-    <Compile Include="PersonalShields\ShieldedPawn.cs" />
-    <Compile Include="PersonalShields\ShieldedPawnGenerator.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
     <Compile Include="Utilities\Graphics.cs" />
     <Compile Include="PersonalShields\Building_Pawn_Upgrader.cs" />

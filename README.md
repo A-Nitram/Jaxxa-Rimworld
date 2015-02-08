@@ -151,10 +151,13 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Similar feature now implimented in the base game
 -Increased size of Lazer Drill, brought in line with geotherman plant
 -Reduced size of Laser Filler to better fill in tight spaces.
+-Reworking Personal Shields
+--Will not require custom Pawns anymore 
 
 Not Updated:
 -ED-EMRG turret
 -ED-PersonalShields
+-ED-Shields
 ~~~
 
 ##License:
