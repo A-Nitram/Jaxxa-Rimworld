@@ -32,7 +32,7 @@ namespace Enhanced_Defence.Shields
 
         private static Texture2D UI_SHOW_ON;
         private static Texture2D UI_SHOW_OFF;
-        
+
         public bool flag_direct = true;
         public bool flag_indirect = true;
         public bool flag_fireSupression = true;
@@ -45,7 +45,6 @@ namespace Enhanced_Defence.Shields
         public int shieldInitialShieldStrength;
         public int shieldShieldRadius;
 
-        public int shieldPowerRequiredLoading;
         public int shieldPowerRequiredCharging;
         public int shieldPowerRequiredSustaining;
 
@@ -89,7 +88,6 @@ namespace Enhanced_Defence.Shields
             UI_INTERCEPT_DROPPOD_OFF = ContentFinder<Texture2D>.Get("UI/FireOff", true);
             UI_INTERCEPT_DROPPOD_ON = ContentFinder<Texture2D>.Get("UI/FireOn", true);
 
-            
             UI_REPAIR_ON = ContentFinder<Texture2D>.Get("UI/RepairON", true);
             UI_REPAIR_OFF = ContentFinder<Texture2D>.Get("UI/RepairOFF", true);
 
@@ -99,34 +97,33 @@ namespace Enhanced_Defence.Shields
 
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
-            if (def is ShieldThingDef)
+            if (def is ShieldBuildingThingDef)
             {
                 //Read in variables from the custom MyThingDef
-                shieldMaxShieldStrength = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldMaxShieldStrength;
-                shieldInitialShieldStrength = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldInitialShieldStrength;
-                shieldShieldRadius = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldShieldRadius;
+                shieldMaxShieldStrength = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldMaxShieldStrength;
+                shieldInitialShieldStrength = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldInitialShieldStrength;
+                shieldShieldRadius = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldShieldRadius;
 
-                shieldPowerRequiredLoading = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredLoading;
-                shieldPowerRequiredCharging = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredCharging;
-                shieldPowerRequiredSustaining = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldPowerRequiredSustaining;
+                shieldPowerRequiredCharging = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldPowerRequiredCharging;
+                shieldPowerRequiredSustaining = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldPowerRequiredSustaining;
 
-                shieldRechargeTickDelay = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldRechargeTickDelay;
-                shieldRecoverWarmup = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldRecoverWarmup;
+                shieldRechargeTickDelay = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldRechargeTickDelay;
+                shieldRecoverWarmup = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldRecoverWarmup;
 
-                shieldBlockIndirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockIndirect;
-                shieldBlockDirect = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldBlockDirect;
-                shieldFireSupression = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldFireSupression;
-                shieldInterceptDropPod = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldInterceptDropPod;
+                shieldBlockIndirect = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldBlockIndirect;
+                shieldBlockDirect = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldBlockDirect;
+                shieldFireSupression = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldFireSupression;
+                shieldInterceptDropPod = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldInterceptDropPod;
 
-                shieldStructuralIntegrityMode = ((Enhanced_Defence.Shields.ShieldThingDef)def).shieldStructuralIntegrityMode;
+                shieldStructuralIntegrityMode = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).shieldStructuralIntegrityMode;
 
-                colourRed = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourRed;
-                colourGreen = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourGreen;
-                colourBlue = ((Enhanced_Defence.Shields.ShieldThingDef)def).colourBlue;
+                colourRed = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourRed;
+                colourGreen = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourGreen;
+                colourBlue = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourBlue;
             }
             else
             {
-                Log.Error("Shield definition not of type \"ShieldThingDef\"");
+                Log.Error("Shield definition not of type \"ShieldBuildingThingDef\"");
             }
 
             if (shieldField == null)
@@ -137,7 +134,7 @@ namespace Enhanced_Defence.Shields
             ShieldField.setupValidBuildings();
 
         }
-        
+
         public override void Tick()
         {
             base.Tick();
@@ -157,27 +154,24 @@ namespace Enhanced_Defence.Shields
                     }
                 }
                 //Do tick for the shield field
-                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression,this.flag_InterceptDropPod, this.flag_shieldRepairMode);
+                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_InterceptDropPod, this.flag_shieldRepairMode);
                 //Change power requirements depending on shield status
                 switch (shieldField.status)
                 {
                     //Disabled shield also requires power (to avoid flickering when thing increases power requirements because it gained power...)
-                    case ShieldStatus.Disabled:
-                    case ShieldStatus.Loading:
+                    case enumShieldStatus.Disabled:
+                    case enumShieldStatus.Loading:
                         {
-                            //this.power.powerOutput = -1000;
-                            this.power.powerOutput = shieldPowerRequiredLoading;
-                            break;
-                        }
-                    case ShieldStatus.Charging:
-                        {
-                            //this.power.powerOutput = -2750;
                             this.power.powerOutput = shieldPowerRequiredCharging;
                             break;
                         }
-                    case ShieldStatus.Sustaining:
+                    case enumShieldStatus.Charging:
                         {
-                            //this.power.powerOutput = -1820;
+                            this.power.powerOutput = shieldPowerRequiredCharging;
+                            break;
+                        }
+                    case enumShieldStatus.Sustaining:
+                        {
                             this.power.powerOutput = shieldPowerRequiredSustaining;
                             break;
                         }
@@ -275,11 +269,10 @@ namespace Enhanced_Defence.Shields
             Scribe_Values.LookValue(ref flag_indirect, "flag_indirect");
             Scribe_Values.LookValue(ref flag_fireSupression, "flag_fireSupression");
             Scribe_Values.LookValue(ref flag_InterceptDropPod, "flag_InterceptDropPod");
-            
+
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");
             Scribe_Values.LookValue(ref flag_showVisually, "flag_showVisually");
         }
-
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -485,7 +478,6 @@ namespace Enhanced_Defence.Shields
 
 
         }
-
 
         /*
         public override IEnumerable<Command> GetCommands()

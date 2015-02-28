@@ -5,13 +5,12 @@ using System.Text;
 
 namespace Enhanced_Defence.Shields
 {
-    public class ShieldThingDef : Verse.ThingDef
+    public class ShieldBuildingThingDef : Verse.ThingDef
     {
         public int shieldMaxShieldStrength;
         public int shieldInitialShieldStrength;
         public int shieldShieldRadius;
 
-        public int shieldPowerRequiredLoading;
         public int shieldPowerRequiredCharging;
         public int shieldPowerRequiredSustaining;
 

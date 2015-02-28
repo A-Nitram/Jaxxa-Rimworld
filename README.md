@@ -153,6 +153,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Reduced size of Laser Filler to better fill in tight spaces.
 -Reworking Personal Shields
 --Will not require custom Pawns anymore 
+--I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
+---"[MOD] (Alpha 9) Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
 
 Not Updated:
 -ED-EMRG turret
@@ -185,6 +187,10 @@ Thanks to Haplo for:
 
 Thanks to Kulverstukass for:
 * Awesome bug reporting and feedback.
+
+Thanks to Latta for:
+* Doing most of the work on customising the personal shields..
+ * https://ludeon.com/forums/index.php?topic=10994.0
  
 Thanks to mrofa for:
 * Providing code in "Clutter Mod" that was helpful to look at for figuring out better ways to do Fire Suppression and Command Switches

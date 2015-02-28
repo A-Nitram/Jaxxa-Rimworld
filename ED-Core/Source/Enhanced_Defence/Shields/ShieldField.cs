@@ -106,7 +106,7 @@ namespace Enhanced_Defence.Shields
         {
             get
             {
-                if (this.status == ShieldStatus.Loading)
+                if (this.status == enumShieldStatus.Loading)
                 {
                     return warmupTicksCurrent;
                 }
@@ -122,25 +122,25 @@ namespace Enhanced_Defence.Shields
         /// <summary>
         /// Getter for the shield status, used to chose correct power requirements
         /// </summary>
-        public ShieldStatus status
+        public enumShieldStatus status
         {
             get
             {
                 if (!this.enabled)
                 {
-                    return ShieldStatus.Disabled;
+                    return enumShieldStatus.Disabled;
                 }
                 else if (!online)
                 {
-                    return ShieldStatus.Loading;
+                    return enumShieldStatus.Loading;
                 }
                 else if (online && shieldCurrentStrength < shieldMaxShieldStrength)
                 {
-                    return ShieldStatus.Charging;
+                    return enumShieldStatus.Charging;
                 }
                 else
                 {
-                    return ShieldStatus.Sustaining;
+                    return enumShieldStatus.Sustaining;
                 }
             }
         }
@@ -653,9 +653,9 @@ namespace Enhanced_Defence.Shields
         {
             //SetupCurrentSquares();
 
-            if (this.status == ShieldStatus.Charging ||
-               this.status == ShieldStatus.Sustaining ||
-               (this.status == ShieldStatus.Loading && (shieldRecoverWarmup - warmupTicksCurrent) < 60)
+            if (this.status == enumShieldStatus.Charging ||
+               this.status == enumShieldStatus.Sustaining ||
+               (this.status == enumShieldStatus.Loading && (shieldRecoverWarmup - warmupTicksCurrent) < 60)
               )
             {
                 if (this.shieldStructuralIntegrityMode)
@@ -794,16 +794,5 @@ namespace Enhanced_Defence.Shields
 
 
 
-    public enum ShieldStatus
-    {
-        //Disabled and offline
-        Disabled,
-        //Warming up
-        Loading,
-        //Online and gathering power
-        Charging,
-        //Charged and sustaining
-        Sustaining
-    }
 
 }

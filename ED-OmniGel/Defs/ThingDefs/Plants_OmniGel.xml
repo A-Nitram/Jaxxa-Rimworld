@@ -5,7 +5,7 @@
   <ThingDef Name="PlantBase" Abstract="True">
     <eType>Plant</eType>
     <category>Plant</category>
-    <thingClass>Plant</thingClass>
+    <thingClass>Enhanced_Defence.Plants24H.Plant</thingClass>
     <altitudeLayer>LowPlant</altitudeLayer>
     <useStandardHealth>True</useStandardHealth>
     <statBases>

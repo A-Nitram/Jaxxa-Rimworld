@@ -28,8 +28,6 @@ namespace Enhanced_Defence.PersonalShields
         //Dummy override
         public override void PostMake()
         {
-
-
             base.PostMake();
         }
         //On spawn, get the power component reference

@@ -101,13 +101,13 @@ namespace Enhanced_Defence.Temperature
 
                 if (temperature1 > temperature2)
                 {
-                    GenTemperature.TryControlTemperature(intVec3_1, -energyLimit, temperature2 + halfTemp);
-                    GenTemperature.TryControlTemperature(intVec3_2, energyLimit, temperature1 - halfTemp);
+                    GenTemperature.ControlTemperatureTempChange(intVec3_1, -energyLimit, temperature2 + halfTemp);
+                    GenTemperature.ControlTemperatureTempChange(intVec3_2, energyLimit, temperature1 - halfTemp);
                 }
                 else
                 {
-                    GenTemperature.TryControlTemperature(intVec3_1, energyLimit, temperature2 - halfTemp);
-                    GenTemperature.TryControlTemperature(intVec3_2, -energyLimit, temperature1 + halfTemp);
+                    GenTemperature.ControlTemperatureTempChange(intVec3_1, energyLimit, temperature2 - halfTemp);
+                    GenTemperature.ControlTemperatureTempChange(intVec3_2, -energyLimit, temperature1 + halfTemp);
                 }
 
 
