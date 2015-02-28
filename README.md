@@ -154,7 +154,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Reworking Personal Shields
 --Will not require custom Pawns anymore 
 --I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
----"[MOD] (Alpha 9) Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
+---"Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
 
 Not Updated:
 -ED-EMRG turret

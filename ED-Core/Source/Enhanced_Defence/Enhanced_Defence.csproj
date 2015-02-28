@@ -50,7 +50,7 @@
     <Compile Include="DropPod\Building_OrbitalRelay.cs" />
     <Compile Include="DropPod\OrbitalRelayThingDef.cs" />
     <Compile Include="PersonalShields\Apparel_PersonalNannoShield.cs" />
-    <Compile Include="PersonalShields\Apparel_PersonalNannoShield_ThingDef.cs" />
+    <Compile Include="PersonalShields\ThingDef_PersonalNannoShield.cs" />
     <Compile Include="Plants24H\Plant.cs" />
     <Compile Include="Power\LaserDrill\Building_LaserDrill.cs" />
     <Compile Include="Power\LaserDrill\Building_LaserFiller.cs" />
@@ -70,7 +70,6 @@
     <Compile Include="TurretAmmo\Building_TurretGun_Ammo.cs" />
     <Compile Include="PersonalShields\Nano\NanoManager.cs" />
     <Compile Include="Utilities\ReflectionHelper.cs" />
-    <Compile Include="PersonalShields\Saving\PawnSaver.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
     <Compile Include="Utilities\Graphics.cs" />
     <Compile Include="PersonalShields\Building_Pawn_Upgrader.cs" />
