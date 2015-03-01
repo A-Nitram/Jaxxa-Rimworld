@@ -46,13 +46,13 @@
 
 
   <ThingDef ParentName="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNannoShield">
-    <defName>Apparel_TechShield</defName>
-    <label>class-1 tech shield</label>
+    <defName>Apparel_PersonalNannoShield</defName>
+    <label>Nanno Shield Class-1</label>
     <bubbleGraphicPath>TechBubble</bubbleGraphicPath>
     <statBases>
-      <MarketValue>1700</MarketValue>
-      <PersonalShieldRechargeRate>0.06</PersonalShieldRechargeRate>
-      <PersonalShieldEnergyMax>0.6</PersonalShieldEnergyMax>
+      <MarketValue>0</MarketValue>
+      <PersonalShieldRechargeRate>0.00</PersonalShieldRechargeRate>
+      <PersonalShieldEnergyMax>1.0</PersonalShieldEnergyMax>
     </statBases>
     <apparel>
       <bodyPartGroups>

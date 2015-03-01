@@ -41,7 +41,7 @@
 		<passability>Impassable</passability>
 		<combatTargetBuilding>true</combatTargetBuilding>
 		<selectable>true</selectable>
-		<tickerType>Normal</tickerType>
+		<tickerType>Rare</tickerType>
 	</ThingDef>
 	
 	

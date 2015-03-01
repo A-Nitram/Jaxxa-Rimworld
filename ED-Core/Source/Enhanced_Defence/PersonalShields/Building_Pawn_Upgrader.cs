@@ -42,14 +42,15 @@ namespace Enhanced_Defence.PersonalShields
             UI_CHARGE_ON = ContentFinder<Texture2D>.Get("UI/ChargeON", true);
         }
 
-        public override void Tick()
+        public override void TickRare()
         {
-            base.Tick();
+            //Log.Message("Tick");
+            base.TickRare();
 
             if (this.power.PowerOn == true)
             {
                 NanoManager.tick();
-                //this.rechargePawns();
+                this.rechargePawns();
             }
         }
 
@@ -134,30 +135,30 @@ namespace Enhanced_Defence.PersonalShields
             }
 
             if (flag_charge)
-	        {
-		        Command_Action act = new Command_Action();
-		        //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-		        act.action = () => this.SwitchCharge();
-		        act.icon = UI_CHARGE_ON;
-		        act.defaultLabel = "Charge Shields";
-		        act.defaultDesc = "On";
-		        act.activateSound = SoundDef.Named("Click");
-		        //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-		        //act.groupKey = 689736;
-		        yield return act;
-	        }
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.SwitchCharge();
+                act.icon = UI_CHARGE_ON;
+                act.defaultLabel = "Charge Shields";
+                act.defaultDesc = "On";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
             else
             {
-		        Command_Action act = new Command_Action();
-		        //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-		        act.action = () => this.SwitchCharge();
-		        act.icon = UI_CHARGE_OFF;
-		        act.defaultLabel = "Charge Shields";
-		        act.defaultDesc = "Off";
-		        act.activateSound = SoundDef.Named("Click");
-		        //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-		        //act.groupKey = 689736;
-		        yield return act;
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.SwitchCharge();
+                act.icon = UI_CHARGE_OFF;
+                act.defaultLabel = "Charge Shields";
+                act.defaultDesc = "Off";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
             }
         }
 
@@ -240,13 +241,16 @@ namespace Enhanced_Defence.PersonalShields
                 foreach (Pawn currentPawn in closePawns.ToList())
                 {
                     //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
-                    if ( currentPawn.apparel.CanWearWithoutDroppingAnything(ThingDefOf.Apparel_PersonalShield))
-                    {
-                        //Apparel shield = new Apparel();
-                        //shield.
-                        currentPawn.apparel.Wear((Apparel)ThingMaker.MakeThing(ThingDefOf.Apparel_PersonalShield));
-                        //currentPawn.inventory.container.TryAdd(ThingMaker.MakeThing(ThingDefOf.Apparel_PersonalShield)  );
-                    }
+
+                    //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Defence.PersonalShields.ThingDef_PersonalNannoShield()))
+                    //{
+                    //Apparel shield = new Apparel();
+                    ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNannoShield");
+
+                    ThingDef stuff = GenStuff.RandomStuffFor(personalShieldDef);
+                    Thing personalShield = ThingMaker.MakeThing(personalShieldDef, stuff);
+                    currentPawn.apparel.Wear((Apparel)personalShield);
+                    //}
 
                     /*
                     if (currentPawn.GetType() == typeof(Pawn))
@@ -287,43 +291,60 @@ namespace Enhanced_Defence.PersonalShields
 
             return false;
         }
-        /*
+
         public void rechargePawns()
         {
             int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
-            if (currentTick % 10 == 0)
+            //if (currentTick % 10 == 0)
+            //{
+            Log.Message("Trying Recharge");
+
+            IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
+
+            if (pawns != null)
             {
-                IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
+                IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
 
-                if (pawns != null)
+                if (closePawns != null)
                 {
-                    IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
-
-                    if (closePawns != null)
+                    //List<Thing> fireTo
+                    foreach (Pawn currentPawn in closePawns.ToList())
                     {
-                        //List<Thing> fireTo
-                        foreach (Pawn currentPawn in closePawns.ToList())
+                        List<Thing> currentInventory = currentPawn.apparel.WornApparel.AsEnumerable().ToList();
+
+                        foreach (Thing currentThing in currentInventory)
                         {
-                            if (currentPawn.GetType() == typeof(ShieldedPawn))
+                            if (currentThing.def.defName == "Apparel_PersonalNannoShield")
                             {
-                                ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
+                                Log.Message("Found:" + currentThing.def.defName);
+                                Apparel_PersonalNannoShield currentShield = (Apparel_PersonalNannoShield)currentThing;
 
-                                if (currentShieldedPawn.getRequiresRecharge())
-                                {
-                                    int chargeAmmount = 1;
+                                currentShield.Energy += 0.1f;
 
-                                    if (NanoManager.requestCharge(chargeAmmount))
-                                    {
-                                        currentShieldedPawn.recharge(chargeAmmount);
-                                    }
-                                }
                             }
                         }
+
+                        /*
+                        if (currentPawn.GetType() == typeof(ShieldedPawn))
+                        {
+                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
+
+                            if (currentShieldedPawn.getRequiresRecharge())
+                            {
+                                int chargeAmmount = 1;
+
+                                if (NanoManager.requestCharge(chargeAmmount))
+                                {
+                                    currentShieldedPawn.recharge(chargeAmmount);
+                                }
+                            }
+                        }*/
                     }
                 }
             }
-        }*/
+        }
+        //}
 
     }
 }

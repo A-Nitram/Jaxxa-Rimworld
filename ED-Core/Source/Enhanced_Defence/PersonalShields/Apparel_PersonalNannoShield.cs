@@ -14,18 +14,18 @@ namespace Enhanced_Defence.PersonalShields
     {
         private float MinDrawSize;
         private float MaxDrawSize;
-        private const float MaxDamagedJitterDist = 0.05f;
-        private const int JitterDurationTicks = 8;
+        //private const float MaxDamagedJitterDist = 0.05f;
+        //private const int JitterDurationTicks = 8;
         private bool isRotating;
         private float energy;
-        private int ticksToReset = -1;
-        private int lastAbsorbDamageTick = -9999;
+        //private int ticksToReset = -1;
+        //private int lastAbsorbDamageTick = -9999;
         private Vector3 impactAngleVect;
         private int lastKeepDisplayTick = -9999;
         private Material BubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent);
         private int StartingTicksToReset = 3200;
-        private float EnergyOnReset = 0.2f;
-        private float EnergyLossPerDamage;
+        //private float EnergyOnReset = 0.2f;
+        //private float EnergyLossPerDamage;
         private int KeepDisplayingTicks = 1000;
         private SoundDef SoundAbsorbDamage = SoundDef.Named("PersonalShieldAbsorbDamage");
         private SoundDef SoundBreak = SoundDef.Named("PersonalShieldBroken");
@@ -39,7 +39,7 @@ namespace Enhanced_Defence.PersonalShields
             MinDrawSize = param.minDrawSize;
             MaxDrawSize = param.maxDrawSize;
             isRotating = param.isRotating;
-            EnergyLossPerDamage = param.energyLossPerDamage;
+            //EnergyLossPerDamage = param.energyLossPerDamage;
             if (param.bubbleGraphicPath != null)
             {
                 BubbleMat = MaterialPool.MatFrom(param.bubbleGraphicPath, ShaderDatabase.Transparent);
@@ -77,8 +77,12 @@ namespace Enhanced_Defence.PersonalShields
             {
                 return this.energy;
             }
+            set 
+            {
+                this.energy = value;
+            }
         }
-        public ShieldState ShieldState
+        /*public ShieldState ShieldState
         {
             get
             {
@@ -88,7 +92,7 @@ namespace Enhanced_Defence.PersonalShields
                 }
                 return ShieldState.Active;
             }
-        }
+        }*/
         private bool ShouldDisplay
         {
             get
@@ -100,8 +104,8 @@ namespace Enhanced_Defence.PersonalShields
         {
             base.ExposeData();
             Scribe_Values.LookValue<float>(ref this.energy, "energy", 0f, false);
-            Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
-            Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
+            //Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
+            //Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
