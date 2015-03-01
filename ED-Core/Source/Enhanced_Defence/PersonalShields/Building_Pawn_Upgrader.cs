@@ -297,7 +297,7 @@ namespace Enhanced_Defence.PersonalShields
             //Only every 10 ticks
             if (currentTick % 10 == 0)
             {
-                Log.Message("Trying Recharge");
+                //Log.Message("Trying Recharge");
 
                 IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
 
@@ -316,7 +316,7 @@ namespace Enhanced_Defence.PersonalShields
                             {
                                 if (currentThing.def.defName == "Apparel_PersonalNannoShield")
                                 {
-                                    Log.Message("Found:" + currentThing.def.defName);
+                                    //Log.Message("Found:" + currentThing.def.defName);
                                     Apparel_PersonalNannoShield currentShield = (Apparel_PersonalNannoShield)currentThing;
 
                                     //currentShield.Energy += 10.0f;

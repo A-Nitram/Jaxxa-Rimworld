@@ -149,17 +149,16 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Update to Alpha 9
 -Removed "ED-MortarAmmo"
 --Similar feature now implimented in the base game
--Increased size of Lazer Drill, brought in line with geotherman plant
--Reduced size of Laser Filler to better fill in tight spaces.
+-Removed "ED-EMRG turret"
+--Was mainly a demo for turrets using Ammo and that is now in the base game
+--Might come back later in some form.
+-Increased size of Lazer Drill, brought in line with geothermal plant
+-Reduced size of Laser Filler to better fill in tight spaces to remove useless geothermal vents.
 -Reworking Personal Shields
 --Will not require custom Pawns anymore 
 --I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
 ---"Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
 
-Not Updated:
--ED-EMRG turret
--ED-PersonalShields
--ED-Shields
 ~~~
 
 ##License:
@@ -189,7 +188,7 @@ Thanks to Kulverstukass for:
 * Awesome bug reporting and feedback.
 
 Thanks to Latta for:
-* Doing most of the work on customising the personal shields..
+* Allowing people to use his personal shields mod.
  * https://ludeon.com/forums/index.php?topic=10994.0
  
 Thanks to mrofa for:

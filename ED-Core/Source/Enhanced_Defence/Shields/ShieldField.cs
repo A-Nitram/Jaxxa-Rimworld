@@ -387,12 +387,12 @@ namespace Enhanced_Defence.Shields
                         {
                             if (this.WillTargetLandInRange(pr))
                             {
-                                Log.Message("Fly Over");
+                                //Log.Message("Fly Over");
                             }
                             else
                             {
                                 wantToIntercept = false;
-                                Log.Message("In Range");
+                                //Log.Message("In Range");
                             }
                         }
 

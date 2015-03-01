@@ -60,7 +60,7 @@
 			</li>
 		</comps>
 	
-		<shieldMaxShieldStrength>1500</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>8</shieldShieldRadius>
 
@@ -104,7 +104,7 @@
 		</comps>
 		<specialDisplayRadius>2</specialDisplayRadius>
 		
-		<shieldMaxShieldStrength>500</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>1000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>2</shieldShieldRadius>
 
@@ -144,12 +144,12 @@
 		<size>(2,2)</size>
 		<specialDisplayRadius>20</specialDisplayRadius>
 		
-		<shieldMaxShieldStrength>10000</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>8000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>20</shieldShieldRadius>
 
-		<shieldPowerRequiredCharging>-4000</shieldPowerRequiredCharging>
-		<shieldPowerRequiredSustaining>-2000</shieldPowerRequiredSustaining>
+		<shieldPowerRequiredCharging>-5000</shieldPowerRequiredCharging>
+		<shieldPowerRequiredSustaining>-2500</shieldPowerRequiredSustaining>
 		
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
@@ -181,11 +181,11 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 		</comps>	
-		<shieldMaxShieldStrength>2500</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>3000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>8</shieldShieldRadius>
 
-		<shieldPowerRequiredCharging>-2000</shieldPowerRequiredCharging>
+		<shieldPowerRequiredCharging>-2500</shieldPowerRequiredCharging>
 		<shieldPowerRequiredSustaining>-1500</shieldPowerRequiredSustaining>
 		
 		<shieldBlockIndirect>false</shieldBlockIndirect>
