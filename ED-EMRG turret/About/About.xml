@@ -6,6 +6,7 @@
   <targetVersion>Alpha 8</targetVersion>
   <description>
 	Requires: ED-Core, ED-AutoLoader
+NOT UPDATED YET.
 Adds a Railgun turret that fires a large number of rounds very quickly, However it requires a supply of ammunition to keep firing.
 Serves as an example of how to implement ammunition usage for turrets.
   </description>

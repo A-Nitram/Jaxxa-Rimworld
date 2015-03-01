@@ -9,9 +9,10 @@ namespace Enhanced_Defence.PersonalShields
 {
     public class ThingDef_PersonalNannoShield : ThingDef
     {
-        public float energyLossPerDamage = 0.027f;
+        //public float energyLossPerDamage = 0.027f;
         public float minDrawSize = 1.2f;
         public float maxDrawSize = 1.55f;
+        public float maxEnergy = 100;
         public bool isRotating = true;
         public String bubbleGraphicPath = "Other/ShieldBubble";
         public String soundAbsorb = null;

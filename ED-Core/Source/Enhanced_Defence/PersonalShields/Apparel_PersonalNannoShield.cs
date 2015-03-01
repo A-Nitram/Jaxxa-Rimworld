@@ -18,8 +18,9 @@ namespace Enhanced_Defence.PersonalShields
         //private const int JitterDurationTicks = 8;
         private bool isRotating;
         private float energy;
+        public float maxEnergy;
         //private int ticksToReset = -1;
-        //private int lastAbsorbDamageTick = -9999;
+        private int lastAbsorbDamageTick = -9999;
         private Vector3 impactAngleVect;
         private int lastKeepDisplayTick = -9999;
         private Material BubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent);
@@ -38,8 +39,10 @@ namespace Enhanced_Defence.PersonalShields
 
             MinDrawSize = param.minDrawSize;
             MaxDrawSize = param.maxDrawSize;
+            maxEnergy = param.maxEnergy;
+
             isRotating = param.isRotating;
-            //EnergyLossPerDamage = param.energyLossPerDamage;
+
             if (param.bubbleGraphicPath != null)
             {
                 BubbleMat = MaterialPool.MatFrom(param.bubbleGraphicPath, ShaderDatabase.Transparent);
@@ -57,13 +60,7 @@ namespace Enhanced_Defence.PersonalShields
                 SoundReset = SoundDef.Named(param.soundReset);
             }
         }
-        private float EnergyMax
-        {
-            get
-            {
-                return this.GetStatValue(StatDefOf.PersonalShieldEnergyMax, true);
-            }
-        }
+
         private float EnergyGainPerTick
         {
             get
@@ -77,22 +74,28 @@ namespace Enhanced_Defence.PersonalShields
             {
                 return this.energy;
             }
-            set 
+        }
+        public void recharge(float chargeAmmount)
+        {
+            this.energy += chargeAmmount;
+            if (this.energy > this.maxEnergy)
             {
-                this.energy = value;
+                this.energy = this.maxEnergy;
             }
         }
-        /*public ShieldState ShieldState
+
+        public ShieldState ShieldState
         {
             get
             {
-                if (this.ticksToReset > 0)
+                if (this.energy > 0)
                 {
-                    return ShieldState.Resetting;
+                    return ShieldState.Active;
                 }
-                return ShieldState.Active;
+                return ShieldState.Resetting;
             }
-        }*/
+        }
+
         private bool ShouldDisplay
         {
             get
@@ -105,7 +108,7 @@ namespace Enhanced_Defence.PersonalShields
             base.ExposeData();
             Scribe_Values.LookValue<float>(ref this.energy, "energy", 0f, false);
             //Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
-            //Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
+            Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
@@ -125,6 +128,8 @@ namespace Enhanced_Defence.PersonalShields
                 this.energy = 0f;
                 return;
             }
+
+            /*
             if (this.ShieldState == ShieldState.Resetting)
             {
                 this.ticksToReset--;
@@ -144,24 +149,27 @@ namespace Enhanced_Defence.PersonalShields
                     }
                 }
             }
+            */
         }
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
-            if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
+           // if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
+            if (this.energy > 0f)
             {
-                this.energy -= (float)dinfo.Amount * this.EnergyLossPerDamage;
-                if (dinfo.Def == DamageDefOf.EMP)
+                //this.energy -= (float)dinfo.Amount * this.EnergyLossPerDamage;
+                this.energy -= (float)dinfo.Amount;
+
+                /*if (dinfo.Def == DamageDefOf.EMP)
                 {
                     this.energy = -1f;
-                }
+                }*/
+
                 if (this.energy < 0f)
                 {
                     this.Break();
                 }
-                else
-                {
-                    this.AbsorbedDamage(dinfo);
-                }
+
+                this.AbsorbedDamage(dinfo);
                 return true;
             }
             return false;
@@ -170,6 +178,7 @@ namespace Enhanced_Defence.PersonalShields
         {
             this.lastKeepDisplayTick = Find.TickManager.TicksGame;
         }
+
         private void AbsorbedDamage(DamageInfo dinfo)
         {
             SoundAbsorbDamage.PlayOneShot(this.wearer.Position);
@@ -185,6 +194,7 @@ namespace Enhanced_Defence.PersonalShields
             this.lastAbsorbDamageTick = Find.TickManager.TicksGame;
             this.KeepDisplaying();
         }
+
         private void Break()
         {
             SoundBreak.PlayOneShot(this.wearer.Position);
@@ -195,15 +205,17 @@ namespace Enhanced_Defence.PersonalShields
                 MoteThrower.ThrowDustPuff(loc, Rand.Range(0.8f, 1.2f));
             }
             this.energy = 0f;
-            this.ticksToReset = this.StartingTicksToReset;
+            //this.ticksToReset = this.StartingTicksToReset;
         }
+
         private void Reset()
         {
             SoundReset.PlayOneShot(this.wearer.Position);
             MoteThrower.ThrowLightningGlow(this.wearer.TrueCenter(), 3f);
-            this.ticksToReset = -1;
-            this.energy = this.EnergyOnReset;
+            //this.ticksToReset = -1;
+            //this.energy = this.EnergyOnReset;
         }
+
         public override void DrawWornExtras()
         {
             if (this.ShieldState == ShieldState.Active && this.ShouldDisplay)
@@ -266,11 +278,13 @@ namespace Enhanced_Defence.PersonalShields
                 {
                     Rect barRect = inRect;
                     barRect.yMin = overRect.y + overRect.height / 2f;
-                    float ePct = shield.Energy / Mathf.Max(1f, shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax));
+                    //float ePct = shield.Energy / Mathf.Max(1f, shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax));
+                    float ePct = shield.Energy / Mathf.Max(1f, shield.maxEnergy);
                     Widgets.FillableBar(barRect, ePct, FullTex, EmptyTex, false);
                     Text.Font = GameFont.Small;
                     Text.Anchor = TextAnchor.MiddleCenter;
-                    Widgets.Label(barRect, (shield.Energy * 100).ToString("F0") + " / " + (shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax) * 100).ToString("F0"));
+                    //Widgets.Label(barRect, (shield.Energy * 100).ToString("F0") + " / " + (shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax) * 100).ToString("F0"));
+                    Widgets.Label(barRect, (shield.Energy).ToString("F0") + " / " + (shield.maxEnergy).ToString("F0"));
                     Text.Anchor = TextAnchor.UpperLeft;
                 }
 

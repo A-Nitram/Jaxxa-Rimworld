@@ -88,6 +88,7 @@
         </li>
       </options>
     </colorGenerator>
+	<maxEnergy>255</maxEnergy>
   </ThingDef>
 
 </Defs>

@@ -35,17 +35,16 @@ namespace Enhanced_Defence.PersonalShields
         {
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
-            //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
 
             UI_UPGRADE = ContentFinder<Texture2D>.Get("UI/Upgrade", true);
             UI_CHARGE_OFF = ContentFinder<Texture2D>.Get("UI/ChargeOFF", true);
             UI_CHARGE_ON = ContentFinder<Texture2D>.Get("UI/ChargeON", true);
         }
 
-        public override void TickRare()
+        public override void Tick()
         {
             //Log.Message("Tick");
-            base.TickRare();
+            base.Tick();
 
             if (this.power.PowerOn == true)
             {
@@ -296,55 +295,62 @@ namespace Enhanced_Defence.PersonalShields
         {
             int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
-            //if (currentTick % 10 == 0)
-            //{
-            Log.Message("Trying Recharge");
-
-            IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
-
-            if (pawns != null)
+            if (currentTick % 10 == 0)
             {
-                IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
+                Log.Message("Trying Recharge");
 
-                if (closePawns != null)
+                IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
+
+                if (pawns != null)
                 {
-                    //List<Thing> fireTo
-                    foreach (Pawn currentPawn in closePawns.ToList())
+                    IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
+
+                    if (closePawns != null)
                     {
-                        List<Thing> currentInventory = currentPawn.apparel.WornApparel.AsEnumerable().ToList();
-
-                        foreach (Thing currentThing in currentInventory)
+                        //List<Thing> fireTo
+                        foreach (Pawn currentPawn in closePawns.ToList())
                         {
-                            if (currentThing.def.defName == "Apparel_PersonalNannoShield")
+                            List<Thing> currentInventory = currentPawn.apparel.WornApparel.AsEnumerable().ToList();
+
+                            foreach (Thing currentThing in currentInventory)
                             {
-                                Log.Message("Found:" + currentThing.def.defName);
-                                Apparel_PersonalNannoShield currentShield = (Apparel_PersonalNannoShield)currentThing;
-
-                                currentShield.Energy += 0.1f;
-
-                            }
-                        }
-
-                        /*
-                        if (currentPawn.GetType() == typeof(ShieldedPawn))
-                        {
-                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
-
-                            if (currentShieldedPawn.getRequiresRecharge())
-                            {
-                                int chargeAmmount = 1;
-
-                                if (NanoManager.requestCharge(chargeAmmount))
+                                if (currentThing.def.defName == "Apparel_PersonalNannoShield")
                                 {
-                                    currentShieldedPawn.recharge(chargeAmmount);
+                                    Log.Message("Found:" + currentThing.def.defName);
+                                    Apparel_PersonalNannoShield currentShield = (Apparel_PersonalNannoShield)currentThing;
+
+                                    //currentShield.Energy += 10.0f;
+
+                                    int chargeAmmount = 1;
+
+                                    if (NanoManager.requestCharge(chargeAmmount))
+                                    {
+                                        currentShield.recharge(chargeAmmount);
+                                    }
+
                                 }
                             }
-                        }*/
+
+                            /*
+                            if (currentPawn.GetType() == typeof(ShieldedPawn))
+                            {
+                                ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
+
+                                if (currentShieldedPawn.getRequiresRecharge())
+                                {
+                                    int chargeAmmount = 1;
+
+                                    if (NanoManager.requestCharge(chargeAmmount))
+                                    {
+                                        currentShieldedPawn.recharge(chargeAmmount);
+                                    }
+                                }
+                            }*/
+                        }
                     }
                 }
             }
         }
-        //}
 
     }
 }
