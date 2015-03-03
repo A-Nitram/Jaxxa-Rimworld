@@ -48,7 +48,7 @@
 	<ThingDef ParentName="ShieldBase">
 		<defName>Building_Pawn_Upgrader</defName>
 		<label>Colonist Upgrade Station</label>
-		<description>Using nano technology and miniaturisation a personal version of the shield generator has been developed.</description>
+		<description>Supplies and recharges Nanite Shield Modulators to colonists to protect them from injury.</description>
 		<thingClass>Enhanced_Defence.PersonalShields.Building_Pawn_Upgrader</thingClass>
 		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
 		<graphicPath>Things/ShieldBuilding_Red</graphicPath>

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>ED-PersonalNannoShields</name>
+  <name>ED-PersonalNanoShields</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 8</targetVersion>
   <description>
 	Requires: ED-Core
-Adds Personal Nanno Shields into the game. Allows you to construct a building capable of upgrading your colonists to have a personal shield capable of protecting them from damage.
+Adds Personal Nano Shields into the game. Allows you to construct a building capable of upgrading your colonists to have a personal shield capable of protecting them from damage.
   </description>
 </ModMetaData>

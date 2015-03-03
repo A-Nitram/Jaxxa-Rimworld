@@ -10,7 +10,7 @@ using RimWorld;
 
 namespace Enhanced_Defence.PersonalShields
 {
-    public class Apparel_PersonalNannoShield : Apparel
+    public class Apparel_PersonalNanoShield : Apparel
     {
         private float MinDrawSize;
         private float MaxDrawSize;
@@ -35,7 +35,7 @@ namespace Enhanced_Defence.PersonalShields
         private int tickFlag = 0;
         public void GetParametersFromXml()
         {
-            Enhanced_Defence.PersonalShields.ThingDef_PersonalNannoShield param = this.def as Enhanced_Defence.PersonalShields.ThingDef_PersonalNannoShield;
+            Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield param = this.def as Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield;
 
             MinDrawSize = param.minDrawSize;
             MaxDrawSize = param.maxDrawSize;
@@ -248,7 +248,7 @@ namespace Enhanced_Defence.PersonalShields
         internal class Gizmo_PersonalShieldStatus : Gizmo
         {
             //Links
-            public Enhanced_Defence.PersonalShields.Apparel_PersonalNannoShield shield;
+            public Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield shield;
 
             //Constants
             private static readonly Texture2D FullTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.2f, 0.2f, 0.24f));
@@ -293,7 +293,7 @@ namespace Enhanced_Defence.PersonalShields
         }
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
-            Enhanced_Defence.PersonalShields.Apparel_PersonalNannoShield.Gizmo_PersonalShieldStatus opt1 = new Enhanced_Defence.PersonalShields.Apparel_PersonalNannoShield.Gizmo_PersonalShieldStatus();
+            Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield.Gizmo_PersonalShieldStatus opt1 = new Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield.Gizmo_PersonalShieldStatus();
             opt1.shield = this;
             yield return opt1;
         }

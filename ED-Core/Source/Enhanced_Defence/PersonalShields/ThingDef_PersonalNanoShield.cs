@@ -7,7 +7,7 @@ using RimWorld;
 
 namespace Enhanced_Defence.PersonalShields
 {
-    public class ThingDef_PersonalNannoShield : ThingDef
+    public class ThingDef_PersonalNanoShield : ThingDef
     {
         //public float energyLossPerDamage = 0.027f;
         public float minDrawSize = 1.2f;

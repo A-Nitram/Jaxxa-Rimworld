@@ -8,7 +8,8 @@ https://ludeon.com/forums/index.php?topic=6636.0
 With a Download Mirror on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?
 
-View the Readme document (including changelog) on GitHub for the correct formatting and most recent document updates:  
+View the Readme document (including changelog) online at GitHub for the correct formatting and most recent document updates:  
+GitHub is a source only release, if you want to run the binaries please fet them from nexus or mediafire (links on the forum thread).
 https://github.com/jaxxa/RimWorld-Enhanced-Defence  
 
 Also check the GitHub wiki for more detailed information about the individual Modules:  
@@ -158,7 +159,11 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Will not require custom Pawns anymore 
 --I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
 ---"Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
-
+0.16.1
+-Renamed Personal shields to be "Nanite Shield Modulator"
+--Removed tags from personal shields to stop pawns from spawning with them initially
+---Not that it did them much good because they wernt charged.
+--Changed layers Overhead, should now fit over armour 
 ~~~
 
 ##License:

@@ -241,10 +241,10 @@ namespace Enhanced_Defence.PersonalShields
                 {
                     //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
 
-                    //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Defence.PersonalShields.ThingDef_PersonalNannoShield()))
+                    //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield()))
                     //{
                     //Apparel shield = new Apparel();
-                    ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNannoShield");
+                    ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNanoShield");
 
                     ThingDef stuff = GenStuff.RandomStuffFor(personalShieldDef);
                     Thing personalShield = ThingMaker.MakeThing(personalShieldDef, stuff);
@@ -314,10 +314,10 @@ namespace Enhanced_Defence.PersonalShields
 
                             foreach (Thing currentThing in currentInventory)
                             {
-                                if (currentThing.def.defName == "Apparel_PersonalNannoShield")
+                                if (currentThing.def.defName == "Apparel_PersonalNanoShield")
                                 {
                                     //Log.Message("Found:" + currentThing.def.defName);
-                                    Apparel_PersonalNannoShield currentShield = (Apparel_PersonalNannoShield)currentThing;
+                                    Apparel_PersonalNanoShield currentShield = (Apparel_PersonalNanoShield)currentThing;
 
                                     //currentShield.Energy += 10.0f;
 
