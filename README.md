@@ -160,10 +160,13 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
 ---"Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
 0.16.1
--Renamed Personal shields to be "Nanite Shield Modulator"
+-Changes To personal Shields
+--Renamed Personal shields to be "Nanite Shield Modulator"
+---To better diferentiate between stock shields / shields added in other mods.
 --Removed tags from personal shields to stop pawns from spawning with them initially
 ---Not that it did them much good because they wernt charged.
---Changed layers Overhead, should now fit over armour 
+--Changed layers Overhead, should now fit over armour
+--Require Personal shields to be fully charged before being brought online
 ~~~
 
 ##License:

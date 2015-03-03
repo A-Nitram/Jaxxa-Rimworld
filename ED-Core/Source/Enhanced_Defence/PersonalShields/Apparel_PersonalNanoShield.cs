@@ -19,6 +19,7 @@ namespace Enhanced_Defence.PersonalShields
         private bool isRotating;
         private float energy;
         public float maxEnergy;
+        private ShieldState shieldState = ShieldState.Resetting;
         //private int ticksToReset = -1;
         private int lastAbsorbDamageTick = -9999;
         private Vector3 impactAngleVect;
@@ -88,11 +89,16 @@ namespace Enhanced_Defence.PersonalShields
         {
             get
             {
-                if (this.energy > 0)
+                if (this.energy >= this.maxEnergy)
                 {
-                    return ShieldState.Active;
+                    this.shieldState = ShieldState.Active;
                 }
-                return ShieldState.Resetting;
+
+                if (this.energy <= 0)
+                {
+                    this.shieldState = ShieldState.Resetting;
+                }
+                return this.shieldState;
             }
         }
 
@@ -109,7 +115,8 @@ namespace Enhanced_Defence.PersonalShields
             Scribe_Values.LookValue<float>(ref this.energy, "energy", 0f, false);
             //Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
             Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
-
+            Scribe_Values.LookValue<ShieldState>(ref this.shieldState, "shieldState", ShieldState.Resetting, false);
+             
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 GetParametersFromXml();
@@ -153,8 +160,9 @@ namespace Enhanced_Defence.PersonalShields
         }
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
-           // if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
-            if (this.energy > 0f)
+            // if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
+            //if (this.energy > 0f)
+            if (this.ShieldState == RimWorld.ShieldState.Active)
             {
                 //this.energy -= (float)dinfo.Amount * this.EnergyLossPerDamage;
                 this.energy -= (float)dinfo.Amount;
