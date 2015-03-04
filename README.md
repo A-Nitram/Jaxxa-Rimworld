@@ -9,7 +9,7 @@ With a Download Mirror on the Nexus:
 http://www.nexusmods.com/rimworld/mods/62/?
 
 View the Readme document (including changelog) online at GitHub for the correct formatting and most recent document updates:  
-GitHub is a source only release, if you want to run the binaries please fet them from nexus or mediafire (links on the forum thread).
+GitHub is a source only release, if you want to run the binaries please get them from nexus or mediafire (links on the forum thread).
 https://github.com/jaxxa/RimWorld-Enhanced-Defence  
 
 Also check the GitHub wiki for more detailed information about the individual Modules:  
@@ -135,12 +135,12 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Increased Stargate Power Consumption
 -Added charge options
 --Increase the power consumption of the Stargate for a reduction in charge time
--Removed Autoloader Research Requirment
---Would have been problomatic to be used with offworld gates
+-Removed Autoloader Research Requirement
+--Would have been problematic to be used with offworld gates
 -Stargate Dynamic Save location
 --Change where the stargate .xml files are saved and read from
 --Most people will want to leave this alone, but it might be helpful for trying more complex stuff or bug fixing.
--Updating / Balancing OmniGel recipies based on resource cost
+-Updating / Balancing OmniGel recipes based on resource cost
 0.15
 -Redone vent logic
 -increased stack amount for OmniGel
@@ -149,7 +149,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 0.16
 -Update to Alpha 9
 -Removed "ED-MortarAmmo"
---Similar feature now implimented in the base game
+--Similar feature now implemented in the base game
 -Removed "ED-EMRG turret"
 --Was mainly a demo for turrets using Ammo and that is now in the base game
 --Might come back later in some form.
@@ -157,16 +157,16 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Reduced size of Laser Filler to better fill in tight spaces to remove useless geothermal vents.
 -Reworking Personal Shields
 --Will not require custom Pawns anymore 
---I got part way through updating this when Latta uploaded an awsome mod with a bunch of assets and code I could use.
+--I got part way through updating this when Latta uploaded an awesome mod with a bunch of assets and code I could use.
 ---"Shooter's shield / Customizable personal shield" https://ludeon.com/forums/index.php?topic=10994.0
 0.16.1
 -Changes To personal Shields
 --Renamed Personal shields to be "Nanite Shield Modulator"
----To better diferentiate between stock shields / shields added in other mods.
+---To better differentiate between stock shields / shields added in other mods.
 --Removed tags from personal shields to stop pawns from spawning with them initially
----Not that it did them much good because they wernt charged.
+---Not that it did them much good because they did not start charged.
 --Changed layers Overhead, should now fit over armour
---Require Personal shields to be fully charged before being brought online
+--Require Personal shields to be fully charged before being brought on-line
 -
 ~~~
 
