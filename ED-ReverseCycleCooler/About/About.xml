@@ -3,7 +3,7 @@
   <name>ED-ReverseCycleCooler</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 8</targetVersion>
+  <targetVersion>Alpha 9</targetVersion>
   <description>
 	Requires: ED-Core
 Adds a Reverse Cycle Cooler. Identical to the standard cooler except that it can easily be rotated to reverse the direction of the temperature flow.
