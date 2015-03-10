@@ -167,7 +167,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ---Not that it did them much good because they did not start charged.
 --Changed layers Overhead, should now fit over armour
 --Require Personal shields to be fully charged before being brought on-line
--
+0.16.2
+-Removed some not needed logging
 ~~~
 
 ##License:

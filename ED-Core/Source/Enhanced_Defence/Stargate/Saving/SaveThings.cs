@@ -40,32 +40,32 @@ namespace Enhanced_Defence.Stargate.Saving
 
         public static void load(ref List<Thing> thingsToLoad, string fileLocation, Thing currentSource)
         {
-            Log.Message("Loading from " + fileLocation);
-            Log.Message("ScribeINIT");
+            //Log.Message("Loading from " + fileLocation);
+            //Log.Message("ScribeINIT");
 
             Scribe.InitLoading(fileLocation);
 
             Scribe_Collections.LookList<Thing>(ref thingsToLoad, "things", LookMode.Deep, (object)null);
-            Log.Message("List1Count:" + thingsToLoad.Count);
+            //Log.Message("List1Count:" + thingsToLoad.Count);
 
             Scribe.ExitNode();
             Scribe.mode = LoadSaveMode.Inactive;
 
-            Log.Message("list: " + thingsToLoad.Count.ToString());
+            //Log.Message("list: " + thingsToLoad.Count.ToString());
 
 
-            Log.Message("Exit Node");
+            //Log.Message("Exit Node");
             Scribe.ExitNode();
 
 
-            Log.Message("ResolveAllCrossReferences");
+            //Log.Message("ResolveAllCrossReferences");
             LoadCrossRefHandler.ResolveAllCrossReferences();
 
 
-            Log.Message("DoAllPostLoadInits");
+            //Log.Message("DoAllPostLoadInits");
             PostLoadInitter.DoAllPostLoadInits();
 
-            Log.Message("Return");
+            //Log.Message("Return");
 
         }
 

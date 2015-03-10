@@ -787,7 +787,7 @@ namespace Enhanced_Defence.Shields
         {
             FieldInfo fieldInfo = projectile.GetType().GetField("destination", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
             Vector3 reoveredVector = (Vector3)fieldInfo.GetValue(projectile);
-            Log.Message(reoveredVector.ToString());
+            //Log.Message(reoveredVector.ToString());
             return reoveredVector;
         }
     }
