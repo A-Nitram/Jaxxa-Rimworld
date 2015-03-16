@@ -164,7 +164,6 @@ namespace Enhanced_Defence.PersonalShields
             //if (this.energy > 0f)
             if (this.ShieldState == RimWorld.ShieldState.Active)
             {
-                //this.energy -= (float)dinfo.Amount * this.EnergyLossPerDamage;
                 this.energy -= (float)dinfo.Amount;
 
                 /*if (dinfo.Def == DamageDefOf.EMP)

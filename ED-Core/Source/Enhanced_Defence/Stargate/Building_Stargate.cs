@@ -69,7 +69,7 @@ namespace Enhanced_Defence.Stargate
                 FileLocationPrimary = ((Enhanced_Defence.Stargate.StargateThingDef)def).FileLocationPrimary;
                 FileLocationSecondary = ((Enhanced_Defence.Stargate.StargateThingDef)def).FileLocationSecondary;
 
-                Log.Message("Setting FileLocationPrimary:" + FileLocationPrimary + " and FileLocationSecondary:" + FileLocationSecondary);
+                //Log.Message("Setting FileLocationPrimary:" + FileLocationPrimary + " and FileLocationSecondary:" + FileLocationSecondary);
             }
             else
             {
@@ -81,7 +81,7 @@ namespace Enhanced_Defence.Stargate
         public override void ExposeData()
         {
 
-            Log.Message("Expose Data start");
+            //Log.Message("Expose Data start");
             base.ExposeData();
 
             //Scribe_Deep.LookDeep(ref listOfThingLists, "listOfThingLists");
@@ -95,11 +95,11 @@ namespace Enhanced_Defence.Stargate
             Scribe_Values.LookValue<bool>(ref DropPodAddUnits, "DropPodAddUnits");
             Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");*/
 
-            Log.Message("Expose Data - look list");
+            //Log.Message("Expose Data - look list");
             Scribe_Collections.LookList<Thing>(ref listOfBufferThings, "listOfBufferThings", LookMode.Deep, (object)null);
             //Scribe_Collections.LookList<Thing>(ref listOfOffworldThings, "listOfOffworldThings", LookMode.Deep, (object)null);
 
-            Log.Message("Expose Data about to start");
+            //Log.Message("Expose Data about to start");
 
         }
 
@@ -444,13 +444,13 @@ namespace Enhanced_Defence.Stargate
 
                 List<Thing> inboundBuffer = new List<Thing>();
 
-                Log.Message("start list contains: " + inboundBuffer.Count);
+                //Log.Message("start list contains: " + inboundBuffer.Count);
                 Enhanced_Defence.Stargate.Saving.SaveThings.load(ref inboundBuffer, this.FileLocationPrimary, this);
-                Log.Message("end list contains: " + inboundBuffer.Count);
+                //Log.Message("end list contains: " + inboundBuffer.Count);
 
                 foreach (Thing currentThing in inboundBuffer)
                 {
-                    Log.Message("Placing Thing");
+                    //Log.Message("Placing Thing");
 
                     //Setup the New ID for the Thing
                     currentThing.thingIDNumber = -1;
@@ -460,7 +460,7 @@ namespace Enhanced_Defence.Stargate
 
                     GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0, 0, -2), ThingPlaceMode.Near);
                 }
-                Log.Message("End of Placing");
+                //Log.Message("End of Placing");
                 inboundBuffer.Clear();
 
                 // Tell the MapDrawer that here is something thats changed
@@ -473,7 +473,7 @@ namespace Enhanced_Defence.Stargate
             {
 
                 Messages.Message("No Offworld Teams Found", MessageSound.Reject);
-                Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
+                //Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
             }
         }
 
@@ -542,7 +542,7 @@ namespace Enhanced_Defence.Stargate
             }
             else
             {
-                Log.Warning("Building_Stargate.MoveToBackup(), file at FileLocationPrimary not found.");
+                //Log.Warning("Building_Stargate.MoveToBackup(), file at FileLocationPrimary not found.");
             }
         }
 
