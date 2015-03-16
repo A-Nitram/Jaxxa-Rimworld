@@ -47,12 +47,23 @@ namespace Enhanced_Defence.Vehicles
 
         public void SpawnVehicle()
         {
-
+            Log.Message("1");
+            VehiclePawn newPawn = Enhanced_Defence.Vehicles.VehiclePawnGenerator.GeneratePawn("Vehicle_APC", RimWorld.Faction.OfColony);
+            Building_Vehicle_Bay.Spawn(newPawn, this.Position, IntRot.south);
         }
 
         #endregion
 
 
+        public static Thing Spawn(Thing newThing, IntVec3 loc, IntRot rot)
+        {
+            GenSpawn.WipeExistingThings(loc, rot, (EntityDef)newThing.def, false);
+            newThing.Rotation = !newThing.def.randomizeRotationOnSpawn ? rot : IntRot.random;
+            newThing.SetPositionDirect(IntVec3.Invalid);
+            newThing.Position = loc;
+            newThing.SpawnSetup();
+            return newThing;
+        }
 
     }
 }

@@ -81,6 +81,7 @@
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include="Utilities\Vectors.cs" />
     <Compile Include="Vehicles\Building_Vehicle_Bay.cs" />
+    <Compile Include="Vehicles\ThingDef_VehiclePawn.cs" />
     <Compile Include="Vehicles\VehiclePawnGenerator.cs" />
     <Compile Include="Vehicles\VehiclePawn.cs" />
     <Compile Include="Vehicles\PawnKindDef_Vehicles.cs" />

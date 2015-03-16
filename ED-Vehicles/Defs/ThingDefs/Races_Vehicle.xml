@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-  <ThingDef Name="BasePawn" Abstract="True">
+  <ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn"  Name="BasePawn" Abstract="True">
     <eType>Pawn </eType>
-    <thingClass>Pawn</thingClass>
+    <thingClass>Enhanced_Defence.Vehicles.VehiclePawn</thingClass>
     <category>Pawn</category>
     <selectable>true</selectable>
     <tickerType>Normal</tickerType>
@@ -30,7 +30,7 @@
 
   <!-- ============================ Mechanoids ========================== -->
 
-  <ThingDef ParentName="BasePawn" Name="BaseVehicle" Abstract="True">
+  <ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn" Name="BaseVehicle" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <statBases>
       <Flammability>0</Flammability>
@@ -38,7 +38,7 @@
       <ComfyTemperatureMax>250</ComfyTemperatureMax>
     </statBases>
     <race>
-      <mechanoid>true</mechanoid>
+      <mechanoid>false</mechanoid>
       <hasStory>false</hasStory>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
@@ -50,7 +50,7 @@
 
 
   <!-- Centipede -->
-  <ThingDef ParentName="BaseVehicle">
+  <ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BaseVehicle">
     <defName>Vehicle_APC</defName>
     <label>APC</label>
     <description>Heavy combat mechanoids that glide on dozens of tiny legs. Their heavy armor and firepower makes them very effective against bunched-up static defenders. They are somewhat vulnerable to mobile hit-and-run tactics.</description>
@@ -88,9 +88,6 @@
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
     </race>
-    <recipes>
-      <li>ShutDownMechanoid</li>
-    </recipes>
     <butcherProducts>
       <Steel>80</Steel>
       <Plasteel>50</Plasteel>

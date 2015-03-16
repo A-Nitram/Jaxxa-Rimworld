@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PawnKindDefs>
 
-	<PawnKindDef>
-		<defName>PawnKindDef_Vehicle</defName>
-		<label>Vehicle</label>
-		<race>Vehicle_APC</race>
+	<PawnKindDef class="Enhanced_Defence.Vehicles.PawnKindDef_Vehicle">
+	<defName>Vehicle_APC</defName>
+	<label>Vehicle</label>
+	<race>Vehicle_APC</race>
     <pointsCost>290</pointsCost>
     <defaultFactionType>Colony</defaultFactionType>	
 	<aiAvoidCover>true</aiAvoidCover>
@@ -12,11 +12,11 @@
 	<baseRecruitDifficulty>99</baseRecruitDifficulty>
 	<backstoryCategory>Civil</backstoryCategory>
     <apparelTags>
-      <li>Spacer</li>
+		<li>Spacer</li>
     </apparelTags>
     <apparelMoney>
-      <min>2000</min>
-      <max>3000</max>
+		<min>2000</min>
+		<max>3000</max>
     </apparelMoney>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
 	</PawnKindDef>
