@@ -6,7 +6,7 @@ using Verse;
 
 namespace Enhanced_Defence.Vehicles
 {
-    class PawnKindDef_Vehicles : PawnKindDef
+    class PawnKindDef_Vehicle : PawnKindDef
     {
 
     }

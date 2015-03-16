@@ -7,5 +7,6 @@ namespace Enhanced_Defence.Vehicles
 {
     class VehiclePawnGenerator
     {
+
     }
 }
