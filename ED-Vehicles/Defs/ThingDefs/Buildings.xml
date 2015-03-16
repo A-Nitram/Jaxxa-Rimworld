@@ -1,66 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Things>
-	<ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-	</ThingDef>
-	
-	
-	<ThingDef ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
-		<eType>Building_Turret</eType>
-		<category>Building</category>
-		<altitudeLayer>BuildingTall</altitudeLayer>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<blockLight>true</blockLight>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicOverdraw>false</graphicOverdraw>
-		<staticSunShadowHeight>1.0</staticSunShadowHeight>
-		<fillPercent>1</fillPercent>
-		<size>(1,1)</size>
-		<rotatable>false</rotatable>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Security</designationCategory>
-		<holdsRoof>false</holdsRoof>
-		<specialDisplayRadius>8</specialDisplayRadius>
-		<statBases>
-			<MaxHealth>500</MaxHealth>
-			<WorkToMake>2000</WorkToMake>
-			<Flammability>1.0</Flammability>
-			<Beauty>-2</Beauty>
-		</statBases>
-		<costList>
-			<Steel>100</Steel>
-			<Silver>500</Silver>
-		</costList>
-		<filthLeavings>
-			<SlagRubble>2</SlagRubble>
-		</filthLeavings>
-		<passability>Impassable</passability>
-		<combatTargetBuilding>true</combatTargetBuilding>
-		<selectable>true</selectable>
-		<tickerType>Normal</tickerType>
-	</ThingDef>
-	
-	
-	<ThingDef ParentName="ShieldBase">
-		<defName>Building_Vehicle_Bay</defName>
-		<label>Vehicle Bay</label>
-		<description>Create Vehicles.</description>
-		<thingClass>Enhanced_Defence.Vehicles.Building_Vehicle_Bay</thingClass>
-		<graphicPath>Things/ShieldBuilding_Red</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
-		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
-		<specialDisplayRadius>2</specialDisplayRadius>
-		<comps>
-			<li>
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1000</basePowerConsumption>
-			</li>
-		</comps>
-	</ThingDef>
-	
-</Things>
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+  
+   <ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
+    <defName>VehicleBay</defName>
+    <eType>BuildingComplex</eType>
+    <label>Vehicle Bay</label>
+    <description>Vehicle Bay</description>
+    <thingClass>Enhanced_Defence.Vehicles.Building_Vehicle_Bay</thingClass>
+    <graphicPath>Things/Buildings/Stargate</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <specialDisplayRadius>3</specialDisplayRadius>
+    <tickerType>Rare</tickerType>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MaxHealth>1000000</MaxHealth>
+      <Flammability>0.0</Flammability>
+    </statBases>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>false</startElectricalFires>
+        <basePowerConsumption>1000</basePowerConsumption>
+      </li>
+    </comps>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>2000</Steel>
+	  <Uranium>500</Uranium>
+    </costList>
+    <graphicOverdraw>false</graphicOverdraw>
+    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <hasInteractionCell>false</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <staticSunShadowHeight>0.75</staticSunShadowHeight>
+  </ThingDef>
+  
+</ThingDefs>
