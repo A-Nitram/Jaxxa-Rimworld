@@ -71,7 +71,7 @@
       </li>
     </verbs>
     <race>
-      <thinkTree>Mechanoid</thinkTree>
+      <thinkTree>Vehicle</thinkTree>
       <body>MechanicalCentipede</body>
       <bodySize>2.0</bodySize>
       <healthScale>1.3</healthScale>

@@ -12,7 +12,7 @@ namespace Enhanced_Defence.Vehicles
     {
         public static VehiclePawn GeneratePawn(string kindDefName, Faction faction)
         {
-            Log.Message("2");
+            //Log.Message("2");
             return VehiclePawnGenerator.GeneratePawn(PawnKindDef.Named(kindDefName), faction);
         }
 
@@ -56,7 +56,7 @@ namespace Enhanced_Defence.Vehicles
         public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
         {
 
-            Log.Message("3:" + kindDef.race);
+            //Log.Message("3:" + kindDef.race);
 
             VehiclePawn pawn = (VehiclePawn) ThingMaker.MakeThing(kindDef.race, (ThingDef) null);
 
@@ -64,9 +64,9 @@ namespace Enhanced_Defence.Vehicles
             //Log.Message(pawn.def.label);
             //Log.Message(pawn.def.defName);
 
-            Log.Message("Type: " + pawn.GetType());
+            //Log.Message("Type: " + pawn.GetType());
 
-            Log.Message("4");
+            //Log.Message("4");
             
             
             pawn.kindDef = kindDef;
@@ -132,7 +132,6 @@ namespace Enhanced_Defence.Vehicles
             PawnInventoryGenerator.GenerateInventoryFor(pawn);
             pawn.AddAndRemoveComponentsAsAppropriate();
             
-
             return (VehiclePawn) pawn;
         }
 
