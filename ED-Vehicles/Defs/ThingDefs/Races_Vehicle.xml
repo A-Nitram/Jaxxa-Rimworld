@@ -65,7 +65,7 @@
       </li>
     </verbs>
     <race>
-      <thinkTree>Humanoid</thinkTree>
+      <thinkTree>Vehicle</thinkTree>
       <humanoid>true</humanoid>
       <isFlesh>true</isFlesh>
       <hasLeather>true</hasLeather>
