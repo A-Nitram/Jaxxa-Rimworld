@@ -112,18 +112,18 @@ namespace Enhanced_Defence.Vehicles
             //if (pawn.RaceProps.humanoid)
             //    AgeInjuryUtility.GenerateInitialOldInjuries(pawn);
             pawn.Health = pawn.MaxHealth;
-            
-            //if (pawn.RaceProps.hasStory)
-            //{
-            //    pawn.story.skinColor = PawnSkinColors.RandomSkinColor();
-            //    pawn.story.crownType = (double)Rand.Value >= 0.5 ? CrownType.Narrow : CrownType.Average;
-            //    pawn.story.headGraphicPath = GraphicDatabaseHeadRecords.GetHeadRandom(pawn.gender, pawn.story.skinColor, pawn.story.crownType).GraphicPath;
-            //    pawn.story.hairColor = PawnHairColors.RandomHairColor(pawn.story.skinColor, pawn.ageTracker.AgeBiologicalYears);
-            //    PawnBioGenerator.GiveAppropriateBioTo(pawn, faction.def);
-            //    pawn.story.hairDef = PawnHairChooser.RandomHairDefFor(pawn, faction.def);
-            //    PawnGenerator.GiveRandomTraitsTo(pawn);
-            //    pawn.story.GenerateSkillsFromBackstory();
-            //}
+
+            if (pawn.RaceProps.hasStory)
+            {
+                pawn.story.skinColor = PawnSkinColors.RandomSkinColor();
+                pawn.story.crownType = (double)Rand.Value >= 0.5 ? CrownType.Narrow : CrownType.Average;
+                pawn.story.headGraphicPath = GraphicDatabaseHeadRecords.GetHeadRandom(pawn.gender, pawn.story.skinColor, pawn.story.crownType).GraphicPath;
+                pawn.story.hairColor = PawnHairColors.RandomHairColor(pawn.story.skinColor, pawn.ageTracker.AgeBiologicalYears);
+                PawnBioGenerator.GiveAppropriateBioTo(pawn, faction.def);
+                pawn.story.hairDef = PawnHairChooser.RandomHairDefFor(pawn, faction.def);
+                //PawnGenerator.GiveRandomTraitsTo(pawn);
+                pawn.story.GenerateSkillsFromBackstory();
+            }
             
             PawnApparelGenerator.GenerateStartingApparelFor(pawn);
             PawnInventoryGenerator.GiveAppropriateKeysTo(pawn);
