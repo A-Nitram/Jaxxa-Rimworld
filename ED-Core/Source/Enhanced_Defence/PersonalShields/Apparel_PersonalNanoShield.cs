@@ -116,7 +116,7 @@ namespace Enhanced_Defence.PersonalShields
             //Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
             Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
             Scribe_Values.LookValue<ShieldState>(ref this.shieldState, "shieldState", ShieldState.Resetting, false);
-             
+
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 GetParametersFromXml();
@@ -164,6 +164,32 @@ namespace Enhanced_Defence.PersonalShields
             //if (this.energy > 0f)
             if (this.ShieldState == RimWorld.ShieldState.Active)
             {
+
+                if (dinfo.Def == DamageDefOf.SurgicalCut)
+                {
+                    return false;
+                }
+
+                if (dinfo.Def == DamageDefOf.Repair)
+                {
+                    return false;
+                }
+
+                if (dinfo.Def == DamageDefOf.Suffocation)
+                {
+                    return false;
+                }
+
+                if (dinfo.Def == DamageDefOf.HealGlobalInjury)
+                {
+                    return false;
+                }
+
+                if (dinfo.Def == DamageDefOf.HealLocalInjury)
+                {
+                    return false;
+                }
+
                 this.energy -= (float)dinfo.Amount;
 
                 /*if (dinfo.Def == DamageDefOf.EMP)
@@ -181,6 +207,7 @@ namespace Enhanced_Defence.PersonalShields
             }
             return false;
         }
+        
         public void KeepDisplaying()
         {
             this.lastKeepDisplayTick = Find.TickManager.TicksGame;
