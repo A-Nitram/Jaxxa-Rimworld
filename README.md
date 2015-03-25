@@ -168,6 +168,12 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Changed layers Overhead, should now fit over armour
 --Require Personal shields to be fully charged before being brought on-line
 0.16.2
+- Personal Shields Ignore Certain damage types:
+--SurgicalCut
+--Repair
+--Suffocation
+--HealGlobalInjury
+--HealLocalInjury
 -More Work on Vehicles??
 ~~~
 
@@ -193,6 +199,7 @@ Thanks to EdB for:
 
 Thanks to Haplo for:
 * Providing a tutorial on animating images.
+* Providing the MAI source code, was invaluable in figuring out how to work with Pawns for the initial personal shields and vehicles.
 
 Thanks to Kulverstukass for:
 * Awesome bug reporting and feedback.
