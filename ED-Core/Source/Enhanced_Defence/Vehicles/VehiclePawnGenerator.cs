@@ -12,53 +12,12 @@ namespace Enhanced_Defence.Vehicles
     {
         public static VehiclePawn GeneratePawn(string kindDefName, Faction faction)
         {
-            //Log.Message("2");
-            return VehiclePawnGenerator.GeneratePawn(PawnKindDef.Named(kindDefName), faction);
-        }
-
-
-        /*public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
-        {
-            //Does this work?
-
-            Log.Message("3");
-            return (VehiclePawn)PawnGenerator.GeneratePawn(kindDef, faction);
-
-            VehiclePawn temp;
-        }*/
-
-        /*
-        public static VehiclePawn GeneratePawn(string kindDefName, Faction faction)
-        {
             return VehiclePawnGenerator.GeneratePawn(PawnKindDef.Named(kindDefName), faction);
         }
 
         public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
         {
-
-            //string fileLocation = @"C:\New.txt";
-            string fileLocation = @"TempPawn.txt";
-
-            //Enhanced_Defence.PersonalShields.Saving.PawnSaver.save(currentPawn, fileLocation);
-
-            VehiclePawn newPawn = ShieldedPawnGenerator.GeneratePawn(kindDef, faction);
-
-            Enhanced_Defence.PersonalShields.Saving.PawnSaver.load(newPawn, fileLocation);
-
-            newPawn.currentShields = 100;
-            newPawn.max_shields = 100;
-
-            return newPawn;
-        }*/
-
-
-
-        public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
-        {
-
-            //Log.Message("3:" + kindDef.race);
-
-            VehiclePawn pawn = (VehiclePawn) ThingMaker.MakeThing(kindDef.race, (ThingDef) null);
+            VehiclePawn pawn = (VehiclePawn)ThingMaker.MakeThing(kindDef.race, (ThingDef)null);
 
             //Log.Message(pawn.Label);
             //Log.Message(pawn.def.label);
@@ -66,9 +25,6 @@ namespace Enhanced_Defence.Vehicles
 
             //Log.Message("Type: " + pawn.GetType());
 
-            //Log.Message("4");
-            
-            
             pawn.kindDef = kindDef;
             pawn.SetFactionDirect(faction);
             pawn.pather = new Pawn_PathFollower(pawn);
@@ -122,18 +78,79 @@ namespace Enhanced_Defence.Vehicles
                 PawnBioGenerator.GiveAppropriateBioTo(pawn, faction.def);
                 pawn.story.hairDef = PawnHairChooser.RandomHairDefFor(pawn, faction.def);
                 //PawnGenerator.GiveRandomTraitsTo(pawn);
-                pawn.story.GenerateSkillsFromBackstory();
+                //pawn.story.GenerateSkillsFromBackstory();
+
+                pawn.story.childhood = Enhanced_Defence.Vehicles.Helper.BackstoryHelper.GetBackstory();
+                pawn.story.adulthood = Enhanced_Defence.Vehicles.Helper.BackstoryHelper.GetBackstory();
+
+                MakeSkillsFromBackstory(pawn);
             }
-            
-            PawnApparelGenerator.GenerateStartingApparelFor(pawn);
-            PawnInventoryGenerator.GiveAppropriateKeysTo(pawn);
-            PawnWeaponGenerator.TryGenerateWeaponFor(pawn);
-            PawnArtificialBodyPartsGenerator.GeneratePartsFor(pawn);
-            PawnInventoryGenerator.GenerateInventoryFor(pawn);
+
+            //PawnApparelGenerator.GenerateStartingApparelFor(pawn);
+            //PawnInventoryGenerator.GiveAppropriateKeysTo(pawn);
+            //PawnWeaponGenerator.TryGenerateWeaponFor(pawn);
+            //PawnArtificialBodyPartsGenerator.GeneratePartsFor(pawn);
+            //PawnInventoryGenerator.GenerateInventoryFor(pawn);
             pawn.AddAndRemoveComponentsAsAppropriate();
-            
-            return (VehiclePawn) pawn;
+
+            //pawn.workSettings.Disable(WorkTypeDefOf.Cleaning);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Construction);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Cooking);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Doctor);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Firefighter);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Growing);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Hauling);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Hunting);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Mining);
+            //pawn.workSettings.Disable(WorkTypeDefOf.PlantCutting);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Repair);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Research);
+            //pawn.workSettings.Disable(WorkTypeDefOf.Warden);
+
+            return (VehiclePawn)pawn;
         }
+
+        public static void MakeSkillsFromBackstory(VehiclePawn pawn)
+        {
+            IEnumerator<SkillDef> enumerator = DefDatabase<SkillDef>.AllDefs.GetEnumerator();
+            try
+            {
+
+                while (enumerator.MoveNext())
+                {
+                    SkillDef current = enumerator.Current;
+                    //int num = FinalLevelOfSkill(current);
+                    int num = 5;
+                    SkillRecord skill = pawn.skills.GetSkill(current);
+                    skill.level = num;
+                    if (skill.TotallyDisabled)
+                    {
+                        continue;
+                    }
+
+                    skill.xpSinceLastLevel = 0;
+
+                    switch (0)
+                    {
+                        case 1:
+                            skill.passion = Passion.Minor;
+                            break;
+                        case 2:
+                            skill.passion = Passion.Major;
+                            break;
+                        default:
+                            skill.passion = Passion.None;
+                            break;
+                    }
+
+                }
+            }
+            finally
+            {
+                enumerator.Dispose();
+            }
+        }
+
 
     }
 }
