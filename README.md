@@ -174,6 +174,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Suffocation
 --HealGlobalInjury
 --HealLocalInjury
+-Fixed Repair mode display bug
 -More Work on Vehicles??
 ~~~
 

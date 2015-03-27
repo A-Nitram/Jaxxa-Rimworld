@@ -453,7 +453,7 @@ namespace Enhanced_Defence.Shields
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.SwitchVisual();
                     act.icon = UI_SHOW_ON;
-                    act.defaultLabel = "Repair Mode";
+                    act.defaultLabel = "Show Visually";
                     act.defaultDesc = "Show";
                     act.activateSound = SoundDef.Named("Click");
                     //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
@@ -648,11 +648,11 @@ namespace Enhanced_Defence.Shields
         {
             flag_fireSupression = !flag_fireSupression;
         }
+
         private void SwitchInterceptDropPod()
         {
             flag_InterceptDropPod = !flag_InterceptDropPod;
         }
-
 
         private void SwitchVisual()
         {
