@@ -64,8 +64,8 @@ namespace Enhanced_Defence.Temperature
             }*/
 
             
-            IntVec3 intVec3_1 = this.Position + Gen.RotatedBy(IntVec3.south, this.Rotation);
-            IntVec3 intVec3_2 = this.Position + Gen.RotatedBy(IntVec3.north, this.Rotation);
+            IntVec3 intVec3_1 = this.Position + Gen.RotatedBy(IntVec3.South, this.Rotation);
+            IntVec3 intVec3_2 = this.Position + Gen.RotatedBy(IntVec3.North, this.Rotation);
 
             bool flag = false;
 
@@ -264,7 +264,7 @@ namespace Enhanced_Defence.Temperature
             if (this.compPowerTrader != null)
             {
                 //string str1 = (this.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick).ToString("F0");
-                stringBuilder.AppendLine("Power: " + -this.compPowerTrader.powerOutput + " / " + (this.compPowerTrader.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick) + " - Stored: " + this.compPowerTrader.PowerNet.CurrentStoredEnergy().ToString("F0"));
+                stringBuilder.AppendLine("Power: " + -this.compPowerTrader.powerOutputInt + " / " + (this.compPowerTrader.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick) + " - Stored: " + this.compPowerTrader.PowerNet.CurrentStoredEnergy().ToString("F0"));
             }
 
             return stringBuilder.ToString();

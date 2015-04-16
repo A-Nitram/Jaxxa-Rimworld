@@ -106,7 +106,7 @@ namespace Enhanced_Defence.PersonalShields
         {
             get
             {
-                return !this.wearer.Dead && !this.wearer.Downed && (!this.wearer.IsPrisonerOfColony || (this.wearer.BrokenStateDef != null && this.wearer.BrokenStateDef == BrokenStateDefOf.Psychotic)) && ((this.wearer.playerController != null && this.wearer.playerController.Drafted) || this.wearer.Faction.HostileTo(Faction.OfColony) || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks);
+                return !this.wearer.Dead && !this.wearer.Downed && (!this.wearer.IsPrisonerOfColony || (this.wearer.BrokenStateDef != null && this.wearer.BrokenStateDef == BrokenStateDefOf.Berserk)) && ((this.wearer.playerController != null && this.wearer.playerController.Drafted) || this.wearer.Faction.HostileTo(Faction.OfColony) || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks);
             }
         }
         public override void ExposeData()
@@ -165,7 +165,12 @@ namespace Enhanced_Defence.PersonalShields
             if (this.ShieldState == RimWorld.ShieldState.Active)
             {
 
-                if (dinfo.Def == DamageDefOf.SurgicalCut)
+                if (dinfo.Def == DamageDefOf.HealGlobal)
+                {
+                    return false;
+                }
+
+                if (dinfo.Def == DamageDefOf.HealInjury)
                 {
                     return false;
                 }
@@ -175,17 +180,12 @@ namespace Enhanced_Defence.PersonalShields
                     return false;
                 }
 
-                if (dinfo.Def == DamageDefOf.Suffocation)
+                if (dinfo.Def == DamageDefOf.RestoreBodyPart)
                 {
                     return false;
                 }
 
-                if (dinfo.Def == DamageDefOf.HealGlobalInjury)
-                {
-                    return false;
-                }
-
-                if (dinfo.Def == DamageDefOf.HealLocalInjury)
+                if (dinfo.Def == DamageDefOf.SurgicalCut)
                 {
                     return false;
                 }

@@ -58,7 +58,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                     if (currentNode.power.PowerOn)
                     {
                         //CurrentAvalablePower -= currentNode.desiredPower;
-                        CurrentAvalablePower -= currentNode.power.powerOutput;
+                        CurrentAvalablePower -= currentNode.power.powerOutputInt;
                     }
                 }
                 else

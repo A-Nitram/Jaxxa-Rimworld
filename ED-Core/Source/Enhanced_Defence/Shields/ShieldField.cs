@@ -561,7 +561,7 @@ namespace Enhanced_Defence.Shields
                 {
                     if (thing is Building)
                     {
-                        if (thing.Health < thing.MaxHealth)
+                        if (thing.HitPoints < thing.MaxHitPoints)
                         {
                             if (this.shieldCurrentStrength > 1)
                             {
@@ -572,7 +572,8 @@ namespace Enhanced_Defence.Shields
                                 //Damage the shield
                                 ProcessDamage(1);
 
-                                thing.Health += 1;
+                                //thing.Health += 1;
+                                thing.HitPoints += 1;
                             }
                         }
                     }
@@ -638,10 +639,10 @@ namespace Enhanced_Defence.Shields
             }
 
             
-            if (currentBuilding.def.eType == EntityType.Wall || currentBuilding.def.eType == EntityType.Door)
-            {
-                return true;
-            }
+            //if (currentBuilding.def.eType == EntityType.Wall || currentBuilding.def.eType == EntityType.Door)
+            //{
+            //    return true;
+            //}
 
             return false;
         }

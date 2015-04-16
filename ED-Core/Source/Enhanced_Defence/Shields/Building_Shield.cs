@@ -162,17 +162,17 @@ namespace Enhanced_Defence.Shields
                     case enumShieldStatus.Disabled:
                     case enumShieldStatus.Loading:
                         {
-                            this.power.powerOutput = shieldPowerRequiredCharging;
+                            this.power.powerOutputInt = shieldPowerRequiredCharging;
                             break;
                         }
                     case enumShieldStatus.Charging:
                         {
-                            this.power.powerOutput = shieldPowerRequiredCharging;
+                            this.power.powerOutputInt = shieldPowerRequiredCharging;
                             break;
                         }
                     case enumShieldStatus.Sustaining:
                         {
-                            this.power.powerOutput = shieldPowerRequiredSustaining;
+                            this.power.powerOutputInt = shieldPowerRequiredSustaining;
                             break;
                         }
                 }

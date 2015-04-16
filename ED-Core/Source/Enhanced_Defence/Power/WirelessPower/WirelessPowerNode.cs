@@ -19,7 +19,7 @@ namespace Enhanced_Defence.Power.WirelessPower
         private static Texture2D UI_POWER_TRANSMIT;
         private static Texture2D UI_POWER_RECEIVE;
 
-        public float desiredPower = 0;
+        public int desiredPower = 0;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Enhanced_Defence.Power.WirelessPower
             base.SpawnSetup();
             this.power = base.GetComp<CompPowerTrader>();
 
-            this.power.powerOutput = desiredPower;
+            this.power.powerOutputInt = desiredPower;
 
             WirelessPowerManager.registerToGrid(this);
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
@@ -163,28 +163,28 @@ namespace Enhanced_Defence.Power.WirelessPower
         private void PowerTransmit100()
         {
             this.desiredPower -= 100;
-            this.power.powerOutput = desiredPower;
+            this.power.powerOutputInt = desiredPower;
         }
         private void PowerTransmit1000()
         {
             this.desiredPower -= 1000;
-            this.power.powerOutput = desiredPower;
+            this.power.powerOutputInt = desiredPower;
         }
 
         private void PowerReceive100()
         {
             this.desiredPower += 100;
-            this.power.powerOutput = desiredPower;
+            this.power.powerOutputInt = desiredPower;
         }
         private void PowerReceive1000()
         {
             this.desiredPower += 1000;
-            this.power.powerOutput = desiredPower;
+            this.power.powerOutputInt = desiredPower;
         }
 
         public bool WantsToTransmit()
         {
-            if (power.powerOutput <= 0)
+            if (power.powerOutputInt <= 0)
             {
                 return true;
             }

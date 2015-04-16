@@ -93,12 +93,12 @@ namespace Enhanced_Defence.Temperature
 
             if (this.Rotation.AsInt == 3)
             {
-                this.Rotation = new IntRot(0);
+                this.Rotation = new Rot4(0);
             }
             else
             {
 
-                this.Rotation = new IntRot(this.Rotation.AsInt + 1);
+                this.Rotation = new Rot4(this.Rotation.AsInt + 1);
             }
 
 

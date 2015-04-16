@@ -310,7 +310,7 @@ namespace Enhanced_Defence.PersonalShields
                         //List<Thing> fireTo
                         foreach (Pawn currentPawn in closePawns.ToList())
                         {
-                            List<Thing> currentInventory = currentPawn.apparel.WornApparel.AsEnumerable().ToList();
+                            List<RimWorld.Apparel> currentInventory = currentPawn.apparel.WornApparel;
 
                             foreach (Thing currentThing in currentInventory)
                             {

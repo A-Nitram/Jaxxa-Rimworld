@@ -167,14 +167,15 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ---Not that it did them much good because they did not start charged.
 --Changed layers Overhead, should now fit over armour
 --Require Personal shields to be fully charged before being brought on-line
-0.16.2
-- Personal Shields Ignore Certain damage types:
---SurgicalCut
---Repair
---Suffocation
---HealGlobalInjury
---HealLocalInjury
+0.17.0
+-Updating to Alpha 10
 -Fixed Repair mode display bug
+-Personal Shields Ignore Certain damage types:
+--HealGlobal
+--HealInjury
+--Repair
+--RestoreBodyPart
+--SurgicalCut
 -More Work on Vehicles??
 ~~~
 

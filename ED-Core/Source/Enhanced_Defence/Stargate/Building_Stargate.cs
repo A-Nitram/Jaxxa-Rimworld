@@ -393,9 +393,9 @@ namespace Enhanced_Defence.Stargate
                             List<Thing> thingList = new List<Thing>();
                             listOfBufferThings.Add(currentPawn);
                             //currentPawn.DeSpawn();
-                            int tempHealth = currentPawn.Health;
+                            int tempHealth = currentPawn.HitPoints;
                             currentPawn.Destroy(DestroyMode.Vanish);
-                            currentPawn.Health = tempHealth;
+                            currentPawn.HitPoints = tempHealth;
                         }
                     }
                 }
@@ -491,7 +491,7 @@ namespace Enhanced_Defence.Stargate
 
         private void updatePowerDrain()
         {
-            this.power.powerOutput = -1000 * this.chargeSpeed;
+            this.power.powerOutputInt = -1000 * this.chargeSpeed;
         }
 
         #endregion

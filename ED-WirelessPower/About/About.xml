@@ -3,7 +3,7 @@
   <name>ED-WirelessPower</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 9</targetVersion>
+  <targetVersion>Alpha 10</targetVersion>
   <description>
 	Requires: ED-Core
 Adds a wireless power system that allows you to move power to any point on the map.
