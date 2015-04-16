@@ -15,13 +15,14 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>AutoLoader</defName>
-    <eType>BuildingComplex</eType>
     <label>AutoLoader</label>
     <thingClass>Building_Storage</thingClass>
     <graphicPath>Things/Building/AutoLoader</graphicPath>
     <graphicClass>Graphic_Single</graphicClass>
     <altitudeLayer>Waist</altitudeLayer>
-    <passability>Impassable</passability>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <pathCost>70</pathCost>
     <building>
       <fixedStorageSettings>
         <priority>Important</priority>
@@ -46,13 +47,12 @@
       <li>ITab_Storage</li>
     </inspectorTabs>
     <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>1</fillPercent>
     <statBases>
       <WorkToMake>450</WorkToMake>
-      <MaxHealth>100</MaxHealth>
+      <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>Holds Ammunition for use with Turrets</description>
+    <description>Holds resources for use by machines.</description>
     <costList>
       <Steel>15</Steel>
     </costList>
@@ -65,7 +65,8 @@
     <placeWorkers>
       <li>PlaceWorker_NextToHopperAccepter</li>
     </placeWorkers>
-    <designationHotKey>H</designationHotKey>
+    <constructEffect>ConstructMetal</constructEffect>
+    <designationHotKey>A</designationHotKey>
   </ThingDef>
 
 </ThingDefs>
