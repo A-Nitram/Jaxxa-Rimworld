@@ -1,104 +1,100 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-  <ThingDef Name="BuildingBase" Abstract="True">
-    <category>Building</category>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-    <selectable>true</selectable>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <repairEffect>Repair</repairEffect>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <filthLeaving>BuildingRubble</filthLeaving>
-  </ThingDef>
-  
-   <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
-    <defName>OrbitalCommand</defName>
-    <eType>BuildingComplex</eType>
-    <label>Orbital Command</label>
-    <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+	</ThingDef>
+
+	<ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+		<defName>OrbitalCommand</defName>
+		<label>Orbital Command</label>
+		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-    <graphicPath>Things/Buildings/OrbitalCommand</graphicPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <altitudeLayer>BuildingTall</altitudeLayer>
-    <passability>Impassable</passability>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>1</fillPercent>
-    <tickerType>Rare</tickerType>
-	<DropPodDeepStrike>true</DropPodDeepStrike>
-	<DropPodAddUnits>true</DropPodAddUnits>
-	<DropPodAddResources>true</DropPodAddResources>
-	<DropPodAddUnitRadius>3</DropPodAddUnitRadius>
-    <statBases>
-      <WorkToMake>1800</WorkToMake>
-      <MaxHealth>500</MaxHealth>
-      <Flammability>1.0</Flammability>
-    </statBases>
-	<specialDisplayRadius>3</specialDisplayRadius>
-    <description>Orbital Command.</description>
-    <building>
-      <wantsHopperAdjacent>true</wantsHopperAdjacent>
-    </building>
-    <comps>
-      <li>
-        <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>false</startElectricalFires>
-        <basePowerConsumption>1000</basePowerConsumption>
-      </li>
-    </comps>
-    <size>(3,3)</size>
-    <costList>
-      <Steel>500</Steel>
-      <Uranium>20</Uranium>
-    </costList>
-    <graphicOverdraw>false</graphicOverdraw>
-    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionCell>false</hasInteractionCell>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Security</designationCategory>
-    <staticSunShadowHeight>0.75</staticSunShadowHeight>
-  </ThingDef>  
-  
-   <ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
-    <defName>OrbitalBeacon</defName>
-    <eType>BuildingComplex</eType>
-    <label>Orbital Beacon</label>
-    <thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+		<graphicPath>Things/Buildings/OrbitalCommand</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<tickerType>Rare</tickerType>
+		<DropPodDeepStrike>true</DropPodDeepStrike>
+		<DropPodAddUnits>true</DropPodAddUnits>
+		<DropPodAddResources>true</DropPodAddResources>
+		<DropPodAddUnitRadius>3</DropPodAddUnitRadius>
+		<statBases>
+			<WorkToMake>1800</WorkToMake>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<specialDisplayRadius>3</specialDisplayRadius>
+		<description>Orbital Command.</description>
+		<building>
+			<wantsHopperAdjacent>true</wantsHopperAdjacent>
+		</building>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<startElectricalFires>false</startElectricalFires>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>500</Steel>
+			<Uranium>20</Uranium>
+		</costList>
+		<graphicOverdraw>false</graphicOverdraw>
+		<hasInteractionCell>False</hasInteractionCell>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<staticSunShadowHeight>0.75</staticSunShadowHeight>
+	</ThingDef>  
+
+	<ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+		<defName>OrbitalBeacon</defName>
+		<label>Orbital Beacon</label>
+		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-    <graphicPath>Things/Buildings/OrbitalRelay</graphicPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <altitudeLayer>BuildingTall</altitudeLayer>
-    <passability>Impassable</passability>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>1</fillPercent>
-    <tickerType>Rare</tickerType>
-	<DropPodDeepStrike>true</DropPodDeepStrike>
-	<DropPodAddUnits>false</DropPodAddUnits>
-	<DropPodAddResources>false</DropPodAddResources>
-	<DropPodAddUnitRadius>0</DropPodAddUnitRadius>
-    <statBases>
-      <WorkToMake>0</WorkToMake>
-      <MaxHealth>30</MaxHealth>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <description>Orbital Beacon, Allows for precise targeting of Orbital Drops.</description>
-    <building>
-      <wantsHopperAdjacent>false</wantsHopperAdjacent>
-    </building>
-    <comps>
-    </comps>
-    <size>(1,1)</size>
-    <costList>
-    </costList>
-    <graphicOverdraw>false</graphicOverdraw>
-    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionCell>false</hasInteractionCell>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Security</designationCategory>
-    <staticSunShadowHeight>0.75</staticSunShadowHeight>
-  </ThingDef>
+		<graphicPath>Things/Buildings/OrbitalRelay</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<tickerType>Rare</tickerType>
+		<DropPodDeepStrike>true</DropPodDeepStrike>
+		<DropPodAddUnits>false</DropPodAddUnits>
+		<DropPodAddResources>false</DropPodAddResources>
+		<DropPodAddUnitRadius>0</DropPodAddUnitRadius>
+		<statBases>
+			<WorkToMake>0</WorkToMake>
+			<MaxHitPoints>30</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<description>Orbital Beacon, Allows for precise targeting of Orbital Drops.</description>
+		<building>
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+		</building>
+		<comps>
+		</comps>
+		<size>(1,1)</size>
+		<costList>
+		</costList>
+		<graphicOverdraw>false</graphicOverdraw>
+		<hasInteractionCell>False</hasInteractionCell>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<staticSunShadowHeight>0.75</staticSunShadowHeight>
+	</ThingDef>
 
 
 </ThingDefs>
