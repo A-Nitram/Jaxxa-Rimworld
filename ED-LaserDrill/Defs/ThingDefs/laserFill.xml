@@ -14,7 +14,6 @@
   
    <ThingDef ParentName="BuildingBase">
     <defName>LaserFiller</defName>
-    <eType>BuildingComplex</eType>
     <label>Laser Filler</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
 	<researchPrerequisite>Research_LaserFiller</researchPrerequisite>
@@ -27,7 +26,7 @@
     <tickerType>Rare</tickerType>
     <statBases>
       <WorkToMake>1800</WorkToMake>
-      <MaxHealth>350</MaxHealth>
+      <MaxHitPoints>350</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
     <description>Removes a SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface.</description>
@@ -50,8 +49,7 @@
       <li>Stony</li>
     </stuffCategories>
     <graphicOverdraw>false</graphicOverdraw>
-    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionCell>false</hasInteractionCell>
+    <hasInteractionCell>False</hasInteractionCell>
     <placeWorkers>
       <li>PlaceWorker_OnSteamGeyser</li>
     </placeWorkers>
