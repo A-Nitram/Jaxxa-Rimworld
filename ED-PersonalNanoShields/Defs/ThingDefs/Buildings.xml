@@ -13,7 +13,6 @@
   </ThingDef>
 		
 	<ThingDef ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
-		<eType>Building_Turret</eType>
 		<category>Building</category>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
@@ -29,7 +28,7 @@
 		<holdsRoof>false</holdsRoof>
 		<specialDisplayRadius>8</specialDisplayRadius>
 		<statBases>
-			<MaxHealth>500</MaxHealth>
+			<MaxHitPoints>500</MaxHitPoints>
 			<WorkToMake>2000</WorkToMake>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>

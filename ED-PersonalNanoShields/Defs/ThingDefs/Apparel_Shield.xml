@@ -1,88 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef Name="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield" Abstract="True">
-    <thingClass>Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield</thingClass>
-    <eType>Apparel</eType>
-    <category>Item</category>
-    <description>A single-person directional energy shield device. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range. It does not prevents firing out, unlike common personal shield. </description>
-    <graphicPath>Things/techShield</graphicPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <tickerType>Normal</tickerType>
-    <selectable>True</selectable>
-    <pathCost>10</pathCost>
-    <useStandardHealth>True</useStandardHealth>
-    <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
-    <drawGUIOverlay>true</drawGUIOverlay>
-    <statBases>
-      <MaxHealth>100</MaxHealth>
-      <Flammability>1.0</Flammability>
-      <DeteriorationRate>1</DeteriorationRate>
-      <SellPriceFactor>0.5</SellPriceFactor>
-    </statBases>
-    <altitudeLayer>Item</altitudeLayer>
-    <alwaysHaulable>True</alwaysHaulable>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
-    <comps>
-      <li>
-        <compClass>CompForbiddable</compClass>
-      </li>
-      <li>
-        <compClass>CompColorable</compClass>
-      </li>
-    </comps>
+	<ThingDef Name="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield" Abstract="True">
+		<thingClass>Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield</thingClass>
+		<category>Item</category>
+		<description>A single-person directional energy shield device. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range. It does not prevents firing out, unlike common personal shield. </description>
+		<graphicPath>Things/techShield</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<tickerType>Normal</tickerType>
+		<selectable>True</selectable>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<graphicOnGroundRandomRotateAngle>35</graphicOnGroundRandomRotateAngle>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<thingCategories>
+			<li>Apparel</li>
+		</thingCategories>
+		<comps>
+			<li>
+				<compClass>CompForbiddable</compClass>
+			</li>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+		</comps>
 
-    <maxDrawSize>1.60</maxDrawSize>
-    <isRotating>false</isRotating>
-    <soundBreak>TechShieldBroken</soundBreak>
-    <soundReset>TechShieldReset</soundReset>
+		<maxDrawSize>1.60</maxDrawSize>
+		<isRotating>false</isRotating>
+		<soundBreak>TechShieldBroken</soundBreak>
+		<soundReset>TechShieldReset</soundReset>
 
-  </ThingDef>
+	</ThingDef>
 
 
-  <ThingDef ParentName="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield">
-    <defName>Apparel_PersonalNanoShield</defName>
-    <label>Nanite Shield Modulator</label>
-	<description>Controls Nanites that have been implanted in the colonist. These are used to shield the colonist from damage, however the Nanites are depleated when thay are activated and so must be periodically replaced at the Colonist Upgrade Station after taking damage.</description>
-    <bubbleGraphicPath>TechBubbleBlue</bubbleGraphicPath>
-    <statBases>
-      <MarketValue>0</MarketValue>
-      <PersonalShieldRechargeRate>0.00</PersonalShieldRechargeRate>
-      <PersonalShieldEnergyMax>1.0</PersonalShieldEnergyMax>
-    </statBases>
-    <apparel>
-      <bodyPartGroups>
-        <li>Torso</li>
-      </bodyPartGroups>
-      <layers>
-        <li>Overhead</li>
-      </layers>
-      <commonality>1</commonality>
-    </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>RGBA(0.3,0.3,0.3,1)</min>
-          <max>RGBA(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.9,0.9,0.9,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
-	<maxEnergy>255</maxEnergy>
-  </ThingDef>
+	<ThingDef ParentName="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield">
+		<defName>Apparel_PersonalNanoShield</defName>
+		<label>Nanite Shield Modulator</label>
+		<description>Controls Nanites that have been implanted in the colonist. These are used to shield the colonist from damage, however the Nanites are depleated when thay are activated and so must be periodically replaced at the Colonist Upgrade Station after taking damage.</description>
+		<bubbleGraphicPath>TechBubbleBlue</bubbleGraphicPath>
+		<statBases>
+			<MarketValue>0</MarketValue>
+			<PersonalShieldRechargeRate>0.00</PersonalShieldRechargeRate>
+			<PersonalShieldEnergyMax>1.0</PersonalShieldEnergyMax>
+		</statBases>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<commonality>1</commonality>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.33,0.33,0.33,1)</only>
+				</li>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.65,0.65,0.65,1)</only>
+				</li>
+				<li>
+					<weight>6</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.5,0.5,0.5,1)</max>
+				</li>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.9,0.9,0.9,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+		<maxEnergy>255</maxEnergy>
+	</ThingDef>
 
 </Defs>
