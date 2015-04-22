@@ -183,7 +183,6 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 TODO:
 ED-OmniGel
 --New preview image
-ED-Plants24H
 ED-Vent
 ED-Vehicles
 
