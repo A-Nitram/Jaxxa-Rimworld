@@ -14,7 +14,6 @@
   
   <ThingDef ParentName="BuildingBase" Name="WallBase" Abstract="True">
     <defName>Wall</defName>
-    <eType>Wall</eType>
     <label>wall</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
@@ -25,7 +24,7 @@
     <graphicPath>Things/Building/Embrasure</graphicPath>
     <graphicClass>Graphic_Single</graphicClass>
     <statBases>
-      <MaxHealth>225</MaxHealth>
+      <MaxHitPoints>225</MaxHitPoints>
       <WorkToMake>100</WorkToMake>
       <Flammability>1.0</Flammability>
     </statBases>
@@ -77,7 +76,6 @@
 	
 	<ThingDef ParentName="Embrasure">
 		<defName>EmbrasureConduit</defName>
-		<eType>Wall</eType>
 		<label>conduit embrasure</label>
 		<description>A Embrasure with a built-in power conduit.</description>
 		<CostList>
