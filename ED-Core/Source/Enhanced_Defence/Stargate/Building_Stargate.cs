@@ -22,6 +22,9 @@ namespace Enhanced_Defence.Stargate
         private static Texture2D UI_GATE_IN;
         private static Texture2D UI_GATE_OUT;
 
+        private static Texture2D UI_POWER_UP;
+        private static Texture2D UI_POWER_DOWN;
+
         public bool StargateAddResources = true;
         public bool StargateAddUnits = true;
         public bool StargateRetreave = true;
@@ -55,6 +58,10 @@ namespace Enhanced_Defence.Stargate
             UI_GATE_IN = ContentFinder<Texture2D>.Get("UI/StargateGUI-In", true);
             UI_GATE_OUT = ContentFinder<Texture2D>.Get("UI/StargateGUI-Out", true);
 
+
+            UI_POWER_UP = ContentFinder<Texture2D>.Get("UI/PowerUp", true);
+            UI_POWER_DOWN = ContentFinder<Texture2D>.Get("UI/PowerDown", true);
+
             GraphicRequest requestActive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate-Active", def.shader, new IntVec2(3, 3), Color.white, Color.white);
             graphicActive = new Graphic_Single();
             graphicActive.Init(requestActive);
@@ -62,7 +69,7 @@ namespace Enhanced_Defence.Stargate
             GraphicRequest requestInactive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate", def.shader, new IntVec2(3, 3), Color.white, Color.white);
             graphicInactive = new Graphic_Single();
             graphicInactive.Init(requestInactive);
-            
+
             if (def is StargateThingDef)
             {
                 //Read in variables from the custom MyThingDef
@@ -90,7 +97,7 @@ namespace Enhanced_Defence.Stargate
             Scribe_Values.LookValue<int>(ref requiredCapacitorCharge, "requiredCapacitorCharge");
             Scribe_Values.LookValue<int>(ref chargeSpeed, "chargeSpeed");
 
-            
+
             /*Scribe_Values.LookValue<bool>(ref DropPodDeepStrike, "DropPodDeepStrike");
             Scribe_Values.LookValue<bool>(ref DropPodAddUnits, "DropPodAddUnits");
             Scribe_Values.LookValue<bool>(ref DropPodAddResources, "DropPodAddResources");*/
@@ -206,7 +213,7 @@ namespace Enhanced_Defence.Stargate
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerRateIncrease();
-                act.icon = UI_ADD_COLONIST;
+                act.icon = UI_POWER_UP;
                 act.defaultLabel = "Increase Power";
                 act.defaultDesc = "Increase Power";
                 act.activateSound = SoundDef.Named("Click");
@@ -220,7 +227,7 @@ namespace Enhanced_Defence.Stargate
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerRateDecrease();
-                act.icon = UI_ADD_COLONIST;
+                act.icon = UI_POWER_DOWN;
                 act.defaultLabel = "Decrease Power";
                 act.defaultDesc = "Decrease Power";
                 act.activateSound = SoundDef.Named("Click");

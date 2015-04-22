@@ -39,9 +39,13 @@ namespace Enhanced_Defence.Power.WirelessPower
 
             WirelessPowerManager.registerToGrid(this);
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
-            
-            UI_POWER_TRANSMIT = ContentFinder<Texture2D>.Get("UI/PowerTransmit", true);
-            UI_POWER_RECEIVE = ContentFinder<Texture2D>.Get("UI/PowerReceive", true);
+
+
+            UI_POWER_TRANSMIT = ContentFinder<Texture2D>.Get("UI/PowerUp", true);
+            UI_POWER_RECEIVE = ContentFinder<Texture2D>.Get("UI/PowerDown", true);
+
+            //UI_POWER_TRANSMIT = ContentFinder<Texture2D>.Get("UI/PowerTransmit", true);
+            //UI_POWER_RECEIVE = ContentFinder<Texture2D>.Get("UI/PowerReceive", true);
         }
 
         //public override void TickRare()
