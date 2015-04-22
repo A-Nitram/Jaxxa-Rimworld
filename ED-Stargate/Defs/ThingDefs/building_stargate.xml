@@ -14,7 +14,6 @@
   
    <ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
     <defName>Stargate</defName>
-    <eType>BuildingComplex</eType>
     <label>Stargate</label>
     <thingClass>Enhanced_Defence.Stargate.Building_Stargate</thingClass>
     <graphicPath>Things/Buildings/Stargate</graphicPath>
@@ -29,7 +28,7 @@
 	<FileLocationSecondary>StargateBackup.xml.bak</FileLocationSecondary>
     <statBases>
       <WorkToMake>20000</WorkToMake>
-      <MaxHealth>1000000</MaxHealth>
+      <MaxHitPoints>1000000</MaxHitPoints>
       <Flammability>0.0</Flammability>
     </statBases>
     <description>Stargate</description>
@@ -52,8 +51,7 @@
 	  <Uranium>500</Uranium>
     </costList>
     <graphicOverdraw>false</graphicOverdraw>
-    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
-    <hasInteractionCell>false</hasInteractionCell>
+    <hasInteractionCell>False</hasInteractionCell>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
     <staticSunShadowHeight>0.75</staticSunShadowHeight>
@@ -61,7 +59,6 @@
   
    <ThingDef ParentName="BuildingBase">
     <defName>OffWorldStargate</defName>
-    <eType>BuildingComplex</eType>
     <label>Off World Stargate</label>
     <thingClass>Enhanced_Defence.Stargate.Building_OffWorldStargate</thingClass>
     <graphicPath>Things/Buildings/Stargate</graphicPath>
@@ -75,7 +72,7 @@
     <uiIconPath>UI/nuke</uiIconPath>
     <statBases>
       <WorkToMake>0</WorkToMake>
-      <MaxHealth>350</MaxHealth>
+      <MaxHitPoints>1000000</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
     <description>WARNING: Activating this Gate will remove all Colonists from the Map, but will create a gate for other teams to arrive from.</description>
@@ -87,8 +84,7 @@
     <size>(3,3)</size>
     <costList>
     </costList>
-    <graphicOverdraw>false</graphicOverdraw>
-    <interactionSquareOffset>(0,0,0)</interactionSquareOffset>
+    <graphicOverdraw>False</graphicOverdraw>
     <hasInteractionCell>false</hasInteractionCell>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
