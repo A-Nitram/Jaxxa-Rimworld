@@ -1,47 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <RecipeDefs>
 
-  <!-- Replicate Slag -->
+	<!-- Replicate Slag -->
 	<RecipeDef>
 		<defName>Replicate_MK1_SlagFromOmniGel</defName>
 		<label>Replicate Slag from Omni-Gel</label>
 		<description>Replicates slag debris from Omni-Gel.</description>
 		<jobString>Creating slag from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
-		  <li>
-			<filter>
-				<thingDefs>
-					<li>OmniGel</li>
-				</thingDefs>
-			</filter>
-			<count>10</count>
-		  </li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
 		</ingredients>
 		<products>
 			<ChunkSlagSteel>1</ChunkSlagSteel>
 		</products>
 		<fixedIngredientFilter>
-		  <thingDefs>
-			<li>OmniGel</li>
-		  </thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-  
-  <!-- Replicate ChunkSandstone -->
+
+	<!-- Replicate ChunkSandstone -->
 	<RecipeDef>
 		<defName>Replicate_MK1_ChunkSandstoneFromOmniGel</defName>
 		<label>Replicate Sandstone Chunk from Omni-Gel</label>
 		<description>Replicates Sandstone Chunk from Omni-Gel.</description>
 		<jobString>Creating Sandstone Chunk from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -58,23 +56,22 @@
 			<ChunkSandstone>1</ChunkSandstone>
 		</products>
 		<fixedIngredientFilter>
-		<thingDefs>
-			<li>OmniGel</li>
-		</thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
 
-	
-  <!-- Replicate ChunkGranite -->
+
+	<!-- Replicate ChunkGranite -->
 	<RecipeDef>
 		<defName>Replicate_MK1_ChunkGraniteFromOmniGel</defName>
 		<label>Replicate Granite Chunk from Omni-Gel</label>
 		<description>Replicates Granite Chunk from Omni-Gel.</description>
 		<jobString>Creating Granite Chunk from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -91,22 +88,21 @@
 			<ChunkGranite>1</ChunkGranite>
 		</products>
 		<fixedIngredientFilter>
-		<thingDefs>
-			<li>OmniGel</li>
-		</thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
-  <!-- Replicate ChunkLimestone -->
+
+	<!-- Replicate ChunkLimestone -->
 	<RecipeDef>
 		<defName>Replicate_MK1_ChunkLimestoneFromOmniGel</defName>
 		<label>Replicate Limestone Chunk from Omni-Gel</label>
 		<description>Replicates Limestone Chunk from Omni-Gel.</description>
 		<jobString>Creating Limestone Chunk from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -123,22 +119,21 @@
 			<ChunkLimestone>1</ChunkLimestone>
 		</products>
 		<fixedIngredientFilter>
-		<thingDefs>
-			<li>OmniGel</li>
-		</thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
-  <!-- Replicate ChunkSlate -->
+
+	<!-- Replicate ChunkSlate -->
 	<RecipeDef>
 		<defName>Replicate_MK1_ChunkSlateFromOmniGel</defName>
 		<label>Replicate Slate Chunk from Omni-Gel</label>
 		<description>Replicates Slate Chunk from Omni-Gel.</description>
 		<jobString>Creating Slate Chunk from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -155,22 +150,21 @@
 			<ChunkSlate>1</ChunkSlate>
 		</products>
 		<fixedIngredientFilter>
-		<thingDefs>
-			<li>OmniGel</li>
-		</thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
-  <!-- Replicate ChunkMarble -->
+
+	<!-- Replicate ChunkMarble -->
 	<RecipeDef>
 		<defName>Replicate_MK1_ChunkMarbleFromOmniGel</defName>
 		<label>Replicate Marble Chunk from Omni-Gel</label>
 		<description>Replicates Marble Chunk from Omni-Gel.</description>
 		<jobString>Creating Marble Chunk from Omni-Gel.</jobString>
 		<workAmount>200</workAmount>
-		<workSpeedStat>GelSpeed</workSpeedStat>
-		<efficiencyStat>GelEfficiency</efficiencyStat>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -187,364 +181,353 @@
 			<ChunkMarble>1</ChunkMarble>
 		</products>
 		<fixedIngredientFilter>
-		<thingDefs>
-			<li>OmniGel</li>
-		</thingDefs>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
 		</fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
+		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
-    <!-- Replicate Steel -->
-  <RecipeDef>
-    <defName>Replicate_MK2_SteelFromOmniGel</defName>
-    <label>Replicate Steel from Omni-Gel</label>
-    <description>Replicates Steel from Omni-Gel.</description>
-    <jobString>Creating Steel from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-			 <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-		<count>80</count>
-      </li>
-    </ingredients>
-    <products>
-        <Steel>40</Steel>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!-- Replicate BlocksSandstone --> 
-  <RecipeDef>
-    <defName>Replicate_MK2_BlocksSandstoneFromOmniGel</defName>
-    <label>Replicate Sandstone Blocks from Omni-Gel</label>
-    <description>Replicates Sandstone Blocks from Omni-Gel.</description>
-    <jobString>Creating Sandstone Blocks from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <BlocksSandstone>40</BlocksSandstone>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!-- Replicate BlocksGranite --> 
-  <RecipeDef>
-    <defName>Replicate_MK2_BlocksGraniteFromOmniGel</defName>
-    <label>Replicate Granite Blocks from Omni-Gel</label>
-    <description>Replicates Granite Blocks from Omni-Gel.</description>
-    <jobString>Creating Granite Blocks from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <BlocksGranite>35</BlocksGranite>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!-- Replicate BlocksLimestone --> 
-  <RecipeDef>
-    <defName>Replicate_MK2_BlocksLimestoneFromOmniGel</defName>
-    <label>Replicate Limestone Blocks from Omni-Gel</label>
-    <description>Replicates Limestone Blocks from Omni-Gel.</description>
-    <jobString>Creating Limestone Blocks from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <BlocksLimestone>40</BlocksLimestone>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!-- Replicate BlocksSlate --> 
-  <RecipeDef>
-    <defName>Replicate_MK2_BlocksSlateFromOmniGel</defName>
-    <label>Replicate Slate Blocks from Omni-Gel</label>
-    <description>Replicates Slate Blocks from Omni-Gel.</description>
-    <jobString>Creating Slate Blocks from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <BlocksSlate>40</BlocksSlate>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!-- Replicate BlocksMarble --> 
-  <RecipeDef>
-    <defName>Replicate_MK2_BlocksMarbleromOmniGel</defName>
-    <label>Replicate Marble Blocks from Omni-Gel</label>
-    <description>Replicates Marble Blocks from Omni-Gel.</description>
-    <jobString>Creating Marble Blocks from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <BlocksMarble>35</BlocksMarble>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-    
-  <RecipeDef>
-    <defName>Replicate_MK2_SilverFromOmniGel</defName>
-    <label>Replicate Silver from Omni-Gel</label>
-    <description>Replicates Silver from Omni-Gel.</description>
-    <jobString>Creating Silver from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <Silver>60</Silver>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  
-  <RecipeDef>
-    <defName>Replicate_MK3_UraniumFromOmniGel</defName>
-    <label>Replicate Uranium from Omni-Gel</label>
-    <description>Replicates Uranium from Omni-Gel.</description>
-    <jobString>Creating Uranium from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <Uranium>15</Uranium>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <RecipeDef>
-    <defName>Replicate_MK3_GoldFromOmniGel</defName>
-    <label>Replicate Gold from Omni-Gel</label>
-    <description>Replicates Gold from Omni-Gel.</description>
-    <jobString>Creating Gold from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <Gold>5</Gold>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <RecipeDef>
-    <defName>Replicate_MK3_PlasteelFromOmniGel</defName>
-    <label>Replicate Plasteel from Omni-Gel</label>
-    <description>Replicates Plasteel from Omni-Gel.</description>
-    <jobString>Creating Plasteel from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <Plasteel>2</Plasteel>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  
-  <RecipeDef>
-    <defName>Replicate_MK3_ShellsFromOmniGel</defName>
-    <label>Replicate Shells from Omni-Gel</label>
-    <description>Replicates Shells from Omni-Gel.</description>
-    <jobString>Creating Shells from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <ArtilleryShell>8</ArtilleryShell>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <!--
+
+	<!-- Replicate Steel -->
+	<RecipeDef>
+		<defName>Replicate_MK2_SteelFromOmniGel</defName>
+		<label>Replicate Steel from Omni-Gel</label>
+		<description>Replicates Steel from Omni-Gel.</description>
+		<jobString>Creating Steel from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<products>
+			<Steel>40</Steel>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Replicate BlocksSandstone --> 
+	<RecipeDef>
+		<defName>Replicate_MK2_BlocksSandstoneFromOmniGel</defName>
+		<label>Replicate Sandstone Blocks from Omni-Gel</label>
+		<description>Replicates Sandstone Blocks from Omni-Gel.</description>
+		<jobString>Creating Sandstone Blocks from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<BlocksSandstone>40</BlocksSandstone>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Replicate BlocksGranite --> 
+	<RecipeDef>
+		<defName>Replicate_MK2_BlocksGraniteFromOmniGel</defName>
+		<label>Replicate Granite Blocks from Omni-Gel</label>
+		<description>Replicates Granite Blocks from Omni-Gel.</description>
+		<jobString>Creating Granite Blocks from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<BlocksGranite>35</BlocksGranite>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Replicate BlocksLimestone --> 
+	<RecipeDef>
+		<defName>Replicate_MK2_BlocksLimestoneFromOmniGel</defName>
+		<label>Replicate Limestone Blocks from Omni-Gel</label>
+		<description>Replicates Limestone Blocks from Omni-Gel.</description>
+		<jobString>Creating Limestone Blocks from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<BlocksLimestone>40</BlocksLimestone>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Replicate BlocksSlate --> 
+	<RecipeDef>
+		<defName>Replicate_MK2_BlocksSlateFromOmniGel</defName>
+		<label>Replicate Slate Blocks from Omni-Gel</label>
+		<description>Replicates Slate Blocks from Omni-Gel.</description>
+		<jobString>Creating Slate Blocks from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<BlocksSlate>40</BlocksSlate>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Replicate BlocksMarble --> 
+	<RecipeDef>
+		<defName>Replicate_MK2_BlocksMarbleromOmniGel</defName>
+		<label>Replicate Marble Blocks from Omni-Gel</label>
+		<description>Replicates Marble Blocks from Omni-Gel.</description>
+		<jobString>Creating Marble Blocks from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<BlocksMarble>35</BlocksMarble>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+
+	<RecipeDef>
+		<defName>Replicate_MK2_SilverFromOmniGel</defName>
+		<label>Replicate Silver from Omni-Gel</label>
+		<description>Replicates Silver from Omni-Gel.</description>
+		<jobString>Creating Silver from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<Silver>60</Silver>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+
+	<RecipeDef>
+		<defName>Replicate_MK3_UraniumFromOmniGel</defName>
+		<label>Replicate Uranium from Omni-Gel</label>
+		<description>Replicates Uranium from Omni-Gel.</description>
+		<jobString>Creating Uranium from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<Uranium>15</Uranium>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Replicate_MK3_GoldFromOmniGel</defName>
+		<label>Replicate Gold from Omni-Gel</label>
+		<description>Replicates Gold from Omni-Gel.</description>
+		<jobString>Creating Gold from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<Gold>5</Gold>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Replicate_MK3_PlasteelFromOmniGel</defName>
+		<label>Replicate Plasteel from Omni-Gel</label>
+		<description>Replicates Plasteel from Omni-Gel.</description>
+		<jobString>Creating Plasteel from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<Plasteel>2</Plasteel>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+
+	<RecipeDef>
+		<defName>Replicate_MK3_ShellsFromOmniGel</defName>
+		<label>Replicate Shells from Omni-Gel</label>
+		<description>Replicates Shells from Omni-Gel.</description>
+		<jobString>Creating Shells from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<ArtilleryShell>8</ArtilleryShell>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!--
   <RecipeDef>
     <defName>Replicate_MK3_MissilesFromOmniGel</defName>
     <label>Replicate Missiles from Omni-Gel</label>
@@ -581,66 +564,64 @@
     </skillGains>
   </RecipeDef>
   -->
-  <RecipeDef>
-    <defName>Replicate_MK3_MedicineFromOmniGel</defName>
-    <label>Replicate Medicine from Omni-Gel</label>
-    <description>Replicates Medicine from Omni-Gel.</description>
-    <jobString>Creating Medicine from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>75</count>
-      </li>
-    </ingredients>
-    <products>
-        <Medicine>3</Medicine>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
-  <RecipeDef>
-    <defName>Replicate_MK3_GlitterMedicineFromOmniGel</defName>
-    <label>Replicate Medicine from Omni-Gel</label>
-    <description>Replicates Glitterworld Medicine from Omni-Gel.</description>
-    <jobString>Creating Glitterworld Medicine from Omni-Gel.</jobString>
-    <workAmount>500</workAmount>
-    <workSpeedStat>GelSpeed</workSpeedStat>
-    <efficiencyStat>GelEfficiency</efficiencyStat>
-    <effectWorking>Smelt</effectWorking>
-    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>OmniGel</li>
-          </thingDefs>
-        </filter>
-        <count>100</count>
-      </li>
-    </ingredients>
-    <products>
-        <GlitterworldMedicine>1</GlitterworldMedicine>
-    </products>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>OmniGel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <workSkill>Crafting</workSkill>
-  </RecipeDef>
-  
+	<RecipeDef>
+		<defName>Replicate_MK3_MedicineFromOmniGel</defName>
+		<label>Replicate Medicine from Omni-Gel</label>
+		<description>Replicates Medicine from Omni-Gel.</description>
+		<jobString>Creating Medicine from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<products>
+			<Medicine>3</Medicine>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Replicate_MK3_GlitterMedicineFromOmniGel</defName>
+		<label>Replicate Medicine from Omni-Gel</label>
+		<description>Replicates Glitterworld Medicine from Omni-Gel.</description>
+		<jobString>Creating Glitterworld Medicine from Omni-Gel.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>100</count>
+			</li>
+		</ingredients>
+		<products>
+			<GlitterworldMedicine>1</GlitterworldMedicine>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>OmniGel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
 </RecipeDefs>

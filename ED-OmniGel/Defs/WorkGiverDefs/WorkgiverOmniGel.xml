@@ -9,9 +9,9 @@
     <singleBillGiverDef>Table_MK1_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
-	<requiredActivities>
+	<requiredCapacities>
 		<li>Manipulation</li>
-	</requiredActivities>
+	</requiredCapacities>
   </WorkGiverDef>
   
   <WorkGiverDef>
@@ -22,9 +22,9 @@
     <singleBillGiverDef>Table_MK2_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
-	<requiredActivities>
+	<requiredCapacities>
 		<li>Manipulation</li>
-	</requiredActivities>
+	</requiredCapacities>
   </WorkGiverDef>
   
   <WorkGiverDef>
@@ -35,9 +35,9 @@
     <singleBillGiverDef>Table_MK3_Replicator</singleBillGiverDef>
     <verb>replicate</verb>
     <gerund>replicating</gerund>
-	<requiredActivities>
+	<requiredCapacities>
 		<li>Manipulation</li>
-	</requiredActivities>
+	</requiredCapacities>
   </WorkGiverDef>
   
 </WorkGivers>

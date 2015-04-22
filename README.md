@@ -179,12 +179,13 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Repair
 --RestoreBodyPart
 --SurgicalCut
--
--More Work on Vehicles??
 
 TODO:
 ED-OmniGel
+--New preview image
 ED-Plants24H
+ED-Vent
+ED-Vehicles
 
 ~~~
 

@@ -10,7 +10,7 @@
     <repairEffect>Repair</repairEffect>
 	<statBases>
 		<WorkToMake>1800</WorkToMake>
-		<MaxHealth>350</MaxHealth>
+		<MaxHitPoints>350</MaxHitPoints>
 		<Flammability>1.0</Flammability>
 	</statBases>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
@@ -21,7 +21,6 @@
 
   <ThingDef ParentName="BuildingBase">
     <DefName>Table_MK1_Replicator</DefName>
-    <EType>BuildingComplex</EType>
     <Label>Mark 1 Matter Replicator</Label>
     <ThingClass>Building_WorkTable</ThingClass>
     <Description>An advanced matter replication device.</Description>
@@ -33,13 +32,12 @@
       <Silver>50</Silver>
     </costList>
     <AltitudeLayer>Waist</AltitudeLayer>
-    <UseStandardHealth>True</UseStandardHealth>
     <Size>(3,1)</Size>
     <graphicOverdraw>False</graphicOverdraw>
     <DesignationCategory>Production</DesignationCategory>
     <Passability>Impassable</Passability>
     <hasInteractionCell>True</hasInteractionCell>
-    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <itemSurface>True</itemSurface>
     <constructEffect>ConstructMetal</constructEffect>
     <recipes>
@@ -75,7 +73,6 @@
   
   <ThingDef ParentName="BuildingBase">
     <DefName>Table_MK2_Replicator</DefName>
-    <EType>BuildingComplex</EType>
     <Label>Mark 2 Matter Replicator</Label>
     <ThingClass>Building_WorkTable</ThingClass>
     <Description>An advanced matter replication device.</Description>
@@ -87,13 +84,12 @@
       <Silver>100</Silver>
     </costList>
     <AltitudeLayer>Waist</AltitudeLayer>
-    <UseStandardHealth>True</UseStandardHealth>
     <Size>(3,1)</Size>
     <graphicOverdraw>False</graphicOverdraw>
     <DesignationCategory>Production</DesignationCategory>
     <Passability>Impassable</Passability>
     <hasInteractionCell>True</hasInteractionCell>
-    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <itemSurface>True</itemSurface>
     <constructEffect>ConstructMetal</constructEffect>
     <recipes>
@@ -129,7 +125,6 @@
   
   <ThingDef ParentName="BuildingBase">
     <DefName>Table_MK3_Replicator</DefName>
-    <EType>BuildingComplex</EType>
     <Label>Mark 3 Matter Replicator</Label>
     <ThingClass>Building_WorkTable</ThingClass>
     <Description>An advanced matter replication device.</Description>
@@ -141,13 +136,12 @@
       <Silver>400</Silver>
     </costList>
     <AltitudeLayer>Waist</AltitudeLayer>
-    <UseStandardHealth>True</UseStandardHealth>
     <Size>(3,1)</Size>
     <graphicOverdraw>False</graphicOverdraw>
     <DesignationCategory>Production</DesignationCategory>
     <Passability>Impassable</Passability>
     <hasInteractionCell>True</hasInteractionCell>
-    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <itemSurface>True</itemSurface>
     <constructEffect>ConstructMetal</constructEffect>
     <recipes>
