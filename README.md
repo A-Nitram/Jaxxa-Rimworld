@@ -170,13 +170,22 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 0.17.0
 -Updating to Alpha 10
 -Fixed Repair mode display bug
+-Removed ED-VisibleRadius
+--Now Sunlamps can create grow zones and Trade beacons can create stockpiles
+---This removes the main use for this module
 -Personal Shields Ignore Certain damage types:
 --HealGlobal
 --HealInjury
 --Repair
 --RestoreBodyPart
 --SurgicalCut
+-
 -More Work on Vehicles??
+
+TODO:
+ED-OmniGel
+ED-Plants24H
+
 ~~~
 
 ##License:
