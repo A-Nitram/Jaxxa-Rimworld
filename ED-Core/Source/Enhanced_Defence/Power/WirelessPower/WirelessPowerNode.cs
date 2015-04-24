@@ -16,8 +16,10 @@ namespace Enhanced_Defence.Power.WirelessPower
 
         //NanoConnector nanoConnector;
 
-        private static Texture2D UI_POWER_TRANSMIT;
-        private static Texture2D UI_POWER_RECEIVE;
+        private static Texture2D UI_POWER_UP_1;
+        private static Texture2D UI_POWER_UP_2;
+        private static Texture2D UI_POWER_DOWN_1;
+        private static Texture2D UI_POWER_DOWN_2;
 
         public int desiredPower = 0;
 
@@ -41,8 +43,10 @@ namespace Enhanced_Defence.Power.WirelessPower
             //this.nanoConnector = new Jaxxa_Shields.Pawns.Nano.NanoConnector();
 
 
-            UI_POWER_TRANSMIT = ContentFinder<Texture2D>.Get("UI/PowerUp", true);
-            UI_POWER_RECEIVE = ContentFinder<Texture2D>.Get("UI/PowerDown", true);
+            UI_POWER_UP_1 = ContentFinder<Texture2D>.Get("UI/PowerDown1", true);
+            UI_POWER_UP_2 = ContentFinder<Texture2D>.Get("UI/PowerDown2", true);
+            UI_POWER_DOWN_1 = ContentFinder<Texture2D>.Get("UI/PowerUp1", true);
+            UI_POWER_DOWN_2 = ContentFinder<Texture2D>.Get("UI/PowerUp2", true);
 
             //UI_POWER_TRANSMIT = ContentFinder<Texture2D>.Get("UI/PowerTransmit", true);
             //UI_POWER_RECEIVE = ContentFinder<Texture2D>.Get("UI/PowerReceive", true);
@@ -109,7 +113,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerReceive1000();
-                act.icon = UI_POWER_RECEIVE;
+                act.icon = UI_POWER_UP_2;
                 act.defaultLabel = "Power Receive 1000";
                 act.defaultDesc = "Power Receive 1000";
                 act.activateSound = SoundDef.Named("Click");
@@ -124,7 +128,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerReceive100();
-                act.icon = UI_POWER_RECEIVE;
+                act.icon = UI_POWER_UP_1;
                 act.defaultLabel = "Power Receive 100";
                 act.defaultDesc = "Power Receive 100";
                 act.activateSound = SoundDef.Named("Click");
@@ -139,7 +143,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerTransmit100();
-                act.icon = UI_POWER_TRANSMIT;
+                act.icon = UI_POWER_DOWN_1;
                 act.defaultLabel = "Power Transmit 100";
                 act.defaultDesc = "Power Transmit 100";
                 act.activateSound = SoundDef.Named("Click");
@@ -153,7 +157,7 @@ namespace Enhanced_Defence.Power.WirelessPower
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.PowerTransmit1000();
-                act.icon = UI_POWER_TRANSMIT;
+                act.icon = UI_POWER_DOWN_2;
                 act.defaultLabel = "Power Transmit 1000";
                 act.defaultDesc = "Power Transmit 1000";
                 act.activateSound = SoundDef.Named("Click");
