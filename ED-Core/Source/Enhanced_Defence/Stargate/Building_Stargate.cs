@@ -199,7 +199,7 @@ namespace Enhanced_Defence.Stargate
                 Command_Action act = new Command_Action();
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act.action = () => this.StargateRecall();
-                act.icon = UI_ADD_COLONIST;
+                act.icon = UI_GATE_IN;
                 act.defaultLabel = "Recall";
                 act.defaultDesc = "Recall";
                 act.activateSound = SoundDef.Named("Click");
