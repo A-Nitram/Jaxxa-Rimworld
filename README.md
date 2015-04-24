@@ -179,13 +179,6 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Repair
 --RestoreBodyPart
 --SurgicalCut
-
-TODO:
-ED-OmniGel
---New preview image
-ED-Vehicles
-Wireless Power Up-Down
-
 ~~~
 
 ##License:
