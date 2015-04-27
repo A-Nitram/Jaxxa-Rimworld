@@ -179,6 +179,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --Repair
 --RestoreBodyPart
 --SurgicalCut
+0.17.1
+-Fix to OmniGel giving potatoes
 ~~~
 
 ##License:
