@@ -43,7 +43,7 @@
 			<dieIfLeafless>true</dieIfLeafless>
 			<shootsSeeds>false</shootsSeeds>
 			<harvestTag>Standard</harvestTag>
-			<harvestedThingDef>RawPotatoes</harvestedThingDef>
+			<harvestedThingDef>OmniGel</harvestedThingDef>
 			<harvestDestroys>true</harvestDestroys>
 			<harvestYieldRange>
 				<min>1</min>
