@@ -8,3 +8,6 @@ Please pick up one of the binary releases from:
 https://ludeon.com/forums/index.php?topic=6636.0
 
 (or compile the code from source yourself.)
+
+If you think you have a release version from the Nexus of Media fire it is possible that I did somthing wrong, in that case please post on the forum thread.
+https://ludeon.com/forums/index.php?topic=6636.0
