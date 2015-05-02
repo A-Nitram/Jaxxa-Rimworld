@@ -89,48 +89,5 @@ namespace Enhanced_Defence.Vehicles
 
             return (VehiclePawn)pawn;
         }
-        
-        public static void MakeSkillsFromBackstory(VehiclePawn pawn)
-        {
-            IEnumerator<SkillDef> enumerator = DefDatabase<SkillDef>.AllDefs.GetEnumerator();
-            try
-            {
-
-                while (enumerator.MoveNext())
-                {
-                    SkillDef current = enumerator.Current;
-                    //int num = FinalLevelOfSkill(current);
-                    int num = 5;
-                    SkillRecord skill = pawn.skills.GetSkill(current);
-                    skill.level = num;
-                    if (skill.TotallyDisabled)
-                    {
-                        continue;
-                    }
-
-                    skill.xpSinceLastLevel = 0;
-
-                    switch (0)
-                    {
-                        case 1:
-                            skill.passion = Passion.Minor;
-                            break;
-                        case 2:
-                            skill.passion = Passion.Major;
-                            break;
-                        default:
-                            skill.passion = Passion.None;
-                            break;
-                    }
-
-                }
-            }
-            finally
-            {
-                enumerator.Dispose();
-            }
-        }
-
-
     }
 }
