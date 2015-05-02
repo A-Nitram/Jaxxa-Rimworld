@@ -2,18 +2,17 @@
 <ThingDefs>
 
 	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" Name="BasePawn" Abstract="True">
-		<eType>Pawn </eType>
 		<thingClass>Enhanced_Defence.Vehicles.VehiclePawn</thingClass>
 		<category>Pawn</category>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
 		<altitudeLayer>Pawn</altitudeLayer>
-		<useStandardHealth>false</useStandardHealth>
+		<useHitPoints>false</useHitPoints>
 		<hasTooltip>true</hasTooltip>
 		<soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
 		<inspectorTabs>
 			<li>ITab_Pawn_Health</li>
-			<li>ITab_Pawn_Thoughts</li>
+			<li>ITab_Pawn_Needs</li>
 			<li>ITab_Pawn_Character</li>
 			<li>ITab_Pawn_Gear</li>
 			<li>ITab_Pawn_Guest</li>
@@ -33,20 +32,20 @@
 
 	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn">
 		<defName>Vehicle_APC</defName>
-		<label>human</label>
+		<label>Vehicle_APC</label>
 		<description>A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets.</description>
-		<uiIconPath>Things/Pawn/Humanoid/UI/IconHuman</uiIconPath>
-		<sunShadowInfo>
+		<uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
+		<graphicSunShadowInfo>
 			<baseWidth>0.4</baseWidth>
 			<baseHeight>0.4</baseHeight>
 			<tallness>0.8</tallness>
-		</sunShadowInfo>
+		</graphicSunShadowInfo>
 		<statBases>
 			<MarketValue>1500</MarketValue>
 			<MoveSpeed>4.61</MoveSpeed>
 			<Flammability>1.0</Flammability>
-			<ComfyTemperatureMin>-400</ComfyTemperatureMin>
-			<ComfyTemperatureMax>+400</ComfyTemperatureMax>
+			<ComfyTemperatureMin>12</ComfyTemperatureMin>
+			<ComfyTemperatureMax>32</ComfyTemperatureMax>
 		</statBases>
 		<verbs>
 			<li>
@@ -54,26 +53,28 @@
 				<defaultCooldownTicks>100</defaultCooldownTicks>
 				<meleeDamageBaseAmount>5</meleeDamageBaseAmount>
 				<meleeDamageDef>Blunt</meleeDamageDef>
-				<linkedBodyPartsGroup>LeftFist</linkedBodyPartsGroup>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
 			</li>
 			<li>
 				<verbClass>Verb_MeleeAttack</verbClass>
 				<defaultCooldownTicks>100</defaultCooldownTicks>
 				<meleeDamageBaseAmount>5</meleeDamageBaseAmount>
 				<meleeDamageDef>Blunt</meleeDamageDef>
-				<linkedBodyPartsGroup>RightFist</linkedBodyPartsGroup>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
 			</li>
 		</verbs>
 		<race>
-			<thinkTree>Vehicle</thinkTree>
-			<mechanoid>true</mechanoid>
-			<useStandardHealth>true</useStandardHealth>
-			<humanoid>true</humanoid>
-			<isFlesh>false</isFlesh>
-			<hasLeather>false</hasLeather>
+			<thinkTree>Humanlike</thinkTree>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<isFlesh>true</isFlesh>
+			<hasLeather>true</hasLeather>
+			<leatherColor>(211,194,143)</leatherColor>
+			<leatherCommonalityFactor>0.01</leatherCommonalityFactor>
+			<leatherInsulation>0.95</leatherInsulation>
+			<leatherMarketValue>15</leatherMarketValue>
 			<nameCategory>HumanStandard</nameCategory>
-			<hasStory>true</hasStory>
-			<minFoodTaste>Raw</minFoodTaste>
+			<minFoodPreferability>DesperateOnly</minFoodPreferability>
 			<body>Human</body>
 			<bodySize>1</bodySize>
 			<healthScale>1</healthScale>
@@ -112,8 +113,24 @@
 				</points>
 			</ageGenerationCurve>
 		</race>
+		<recipes>
+			<li>InstallPowerClaw</li>
+			<li>InstallScytherBlade</li>
+			<li>InstallBionicEye</li>
+			<li>InstallBionicArm</li>
+			<li>InstallBionicLeg</li>
+			<li>InstallSimpleProstheticArm</li>
+			<li>InstallSimpleProstheticLeg</li>
+			<li>InstallPegLeg</li>
+			<li>InstallDenture</li>
+			<li>InstallNaturalHeart</li>
+			<li>InstallNaturalLung</li>
+			<li>InstallNaturalKidney</li>
+			<li>InstallNaturalLiver</li>
+			<li>RemoveBodyPart</li>
+			<li>Euthanize</li>
+		</recipes>
 	</ThingDef>
-
 
 
 </ThingDefs>

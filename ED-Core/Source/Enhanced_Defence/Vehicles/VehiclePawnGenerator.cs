@@ -1,156 +1,136 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using RimWorld;
-//using Verse;
-//using Verse.AI;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using RimWorld;
+using Verse;
+using Verse.AI;
 
-//namespace Enhanced_Defence.Vehicles
-//{
-//    class VehiclePawnGenerator
-//    {
-//        public static VehiclePawn GeneratePawn(string kindDefName, Faction faction)
-//        {
-//            return VehiclePawnGenerator.GeneratePawn(PawnKindDef.Named(kindDefName), faction);
-//        }
+namespace Enhanced_Defence.Vehicles
+{
+    class VehiclePawnGenerator
+    {
+        public static VehiclePawn GeneratePawn(string kindDefName, Faction faction)
+        {
+            return VehiclePawnGenerator.GeneratePawn(PawnKindDef.Named(kindDefName), faction);
+        }
 
-//        public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
-//        {
-//            VehiclePawn pawn = (VehiclePawn)ThingMaker.MakeThing(kindDef.race, (ThingDef)null);
+        public static VehiclePawn GeneratePawn(PawnKindDef kindDef, Faction faction)
+        {
+            VehiclePawn pawn = (VehiclePawn)ThingMaker.MakeThing(kindDef.race, (ThingDef)null);
 
-//            //Log.Message(pawn.Label);
-//            //Log.Message(pawn.def.label);
-//            //Log.Message(pawn.def.defName);
+            if (kindDef.race.race.Humanlike && faction == null)
+            {
+                faction = FactionUtility.DefaultFactionFrom(kindDef.defaultFactionType);
+                object[] objArray = new object[4];
+                int index1 = 0;
+                string str1 = "Tried to generate pawn of Humanlike race ";
+                objArray[index1] = (object)str1;
+                int index2 = 1;
+                PawnKindDef pawnKindDef = kindDef;
+                objArray[index2] = (object)pawnKindDef;
+                int index3 = 2;
+                string str2 = " with null faction. Setting to ";
+                objArray[index3] = (object)str2;
+                int index4 = 3;
+                Faction faction1 = faction;
+                objArray[index4] = (object)faction1;
+                Log.Error(string.Concat(objArray));
+            }
+            //Pawn pawn = (Pawn)ThingMaker.MakeThing(kindDef.race, (ThingDef)null);
+            pawn.kindDef = kindDef;
+            pawn.SetFactionDirect(faction);
+            pawn.pather = new Pawn_PathFollower(pawn);
+            pawn.ageTracker = new Pawn_AgeTracker(pawn);
+            pawn.health = new Pawn_HealthTracker(pawn);
+            pawn.jobs = new Pawn_JobTracker(pawn);
+            pawn.mindState = new Pawn_MindState(pawn);
+            pawn.filth = new Pawn_FilthTracker(pawn);
+            pawn.needs = new Pawn_NeedsTracker(pawn);
+            if (pawn.RaceProps.ToolUser)
+            {
+                pawn.equipment = new Pawn_EquipmentTracker(pawn);
+                pawn.carryHands = new Pawn_CarryHands(pawn);
+                pawn.apparel = new Pawn_ApparelTracker(pawn);
+                pawn.inventory = new Pawn_InventoryTracker(pawn);
+            }
+            if (pawn.RaceProps.Humanlike)
+            {
+                pawn.ownership = new Pawn_Ownership(pawn);
+                pawn.skills = new Pawn_SkillTracker(pawn);
+                pawn.talker = new Pawn_TalkTracker(pawn);
+                pawn.story = new Pawn_StoryTracker(pawn);
+                pawn.workSettings = new Pawn_WorkSettings(pawn);
+            }
+            if (pawn.RaceProps.intelligence <= Intelligence.ToolUser)
+                pawn.caller = new Pawn_CallTracker(pawn);
+            PawnUtility.AddAndRemoveComponentsAsAppropriate(pawn);
+            pawn.gender = !pawn.RaceProps.hasGenders ? Gender.None : ((double)Rand.Value >= 0.5 ? Gender.Female : Gender.Male);
+            //PawnGenerator.GenerateRandomAge(pawn);
 
-//            //Log.Message("Type: " + pawn.GetType());
+            //PawnGenerator.GenerateInitialHediffs(pawn);
+            pawn.health.hediffSet.Clear();
 
-//            pawn.kindDef = kindDef;
-//            pawn.SetFactionDirect(faction);
-//            pawn.pather = new Pawn_PathFollower(pawn);
-//            pawn.ageTracker = new Pawn_AgeTracker(pawn);
-//            pawn.healthTracker = new Pawn_HealthTracker(pawn);
-//            pawn.jobs = new Pawn_JobTracker(pawn);
-//            pawn.inventory = new Pawn_InventoryTracker(pawn);
-//            pawn.filth = new Pawn_FilthTracker(pawn);
-//            pawn.mindState = new Pawn_MindState(pawn);
-//            pawn.needs = new Pawn_NeedsTracker(pawn);
-//            if (pawn.RaceProps.humanoid || pawn.RaceProps.mechanoid)
-//            {
-//                pawn.equipment = new Pawn_EquipmentTracker(pawn);
-//                pawn.carryHands = new Pawn_CarryHands(pawn);
-//            }
-//            if (pawn.RaceProps.humanoid)
-//            {
-//                pawn.apparel = new Pawn_ApparelTracker(pawn);
-//                pawn.ownership = new Pawn_Ownership(pawn);
-//                pawn.skills = new Pawn_SkillTracker(pawn);
-//                pawn.talker = new Pawn_TalkTracker(pawn);
-//                pawn.story = new Pawn_StoryTracker(pawn);
-//                pawn.workSettings = new Pawn_WorkSettings(pawn);
-//                pawn.guest = new Pawn_GuestTracker(pawn);
-//                pawn.needs.mood = new Need_Mood(pawn);
-//                pawn.needs.beauty = new Need_Beauty(pawn);
-//                pawn.needs.space = new Need_Space(pawn);
-//            }
-//            else
-//                pawn.caller = new Pawn_CallTracker(pawn);
-//            if (pawn.RaceProps.EatsFood)
-//                pawn.needs.food = new Need_Food(pawn);
-//            if (pawn.RaceProps.needsRest)
-//                pawn.needs.rest = new Need_Rest(pawn);
-//            pawn.gender = !pawn.RaceProps.hasGenders ? Gender.None : ((double)Rand.Value >= 0.5 ? Gender.Female : Gender.Male);
-//            //PawnGenerator.GenerateRandomAge(pawn);
+            if (pawn.RaceProps.Humanlike)
+            {
+                pawn.story.skinColor = PawnSkinColors.RandomSkinColor();
+                pawn.story.crownType = (double)Rand.Value >= 0.5 ? CrownType.Narrow : CrownType.Average;
+                pawn.story.headGraphicPath = GraphicDatabaseHeadRecords.GetHeadRandom(pawn.gender, pawn.story.skinColor, pawn.story.crownType).GraphicPath;
+                pawn.story.hairColor = PawnHairColors.RandomHairColor(pawn.story.skinColor, pawn.ageTracker.AgeBiologicalYears);
+                PawnBioGenerator.GiveAppropriateBioTo(pawn, faction.def);
+                pawn.story.hairDef = PawnHairChooser.RandomHairDefFor(pawn, faction.def);
+                //PawnGenerator.GiveRandomTraitsTo(pawn);
+                pawn.story.GenerateSkillsFromBackstory();
+            }
+            PawnApparelGenerator.GenerateStartingApparelFor(pawn);
+            PawnWeaponGenerator.TryGenerateWeaponFor(pawn);
+            PawnInventoryGenerator.GenerateInventoryFor(pawn);
+            PawnUtility.AddAndRemoveComponentsAsAppropriate(pawn);
 
-//            //pawn.ageTracker.SetBirthDate(birthYear, birthDayOfYear);
-//            pawn.ageTracker.SetBirthDate(GenDate.CurrentYear, GenDate.CurrentYear);
+            return (VehiclePawn)pawn;
+        }
+        
+        public static void MakeSkillsFromBackstory(VehiclePawn pawn)
+        {
+            IEnumerator<SkillDef> enumerator = DefDatabase<SkillDef>.AllDefs.GetEnumerator();
+            try
+            {
 
-//            //if (pawn.RaceProps.humanoid)
-//            //    AgeInjuryUtility.GenerateInitialOldInjuries(pawn);
-//            pawn.Health = pawn.MaxHealth;
+                while (enumerator.MoveNext())
+                {
+                    SkillDef current = enumerator.Current;
+                    //int num = FinalLevelOfSkill(current);
+                    int num = 5;
+                    SkillRecord skill = pawn.skills.GetSkill(current);
+                    skill.level = num;
+                    if (skill.TotallyDisabled)
+                    {
+                        continue;
+                    }
 
-//            if (pawn.RaceProps.hasStory)
-//            {
-//                pawn.story.skinColor = PawnSkinColors.RandomSkinColor();
-//                pawn.story.crownType = (double)Rand.Value >= 0.5 ? CrownType.Narrow : CrownType.Average;
-//                pawn.story.headGraphicPath = GraphicDatabaseHeadRecords.GetHeadRandom(pawn.gender, pawn.story.skinColor, pawn.story.crownType).GraphicPath;
-//                pawn.story.hairColor = PawnHairColors.RandomHairColor(pawn.story.skinColor, pawn.ageTracker.AgeBiologicalYears);
-//                PawnBioGenerator.GiveAppropriateBioTo(pawn, faction.def);
-//                pawn.story.hairDef = PawnHairChooser.RandomHairDefFor(pawn, faction.def);
-//                //PawnGenerator.GiveRandomTraitsTo(pawn);
-//                //pawn.story.GenerateSkillsFromBackstory();
+                    skill.xpSinceLastLevel = 0;
 
-//                pawn.story.childhood = Enhanced_Defence.Vehicles.Helper.BackstoryHelper.GetBackstory();
-//                pawn.story.adulthood = Enhanced_Defence.Vehicles.Helper.BackstoryHelper.GetBackstory();
+                    switch (0)
+                    {
+                        case 1:
+                            skill.passion = Passion.Minor;
+                            break;
+                        case 2:
+                            skill.passion = Passion.Major;
+                            break;
+                        default:
+                            skill.passion = Passion.None;
+                            break;
+                    }
 
-//                MakeSkillsFromBackstory(pawn);
-//            }
-
-//            //PawnApparelGenerator.GenerateStartingApparelFor(pawn);
-//            //PawnInventoryGenerator.GiveAppropriateKeysTo(pawn);
-//            //PawnWeaponGenerator.TryGenerateWeaponFor(pawn);
-//            //PawnArtificialBodyPartsGenerator.GeneratePartsFor(pawn);
-//            //PawnInventoryGenerator.GenerateInventoryFor(pawn);
-//            pawn.AddAndRemoveComponentsAsAppropriate();
-
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Cleaning);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Construction);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Cooking);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Doctor);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Firefighter);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Growing);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Hauling);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Hunting);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Mining);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.PlantCutting);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Repair);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Research);
-//            //pawn.workSettings.Disable(WorkTypeDefOf.Warden);
-
-//            return (VehiclePawn)pawn;
-//        }
-
-//        public static void MakeSkillsFromBackstory(VehiclePawn pawn)
-//        {
-//            IEnumerator<SkillDef> enumerator = DefDatabase<SkillDef>.AllDefs.GetEnumerator();
-//            try
-//            {
-
-//                while (enumerator.MoveNext())
-//                {
-//                    SkillDef current = enumerator.Current;
-//                    //int num = FinalLevelOfSkill(current);
-//                    int num = 5;
-//                    SkillRecord skill = pawn.skills.GetSkill(current);
-//                    skill.level = num;
-//                    if (skill.TotallyDisabled)
-//                    {
-//                        continue;
-//                    }
-
-//                    skill.xpSinceLastLevel = 0;
-
-//                    switch (0)
-//                    {
-//                        case 1:
-//                            skill.passion = Passion.Minor;
-//                            break;
-//                        case 2:
-//                            skill.passion = Passion.Major;
-//                            break;
-//                        default:
-//                            skill.passion = Passion.None;
-//                            break;
-//                    }
-
-//                }
-//            }
-//            finally
-//            {
-//                enumerator.Dispose();
-//            }
-//        }
+                }
+            }
+            finally
+            {
+                enumerator.Dispose();
+            }
+        }
 
 
-//    }
-//}
+    }
+}
