@@ -47,21 +47,26 @@ namespace Enhanced_Defence.Vehicles
             pawn.mindState = new Pawn_MindState(pawn);
             pawn.filth = new Pawn_FilthTracker(pawn);
             pawn.needs = new Pawn_NeedsTracker(pawn);
-            if (pawn.RaceProps.ToolUser)
-            {
+            
+            //if (pawn.RaceProps.ToolUser)
+            //{
+                Log.Message("ToolUser");
                 pawn.equipment = new Pawn_EquipmentTracker(pawn);
                 pawn.carryHands = new Pawn_CarryHands(pawn);
                 pawn.apparel = new Pawn_ApparelTracker(pawn);
                 pawn.inventory = new Pawn_InventoryTracker(pawn);
-            }
-            if (pawn.RaceProps.Humanlike)
-            {
+            //}
+
+            //if (pawn.RaceProps.Humanlike)
+            //{
+                Log.Message("Humanlike");
                 pawn.ownership = new Pawn_Ownership(pawn);
                 pawn.skills = new Pawn_SkillTracker(pawn);
                 pawn.talker = new Pawn_TalkTracker(pawn);
                 pawn.story = new Pawn_StoryTracker(pawn);
                 pawn.workSettings = new Pawn_WorkSettings(pawn);
-            }
+            //}
+            
             if (pawn.RaceProps.intelligence <= Intelligence.ToolUser)
                 pawn.caller = new Pawn_CallTracker(pawn);
             PawnUtility.AddAndRemoveComponentsAsAppropriate(pawn);

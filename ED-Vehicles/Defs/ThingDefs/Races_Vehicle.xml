@@ -33,104 +33,62 @@
 	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn">
 		<defName>Vehicle_APC</defName>
 		<label>Vehicle_APC</label>
-		<description>A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets.</description>
-		<uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
-		<graphicSunShadowInfo>
-			<baseWidth>0.4</baseWidth>
-			<baseHeight>0.4</baseHeight>
-			<tallness>0.8</tallness>
-		</graphicSunShadowInfo>
+		<description>Heavy combat mechanoids that glide on dozens of tiny legs. Their heavy armor and firepower makes them very effective against bunched-up static defenders. They are somewhat vulnerable to mobile hit-and-run tactics.</description>
+		<graphicOverdraw>true</graphicOverdraw>
+		<targetHitChanceFactor>2.0</targetHitChanceFactor>
 		<statBases>
-			<MarketValue>1500</MarketValue>
-			<MoveSpeed>4.61</MoveSpeed>
-			<Flammability>1.0</Flammability>
-			<ComfyTemperatureMin>12</ComfyTemperatureMin>
-			<ComfyTemperatureMax>32</ComfyTemperatureMax>
+			<MoveSpeed>1.33</MoveSpeed>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
+			<Flammability>0</Flammability>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
 		</statBases>
 		<verbs>
 			<li>
 				<verbClass>Verb_MeleeAttack</verbClass>
-				<defaultCooldownTicks>100</defaultCooldownTicks>
-				<meleeDamageBaseAmount>5</meleeDamageBaseAmount>
+				<defaultCooldownTicks>140</defaultCooldownTicks>
+				<meleeDamageBaseAmount>25</meleeDamageBaseAmount>
 				<meleeDamageDef>Blunt</meleeDamageDef>
-				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-			</li>
-			<li>
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<defaultCooldownTicks>100</defaultCooldownTicks>
-				<meleeDamageBaseAmount>5</meleeDamageBaseAmount>
-				<meleeDamageDef>Blunt</meleeDamageDef>
-				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
 			</li>
 		</verbs>
 		<race>
+			<intelligence>ToolUser</intelligence>
+			<mechanoid>true</mechanoid>
+			<needsRest>false</needsRest>
+			<hasGenders>false</hasGenders>
+			<isFlesh>false</isFlesh>
+			<diet>NeverEats</diet>
 			<thinkTree>Humanlike</thinkTree>
-			<intelligence>Humanlike</intelligence>
-			<makesFootprints>true</makesFootprints>
-			<isFlesh>true</isFlesh>
-			<hasLeather>true</hasLeather>
-			<leatherColor>(211,194,143)</leatherColor>
-			<leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-			<leatherInsulation>0.95</leatherInsulation>
-			<leatherMarketValue>15</leatherMarketValue>
-			<nameCategory>HumanStandard</nameCategory>
-			<minFoodPreferability>DesperateOnly</minFoodPreferability>
-			<body>Human</body>
-			<bodySize>1</bodySize>
-			<healthScale>1</healthScale>
-			<diet>Omnivorous</diet>
-			<soundWounded>Pawn_Human_Wounded</soundWounded>
-			<soundDeath>Pawn_Human_Death</soundDeath>
-			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
-			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
-			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-			<ageGenerationCurve>
-				<points>
-					<li>
-						<loc>(14,0)</loc>
-					</li>
-					<li>
-						<loc>(16,100)</loc>
-					</li>
-					<li>
-						<loc>(50,100)</loc>
-					</li>
-					<li>
-						<loc>(60,30)</loc>
-					</li>
-					<li>
-						<loc>(70,18)</loc>
-					</li>
-					<li>
-						<loc>(80,10)</loc>
-					</li>
-					<li>
-						<loc>(90,3)</loc>
-					</li>
-					<li>
-						<loc>(100,0)</loc>
-					</li>        
-				</points>
-			</ageGenerationCurve>
+			<body>MechanicalCentipede</body>
+			<bodySize>2.0</bodySize>
+			<healthScale>1.2</healthScale>
+			<meatAmountMultiplier>0.3</meatAmountMultiplier>
+			<soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+			<soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+			<soundCall>Pawn_Mech_Centipede_Call</soundCall>
+			<soundCallIntervalRange>
+				<min>1000</min>
+				<max>2000</max>
+			</soundCallIntervalRange>
+			<soundAngry>Pawn_Mech_Centipede_Angry</soundAngry>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
 		</race>
 		<recipes>
-			<li>InstallPowerClaw</li>
-			<li>InstallScytherBlade</li>
-			<li>InstallBionicEye</li>
-			<li>InstallBionicArm</li>
-			<li>InstallBionicLeg</li>
-			<li>InstallSimpleProstheticArm</li>
-			<li>InstallSimpleProstheticLeg</li>
-			<li>InstallPegLeg</li>
-			<li>InstallDenture</li>
-			<li>InstallNaturalHeart</li>
-			<li>InstallNaturalLung</li>
-			<li>InstallNaturalKidney</li>
-			<li>InstallNaturalLiver</li>
-			<li>RemoveBodyPart</li>
-			<li>Euthanize</li>
+			<li>ShutDownMechanoid</li>
 		</recipes>
+		<butcherProducts>
+			<Steel>80</Steel>
+			<Plasteel>50</Plasteel>
+		</butcherProducts>
+		<graphicSunShadowInfo>
+			<baseWidth>0.6</baseWidth>
+			<baseHeight>0.6</baseHeight>
+			<tallness>0.8</tallness>
+		</graphicSunShadowInfo>
 	</ThingDef>
-
 
 </ThingDefs>

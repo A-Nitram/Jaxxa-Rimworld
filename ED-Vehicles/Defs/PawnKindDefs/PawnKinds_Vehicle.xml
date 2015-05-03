@@ -6,19 +6,16 @@
 	<label>Vehicle</label>
 	<race>Vehicle_APC</race>
     <pointsCost>290</pointsCost>
-    <defaultFactionType>Colony</defaultFactionType>	
-	<aiAvoidCover>true</aiAvoidCover>
+		<defaultFactionType>Mechanoid</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
     <standardBodygraphicPath>Things/Pawn/Mechanoid/Centipede</standardBodygraphicPath>
-	<baseRecruitDifficulty>99</baseRecruitDifficulty>
-	<backstoryCategory>Civil</backstoryCategory>
-    <apparelTags>
-		<li>Spacer</li>
-    </apparelTags>
-    <apparelMoney>
-		<min>2000</min>
-		<max>3000</max>
-    </apparelMoney>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-	</PawnKindDef>
+    <weaponMoney>
+      <min>8000</min>
+      <max>8000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>MechanoidGunHeavy</li>
+    </weaponTags>
+  </PawnKindDef>
 
 </PawnKindDefs>
