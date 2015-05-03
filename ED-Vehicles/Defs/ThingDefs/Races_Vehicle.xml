@@ -12,11 +12,8 @@
 		<soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
 		<inspectorTabs>
 			<li>ITab_Pawn_Health</li>
-			<li>ITab_Pawn_Needs</li>
-			<li>ITab_Pawn_Character</li>
 			<li>ITab_Pawn_Gear</li>
 			<li>ITab_Pawn_Guest</li>
-			<li>ITab_Pawn_Prisoner</li>
 		</inspectorTabs>
 		<comps>
 			<li>
@@ -37,7 +34,7 @@
 		<graphicOverdraw>true</graphicOverdraw>
 		<targetHitChanceFactor>2.0</targetHitChanceFactor>
 		<statBases>
-			<MoveSpeed>1.33</MoveSpeed>
+			<MoveSpeed>5.00</MoveSpeed>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
 			<Flammability>0</Flammability>
@@ -60,7 +57,7 @@
 			<hasGenders>false</hasGenders>
 			<isFlesh>false</isFlesh>
 			<diet>NeverEats</diet>
-			<thinkTree>Humanlike</thinkTree>
+			<thinkTree>Vehicle</thinkTree>
 			<body>MechanicalCentipede</body>
 			<bodySize>2.0</bodySize>
 			<healthScale>1.2</healthScale>
