@@ -11,9 +11,16 @@ namespace Enhanced_Defence.Vehicles
 {
     public class VehiclePawn : Pawn
     {
+        #region Variales
 
         List<Pawn> listOfCrewPawns = new List<Pawn>();
+
+        List<Thing> listOfBufferThings = new List<Thing>();
         private static Texture2D UI_ADD_COLONIST;
+
+        #endregion
+
+        #region Override
 
         public VehiclePawn()
         {
@@ -82,8 +89,6 @@ namespace Enhanced_Defence.Vehicles
             }
         }
 
-
-
         public override IEnumerable<Gizmo> GetGizmos()
         {
             //Add the stock Gizmoes
@@ -119,8 +124,57 @@ namespace Enhanced_Defence.Vehicles
                 //act.groupKey = 689736;
                 yield return act;
             }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.AddResources();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Add Resources";
+                act.defaultDesc = "Add Resources";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.DropOffResources();
+                act.icon = UI_ADD_COLONIST;
+                act.defaultLabel = "Drop Off Resources";
+                act.defaultDesc = "Drop Off Resources";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
         }
 
+        public override string GetInspectString()
+        {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            //stringBuilder.AppendLine(base.GetInspectString());
+            if (this.listOfCrewPawns.Count <= 0)
+            {
+                stringBuilder.AppendLine("Warning, No Driver");
+            }
+            else
+            {
+                stringBuilder.AppendLine("Driver is:" + this.listOfCrewPawns[0].Name.StringFull);
+            }
+            stringBuilder.AppendLine("Carrying: " + this.listOfBufferThings.Count + " things.");
+
+            return stringBuilder.ToString();
+        }
+
+        #endregion
+
+        #region Commands
 
         public void AddColonist()
         {
@@ -148,7 +202,6 @@ namespace Enhanced_Defence.Vehicles
 
         }
 
-        
         public void ExitVehicle()
         {
 
@@ -167,8 +220,76 @@ namespace Enhanced_Defence.Vehicles
             listOfCrewPawns.Clear();
 
         }
-        
 
+        public IEnumerable<Thing> findResources(IntVec3 position)
+        {
+            List<Thing> things = new List<Thing>();
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y - 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y - 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y - 1, position.z)));
+
+            List<Thing> validThings = new List<Thing>();
+            foreach (Thing thing in things)
+            {
+                if (thing.def.CountAsResource)
+                {
+                    validThings.Add(thing);
+                }
+            }
+            return validThings;
+        }
+
+        public void AddResources()
+        {
+            //Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindItemThingsInAutoLoader(this);
+
+            IEnumerable<Thing> foundThings = this.findResources(this.Position);
+
+            if (foundThings != null)
+            {
+                foreach (Thing thing in foundThings)
+                {
+                    if (thing.SpawnedInWorld)
+                    {
+                        listOfBufferThings.Add(thing);
+                        thing.DeSpawn();
+                    }
+                }
+            }
+
+            // Tell the MapDrawer that here is something thats changed
+            Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+
+
+        }
+
+        public void DropOffResources()
+        {
+
+            foreach (Thing currentThing in listOfBufferThings)
+            {
+                //Log.Message("Placing Thing");
+
+                //Setup the New ID for the Thing
+                //currentThing.thingIDNumber = -1;
+                //Verse.ThingIDMaker.GiveIDTo(currentThing);
+
+                //currentThing.SetFactionDirect(RimWorld.Faction.OfColony);
+
+                GenPlace.TryPlaceThing(currentThing, this.Position + new IntVec3(0, 0, -2), ThingPlaceMode.Near);
+            }
+            listOfBufferThings.Clear();
+
+        }
+
+
+        #endregion
 
     }
 
