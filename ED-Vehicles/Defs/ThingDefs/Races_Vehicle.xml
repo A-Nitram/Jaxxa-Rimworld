@@ -25,31 +25,22 @@
 
 
 
-	<!-- ============================ Human ========================== -->
+	<!-- ============================ Vehicle ========================== -->
 
 	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn">
 		<defName>Vehicle_APC</defName>
 		<label>Vehicle_APC</label>
-		<description>Heavy combat mechanoids that glide on dozens of tiny legs. Their heavy armor and firepower makes them very effective against bunched-up static defenders. They are somewhat vulnerable to mobile hit-and-run tactics.</description>
+		<description>Heavy vehicle able to engage in combat or transport resources across the map.</description>
 		<graphicOverdraw>true</graphicOverdraw>
 		<targetHitChanceFactor>2.0</targetHitChanceFactor>
 		<statBases>
-			<MoveSpeed>5.00</MoveSpeed>
+			<MoveSpeed>7.00</MoveSpeed>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
 			<Flammability>0</Flammability>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 			<ComfyTemperatureMax>250</ComfyTemperatureMax>
 		</statBases>
-		<verbs>
-			<li>
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<defaultCooldownTicks>140</defaultCooldownTicks>
-				<meleeDamageBaseAmount>25</meleeDamageBaseAmount>
-				<meleeDamageDef>Blunt</meleeDamageDef>
-				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-			</li>
-		</verbs>
 		<race>
 			<intelligence>ToolUser</intelligence>
 			<mechanoid>true</mechanoid>
@@ -74,13 +65,6 @@
 			<soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
 		</race>
-		<recipes>
-			<li>ShutDownMechanoid</li>
-		</recipes>
-		<butcherProducts>
-			<Steel>80</Steel>
-			<Plasteel>50</Plasteel>
-		</butcherProducts>
 		<graphicSunShadowInfo>
 			<baseWidth>0.6</baseWidth>
 			<baseHeight>0.6</baseHeight>

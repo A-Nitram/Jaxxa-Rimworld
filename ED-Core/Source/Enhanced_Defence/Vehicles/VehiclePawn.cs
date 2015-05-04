@@ -159,14 +159,24 @@ namespace Enhanced_Defence.Vehicles
 
             StringBuilder stringBuilder = new StringBuilder();
             //stringBuilder.AppendLine(base.GetInspectString());
+
             if (this.listOfCrewPawns.Count <= 0)
             {
                 stringBuilder.AppendLine("Warning, No Driver");
             }
-            else
+            else if (this.listOfCrewPawns.Count == 1)
             {
                 stringBuilder.AppendLine("Driver is:" + this.listOfCrewPawns[0].Name.StringFull);
             }
+            else if (this.listOfCrewPawns.Count == 2)
+            {
+                stringBuilder.AppendLine("Driver is:" + this.listOfCrewPawns[0].Name.StringFull + " and 1 passenger");
+            }
+            else if (this.listOfCrewPawns.Count >= 2)
+            {
+                stringBuilder.AppendLine("Driver is:" + this.listOfCrewPawns[0].Name.StringFull + " and " + (this.listOfCrewPawns.Count - 1) + " passengers");
+            }
+
             stringBuilder.AppendLine("Carrying: " + this.listOfBufferThings.Count + " things.");
 
             return stringBuilder.ToString();
@@ -224,15 +234,15 @@ namespace Enhanced_Defence.Vehicles
         public IEnumerable<Thing> findResources(IntVec3 position)
         {
             List<Thing> things = new List<Thing>();
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y, position.z + 1)));
             things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y, position.z)));
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y - 1, position.z)));
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x + 1, position.y, position.z - 1)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y, position.z + 1)));
             things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y, position.z)));
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y - 1, position.z)));
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y + 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x, position.y, position.z - 1)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y, position.z + 1)));
             things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y, position.z)));
-            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y - 1, position.z)));
+            things.AddRange(Find.ThingGrid.ThingsListAt(new IntVec3(position.x - 1, position.y, position.z - 1)));
 
             List<Thing> validThings = new List<Thing>();
             foreach (Thing thing in things)
@@ -248,7 +258,7 @@ namespace Enhanced_Defence.Vehicles
         public void AddResources()
         {
             //Thing foundThing = Enhanced_Defence.Utilities.Utilities.FindItemThingsInAutoLoader(this);
-
+            //Log.Message("Pos:" + this.Position);
             IEnumerable<Thing> foundThings = this.findResources(this.Position);
 
             if (foundThings != null)
