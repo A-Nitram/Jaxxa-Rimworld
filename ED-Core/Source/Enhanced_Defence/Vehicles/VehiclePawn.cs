@@ -182,6 +182,16 @@ namespace Enhanced_Defence.Vehicles
             return stringBuilder.ToString();
         }
 
+        public override void ExposeData()
+        {
+
+            base.ExposeData();
+
+
+            Scribe_Collections.LookList<Pawn>(ref listOfCrewPawns, "listOfCrewPawns", LookMode.Deep, (object)null);
+            Scribe_Collections.LookList<Thing>(ref listOfBufferThings, "listOfBufferThings", LookMode.Deep, (object)null);
+        }
+
         #endregion
 
         #region Commands
