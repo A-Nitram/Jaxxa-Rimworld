@@ -5,4 +5,6 @@ This is my checklist for creating a release, there is nothing that you need to w
 3.Remove .git folder
 4.Remove .gitignore file
 5.Remove /bin and /obj in source
-6.Remove this file
+6.Remove any modules not release ready.
+7.Remove this file
+8.Update Tag on GitHub
