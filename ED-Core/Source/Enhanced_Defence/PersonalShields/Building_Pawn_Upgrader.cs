@@ -49,7 +49,10 @@ namespace Enhanced_Defence.PersonalShields
             if (this.power.PowerOn == true)
             {
                 NanoManager.tick();
-                this.rechargePawns();
+                if (this.flag_charge)
+                {
+                    this.rechargePawns();
+                }
             }
         }
 
@@ -109,7 +112,6 @@ namespace Enhanced_Defence.PersonalShields
             Scribe_Values.LookValue(ref flag_fireSupression, "flag_fireSupression");
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");*/
         }
-
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -319,15 +321,17 @@ namespace Enhanced_Defence.PersonalShields
                                     //Log.Message("Found:" + currentThing.def.defName);
                                     Apparel_PersonalNanoShield currentShield = (Apparel_PersonalNanoShield)currentThing;
 
-                                    //currentShield.Energy += 10.0f;
-
-                                    int chargeAmmount = 1;
-
-                                    if (NanoManager.requestCharge(chargeAmmount))
+                                    if (!currentShield.isCharged())
                                     {
-                                        currentShield.recharge(chargeAmmount);
-                                    }
+                                        //currentShield.Energy += 10.0f;
 
+                                        int chargeAmmount = 1;
+
+                                        if (NanoManager.requestCharge(chargeAmmount))
+                                        {
+                                            currentShield.recharge(chargeAmmount);
+                                        }
+                                    }
                                 }
                             }
 

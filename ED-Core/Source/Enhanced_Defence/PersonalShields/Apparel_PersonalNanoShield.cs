@@ -17,8 +17,8 @@ namespace Enhanced_Defence.PersonalShields
         //private const float MaxDamagedJitterDist = 0.05f;
         //private const int JitterDurationTicks = 8;
         private bool isRotating;
-        private float energy;
-        public float maxEnergy;
+        private int energy;
+        public int maxEnergy;
         private ShieldState shieldState = ShieldState.Resetting;
         //private int ticksToReset = -1;
         private int lastAbsorbDamageTick = -9999;
@@ -76,7 +76,7 @@ namespace Enhanced_Defence.PersonalShields
                 return this.energy;
             }
         }
-        public void recharge(float chargeAmmount)
+        public void recharge(int chargeAmmount)
         {
             this.energy += chargeAmmount;
             if (this.energy > this.maxEnergy)
@@ -109,10 +109,11 @@ namespace Enhanced_Defence.PersonalShields
                 return !this.wearer.Dead && !this.wearer.Downed && (!this.wearer.IsPrisonerOfColony || (this.wearer.BrokenStateDef != null && this.wearer.BrokenStateDef == BrokenStateDefOf.Berserk)) && ((this.wearer.playerController != null && this.wearer.playerController.Drafted) || this.wearer.Faction.HostileTo(Faction.OfColony) || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks);
             }
         }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<float>(ref this.energy, "energy", 0f, false);
+            Scribe_Values.LookValue<int>(ref this.energy, "energy", 0, false);
             //Scribe_Values.LookValue<int>(ref this.ticksToReset, "ticksToReset", -1, false);
             Scribe_Values.LookValue<int>(ref this.lastKeepDisplayTick, "lastKeepDisplayTick", 0, false);
             Scribe_Values.LookValue<ShieldState>(ref this.shieldState, "shieldState", ShieldState.Resetting, false);
@@ -132,7 +133,7 @@ namespace Enhanced_Defence.PersonalShields
             base.Tick();
             if (this.wearer == null)
             {
-                this.energy = 0f;
+                this.energy = 0;
                 return;
             }
 
@@ -190,7 +191,7 @@ namespace Enhanced_Defence.PersonalShields
                     return false;
                 }
 
-                this.energy -= (float)dinfo.Amount;
+                this.energy -= dinfo.Amount;
 
                 /*if (dinfo.Def == DamageDefOf.EMP)
                 {
@@ -238,7 +239,7 @@ namespace Enhanced_Defence.PersonalShields
                 Vector3 loc = this.wearer.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
                 MoteThrower.ThrowDustPuff(loc, Rand.Range(0.8f, 1.2f));
             }
-            this.energy = 0f;
+            this.energy = 0;
             //this.ticksToReset = this.StartingTicksToReset;
         }
 
@@ -291,8 +292,6 @@ namespace Enhanced_Defence.PersonalShields
             //Properties
             public override float Width { get { return 140; } }
 
-
-
             public override GizmoResult GizmoOnGUI(UnityEngine.Vector2 topLeft)
             {
                 Rect overRect = new Rect(topLeft.x, topLeft.y, Width, Height);
@@ -334,6 +333,15 @@ namespace Enhanced_Defence.PersonalShields
         public override bool AllowVerbCast(IntVec3 root, TargetInfo targ)
         {
             return true;
+        }
+
+        public bool isCharged()
+        {
+            if (this.energy >= this.maxEnergy)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
