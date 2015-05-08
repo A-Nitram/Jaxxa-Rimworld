@@ -5,7 +5,8 @@
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <targetVersion>Alpha 10</targetVersion>
   <description>
-  		WORK IN PROGRESS, NOT RELEASE READY, DO NOT USE
+  		WORK IN PROGRESS, This module is at an Alpha Stage.
+		It shouldn't crash the game (any more), but is still very much a work in progress, so feel free to try it and let me know what you think and what direction you think it should go it.
 		
 	Requires: ED-Core
 Work in Progress, May eventually add Vehicles.
