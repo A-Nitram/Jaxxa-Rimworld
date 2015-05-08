@@ -33,8 +33,12 @@
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
 		<size>(3,3)</size>
 		<costList>
-			<Steel>400</Steel>
+			<Steel>100</Steel>
 		</costList>
+		<costStuffCount>500</costStuffCount>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
 		<graphicOverdraw>false</graphicOverdraw>
 		<comps>
 			<li>
