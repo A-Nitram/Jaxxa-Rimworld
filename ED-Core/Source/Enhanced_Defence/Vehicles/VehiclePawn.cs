@@ -44,48 +44,52 @@ namespace Enhanced_Defence.Vehicles
 
         public override void Tick()
         {
+
+            if (DebugSettings.noAnimals && this.RaceProps.Animal)
             {
-                if (DebugSettings.noAnimals && this.RaceProps.Animal)
-                {
-                    this.Destroy(DestroyMode.Vanish);
-                }
-                else
-                {
-                    if (!this.stances.FullBodyBusy)
-                    {
-                        this.pather.PatherTick();
-                    }
-                    this.drawer.DrawTrackerTick();
-                    this.ageTracker.AgeTick();
-                    this.health.HealthTick();
-                    this.stances.StanceTrackerTick();
-                    this.mindState.MindTick();
-                    if (this.equipment != null)
-                        this.equipment.EquipmentTrackerTick();
-                    if (this.apparel != null)
-                        this.apparel.ApparelTrackerTick();
-                    if (this.jobs != null)
-                        this.jobs.JobTrackerTick();
-                    if (this.carryHands != null)
-                        this.carryHands.CarryHandsTick();
-                    if (this.talker != null)
-                        this.talker.TalkTrackerTick();
-                    this.needs.NeedsTrackerTick();
-                    if (this.caller != null)
-                        this.caller.CallTrackerTick();
-                    if (this.skills != null)
-                        this.skills.SkillsTick();
-                    if (this.playerController == null)
-                        return;
-                    this.playerController.PlayerControllerTick();
-                }
+                this.Destroy(DestroyMode.Vanish);
             }
+            else
+            {
+                if (!this.stances.FullBodyBusy)
+                {
+                    this.pather.PatherTick();
+                }
+                this.drawer.DrawTrackerTick();
+                this.ageTracker.AgeTick();
+                this.health.HealthTick();
+                this.stances.StanceTrackerTick();
+                this.mindState.MindTick();
+                if (this.equipment != null)
+                    this.equipment.EquipmentTrackerTick();
+                if (this.apparel != null)
+                    this.apparel.ApparelTrackerTick();
+                if (this.jobs != null)
+                    this.jobs.JobTrackerTick();
+                if (this.carryHands != null)
+                    this.carryHands.CarryHandsTick();
+                if (this.talker != null)
+                    this.talker.TalkTrackerTick();
+                this.needs.NeedsTrackerTick();
+                if (this.caller != null)
+                    this.caller.CallTrackerTick();
+                if (this.skills != null)
+                    this.skills.SkillsTick();
+                if (this.playerController == null)
+                    return;
+                this.playerController.PlayerControllerTick();
+            }
+
 
             //base.Tick();
             if (this.listOfCrewPawns.Count == 0)
             {
                 DamageInfo temp = new DamageInfo(DamageDefOf.Stun, 1, this);
                 this.stances.stunner.Notify_DamageApplied(temp, true);
+            }
+            if (!this.playerController.Drafted)
+            {
+                this.playerController.Drafted = true;
             }
         }
 
