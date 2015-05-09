@@ -27,5 +27,7 @@ namespace Enhanced_Defence.Shields
         public float colourRed;
         public float colourGreen;
         public float colourBlue;
+
+        public List<string> SIFBuildings;
     }
 }

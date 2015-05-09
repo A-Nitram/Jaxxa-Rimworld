@@ -68,7 +68,7 @@ namespace Enhanced_Defence.Shields
         //Ratio of lost power per damage
         private const float powerToDamage = 1f;
 
-        static List<string> validBuildings;
+        public List<string> SIFBuildings;
 
         Material currentMatrialColour;
 
@@ -176,7 +176,7 @@ namespace Enhanced_Defence.Shields
         #region Setup
 
         //Constructor
-        public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldInterceptDropPod, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue)
+        public ShieldField(Building_Shield shieldBuilding, IntVec3 pos, int shieldMaxShieldStrength, int shieldInitialShieldStrength, int shieldShieldRadius, int shieldRechargeTickDelay, int shieldRecoverWarmup, bool shieldBlockIndirect, bool shieldBlockDirect, bool shieldFireSupression, bool shieldInterceptDropPod, bool shieldStructuralIntegrityMode, float colourRed, float colourGreen, float colourBlue, List<string> SIFBuildings)
         {
             this.shieldBuilding = shieldBuilding;
             position = pos;
@@ -199,7 +199,8 @@ namespace Enhanced_Defence.Shields
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
 
-            ShieldField.setupValidBuildings();
+            this.SIFBuildings = SIFBuildings;
+            //this.setupValidBuildings();
         }
 
         //Blank constructor required by scribes
@@ -208,11 +209,17 @@ namespace Enhanced_Defence.Shields
 
         }
 
-        static public void setupValidBuildings()
+        /*
+        public void setupValidBuildings()
         {
-            if (ShieldField.validBuildings == null)
+            if (this.validBuildings == null)
             {
-                ShieldField.validBuildings = new List<string>();
+                this.validBuildings = new List<string>();
+
+                foreach (string building in shieldBuilding.SIFBuildings)
+                {
+                    this.validBuildings.Add(building);
+                }
 
                 //if (building.def.label.Contains("embrasure"))
                 //if (building.def.defName.Contains("Embrasure"))
@@ -221,16 +228,15 @@ namespace Enhanced_Defence.Shields
                 //ShieldField.validBuildings.Add("Door");
                 //ShieldField.validBuildings.Add("Autodoor");
                 //ShieldField.validBuildings.Add("Wall");
+                //ShieldField.validBuildings.Add("Steel Wall");
                 //ShieldField.validBuildings.Add("WallConduit");
-                ShieldField.validBuildings.Add("Sandbags");
+                //ShieldField.validBuildings.Add("Sandbags");
 
                 //Embrasures
                 //ShieldField.validBuildings.Add("Embrasure");
                 //ShieldField.validBuildings.Add("EmbrasureConduit");
-
-
             }
-        }
+        }*/
 
         #endregion
 
@@ -485,6 +491,7 @@ namespace Enhanced_Defence.Shields
                 }
             }
         }
+
         private void supressFire(bool flag_fireSupression)
         {
             if (this.shieldFireSupression && flag_fireSupression && (tick % FIRE_SUPRESSION_TICK_DELAY == 0))
@@ -626,9 +633,9 @@ namespace Enhanced_Defence.Shields
 
         public bool isBuildingValid(Thing currentBuilding)
         {
-            if (ShieldField.validBuildings != null)
+            if (this.SIFBuildings != null)
             {
-                if (validBuildings.Contains(currentBuilding.def.defName))
+                if (SIFBuildings.Contains(currentBuilding.def.defName))
                 {
                     return true;
                 }
@@ -637,7 +644,6 @@ namespace Enhanced_Defence.Shields
             {
                 Log.Error("ShieldField.validBuildings Not set up properly");
             }
-
             
             //if (currentBuilding.def.eType == EntityType.Wall || currentBuilding.def.eType == EntityType.Door)
             //{
@@ -769,7 +775,11 @@ namespace Enhanced_Defence.Shields
             this.shieldCurrentStrength -= (int)(((float)damage) * powerToDamage);
         }
 
-
+        /// <summary>
+        /// Checks if the projectile will land within the shield or pass over.
+        /// </summary>
+        /// <param name="projectile">The specific projectile that is being checked</param>
+        /// <returns>True if the projectile will land close, false if it will be far away.</returns>
         public bool WillTargetLandInRange(Projectile projectile)
         {
             Vector3 targetLocation = GetTargetLocationFromProjectile(projectile);

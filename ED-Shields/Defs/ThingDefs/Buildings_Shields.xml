@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Things>
 
-  <ThingDef Name="BuildingBase" Abstract="True">
-    <category>Building</category>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-    <selectable>true</selectable>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <repairEffect>Repair</repairEffect>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <filthLeaving>BuildingRubble</filthLeaving>
-  </ThingDef>
-	
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+	</ThingDef>
+
 	<ThingDef Class="Enhanced_Defence.Shields.ShieldBuildingThingDef" ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
 		<category>Building</category>
 		<altitudeLayer>BuildingTall</altitudeLayer>
@@ -42,7 +42,7 @@
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
 	</ThingDef>
-	
+
 	<ThingDef Class="Enhanced_Defence.Shields.ShieldBuildingThingDef" ParentName="ShieldBase">
 		<defName>Building_ShieldStandard</defName>
 		<label>Standard Shield</label>
@@ -58,29 +58,29 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 		</comps>
-	
+
 		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>8</shieldShieldRadius>
 
 		<shieldPowerRequiredCharging>-1500</shieldPowerRequiredCharging>
 		<shieldPowerRequiredSustaining>-1000</shieldPowerRequiredSustaining>
-		
+
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
 		<shieldInterceptDropPod>false</shieldInterceptDropPod>
-		
+
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
-		
+
 		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
 		<shieldRecoverWarmup>900</shieldRecoverWarmup>
-		
+
 		<colourRed>0.0</colourRed>
 		<colourGreen>0.3764705882352941</colourGreen>
 		<colourBlue>0.7294117647058823</colourBlue>
 	</ThingDef>
-	
+
 	<ThingDef Class="Enhanced_Defence.Shields.ShieldBuildingThingDef" ParentName="ShieldBase">
 		<defName>Building_ShieldSmall</defName>
 		<label>Small shield</label>
@@ -102,30 +102,30 @@
 			</li>
 		</comps>
 		<specialDisplayRadius>2</specialDisplayRadius>
-		
+
 		<shieldMaxShieldStrength>1000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>2</shieldShieldRadius>
 
 		<shieldPowerRequiredCharging>-1000</shieldPowerRequiredCharging>
 		<shieldPowerRequiredSustaining>-500</shieldPowerRequiredSustaining>
-		
+
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
 		<shieldInterceptDropPod>false</shieldInterceptDropPod>
-		
+
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
-		
+
 		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
 		<shieldRecoverWarmup>900</shieldRecoverWarmup>
-		
+
 		<colourRed>0.0</colourRed>
 		<colourGreen>0.3764705882352941</colourGreen>
 		<colourBlue>0.7294117647058823</colourBlue>
 	</ThingDef>
-  
-  	<ThingDef Class="Enhanced_Defence.Shields.ShieldBuildingThingDef" ParentName="ShieldBase">
+
+	<ThingDef Class="Enhanced_Defence.Shields.ShieldBuildingThingDef" ParentName="ShieldBase">
 		<defName>Building_Shield_Fortress</defName>
 		<label>Fortress shield</label>
 		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.</description>
@@ -142,24 +142,24 @@
 		</comps>
 		<size>(2,2)</size>
 		<specialDisplayRadius>20</specialDisplayRadius>
-		
+
 		<shieldMaxShieldStrength>8000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>20</shieldShieldRadius>
 
 		<shieldPowerRequiredCharging>-5000</shieldPowerRequiredCharging>
 		<shieldPowerRequiredSustaining>-2500</shieldPowerRequiredSustaining>
-		
+
 		<shieldBlockIndirect>true</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>false</shieldFireSupression>
 		<shieldInterceptDropPod>true</shieldInterceptDropPod>
-		
+
 		<shieldStructuralIntegrityMode>false</shieldStructuralIntegrityMode>
-		
+
 		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
 		<shieldRecoverWarmup>900</shieldRecoverWarmup>
-		
+
 		<colourRed>0.0</colourRed>
 		<colourGreen>1.0</colourGreen>
 		<colourBlue>0.5</colourBlue>
@@ -186,20 +186,28 @@
 
 		<shieldPowerRequiredCharging>-2500</shieldPowerRequiredCharging>
 		<shieldPowerRequiredSustaining>-1500</shieldPowerRequiredSustaining>
-		
+
 		<shieldBlockIndirect>false</shieldBlockIndirect>
 		<shieldBlockDirect>true</shieldBlockDirect>
 		<shieldFireSupression>true</shieldFireSupression>
 		<shieldInterceptDropPod>false</shieldInterceptDropPod>
-		
+
 		<shieldStructuralIntegrityMode>true</shieldStructuralIntegrityMode>
-		
+
 		<shieldRechargeTickDelay>15</shieldRechargeTickDelay>
 		<shieldRecoverWarmup>900</shieldRecoverWarmup>
-		
+
 		<colourRed>0.0</colourRed>
 		<colourGreen>0.3764705882352941</colourGreen>
 		<colourBlue>0.7294117647058823</colourBlue>
+
+		<SIFBuildings>
+			<li>Sandbags</li>
+			<li>Wall</li>
+			<li>Door</li>
+			<li>Autodoor</li>
+			<li>Embrasure</li>
+		</SIFBuildings>
 	</ThingDef>
-		
+
 </Things>

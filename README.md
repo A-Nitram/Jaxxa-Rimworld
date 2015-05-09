@@ -181,6 +181,20 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 --SurgicalCut
 0.17.1
 -Fix to OmniGel giving potatoes
+0.18.0
+-Initial Alpha of Vehicle module
+-Fix for Personal Shields
+--Not recognising when charger is disabled
+--Attempting to charge full shields
+-Laser Filler now works on Area of Effect
+-Removed EmbrasureConduit 
+-SIF Shielded buildings are now read in from XML to be easily edited.
+--Included by default are:
+---Sandbags
+---Wall
+---Door
+---Autodoor
+---Embrasure
 ~~~
 
 ##License:

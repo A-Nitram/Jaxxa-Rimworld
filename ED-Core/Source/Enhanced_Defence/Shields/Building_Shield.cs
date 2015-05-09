@@ -62,11 +62,13 @@ namespace Enhanced_Defence.Shields
         public float colourGreen;
         public float colourBlue;
 
+        public List<string> SIFBuildings;
 
         ShieldField shieldField;
         CompPowerTrader power;
         //Prepared data
         private ShieldBlendingParticle[] sparksParticle = new ShieldBlendingParticle[3];
+
 
         #endregion
 
@@ -120,6 +122,9 @@ namespace Enhanced_Defence.Shields
                 colourRed = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourRed;
                 colourGreen = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourGreen;
                 colourBlue = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).colourBlue;
+
+                SIFBuildings = ((Enhanced_Defence.Shields.ShieldBuildingThingDef)def).SIFBuildings;
+                //Log.Error("Count:" + SIFBuildings.Count);
             }
             else
             {
@@ -128,10 +133,10 @@ namespace Enhanced_Defence.Shields
 
             if (shieldField == null)
             {
-                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue, this.SIFBuildings);
             }
 
-            ShieldField.setupValidBuildings();
+            //shieldField.setupValidBuildings();
 
         }
 
@@ -180,7 +185,7 @@ namespace Enhanced_Defence.Shields
             else
             {
                 //Log.Message("shieldField is null in tick event, creating new one.");
-                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue);
+                shieldField = new ShieldField(this, base.Position, shieldMaxShieldStrength, shieldInitialShieldStrength, shieldShieldRadius, shieldRechargeTickDelay, shieldRecoverWarmup, shieldBlockIndirect, shieldBlockDirect, shieldFireSupression, shieldInterceptDropPod, shieldStructuralIntegrityMode, colourRed, colourGreen, colourBlue, this.SIFBuildings);
             }
 
         }
@@ -229,10 +234,12 @@ namespace Enhanced_Defence.Shields
                 DrawShieldField();
             }
         }
+
         public override void DrawExtraSelectionOverlays()
         {
             GenDraw.DrawRadiusRing(base.Position, shieldField.shieldShieldRadius);
         }
+
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -256,6 +263,7 @@ namespace Enhanced_Defence.Shields
 
             return stringBuilder.ToString();
         }
+
         //Saving game
         public override void ExposeData()
         {
@@ -272,6 +280,9 @@ namespace Enhanced_Defence.Shields
 
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");
             Scribe_Values.LookValue(ref flag_showVisually, "flag_showVisually");
+            
+            Scribe_Collections.LookList<String>(ref SIFBuildings, "SIFBuildings", LookMode.Deep, (object)null);
+            
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
