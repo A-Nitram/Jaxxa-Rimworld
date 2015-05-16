@@ -195,6 +195,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ---Door
 ---Autodoor
 ---Embrasure
+0.18.1
+-Fix for error in loading / saving SIF shields
 ~~~
 
 ##License:

@@ -68,7 +68,7 @@ namespace Enhanced_Defence.Shields
         //Ratio of lost power per damage
         private const float powerToDamage = 1f;
 
-        public List<string> SIFBuildings;
+        //public List<string> SIFBuildings;
 
         Material currentMatrialColour;
 
@@ -199,7 +199,7 @@ namespace Enhanced_Defence.Shields
             this.colourGreen = colourGreen;
             this.colourBlue = colourBlue;
 
-            this.SIFBuildings = SIFBuildings;
+            //this.SIFBuildings = SIFBuildings;
             //this.setupValidBuildings();
         }
 
@@ -633,9 +633,9 @@ namespace Enhanced_Defence.Shields
 
         public bool isBuildingValid(Thing currentBuilding)
         {
-            if (this.SIFBuildings != null)
+            if (this.shieldBuilding.SIFBuildings != null)
             {
-                if (SIFBuildings.Contains(currentBuilding.def.defName))
+                if (this.shieldBuilding.SIFBuildings.Contains(currentBuilding.def.defName))
                 {
                     return true;
                 }
@@ -761,6 +761,8 @@ namespace Enhanced_Defence.Shields
             Scribe_Values.LookValue<float>(ref this.colourRed, "colourRed", 0, false);
             Scribe_Values.LookValue<float>(ref this.colourGreen, "colourGreen", 0, false);
             Scribe_Values.LookValue<float>(ref this.colourBlue, "colourBlue", 0, false);
+
+            Scribe_References.LookReference<Enhanced_Defence.Shields.Building_Shield>(ref this.shieldBuilding, "shieldBuilding");
         }
 
         /// <summary>

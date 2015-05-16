@@ -281,8 +281,7 @@ namespace Enhanced_Defence.Shields
             Scribe_Values.LookValue(ref flag_shieldRepairMode, "flag_shieldRepairMode");
             Scribe_Values.LookValue(ref flag_showVisually, "flag_showVisually");
             
-            Scribe_Collections.LookList<String>(ref SIFBuildings, "SIFBuildings", LookMode.Deep, (object)null);
-            
+            //Scribe_Collections.LookList<String>(ref SIFBuildings, "SIFBuildings", LookMode.Deep, (object)null);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
