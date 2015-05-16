@@ -477,7 +477,7 @@ namespace Enhanced_Defence.Shields
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.SwitchVisual();
                     act.icon = UI_SHOW_OFF;
-                    act.defaultLabel = "Repair Mode";
+                    act.defaultLabel = "Show Visually";
                     act.defaultDesc = "Hide";
                     act.activateSound = SoundDef.Named("Click");
                     //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
