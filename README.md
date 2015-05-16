@@ -197,6 +197,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ---Embrasure
 0.18.1
 -Fix for error in loading / saving SIF shields
+0.18.2
+-Fix for Show Visually / Repair mode
 ~~~
 
 ##License:
