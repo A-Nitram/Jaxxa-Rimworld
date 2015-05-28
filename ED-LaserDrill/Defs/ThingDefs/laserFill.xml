@@ -16,8 +16,10 @@
 		<defName>LaserFiller</defName>
 		<label>Laser Filler</label>
 		<thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
-		<graphicPath>Things/Buildings/LaserFiller</graphicPath>
+    <graphicData>
+		<texPath>Things/Buildings/LaserFiller</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -39,7 +41,6 @@
 		<stuffCategories>
 			<li>Stony</li>
 		</stuffCategories>
-		<graphicOverdraw>false</graphicOverdraw>
 		<comps>
 			<li>
 				<compClass>CompPowerTrader</compClass>
@@ -56,7 +57,6 @@
 			<soundAmbient>GeothermalPlant_Ambience</soundAmbient>
 			<ignoreNeedsPower>true</ignoreNeedsPower>
 		</building>
-		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisite>Research_LaserFiller</researchPrerequisite>
 	</ThingDef>
 

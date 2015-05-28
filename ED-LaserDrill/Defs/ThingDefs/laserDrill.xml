@@ -17,8 +17,10 @@
     <label>Laser Drill</label>
     <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserDrill</thingClass>
 	<researchPrerequisite>Research_LaserDrill</researchPrerequisite>
-    <graphicPath>Things/Buildings/LaserDrill</graphicPath>
+    <graphicData>
+    <texPath>Things/Buildings/LaserDrill</texPath>
     <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
@@ -45,7 +47,6 @@
       <Steel>500</Steel>
       <Uranium>100</Uranium>
     </costList>
-    <graphicOverdraw>false</graphicOverdraw>
     <hasInteractionCell>False</hasInteractionCell>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
