@@ -3,7 +3,7 @@
   <name>ED-DeepStrike</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 10</targetVersion>
+  <targetVersion>Alpha 11</targetVersion>
   <description>
 	Requires: ED-Core, ED-AutoLoader
 This adds a Drop Pod system to the game, allowing you to build a command building to deploy your Colonists and resources to any point on the map almost instantly.

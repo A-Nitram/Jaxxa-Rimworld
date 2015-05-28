@@ -17,8 +17,10 @@
 		<label>Orbital Command</label>
 		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-		<graphicPath>Things/Buildings/OrbitalCommand</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Buildings/OrbitalCommand</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -50,7 +52,6 @@
 			<Steel>500</Steel>
 			<Uranium>20</Uranium>
 		</costList>
-		<graphicOverdraw>false</graphicOverdraw>
 		<hasInteractionCell>False</hasInteractionCell>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -63,8 +64,10 @@
 		<label>Orbital Beacon</label>
 		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
-		<graphicPath>Things/Buildings/OrbitalRelay</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Buildings/OrbitalRelay</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -88,7 +91,6 @@
 		<size>(1,1)</size>
 		<costList>
 		</costList>
-		<graphicOverdraw>false</graphicOverdraw>
 		<hasInteractionCell>False</hasInteractionCell>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
