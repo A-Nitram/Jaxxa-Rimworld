@@ -20,9 +20,18 @@
 		<description>An impassable wall. Capable of holding up a roof.</description>
 		<!--<graphicPathFolderAppearances>Things/Building/Linked/Wall</graphicPathFolderAppearances>-->
 		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
-		<blueprintgraphicPath>Things/Building/Linked/Wall_Blueprint_Atlas</blueprintgraphicPath>
-		<graphicPath>Things/Building/Embrasure</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Building/Embrasure</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<linkType>CornerFiller</linkType>      
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+		</graphicData>
+    <blueprintGraphicData>
+      <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+    </blueprintGraphicData>
 		<statBases>
 			<MaxHitPoints>225</MaxHitPoints>
 			<WorkToMake>100</WorkToMake>
@@ -58,11 +67,6 @@
 				<multiplier>3</multiplier>
 			</li>
 		</damageMultipliers>
-		<linkDrawerType>CornerFiller</linkDrawerType>
-		<linkFlags>
-			<li>Wall</li>
-			<li>Rock</li>
-		</linkFlags>
 		<designationHotKey>B</designationHotKey>
 	</ThingDef>
 
