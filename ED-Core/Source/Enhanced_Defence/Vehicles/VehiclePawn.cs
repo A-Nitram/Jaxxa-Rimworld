@@ -24,7 +24,7 @@ namespace Enhanced_Defence.Vehicles
 
         public VehiclePawn()
         {
-            this.verbTracker = new VerbTracker((VerbOwner)this);
+            this.verbTracker = new VerbTracker(this);
             this.drawer = new Pawn_DrawTracker(this);
             this.stances = new Pawn_StanceTracker(this);
             this.natives = new Pawn_NativeVerbs(this);

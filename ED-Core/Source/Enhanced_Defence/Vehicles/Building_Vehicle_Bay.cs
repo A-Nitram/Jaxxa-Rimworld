@@ -57,7 +57,7 @@ namespace Enhanced_Defence.Vehicles
 
         public static Thing Spawn(Thing newThing, IntVec3 loc, Rot4 rot)
         {
-            GenSpawn.WipeExistingThings(loc, rot, (EntityDef)newThing.def, false);
+            GenSpawn.WipeExistingThings(loc, rot, (BuildableDef)newThing.def, false);
             newThing.Rotation = rot;
             newThing.SetPositionDirect(IntVec3.Invalid);
             newThing.Position = loc;

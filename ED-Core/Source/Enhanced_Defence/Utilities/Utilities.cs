@@ -38,7 +38,7 @@ namespace Enhanced_Defence.Utilities
                     //if (tempThing is ThingWithComponents)
                     //{
                     //if (tempThing.def == ThingDefOf.Metal) ;
-                    if (tempThing.def.category == EntityCategory.Item)
+                    if (tempThing.def.category == ThingCategory.Item)
                     {
                         thingAmmo = tempThing;
                     }

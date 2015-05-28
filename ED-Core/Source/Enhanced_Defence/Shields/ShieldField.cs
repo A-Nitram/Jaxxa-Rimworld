@@ -11,7 +11,7 @@ using Enhanced_Defence.ShieldUtils;
 
 namespace Enhanced_Defence.Shields
 {
-    class ShieldField : Saveable
+    class ShieldField : IExposable
     {
 
         #region Variables

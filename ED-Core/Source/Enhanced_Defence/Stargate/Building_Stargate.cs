@@ -62,11 +62,11 @@ namespace Enhanced_Defence.Stargate
             UI_POWER_UP = ContentFinder<Texture2D>.Get("UI/PowerUp", true);
             UI_POWER_DOWN = ContentFinder<Texture2D>.Get("UI/PowerDown", true);
 
-            GraphicRequest requestActive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate-Active", def.shader, new IntVec2(3, 3), Color.white, Color.white);
+            GraphicRequest requestActive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate-Active", def.graphic.Shader, new Vector2(3, 3), Color.white, Color.white);
             graphicActive = new Graphic_Single();
             graphicActive.Init(requestActive);
 
-            GraphicRequest requestInactive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate", def.shader, new IntVec2(3, 3), Color.white, Color.white);
+            GraphicRequest requestInactive = new GraphicRequest(Type.GetType("Graphic_Single"), "Things/Buildings/Stargate", def.graphic.Shader, new Vector2(3, 3), Color.white, Color.white);
             graphicInactive = new Graphic_Single();
             graphicInactive.Init(requestInactive);
 
@@ -379,7 +379,7 @@ namespace Enhanced_Defence.Stargate
             }
             else
             {
-                Messages.Message("Insufficient Power to add Resources");
+                Messages.Message("Insufficient Power to add Resources", MessageSound.RejectInput);
             }
 
         }
@@ -412,7 +412,7 @@ namespace Enhanced_Defence.Stargate
             }
             else
             {
-                Messages.Message("Insufficient Power to add Colonist");
+                Messages.Message("Insufficient Power to add Colonist", MessageSound.RejectInput);
             }
         }
 
@@ -423,7 +423,7 @@ namespace Enhanced_Defence.Stargate
             {
                 if (System.IO.File.Exists(this.FileLocationPrimary))
                 {
-                    Messages.Message("Please Recall Offworld Teams First", MessageSound.Reject);
+                    Messages.Message("Please Recall Offworld Teams First", MessageSound.RejectInput);
                 }
                 else
                 {
@@ -439,7 +439,7 @@ namespace Enhanced_Defence.Stargate
             }
             else
             {
-                Messages.Message("Insufficient power to establish connection.", MessageSound.Reject);
+                Messages.Message("Insufficient power to establish connection.", MessageSound.RejectInput);
             }
         }
 
@@ -479,7 +479,7 @@ namespace Enhanced_Defence.Stargate
             else
             {
 
-                Messages.Message("No Offworld Teams Found", MessageSound.Reject);
+                Messages.Message("No Offworld Teams Found", MessageSound.RejectInput);
                 //Log.Message("Building_Stargate.StargateIncomingWormhole() unable to find file at FileLocationPrimary");
             }
         }

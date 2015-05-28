@@ -181,7 +181,7 @@ namespace Enhanced_Defence.DropPod
 
             if (Find.RoofGrid.Roofed(this.Position))
             {
-                Messages.Message("Do you really think it is a good idea to use DropPods indoors?", MessageSound.Reject);
+                Messages.Message("Do you really think it is a good idea to use DropPods indoors?", MessageSound.RejectInput);
             }
             else
             {
@@ -227,7 +227,7 @@ namespace Enhanced_Defence.DropPod
             }
             else
             {
-                Messages.Message("Insufficient Power to add Resources");
+                Messages.Message("Insufficient Power to add Resources",MessageSound.RejectInput);
             }
         }
 
@@ -259,7 +259,7 @@ namespace Enhanced_Defence.DropPod
             }
             else
             {
-                Messages.Message("Insufficient Power to add Colonist");
+                Messages.Message("Insufficient Power to add Colonist", MessageSound.RejectInput);
             }
         }
 

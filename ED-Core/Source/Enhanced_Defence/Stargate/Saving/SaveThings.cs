@@ -11,7 +11,7 @@ namespace Enhanced_Defence.Stargate.Saving
     {
         public static void save(List<Thing> thingsToSave, string fileLocation, Thing source)
         {
-            Scribe.InitWriting(fileLocation);
+            Scribe.InitWriting(fileLocation,"Stargate");
 
             //Log.Message("Starting Save");
             //Save Pawn
@@ -59,7 +59,7 @@ namespace Enhanced_Defence.Stargate.Saving
 
 
             //Log.Message("ResolveAllCrossReferences");
-            LoadCrossRefHandler.ResolveAllCrossReferences();
+            CrossRefResolver.ResolveAllCrossReferences();
 
 
             //Log.Message("DoAllPostLoadInits");
