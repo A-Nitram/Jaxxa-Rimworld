@@ -27,8 +27,10 @@
 		<defName>OmniGel</defName>
 		<label>Omni Gel</label>
 		<description>For refining into things.</description>
-		<graphicPath>Things/Items/PurpleBucket</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Items/PurpleBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<stackLimit>500</stackLimit>

@@ -1,33 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Plants>
 
-  <ThingDef Name="PlantBase" Abstract="True">
-    <category>Plant</category>
-    <thingClass>Plant</thingClass>
-    <altitudeLayer>LowPlant</altitudeLayer>
-    <useHitPoints>True</useHitPoints>
-    <statBases>
-      <Flammability>0.8</Flammability>
-    </statBases>
-    <tickerType>Rare</tickerType>
-    <selectable>False</selectable>
-    <neverMultiSelect>True</neverMultiSelect>
-    <drawerType>MapMeshOnly</drawerType>
-    <graphicShaderType>CutoutPlant</graphicShaderType>
-    <plant>
-      <harvestDestroys>true</harvestDestroys>
-      <soundHarvesting>Harvest_Standard</soundHarvesting>
-      <soundHarvestFinish>Harvest_Standard_Finish</soundHarvestFinish>
-      <sowWork>150</sowWork>
-      <fertilityMin>0.5</fertilityMin>
-      <fertilityFactorGrowthRate>1.0</fertilityFactorGrowthRate>
-      <topWindExposure>0.1</topWindExposure>
-      <visualSizeRange>
-        <min>0.3</min>
-        <max>1.00</max>
-      </visualSizeRange>
-    </plant>
-  </ThingDef>
+
+	<ThingDef Name="PlantBase" Abstract="True">
+		<category>Plant</category>
+		<thingClass>Plant</thingClass>
+		<altitudeLayer>LowPlant</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<Flammability>0.8</Flammability>
+		</statBases>
+		<tickerType>Long</tickerType>
+		<selectable>False</selectable>
+		<neverMultiSelect>True</neverMultiSelect>
+		<drawerType>MapMeshOnly</drawerType>
+		<graphicData>
+			<shaderType>CutoutPlant</shaderType>
+		</graphicData>
+		<plant>
+			<harvestDestroys>true</harvestDestroys>
+			<soundHarvesting>Harvest_Standard</soundHarvesting>
+			<soundHarvestFinish>Harvest_Standard_Finish</soundHarvestFinish>
+			<harvestWork>150</harvestWork>
+			<sowWork>150</sowWork>
+			<fertilityMin>0.5</fertilityMin>
+			<fertilityFactorGrowthRate>1.0</fertilityFactorGrowthRate>
+			<topWindExposure>0.1</topWindExposure>
+			<visualSizeRange>
+				<min>0.3</min>
+				<max>1.00</max>
+			</visualSizeRange>
+		</plant>
+	</ThingDef>
 
 	<!--=========================== OmniGel ==============================-->
 
@@ -35,8 +39,10 @@
 		<defName>PlantOmniGel</defName>
 		<label>OmniGel Plant</label>
 		<description>An OmniGel plant.</description>
-		<graphicPath>Things/Items/GelPlant</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Items/GelPlant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<plant>
