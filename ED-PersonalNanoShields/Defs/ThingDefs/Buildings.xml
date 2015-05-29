@@ -18,7 +18,6 @@
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<blockLight>true</blockLight>
 		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicOverdraw>false</graphicOverdraw>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<fillPercent>1</fillPercent>
 		<size>(1,1)</size>
@@ -50,8 +49,10 @@
 		<description>Supplies and recharges Nanite Shield Modulators to colonists to protect them from injury.</description>
 		<thingClass>Enhanced_Defence.PersonalShields.Building_Pawn_Upgrader</thingClass>
 		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
-		<graphicPath>Things/ShieldBuilding_Red</graphicPath>
+    <graphicData>
+		<texPath>Things/ShieldBuilding_Red</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
 		<specialDisplayRadius>2</specialDisplayRadius>
 		<comps>
