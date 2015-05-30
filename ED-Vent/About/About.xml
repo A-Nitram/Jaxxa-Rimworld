@@ -3,7 +3,6 @@
   <name>ED-Vent</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 10</targetVersion>
   <description>
 	Requires: ED-Core
 Adds a Vent System that allows you to Equalise the temperature between two Rooms.

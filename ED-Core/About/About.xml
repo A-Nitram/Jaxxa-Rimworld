@@ -3,7 +3,6 @@
   <name>ED-Core</name>
   <author>Jaxxa</author>
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <targetVersion>Alpha 10</targetVersion>
   <description>
 This is the Core module of Enhanced Defence. It contains all of the .dll code that can be used by the other modules.
 This will usually have to be the first part that you activate.
