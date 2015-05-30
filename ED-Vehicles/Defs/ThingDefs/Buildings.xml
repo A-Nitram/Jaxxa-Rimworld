@@ -17,8 +17,10 @@
 		<label>Vehicle Bay</label>
 		<description>Vehicle Bay</description>
 		<thingClass>Enhanced_Defence.Vehicles.Building_Vehicle_Bay</thingClass>
-		<graphicPath>Things/Buildings/Stargate</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/Buildings/Stargate</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Standable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -42,7 +44,6 @@
 			<Steel>2000</Steel>
 			<Uranium>500</Uranium>
 		</costList>
-		<graphicOverdraw>false</graphicOverdraw>
 		<hasInteractionCell>false</hasInteractionCell>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<designationCategory>Misc</designationCategory>

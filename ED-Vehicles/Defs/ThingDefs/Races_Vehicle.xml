@@ -31,7 +31,6 @@
 		<defName>Vehicle_APC</defName>
 		<label>Vehicle_APC</label>
 		<description>Heavy vehicle able to engage in combat or transport resources across the map.</description>
-		<graphicOverdraw>true</graphicOverdraw>
 		<targetHitChanceFactor>2.0</targetHitChanceFactor>
 		<statBases>
 			<MoveSpeed>7.00</MoveSpeed>
@@ -42,6 +41,7 @@
 			<ComfyTemperatureMax>250</ComfyTemperatureMax>
 		</statBases>
 		<race>
+			<graphicOverdraw>true</graphicOverdraw>
 			<intelligence>ToolUser</intelligence>
 			<mechanoid>true</mechanoid>
 			<needsRest>false</needsRest>
@@ -63,13 +63,13 @@
 			<soundAngry>Pawn_Mech_Centipede_Angry</soundAngry>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
-			<soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+			<soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>     
+			<shadowInfo>
+				<baseWidth>0.4</baseWidth>
+				<baseHeight>0.4</baseHeight>
+				<tallness>0.8</tallness>
+			</shadowInfo>
 		</race>
-		<graphicSunShadowInfo>
-			<baseWidth>0.6</baseWidth>
-			<baseHeight>0.6</baseHeight>
-			<tallness>0.8</tallness>
-		</graphicSunShadowInfo>
 	</ThingDef>
 
 </ThingDefs>
