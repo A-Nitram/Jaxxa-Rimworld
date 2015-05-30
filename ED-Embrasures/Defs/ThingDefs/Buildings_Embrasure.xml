@@ -12,63 +12,65 @@
 		<filthLeaving>BuildingRubble</filthLeaving>
 	</ThingDef>
 
-	<ThingDef ParentName="BuildingBase" Name="WallBase" Abstract="True">
-		<defName>Wall</defName>
-		<label>wall</label>
-		<thingClass>Building</thingClass>
-		<category>Building</category>
-		<description>An impassable wall. Capable of holding up a roof.</description>
-		<!--<graphicPathFolderAppearances>Things/Building/Linked/Wall</graphicPathFolderAppearances>-->
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
-		<graphicData>
-			<texPath>Things/Building/Embrasure</texPath>
-			<graphicClass>Graphic_Appearances</graphicClass>
-			<linkType>CornerFiller</linkType>      
-			<linkFlags>
-				<li>Wall</li>
-				<li>Rock</li>
-			</linkFlags>
-		</graphicData>
+
+  <ThingDef ParentName="BuildingBase" Name="WallBase" Abstract="True">
+    <defName>Wall</defName>
+    <label>wall</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An impassable wall. Capable of holding up a roof.</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/Wall</texPath>
+      <graphicClass>Graphic_Appearances</graphicClass>
+      <linkType>CornerFiller</linkType>
+      <linkFlags>
+        <li>Wall</li>
+        <li>Rock</li>
+      </linkFlags>
+    </graphicData>
     <blueprintGraphicData>
       <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
     </blueprintGraphicData>
-		<statBases>
-			<MaxHitPoints>225</MaxHitPoints>
-			<WorkToMake>100</WorkToMake>
-			<Flammability>1.0</Flammability>
-		</statBases>
-		<costStuffCount>6</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-			<li>Woody</li>
-			<li>Stony</li>
-		</stuffCategories>
-		<altitudeLayer>BuildingTall</altitudeLayer>
-		<passability>Impassable</passability>
-		<castEdgeShadows>true</castEdgeShadows>
-		<fillPercent>1</fillPercent>
-		<coversFloor>true</coversFloor>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-		<tickerType>Never</tickerType>
-		<rotatable>false</rotatable>
-		<selectable>true</selectable>
-		<neverMultiSelect>true</neverMultiSelect>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-		<holdsRoof>true</holdsRoof>
-		<designationCategory>Structure</designationCategory>
-		<staticSunShadowHeight>1.0</staticSunShadowHeight>
-		<blockLight>true</blockLight>
-		<building>
-			<ignoreNeedsPower>true</ignoreNeedsPower>
-		</building>
-		<damageMultipliers>
-			<li>
-				<damageDef>Bomb</damageDef>
-				<multiplier>3</multiplier>
-			</li>
-		</damageMultipliers>
-		<designationHotKey>B</designationHotKey>
-	</ThingDef>
+    <uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToMake>150</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costStuffCount>5</costStuffCount>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>BuildingTall</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <designationCategory>Structure</designationCategory>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <building>
+      <isInert>true</isInert>
+      <ignoreNeedsPower>true</ignoreNeedsPower>
+    </building>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>2</multiplier>
+      </li>
+    </damageMultipliers>
+    <designationHotKey>B</designationHotKey>
+  </ThingDef>
 
 	<ThingDef Name="Embrasure" ParentName="WallBase">
 		<defName>Embrasure</defName>
@@ -76,6 +78,10 @@
 		<description>An opening in the metal wall allows shooting and throwing grenades from the safety of your home.</description>
 		<fillPercent>0.99</fillPercent>
 		<uiIconPath>UI/Metal</uiIconPath>
+		<graphicData>
+			<texPath>Things/Building/Embrasure</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 	</ThingDef>
 
 </ThingDefs>
