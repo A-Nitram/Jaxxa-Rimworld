@@ -63,7 +63,7 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<designationCategory>Security</designationCategory>
 		<staticSunShadowHeight>0.3</staticSunShadowHeight>
-		<itemSurface>true</itemSurface>
+    <surfaceType>Item</surfaceType>
 		<placeWorkers>
 			<li>PlaceWorker_NextToHopperAccepter</li>
 		</placeWorkers>

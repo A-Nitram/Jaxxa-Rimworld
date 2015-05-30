@@ -39,7 +39,7 @@
 		<Passability>Impassable</Passability>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
-		<itemSurface>True</itemSurface>
+    <surfaceType>Item</surfaceType>
 		<constructEffect>ConstructMetal</constructEffect>
 		<recipes>
 			<li>Replicate_MK1_SlagFromOmniGel</li>
@@ -92,7 +92,7 @@
 		<Passability>Impassable</Passability>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
-		<itemSurface>True</itemSurface>
+    <surfaceType>Item</surfaceType>
 		<constructEffect>ConstructMetal</constructEffect>
 		<recipes>
 			<li>Replicate_MK2_SteelFromOmniGel</li>
@@ -145,7 +145,7 @@
 		<Passability>Impassable</Passability>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
-		<itemSurface>True</itemSurface>
+    <surfaceType>Item</surfaceType>
 		<constructEffect>ConstructMetal</constructEffect>
 		<recipes>
 			<li>Replicate_MK3_UraniumFromOmniGel</li>

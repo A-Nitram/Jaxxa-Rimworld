@@ -18,7 +18,6 @@
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<blockLight>true</blockLight>
 		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicOverdraw>false</graphicOverdraw>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<fillPercent>1</fillPercent>
 		<size>(1,1)</size>
@@ -49,8 +48,10 @@
 		<description>Creates shield field to protect important infrastructure.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldStandard_research</researchPrerequisite>
-		<graphicPath>Things/ShieldBuilding_Blue</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Blue</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<comps>
 			<li>
@@ -87,8 +88,10 @@
 		<description>Creates a smaller shield that allows people to stand on it.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldSmall_research</researchPrerequisite>
-		<graphicPath>Things/ShieldBuilding_Small_Blue</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Small_Blue</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Small_Blue</uiIconPath>
 		<passability>Standable</passability>
 		<costList>
@@ -131,8 +134,10 @@
 		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldFortress_research</researchPrerequisite>
-		<graphicPath>Things/ShieldBuilding_Green</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Green</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Green</uiIconPath>
 		<comps>
 			<li>
@@ -171,8 +176,10 @@
 		<description>Rather than creating a large circular shield this generator will create an small individual shield over each wall/door object.</description>
 		<thingClass>Enhanced_Defence.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldSIF_research</researchPrerequisite>
-		<graphicPath>Things/ShieldBuilding_Yellow</graphicPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Yellow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Yellow</uiIconPath>
 		<comps>
 			<li>
