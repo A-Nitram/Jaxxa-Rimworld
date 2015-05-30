@@ -10,11 +10,13 @@
 		<statBases>
 			<Flammability>0.8</Flammability>
 		</statBases>
-		<tickerType>Rare</tickerType>
+		<tickerType>Long</tickerType>
 		<selectable>False</selectable>
 		<neverMultiSelect>True</neverMultiSelect>
 		<drawerType>MapMeshOnly</drawerType>
-		<graphicShaderType>CutoutPlant</graphicShaderType>
+		<graphicData>
+			<shaderType>CutoutPlant</shaderType>
+		</graphicData>
 		<plant>
 			<harvestDestroys>true</harvestDestroys>
 			<soundHarvesting>Harvest_Standard</soundHarvesting>
@@ -46,14 +48,16 @@
 		<statBases>
 			<MaxHitPoints>120</MaxHitPoints>
 		</statBases>
-		<graphicPath>Things/Plant/Agave</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Agave</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowInfo>
+				<baseWidth>0.2</baseWidth>
+				<baseHeight>0.2</baseHeight>
+				<tallness>0.6</tallness>
+			</shadowInfo>
+		</graphicData>
 		<selectable>true</selectable>
-		<graphicSunShadowInfo>
-			<baseWidth>0.2</baseWidth>
-			<baseHeight>0.2</baseHeight>
-			<tallness>0.6</tallness>
-		</graphicSunShadowInfo>
 		<fillPercent>0.25</fillPercent>
 		<pathCost>30</pathCost>
 		<ingestible>
@@ -102,16 +106,18 @@
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 		</statBases>
-		<graphicPath>Things/Plant/SaguaroCactus</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/SaguaroCactus</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowInfo>
+				<baseWidth>0.3</baseWidth>
+				<baseHeight>0.3</baseHeight>
+				<tallness>0.3</tallness>
+			</shadowInfo>
+		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<selectable>true</selectable>
 		<fillPercent>0.35</fillPercent>
-		<graphicSunShadowInfo>
-			<baseWidth>0.3</baseWidth>
-			<baseHeight>0.3</baseHeight>
-			<tallness>0.3</tallness>
-		</graphicSunShadowInfo>
 		<passability>PassThroughOnly</passability>
 		<pathCost>130</pathCost>
 		<plant>
@@ -148,8 +154,10 @@
 			<MaxHitPoints>150</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/PincushionCactus</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/PincushionCactus</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>30</pathCost>
 		<hideAtSnowDepth>1</hideAtSnowDepth>

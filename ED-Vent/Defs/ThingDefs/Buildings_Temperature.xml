@@ -16,8 +16,10 @@
 		<defName>Vent_Powered</defName>
 		<label>Powered Vent</label>
 		<thingClass>Enhanced_Defence.Temperature.Building_Vent</thingClass>
-		<graphicPath>Things/Building/Misc/TempControl/Vent</graphicPath>
+	<graphicData>
+		<texPath>Things/Building/Misc/TempControl/Vent</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
+	</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>

@@ -9,11 +9,13 @@
 		<statBases>
 			<Flammability>0.8</Flammability>
 		</statBases>
-		<tickerType>Rare</tickerType>
+		<tickerType>Long</tickerType>
 		<selectable>False</selectable>
 		<neverMultiSelect>True</neverMultiSelect>
 		<drawerType>MapMeshOnly</drawerType>
-		<graphicShaderType>CutoutPlant</graphicShaderType>
+		<graphicData>
+			<shaderType>CutoutPlant</shaderType>
+		</graphicData>
 		<plant>
 			<harvestDestroys>true</harvestDestroys>
 			<soundHarvesting>Harvest_Standard</soundHarvesting>
@@ -41,8 +43,10 @@
 			<Beauty>0</Beauty>
 		</statBases>
 		<pathCost>18</pathCost>
-		<graphicPath>Things/Plant/Grass</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Grass</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<hideAtSnowDepth>0.5</hideAtSnowDepth>
 		<ingestible>
 			<preferability>Plant</preferability>
@@ -75,13 +79,15 @@
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<selectable>true</selectable>
 		<fillPercent>0.35</fillPercent>
-		<graphicSunShadowInfo>
-			<baseWidth>0.3</baseWidth>
-			<baseHeight>0.3</baseHeight>
-			<tallness>0.3</tallness>
-		</graphicSunShadowInfo>
 		<passability>PassThroughOnly</passability>
 		<pathCost>130</pathCost>
+		<graphicData>
+			<shadowInfo>
+				<baseWidth>0.3</baseWidth>
+				<baseHeight>0.3</baseHeight>
+				<tallness>0.3</tallness>
+			</shadowInfo>
+		</graphicData>
 		<ingestible>
 			<preferability>Plant</preferability>
 			<nutrition>0.50</nutrition>
@@ -123,8 +129,10 @@
 		<defName>PlantTreeTeak</defName>
 		<label>teak tree</label>
 		<description>A very strong hardwood tree, used in ancient times to build sailing ships.</description>
-		<graphicPath>Things/Plant/TreeTeak</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/TreeTeak</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<statBases>
 			<Beauty>5</Beauty>
 		</statBases>
@@ -148,8 +156,10 @@
 		<defName>PlantTreeCecropia</defName>
 		<label>cecropia tree</label>
 		<description>One of the most common rainforest trees. Grows very fast, but yields little usable wood.</description>
-		<graphicPath>Things/Plant/TreeCecropia</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/TreeCecropia</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<statBases>
 			<Beauty>2</Beauty>
 		</statBases>

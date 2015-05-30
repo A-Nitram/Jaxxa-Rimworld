@@ -10,11 +10,13 @@
 		<statBases>
 			<Flammability>0.8</Flammability>
 		</statBases>
-		<tickerType>Rare</tickerType>
+		<tickerType>Long</tickerType>
 		<selectable>False</selectable>
 		<neverMultiSelect>True</neverMultiSelect>
 		<drawerType>MapMeshOnly</drawerType>
-		<graphicShaderType>CutoutPlant</graphicShaderType>
+		<graphicData>
+			<shaderType>CutoutPlant</shaderType>
+		</graphicData>
 		<plant>
 			<harvestDestroys>true</harvestDestroys>
 			<soundHarvesting>Harvest_Standard</soundHarvesting>
@@ -46,8 +48,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/PotatoPlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/PotatoPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -87,8 +91,10 @@
 			<MaxHitPoints>150</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/CornPlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/CornPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>12</pathCost>
 		<ingestible>
@@ -126,8 +132,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/RicePlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/RicePlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -168,8 +176,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/StrawberryPlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/StrawberryPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -213,8 +223,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/CottonPlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/CottonPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -253,8 +265,10 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<Beauty>-1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/Devilstrand</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Devilstrand</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -294,8 +308,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/Xerigium</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Xerigium</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -336,8 +352,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>1</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/HopsPlant</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/HopsPlant</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<selectable>true</selectable>
 		<pathCost>10</pathCost>
 		<ingestible>
@@ -383,8 +401,10 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>14</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/Rose</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Rose</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
 		<altitudeLayer>Item</altitudeLayer>
 		<selectable>true</selectable>
 		<ingestible>
@@ -426,15 +446,17 @@
 			<MaxHitPoints>85</MaxHitPoints>
 			<Beauty>24</Beauty>
 		</statBases>
-		<graphicPath>Things/Plant/Daylily</graphicPath>
-		<graphicClass>Graphic_Random</graphicClass>
+		<graphicData>
+			<texPath>Things/Plant/Daylily</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowInfo>
+				<baseWidth>0.3</baseWidth>
+				<baseHeight>0.3</baseHeight>
+				<tallness>0.3</tallness>
+			</shadowInfo>
+		</graphicData>
 		<altitudeLayer>Item</altitudeLayer>
 		<selectable>true</selectable>
-		<graphicSunShadowInfo>
-			<baseWidth>0.3</baseWidth>
-			<baseHeight>0.3</baseHeight>
-			<tallness>0.3</tallness>
-		</graphicSunShadowInfo>
 		<ingestible>
 			<preferability>Plant</preferability>
 			<nutrition>0.20</nutrition>
