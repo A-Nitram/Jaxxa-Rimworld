@@ -103,7 +103,7 @@ namespace Enhanced_Defence.Temperature
 
 
             // Tell the MapDrawer that here is something thats changed
-            Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+            Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
             
             //this.Rotation.Rotate(RotationDirection.Clockwise);
             //this.Rotation.Rotate(RotationDirection.Clockwise);

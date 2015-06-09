@@ -83,7 +83,7 @@ namespace Enhanced_Defence.Plants24H
         {
             if (!this.CurrentlyCultivated())
                 return;
-            Find.MapDrawer.MapChanged(this.Position, MapChangeType.Things);
+            Find.MapDrawer.MapMeshDirty(this.Position, MapMeshFlag.Things);
         }
 
         private bool CurrentlyCultivated()

@@ -375,7 +375,7 @@ namespace Enhanced_Defence.Stargate
                 }
 
                 // Tell the MapDrawer that here is something thats changed
-                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+                Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
             }
             else
             {
@@ -408,7 +408,7 @@ namespace Enhanced_Defence.Stargate
                 }
 
                 // Tell the MapDrawer that here is something thats changed
-                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+                Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
             }
             else
             {
@@ -432,7 +432,7 @@ namespace Enhanced_Defence.Stargate
                     this.listOfBufferThings.Clear();
 
                     // Tell the MapDrawer that here is something thats changed
-                    Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+                    Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
 
                     this.currentCapacitorCharge -= this.requiredCapacitorCharge;
                 }
@@ -471,7 +471,7 @@ namespace Enhanced_Defence.Stargate
                 inboundBuffer.Clear();
 
                 // Tell the MapDrawer that here is something thats changed
-                Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+                Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
 
                 this.MoveToBackup();
 

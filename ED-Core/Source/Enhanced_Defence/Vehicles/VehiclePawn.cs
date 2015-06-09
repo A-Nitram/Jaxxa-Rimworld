@@ -222,7 +222,7 @@ namespace Enhanced_Defence.Vehicles
             }
 
             // Tell the MapDrawer that here is something thats changed
-            Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+            Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
 
         }
 
@@ -288,7 +288,7 @@ namespace Enhanced_Defence.Vehicles
             }
 
             // Tell the MapDrawer that here is something thats changed
-            Find.MapDrawer.MapChanged(Position, MapChangeType.Things, true, false);
+            Find.MapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, true, false);
 
 
         }
