@@ -20,6 +20,7 @@
 		<graphicData>
 			<texPath>Things/Building/AutoLoader</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
 		</graphicData>
 		<altitudeLayer>Waist</altitudeLayer>
 		<passability>PassThroughOnly</passability>

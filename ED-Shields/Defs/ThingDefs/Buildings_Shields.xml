@@ -51,6 +51,7 @@
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
 		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<comps>
@@ -91,6 +92,7 @@
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Small_Blue</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
 		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Small_Blue</uiIconPath>
 		<passability>Standable</passability>
@@ -137,6 +139,7 @@
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Green</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
 		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Green</uiIconPath>
 		<comps>

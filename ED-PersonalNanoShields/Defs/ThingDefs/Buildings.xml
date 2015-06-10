@@ -52,6 +52,7 @@
     <graphicData>
 		<texPath>Things/ShieldBuilding_Red</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
     </graphicData>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
 		<specialDisplayRadius>2</specialDisplayRadius>

@@ -20,6 +20,7 @@
 		<graphicData>
 			<texPath>Things/Buildings/Stargate</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
 		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Standable</passability>

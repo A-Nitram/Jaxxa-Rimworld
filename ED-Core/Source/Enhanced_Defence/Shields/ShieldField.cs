@@ -468,7 +468,11 @@ namespace Enhanced_Defence.Shields
 
                 if (dropPods != null)
                 {
+                    //Test to protect the entire map from droppods.
+                    //IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.InHorDistOf(this.position, 9999999.0f));
+
                     IEnumerable<Thing> closeFires = dropPods.Where<Thing>(t => t.Position.InHorDistOf(this.position, this.shieldShieldRadius));
+
                     foreach (RimWorld.DropPod currentDropPod in closeFires.ToList())
                     {
                         //currentDropPod.Destroy();

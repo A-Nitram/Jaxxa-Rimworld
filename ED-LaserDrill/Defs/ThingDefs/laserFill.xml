@@ -19,6 +19,7 @@
     <graphicData>
 		<texPath>Things/Buildings/LaserFiller</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>(3,3)</drawSize>
     </graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>

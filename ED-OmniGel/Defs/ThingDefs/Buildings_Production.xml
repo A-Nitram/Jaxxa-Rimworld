@@ -27,6 +27,7 @@
 		<graphicData>
 			<texPath>Things/Items/MK1Replicator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisite>Research_MK1_Replicator</researchPrerequisite>
 		<costList>
@@ -80,6 +81,7 @@
 		<graphicData>
 			<texPath>Things/Items/MK2Replicator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisite>Research_MK2_Replicator</researchPrerequisite>
 		<costList>
@@ -133,6 +135,7 @@
 		<graphicData>
 			<texPath>Things/Items/MK3Replicator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisite>Research_MK3_Replicator</researchPrerequisite>
 		<costList>

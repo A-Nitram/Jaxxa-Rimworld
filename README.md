@@ -199,6 +199,8 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Fix for error in loading / saving SIF shields
 0.18.2
 -Fix for Show Visually / Repair mode
+0.19.0
+-Update to Alpha 11
 ~~~
 
 ##License:

@@ -19,6 +19,7 @@
 		<graphicData>
 			<texPath>Things/Building/Misc/TempControl/Cooler</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
 		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>

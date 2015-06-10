@@ -20,6 +20,7 @@
     <graphicData>
     <texPath>Things/Buildings/LaserDrill</texPath>
     <graphicClass>Graphic_Single</graphicClass>
+	<drawSize>(6,6)</drawSize>
     </graphicData>
     <altitudeLayer>BuildingTall</altitudeLayer>
     <passability>Impassable</passability>
