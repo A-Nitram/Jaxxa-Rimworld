@@ -201,6 +201,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Fix for Show Visually / Repair mode
 0.19.0
 -Update to Alpha 11
+--Minus Starate and Vehicles
 ~~~
 
 ##License:

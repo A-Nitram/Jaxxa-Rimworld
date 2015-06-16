@@ -518,7 +518,7 @@ namespace Enhanced_Defence.Stargate
                     return this.graphicInactive;
 
                 }
-                return base.Graphic;
+                //return base.Graphic;
             }
         }
 
