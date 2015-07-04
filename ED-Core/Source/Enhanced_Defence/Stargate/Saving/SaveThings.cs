@@ -18,14 +18,13 @@ namespace Enhanced_Defence.Stargate.Saving
 
             //Scribe_Collections.LookList<Thing>(ref thingsToSave, "things", LookMode.Deep, (object)null);
 
-            Scribe.EnterNode("map");
+            //Scribe.EnterNode("map");
             //Scribe.EnterNode("things");
             //source.ExposeData();
-
             Scribe_Collections.LookList<Thing>(ref thingsToSave, "things", LookMode.Deep, (object)null);
+            //Scribe.ExitNode();
 
             //Scribe.ExitNode();
-            Scribe.ExitNode();
 
             /*
             for (int i = 0; i < thingsToSave.Count; i++)
@@ -40,32 +39,40 @@ namespace Enhanced_Defence.Stargate.Saving
 
         public static void load(ref List<Thing> thingsToLoad, string fileLocation, Thing currentSource)
         {
-            //Log.Message("Loading from " + fileLocation);
-            //Log.Message("ScribeINIT");
-
+            Log.Message("ScribeINIT, loding from:" + fileLocation);
             Scribe.InitLoading(fileLocation);
 
-            Scribe_Collections.LookList<Thing>(ref thingsToLoad, "things", LookMode.Deep, (object)null);
-            //Log.Message("List1Count:" + thingsToLoad.Count);
+            //Scribe.EnterNode("Stargate");
 
-            Scribe.ExitNode();
+            Log.Message("DeepProfiler.Start()");
+            DeepProfiler.Start("Load non-compressed things");
+
+            List<Thing> list2 = (List<Thing>)null;
+            Log.Message("Scribe_Collections.LookList");
+            Scribe_Collections.LookList<Thing>(ref thingsToLoad, "things", LookMode.Deep);
+            Log.Message("List1Count:" + thingsToLoad.Count);
+
+            Log.Message("DeepProfiler.End()");
+            DeepProfiler.End();
+
+            //Scribe.ExitNode();
             Scribe.mode = LoadSaveMode.Inactive;
 
             //Log.Message("list: " + thingsToLoad.Count.ToString());
 
 
-            //Log.Message("Exit Node");
-            Scribe.ExitNode();
+            Log.Message("Exit Node");
+            //Scribe.ExitNode();
 
 
-            //Log.Message("ResolveAllCrossReferences");
+            Log.Message("ResolveAllCrossReferences");
             CrossRefResolver.ResolveAllCrossReferences();
 
 
-            //Log.Message("DoAllPostLoadInits");
+            Log.Message("DoAllPostLoadInits");
             PostLoadInitter.DoAllPostLoadInits();
 
-            //Log.Message("Return");
+            Log.Message("Return");
 
         }
 

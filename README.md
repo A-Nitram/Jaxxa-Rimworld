@@ -201,12 +201,13 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Fix for Show Visually / Repair mode
 0.19.0
 -Update to Alpha 11
---Minus Starate and Vehicles
+--Minus StarGate and Vehicles
 0.19.1
 -Changes to Visual studio output location
 -Now include .dll in github repository
--No building against Alpha 11B Binaries
+-Now building against Alpha 11B Binaries
 -Removed some conflicting hotkeys
+-Updating Stargate to Alpha11
 ~~~
 
 ##License:

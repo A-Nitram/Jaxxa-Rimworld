@@ -449,7 +449,8 @@ namespace Enhanced_Defence.Stargate
             {
                 Messages.Message("Recalling Offworld Teams", MessageSound.Benefit);
 
-                List<Thing> inboundBuffer = new List<Thing>();
+                //List<Thing> inboundBuffer = new List<Thing>();
+                List<Thing> inboundBuffer = (List<Thing>)null;
 
                 //Log.Message("start list contains: " + inboundBuffer.Count);
                 Enhanced_Defence.Stargate.Saving.SaveThings.load(ref inboundBuffer, this.FileLocationPrimary, this);
