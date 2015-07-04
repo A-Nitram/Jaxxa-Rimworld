@@ -69,7 +69,6 @@
         <multiplier>2</multiplier>
       </li>
     </damageMultipliers>
-    <designationHotKey>B</designationHotKey>
   </ThingDef>
 
 	<ThingDef Name="Embrasure" ParentName="WallBase">

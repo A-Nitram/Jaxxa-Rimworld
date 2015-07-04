@@ -69,7 +69,6 @@
 			<li>PlaceWorker_NextToHopperAccepter</li>
 		</placeWorkers>
 		<constructEffect>ConstructMetal</constructEffect>
-		<designationHotKey>A</designationHotKey>
 	</ThingDef>
 
 </ThingDefs>

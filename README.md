@@ -202,6 +202,11 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 0.19.0
 -Update to Alpha 11
 --Minus Starate and Vehicles
+0.19.1
+-Changes to Visual studio output location
+-Now include .dll in github repository
+-No building against Alpha 11B Binaries
+-Removed some conflicting hotkeys
 ~~~
 
 ##License:
