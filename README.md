@@ -60,7 +60,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ##ChangeLog:  
 ~~~
 1.00.00
-- Initial re-release as Enhanced-Phoenix-Edition
+- Initial re-release as Enhanced Development
 ~~~
 
 ##Old ChangeLog:  
@@ -215,7 +215,7 @@ This is the old change log from when this was Enhanced-Defence.
 -Removed some conflicting hotkeys
 -Updating Stargate to Alpha11
 1.00.00
--Refactoring code and renaming mod to Enhanced-Phoenix-Edition
+-Refactoring code and renaming mod to Enhanced Development
 --Code for individual modules will now be split up where logical
 ---This reduces the dependency of the ED-Core / EPE-Core module
 --Documentation primarilly provided as manuals included in the download rather than on the github wiki
