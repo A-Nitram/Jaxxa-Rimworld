@@ -57,8 +57,14 @@ That said a lot of the time it has worked perfectly and if you want to try this 
 ##Details:
 For details on the individual modules please look at the GitHub wiki:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
-
 ##ChangeLog:  
+~~~
+1.00.00
+- Initial re-release as Enhanced-Phoenix-Edition
+~~~
+
+##Old ChangeLog:  
+This is the old change log from when this was Enhanced-Defence.
 ~~~
 0.01  
 - Initial Release  
@@ -208,7 +214,7 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Now building against Alpha 11B Binaries
 -Removed some conflicting hotkeys
 -Updating Stargate to Alpha11
-1.0.0
+1.00.00
 -Refactoring code and renaming mod to Enhanced-Phoenix-Edition
 --Code for individual modules will now be split up where logical
 ---This reduces the dependency of the ED-Core / EPE-Core module
