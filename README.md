@@ -208,6 +208,14 @@ https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 -Now building against Alpha 11B Binaries
 -Removed some conflicting hotkeys
 -Updating Stargate to Alpha11
+1.0.0
+-Refactoring code and renaming mod to Enhanced-Phoenix-Edition
+--Code for individual modules will now be split up where logical
+---This reduces the dependency of the ED-Core / EPE-Core module
+--Documentation primarilly provided as manuals included in the download rather than on the github wiki
+---Manuals provided in .docx and .pdf format
+---One general manual for thengeneric mod
+---Individual manuals that go into details on specific moduals
 ~~~
 
 ##License:
