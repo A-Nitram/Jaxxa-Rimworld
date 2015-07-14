@@ -1,30 +1,24 @@
-Enhanced-Defence
+Enhanced Development
 ======================
 
-##About:
+##Overview:
+This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to. Please view the included manual for information on how to set these up.
+
+##Links:
 Discussion and Latest Download available on the Official Rimworld forums at:  
 https://ludeon.com/forums/index.php?topic=6636.0
 
 With a Download Mirror on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?
 
-View the Readme document (including changelog) online at GitHub for the correct formatting and most recent document updates:  
-GitHub is a source only release, if you want to run the binaries please get them from nexus or mediafire (links on the forum thread).
-https://github.com/jaxxa/RimWorld-Enhanced-Defence  
+This mod is on GitHub, GitHub builds are a developlent build and are intended for developers, people who want to test an early version or people who really cant wait on a new feature, not most users. You will probably want to get the latest Binary release from the nexus or mediafire (links on the forum thread).
+https://github.com/jaxxa/RimWorld-Enhanced-Defence
 
-Also check the GitHub wiki for more detailed information about the individual Modules:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
 
-If you are having trouble please Read this FAQ, it has instructions on logging an issue at the end of it:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
 
-Note that the downloads on Github are to be considered development builds and may not be working at any time.  
-They also do not provide binaries and will have to be compiled from source in order to be played. Most people will want to download a binary release from the Forum page.
 
-##Overview:
-This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to.
-
-##Installation instructions
+##Instructions (Move to manual)
+For more detailed instructions and information please read the included manual. There may also be individual manuals inside the folder for each module that will give more informations relating to that specific module.
 
 1. Extract the .zip file somewhere temporarily (desktop works)
 2. Enter the folder that you extracted until you go into the folder that contains README.md (this document) and a number of folder starting with "ED-", these folders are the different modules that are available in this mod.
@@ -39,7 +33,16 @@ This mod has been created with a number of distinct modules. Theses are designed
 If you are having trouble please Read this FAQ:  
 https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
 
-##Upgrading
+
+If you are having trouble please Read this FAQ, it has instructions on logging an issue at the end of it:  
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
+
+Also check the GitHub wiki for more detailed information about the individual Modules:  
+https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
+
+
+
+##Upgrading (Move to manual)
 
 I cant guarantee that upgrading mid game will work and I would suggest that it would be better to start a completely new colony.  
 That said a lot of the time it has worked perfectly and if you want to try this I suggest doing the following steps.
@@ -54,9 +57,6 @@ That said a lot of the time it has worked perfectly and if you want to try this 
 8. Fire up the game again and see if it works, if so you should be able to now build the new buildings
 9. If it still does not work you will have to make a choice to continue with your current colony or get the updated version now.
 
-##Details:
-For details on the individual modules please look at the GitHub wiki:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki
 ##ChangeLog:  
 ~~~
 1.00.00
