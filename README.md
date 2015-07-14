@@ -14,49 +14,6 @@ http://www.nexusmods.com/rimworld/mods/62/?
 This mod is on GitHub, GitHub builds are a developlent build and are intended for developers, people who want to test an early version or people who really cant wait on a new feature, not most users. You will probably want to get the latest Binary release from the nexus or mediafire (links on the forum thread).
 https://github.com/jaxxa/RimWorld-Enhanced-Defence
 
-
-
-
-##Instructions (Move to manual)
-For more detailed instructions and information please read the included manual. There may also be individual manuals inside the folder for each module that will give more informations relating to that specific module.
-
-1. Extract the .zip file somewhere temporarily (desktop works)
-2. Enter the folder that you extracted until you go into the folder that contains README.md (this document) and a number of folder starting with "ED-", these folders are the different modules that are available in this mod.
-3. Find your Rimworld mods folder. This will be wherever you installed/extracted Rimworld to, and the "Mods" folder will be inside it. It will contain a folder called "Core" and folders for any other mods that you have installed previously.
-4. If you have an old version please delete the existing ED- Modules. (or move them, see next section on Upgrading)
-5. Copy the modules (the different folders from step 2) into the Rimworld mods folder (found in step 3)
-6. Open Rimworld and Enable the Enhanced Defence Core Mod "ED-Core" (because other things depend on the core module this has to be enabled first)
-7. Restart Rimworld
-8. Enable any other modules that you want to use
-9. Play the game
-
-If you are having trouble please Read this FAQ:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
-
-
-If you are having trouble please Read this FAQ, it has instructions on logging an issue at the end of it:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki/FAQ-Problems
-
-Also check the GitHub wiki for more detailed information about the individual Modules:  
-https://github.com/jaxxa/RimWorld-Enhanced-Defence/wiki  
-
-
-
-##Upgrading (Move to manual)
-
-I cant guarantee that upgrading mid game will work and I would suggest that it would be better to start a completely new colony.  
-That said a lot of the time it has worked perfectly and if you want to try this I suggest doing the following steps.
-
-1. Before upgrading create a save called something like "Pre upgrade" of your current colony.
-2. Follow the Installation instructions in the previous section, with the exception of moving the existing ED modules instead of deleting them.
-3. Fire up the game and test if it is working, if so then all is good.
-4. If not you can delete the new modules that you installed and copy back the old working modules
-5. Load your saved game and de-construct all of the buildings that were added by this mod
-6. Save the game
-7. Follow the Installation instructions in the previous section again.
-8. Fire up the game again and see if it works, if so you should be able to now build the new buildings
-9. If it still does not work you will have to make a choice to continue with your current colony or get the updated version now.
-
 ##ChangeLog:  
 ~~~
 1.00.00
@@ -220,7 +177,7 @@ This is the old change log from when this was Enhanced-Defence.
 ---This reduces the dependency of the ED-Core / EPE-Core module
 --Documentation primarilly provided as manuals included in the download rather than on the github wiki
 ---Manuals provided in .docx and .pdf format
----One general manual for thengeneric mod
+---One general manual for the main mod
 ---Individual manuals that go into details on specific moduals
 ~~~
 
