@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>ED-TurretAmmo</name>
+	<author>Jaxxa</author>
+	<url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
+	<description>
+Adds the ability for turrets to automatically fire by taking amunition from a custom Hopper.
+	</description>
+</ModMetaData>
