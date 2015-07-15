@@ -2,7 +2,7 @@ Enhanced Development
 ======================
 
 ##Overview:
-This mod has been created with a number of distinct modules. Theses are designed to allow you to only have to use the parts of the mod that you want to. Please view the included manual for information on how to set these up.
+This mod is designed with a number of distinct modules, that I think improve upon or add new features to Rimworld. Each of these are self-contained as much as is practical, ideally only implementing a single feature or system. These are designed to allow you to customise your experience by only enabling the parts of the mod that fit with your play style. Please view the included manual for information on how to set these up and what each one does.
 
 ##Links:
 Discussion and Latest Download available on the Official Rimworld forums at:  
