@@ -180,6 +180,7 @@ This is the old change log from when this was Enhanced-Defence.
 ---Manuals provided in .docx and .pdf format
 ---One general manual for the main mod
 ---Individual manuals that go into details on specific moduals
+-Increased work to build Embrasures
 ~~~
 
 ##License:
