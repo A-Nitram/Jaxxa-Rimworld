@@ -12,11 +12,11 @@
 		<filthLeaving>BuildingRubble</filthLeaving>
 	</ThingDef>
 
-	<ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
+	<ThingDef Class="Enhanced_Development.Stargate.StargateThingDef" ParentName="BuildingBase">
 		<defName>VehicleBay</defName>
 		<label>Vehicle Bay</label>
 		<description>Vehicle Bay</description>
-		<thingClass>Enhanced_Defence.Vehicles.Building_Vehicle_Bay</thingClass>
+		<thingClass>Enhanced_Development.Vehicles.Building_Vehicle_Bay</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/Stargate</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

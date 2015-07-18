@@ -15,7 +15,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>Cooler</defName>
 		<label>cooler</label>
-		<thingClass>Enhanced_Defence.Temperature.Building_ReverseCycleCooler</thingClass>
+		<thingClass>Enhanced_Development.Temperature.Building_ReverseCycleCooler</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Misc/TempControl/Cooler</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>

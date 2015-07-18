@@ -12,10 +12,10 @@
 		<filthLeaving>BuildingRubble</filthLeaving>
 	</ThingDef>
 
-	<ThingDef Class="Enhanced_Defence.Stargate.StargateThingDef" ParentName="BuildingBase">
+	<ThingDef Class="Enhanced_Development.Stargate.StargateThingDef" ParentName="BuildingBase">
 		<defName>Stargate</defName>
 		<label>Stargate</label>
-		<thingClass>Enhanced_Defence.Stargate.Building_Stargate</thingClass>
+		<thingClass>Enhanced_Development.Stargate.Building_Stargate</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/Stargate</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -62,7 +62,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>OffWorldStargate</defName>
 		<label>Off World Stargate</label>
-		<thingClass>Enhanced_Defence.Stargate.Building_OffWorldStargate</thingClass>
+		<thingClass>Enhanced_Development.Stargate.Building_OffWorldStargate</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/Stargate</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

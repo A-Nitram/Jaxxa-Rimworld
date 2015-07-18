@@ -16,7 +16,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>WirelessPowerNode</defName>
 		<label>Wireless Power Node</label>
-		<thingClass>Enhanced_Defence.Power.WirelessPower.WirelessPowerNode</thingClass>
+		<thingClass>Enhanced_Development.Power.WirelessPower.WirelessPowerNode</thingClass>
 		<researchPrerequisite>WirelessPower_Research</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/Buildings/NuclearLamp</texPath>

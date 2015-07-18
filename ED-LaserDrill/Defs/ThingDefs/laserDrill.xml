@@ -15,7 +15,7 @@
    <ThingDef ParentName="BuildingBase">
     <defName>LaserDrill</defName>
     <label>Laser Drill</label>
-    <thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserDrill</thingClass>
+    <thingClass>Enhanced_Development.Power.LaserDrill.Building_LaserDrill</thingClass>
 	<researchPrerequisite>Research_LaserDrill</researchPrerequisite>
     <graphicData>
     <texPath>Things/Buildings/LaserDrill</texPath>

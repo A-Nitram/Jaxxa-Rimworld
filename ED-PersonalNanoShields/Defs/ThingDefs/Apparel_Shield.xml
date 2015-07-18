@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef Name="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield" Abstract="True">
-		<thingClass>Enhanced_Defence.PersonalShields.Apparel_PersonalNanoShield</thingClass>
+	<ThingDef Name="ApparelShieldBase" Class="Enhanced_Development.PersonalShields.ThingDef_PersonalNanoShield" Abstract="True">
+		<thingClass>Enhanced_Development.PersonalShields.Apparel_PersonalNanoShield</thingClass>
 		<category>Item</category>
 		<description>A single-person directional energy shield device. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range. It does not prevents firing out, unlike common personal shield. </description>
 		<graphicData>
@@ -43,7 +43,7 @@
 	</ThingDef>
 
 
-	<ThingDef ParentName="ApparelShieldBase" Class="Enhanced_Defence.PersonalShields.ThingDef_PersonalNanoShield">
+	<ThingDef ParentName="ApparelShieldBase" Class="Enhanced_Development.PersonalShields.ThingDef_PersonalNanoShield">
 		<defName>Apparel_PersonalNanoShield</defName>
 		<label>Nanite Shield Modulator</label>
 		<description>Controls Nanites that have been implanted in the colonist. These are used to shield the colonist from damage, however the Nanites are depleated when thay are activated and so must be periodically replaced at the Colonist Upgrade Station after taking damage.</description>

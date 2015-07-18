@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PawnKindDefs>
 
-	<PawnKindDef class="Enhanced_Defence.Vehicles.PawnKindDef_Vehicle">
+	<PawnKindDef class="Enhanced_Development.Vehicles.PawnKindDef_Vehicle">
 	<defName>Vehicle_APC</defName>
 	<label>Vehicle</label>
 	<race>Vehicle_APC</race>

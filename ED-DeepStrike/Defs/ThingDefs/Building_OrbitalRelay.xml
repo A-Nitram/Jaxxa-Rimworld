@@ -12,10 +12,10 @@
 		<filthLeaving>BuildingRubble</filthLeaving>
 	</ThingDef>
 
-	<ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+	<ThingDef Class="Enhanced_Development.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
 		<defName>OrbitalCommand</defName>
 		<label>Orbital Command</label>
-		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+		<thingClass>Enhanced_Development.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/Buildings/OrbitalCommand</texPath>
@@ -60,10 +60,10 @@
 		<staticSunShadowHeight>0.75</staticSunShadowHeight>
 	</ThingDef>  
 
-	<ThingDef Class="Enhanced_Defence.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
+	<ThingDef Class="Enhanced_Development.DropPod.OrbitalRelayThingDef" ParentName="BuildingBase">
 		<defName>OrbitalBeacon</defName>
 		<label>Orbital Beacon</label>
-		<thingClass>Enhanced_Defence.DropPod.Building_OrbitalRelay</thingClass>
+		<thingClass>Enhanced_Development.DropPod.Building_OrbitalRelay</thingClass>
 		<researchPrerequisite>OrbitalDropCommand</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/Buildings/OrbitalRelay</texPath>

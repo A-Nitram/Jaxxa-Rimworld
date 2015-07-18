@@ -47,7 +47,7 @@
 		<defName>Building_Pawn_Upgrader</defName>
 		<label>Colonist Upgrade Station</label>
 		<description>Supplies and recharges Nanite Shield Modulators to colonists to protect them from injury.</description>
-		<thingClass>Enhanced_Defence.PersonalShields.Building_Pawn_Upgrader</thingClass>
+		<thingClass>Enhanced_Development.PersonalShields.Building_Pawn_Upgrader</thingClass>
 		<researchPrerequisite>Personal_Shield_research</researchPrerequisite>
     <graphicData>
 		<texPath>Things/ShieldBuilding_Red</texPath>

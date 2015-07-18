@@ -3,7 +3,7 @@
 
 	<ThingDef Name="PlantBase" Abstract="True">
 		<category>Plant</category>
-		<thingClass>Enhanced_Defence.Plants24H.Plant</thingClass>
+		<thingClass>Enhanced_Development.Plants24H.Plant</thingClass>
 		<altitudeLayer>LowPlant</altitudeLayer>
 		<useHitPoints>True</useHitPoints>
 		<statBases>

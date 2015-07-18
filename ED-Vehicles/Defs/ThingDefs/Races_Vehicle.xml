@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" Name="BasePawn" Abstract="True">
-		<thingClass>Enhanced_Defence.Vehicles.VehiclePawn</thingClass>
+	<ThingDef Class="Enhanced_Development.Vehicles.ThingDef_VehiclePawn" Name="BasePawn" Abstract="True">
+		<thingClass>Enhanced_Development.Vehicles.VehiclePawn</thingClass>
 		<category>Pawn</category>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
@@ -27,7 +27,7 @@
 
 	<!-- ============================ Vehicle ========================== -->
 
-	<ThingDef Class="Enhanced_Defence.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn">
+	<ThingDef Class="Enhanced_Development.Vehicles.ThingDef_VehiclePawn" ParentName="BasePawn">
 		<defName>Vehicle_APC</defName>
 		<label>Vehicle_APC</label>
 		<description>Heavy vehicle able to engage in combat or transport resources across the map.</description>

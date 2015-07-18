@@ -15,7 +15,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>LaserFiller</defName>
 		<label>Laser Filler</label>
-		<thingClass>Enhanced_Defence.Power.LaserDrill.Building_LaserFiller</thingClass>
+		<thingClass>Enhanced_Development.Power.LaserDrill.Building_LaserFiller</thingClass>
     <graphicData>
 		<texPath>Things/Buildings/LaserFiller</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
