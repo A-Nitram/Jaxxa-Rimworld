@@ -176,10 +176,8 @@ This is the old change log from when this was Enhanced-Defence.
 -Refactoring code and renaming mod to Enhanced Development
 --Code for individual modules will now be split up where logical
 ---This reduces the dependency of the ED-Core / EPE-Core module
---Documentation primarilly provided as manuals included in the download rather than on the github wiki
----Manuals provided in .docx and .pdf format
----One general manual for the main mod
----Individual manuals that go into details on specific moduals
+--Documentation primarilly provided as  included manual in the download rather than on the github wiki
+---Manual provided in .docx and .pdf format
 -Increased work to build Embrasures
 ~~~
 
