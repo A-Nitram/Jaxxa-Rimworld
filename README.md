@@ -2,7 +2,9 @@ Enhanced Development
 ======================
 
 ##Overview:
-This mod is designed with a number of distinct modules, that I think improve upon or add new features to Rimworld. Each of these are self-contained as much as is practical, ideally only implementing a single feature or system. These are designed to allow you to customise your experience by only enabling the parts of the mod that fit with your play style. Please view the included manual for information on how to set these up and what each one does.
+This mod is designed with a number of distinct modules, that I think improve upon or add new features to Rimworld. Each of these are self-contained as much as is practical, ideally only implementing a single feature or system. These are designed to allow you to customise your experience by only enabling the parts of the mod that fit with your play style. 
+
+Please view the included manual for information on how to set these up and what each one does.
 
 ##Links:
 Discussion and Latest Download available on the Official Rimworld forums at:  
@@ -11,7 +13,7 @@ https://ludeon.com/forums/index.php?topic=6636.0
 With a Download Mirror on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?
 
-This mod is on GitHub, GitHub builds are a developlent build and are intended for developers, people who want to test an early version or people who really cant wait on a new feature, not most users. You will probably want to get the latest Binary release from the nexus or mediafire (links on the forum thread). 
+This mod is on GitHub, GitHub builds are a developlent build and are intended for other developers and my personal refrence, not most users. If you just want to play it will be easier to get the latest Binary release from the nexus or mediafire (links on the forum thread). 
 
 https://github.com/jaxxa/RimWorld-Enhanced-Defence
 
