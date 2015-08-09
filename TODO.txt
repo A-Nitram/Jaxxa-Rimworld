@@ -1,0 +1,196 @@
+Enhanced Developme
+
+•	Refactor regions + Split up Visual studio projects - Probably not
+o	In a single solution, put multiple projects, set build locations so they they are all placed in the correct places (Assembly folders) automatically
+o	Single download but split into multiple .dll’s
+•	Trailer?
+•	Readme
+o	Overview of the other manual
+o	Legal
+o	Derivatives + Streaming
+o	ChangeLog
+•	Manual
+o	General install
+o	Overriding save locations.
+o	Upgrading Procedure
+o	FAQ from wiki
+?	+ where to log bugs
+o	Source of the Name / History?
+?	Shields (Darker)
+?	Jaxxa Shields
+?	Enhanced Defence
+?	Enhanced Defence:Phoenix Edition
+?	Enhanced Defence
+?	Enhanced Development
+o	For each module.
+?	About
+•	What does it do
+?	Install
+•	Specific install instructions for this module
+?	How to Use
+•	Details on specifically how it works
+•	Including stats
+
+•	Check 
+o	Make RC coolers depend on stock coolers research?
+o	SIF- Load targets from XML
+o	Check balance of Omnigel against current prices
+o	Description of asset extractor
+•	Building upgrade system?
+o	Tuples
+o	Inherit from upgradable building
+•	Shields
+o	Learn UI
+o	Rebalance shield cost
+?	Increase for larger shields
+o	Don't instantly lose charge if you loose power.
+o	Check DropPod Intercept
+o	Modular Shields - Craft Upgrade modules to install with shields
+?	Module Ideas:
+•	Range increase
+•	Capacity
+•	Quick Charge
+•	Discharge when out of power
+•	SIF / Fire / DropPod
+o	Portable shields
+?	Set Up and moved using statue system
+•	Reverse cycle cooler
+o	Options for increasing power load
+•	Slower to build embrasures
+•	
+•	Temperature Alert
+o	Audio + Visual alert for a temperature outside of a set range.
+o	No power requirement
+o	Manually Rearmed
+o	Verse . Message
+?	Goto position
+•	Genspawn.CanPlaceBlueprintOver.
+o	    if (oldDef == ThingDefOf.SteamGeyser)
+o	       return newDef == ThingDefOf.GeothermalGenerator;
+•	Add wood and cloth to replicators
+•	Bring back Autoloader Turrets?
+o	*Middle ground between stock mortars and auto turrets
+o	Update EMRG into Light and Heavy Variants?
+?	Light defence gun
+•	what exists now
+•	More accurate
+•	Direct Fire, rapid reload
+o	Firing Steel?
+?	Heavy Artillery
+•	Fires over long distances
+o	Firing Steel?
+o	Directly taking a chunk of power from the powergrid with each Shot
+?	Forces you to stock up on batteries.
+•	Guard Tower
+o	Artillery installation
+o	Gets the weapon from the pawn who is using it?
+o	Drawn bigger so the pawn looks to stand on it?
+•	Repair System using omnigel?
+•	Balancing shields / onmigel
+•	Configurable Vents
+o	change flow rate
+o	Rotatable?
+•	More descriptions
+•	Extreme Temp
+o	Not really balanced, mainly for testing
+?	Would make a decent heater, for some kind of Plasma energy creature that lives on the sun
+?	A decent temperature for when you just have to let something go and freeze the whole colony
+•	Transporter storage
+o	Store large amounts
+o	Kind of been done by other mods
+•	Blast Walls / Doors / Embrasures
+o	10x health
+o	15x cost
+•	TTM custom jobs?
+•	Vehicles
+o	TODO:
+•	Add Draft to Mechs?
+•	Remove stuff from humans?
+?	Need to be able to Stop / Disable
+?	Need to be able to add pawns
+?	Healing / Shields
+?	Graphics
+?	
+o	Self healing?
+?	https://ludeon.com/forums/index.php?topic=9043.msg89534#new
+o	Rhino Transport / walrus / argo / APC
+?	Uses an AI Core?
+?	Automated
+?	Transports a number of Troops
+?	Roof mounted Bolter
+?	Deploy to transport resources
+?	Repaired by ??
+o	Dreadnaught
+?	Permanently crewed by a colonist
+?	Can/Can't move by itself? before colonist
+?	Needs to be crewer for the weapon system
+?	Can't be repaired?
+•	Slow / Expensive to Repair
+•	Slow self Repair?
+?	Heavy combat
+•	Dragons?
+o	Using the vehicle system / Tamed animal system?
+o	Able to be Tamed and ridden
+•	Solar flare shielding?
+o	Override powerNet / Manager
+o	Not really possible right now.
+?	Alternative 
+•	Check to Remove base event
+•	Each rare tick power things off
+o	Except if they are in a radius of a EM Shield
+?	EM shield has an internal Battery?
+•	Does not last very long
+•	Stargate
+o	Rename / Reskin Transporter platform?
+o	Send teams to explore automatically and return?
+?	Visit Friendly /Enemy Bases / mining missions
+•	need to bring food?
+•	Verse.letter
+o	Change location to use Save location
+•	Autoloader
+o	Set Default resources by adjacent buildings?
+•	Deployables
+o	DropPods down Turrets / Buildings
+•	From Betterpower+
+o	Add barbed wire / charged wire
+•	Aegis Radar
+o	Using reflection to find private variables
+o	Indicate Target Location visually
+•	Kinetic CRAM - Low Power Usage
+o	Iron Dome
+?	Missiles
+•	Custom graphics
+o	Phalanx
+?	Shells
+o	Engage drop pods?
+•	Hunt Boom Rats with a specialised Weapon
+o	boomrat stunner (BS Gun)
+?	override gun to fire custom projectile
+•	If it hits a boomRat Turn them into Stunned BoomRats
+•	Stun bullets
+o	public class Bullet : Projectile
+o	Collect these and Fire these out of the cannon
+?	Custom shell graphics and sound?
+•	Horta Mod
+o	Called: Rockalo
+o	While not usually aggressive these creatures are able to tunnel through solid rock thanks to their unique physiology that allows them to melt the rock down and resolidify it behind them. They appear to see by sensing electromagnetic distortions, that allow them to pick up the minerals in rocks that they feed on, however this also draws them towards power generators and storage systems. While they will not attach directly unless threatened. They are extremely hot and have been known to start fires in their area and very tough.
+•	Forcefield?
+o	FireStorm Generator
+o	Instant Walls?
+•	More Art:
+o	http://ludeon.com/forums/index.php?topic=5843.0
+•	Messaging
+o	Verse.letter
+•	https://ludeon.com/forums/index.php?topic=3859.0
+o	TTM Events
+
+http://ludeon.com/forums/index.php?topic=5492.msg0#new
+
+http://ludeon.com/forums/index.php?topic=5354.0
+http://ludeon.com/forums/index.php?topic=4554.0
+
+log.error(environment.stacktrace)
+http://www.telerik.com/products/decompiler.aspx
+
+https://ludeon.com/forums/index.php?topic=6699.0
+
