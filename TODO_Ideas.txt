@@ -123,12 +123,12 @@ Vehicles
   * Self healing?
     * https://ludeon.com/forums/index.php?topic=9043.msg89534#new
 * APC
-  ?	Uses an AI Core?
-  ?	Automated
-  ?	Transports a number of Troops
-  ?	Roof mounted Bolter
-  ?	Deploy to transport resources
-  ?	Repaired by ??
+  * Uses an AI Core?
+  * Automated
+  * Transports a number of Troops
+  * Roof mounted Bolter
+  * Deploy to transport resources
+  * Repaired by ??
 * Dragons
   *Using the vehicle system / Tamed animal system?
   * Able to be Tamed and ridden
