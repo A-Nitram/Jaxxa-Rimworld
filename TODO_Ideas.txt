@@ -131,8 +131,12 @@ Vehicles
   * Deploy to transport resources
   * Repaired by ??
 * Dragons
-  *Using the vehicle system / Tamed animal system?
+  * Using the vehicle system / Tamed animal system?
   * Able to be Tamed and ridden
+  * Flying?
+    * Jump to Location ignoring terrain?
+    * No Hover.
+  * Plasma Weapons? / Artillery
 
 Stargate:
 * Send teams to explore automatically and return?
