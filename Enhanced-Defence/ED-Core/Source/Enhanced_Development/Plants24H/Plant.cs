@@ -6,13 +6,31 @@ namespace Enhanced_Development.Plants24H
 {
     public class Plant : RimWorld.Plant
     {
+
         private int unlitTicks;
 
-        private bool Resting
+        private float GrowthPerTick
         {
             get
             {
-                return false;
+                if (this.LifeStage != PlantLifeStage.Growing)
+                    return 0.0f;
+                return (float)(1.0 / (30000.0 * (double)this.def.plant.growDays)) * this.GrowthRate;
+            }
+        }
+        private void CheckTemperatureMakeLeafless()
+        {
+            float num = 8f;
+            if ((double)GridsUtility.GetTemperature(this.Position) >= (double)Gen.HashOffset((Thing)this) * 0.00999999977648258 % (double)num - (double)num - 2.0)
+                return;
+            this.MakeLeafless();
+        }
+
+        private bool HasEnoughLightToGrow
+        {
+            get
+            {
+                return (double)this.GrowthRateFactor_Light > 1.0 / 1000.0;
             }
         }
 
@@ -43,42 +61,6 @@ namespace Enhanced_Development.Plants24H
             GenPlantReproduction.TrySpawnSeed(this.Position, this.def, SeedTargFindMode.ReproduceSeed, (Thing)this);
         }
 
-        public override void ExposeData()
-        {
-
-            Scribe_Values.LookValue<int>(ref this.unlitTicks, "unlitTicks", 0, false);
-            base.ExposeData();
-        }
-
-        private void CheckTemperatureMakeLeafless()
-        {
-            float num = 8f;
-            if ((double)GridsUtility.GetTemperature(this.Position) >= (double)Gen.HashOffset((Thing)this) * 0.00999999977648258 % (double)num - (double)num - 2.0)
-                return;
-            this.MakeLeafless();
-        }
-
-
-        private bool HasEnoughLightToGrow
-        {
-            get
-            {
-                return (double)this.GrowthRateFactor_Light > 1.0 / 1000.0;
-            }
-        }
-
-
-        private float GrowthPerTick
-        {
-            get
-            {
-                if (this.LifeStage != PlantLifeStage.Growing || this.Resting)
-                    return 0.0f;
-                return (float)(1.0 / (30000.0 * (double)this.def.plant.growDays)) * this.GrowthRate;
-            }
-        }
-
-
         private void NewlyMatured()
         {
             if (!this.CurrentlyCultivated())
@@ -95,6 +77,21 @@ namespace Enhanced_Development.Plants24H
                 return true;
             Building edifice = GridsUtility.GetEdifice(this.Position);
             return edifice != null && edifice.def.building.SupportsPlants;
+        }
+
+
+        public bool Rotting
+        {
+            get
+            {
+                return this.def.plant.LimitedLifespan && this.age > this.def.plant.LifespanTicks || this.unlitTicks > 450000;
+            }
+        }
+
+        public override void ExposeData()
+        {
+            Scribe_Values.LookValue<int>(ref this.unlitTicks, "unlitTicks", 0, false);
+            base.ExposeData();
         }
     }
 }

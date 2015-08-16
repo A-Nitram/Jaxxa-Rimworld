@@ -106,7 +106,7 @@ namespace Enhanced_Development.PersonalShields
         {
             get
             {
-                return !this.wearer.Dead && !this.wearer.Downed && (!this.wearer.IsPrisonerOfColony || (this.wearer.BrokenStateDef != null && this.wearer.BrokenStateDef == BrokenStateDefOf.Berserk)) && ((this.wearer.playerController != null && this.wearer.playerController.Drafted) || this.wearer.Faction.HostileTo(Faction.OfColony) || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks);
+                return !this.wearer.Dead && !this.wearer.Downed && (!this.wearer.IsPrisonerOfColony || (this.wearer.BrokenStateDef != null && this.wearer.BrokenStateDef == BrokenStateDefOf.Berserk)) && ((this.wearer.Drafted) || this.wearer.Faction.HostileTo(Faction.OfColony) || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks);
             }
         }
 
@@ -208,7 +208,7 @@ namespace Enhanced_Development.PersonalShields
             }
             return false;
         }
-        
+
         public void KeepDisplaying()
         {
             this.lastKeepDisplayTick = Find.TickManager.TicksGame;
@@ -295,7 +295,7 @@ namespace Enhanced_Development.PersonalShields
             public override GizmoResult GizmoOnGUI(UnityEngine.Vector2 topLeft)
             {
                 Rect overRect = new Rect(topLeft.x, topLeft.y, Width, Height);
-                Widgets.DrawWindow(overRect);
+                Widgets.DrawWindowBackground(overRect);
 
                 Rect inRect = overRect.ContractedBy(6);
 

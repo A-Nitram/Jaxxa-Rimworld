@@ -721,7 +721,7 @@ namespace Enhanced_Development.Shields
             else if (this.enabled)
             {
                 //stringBuilder.AppendLine("Initiating shield: " + ((warmupTicks * 100) / recoverWarmup) + "%");
-                stringBuilder.AppendLine("Ready in " + Math.Round(GenTime.TicksToSeconds(shieldRecoverWarmup - warmupTicksCurrent)) + " seconds.");
+                stringBuilder.AppendLine("Ready in " + Math.Round(GenDate.TicksToSeconds(shieldRecoverWarmup - warmupTicksCurrent)) + " seconds.");
             }
             else
             {

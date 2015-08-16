@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ED-OmniGel-24H</name>
+  <author>Jaxxa</author>
+  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
+  <description>
+	Requires: ED-Core, ED-OmniGel
+	Changes OmniGel to grow 24 Hours a day.</description>
+</ModMetaData>
