@@ -16,11 +16,11 @@
 		<defName>LaserFiller</defName>
 		<label>Laser Filler</label>
 		<thingClass>Enhanced_Development.Power.LaserDrill.Building_LaserFiller</thingClass>
-    <graphicData>
-		<texPath>Things/Buildings/LaserFiller</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
-		<drawSize>(3,3)</drawSize>
-    </graphicData>
+		<graphicData>
+			<texPath>Things/Buildings/LaserFiller</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
