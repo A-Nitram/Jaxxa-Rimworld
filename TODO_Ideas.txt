@@ -1,6 +1,10 @@
 Enhanced Developme:
 These are a bunch of ideas I had about the mod, they might not nessasarly ever get impimented.
 
+
+##Notes:
+* Vehicles now Updated Yet
+
 * Trailer?
 * Readme
   * Overview of the other manual
