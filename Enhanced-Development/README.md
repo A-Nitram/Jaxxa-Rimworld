@@ -13,11 +13,6 @@ https://ludeon.com/forums/index.php?topic=6636.0
 With a Download Mirror on the Nexus:  
 http://www.nexusmods.com/rimworld/mods/62/?
 
-This mod is on GitHub, GitHub builds are a developlent build and are intended for other developers and my personal refrence, not most users. If you just want to play it will be easier to get the latest Binary release from the nexus or mediafire (links on the forum thread). 
-
-https://github.com/jaxxa/RimWorld-Enhanced-Defence
-
-
 ##ChangeLog:  
 ~~~
 1.00.00
