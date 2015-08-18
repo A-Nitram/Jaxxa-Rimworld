@@ -1,4 +1,4 @@
-Enhanced Developme:
+ Enhanced Developme:
 These are a bunch of ideas I had about the mod, they might not nessasarly ever get impimented.
 
 
@@ -37,6 +37,9 @@ Things to Check:
 * Check balance of Omnigel against current prices
 
 Slower to build embrasures
+
+LaserFill
+* https://ludeon.com/forums/index.php?topic=14172.45
 
 Building upgrade system?
 * Tuples
