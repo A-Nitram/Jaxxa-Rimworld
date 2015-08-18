@@ -181,6 +181,9 @@ Forcefield?
 *	FireStorm Generator
 *	Instant Walls?
 
+Replication / Upgrades?
+*  https://ludeon.com/forums/index.php?topic=15081.0
+
 More Art:
 * http://ludeon.com/forums/index.php?topic=5843.0
 
