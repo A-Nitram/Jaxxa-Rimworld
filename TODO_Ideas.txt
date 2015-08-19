@@ -10,7 +10,7 @@ These are a bunch of ideas I had about the mod, they might not nessasarly ever g
   * Overview of the other manual
   * Legal
   * Derivatives + Streaming
-                                    * Source
+  * Source------------------------------------------------
   * ChangeLog
 * Manual
   * General install
@@ -62,7 +62,23 @@ Shields
     * SIF / Fire / DropPod
 
 Reverse cycle cooler
-* Options for increasing power load
+* Air Con Mode, Dynamicall Heat / Cool a room?
+* Options for increasing power load?
+
+Powered Vents
+* Change flow rate
+* Shut Option
+
+ZPM Temp Storage
+* Store Heat or Cold over a long time
+* Option to release all very rapidly
+
+Extreme Temp
+* Not really balanced, mainly for testing
+  * Also Traps
+* Super efficent Heat/Cold Storage, not generation
+* Would make a decent heater, for some kind of Plasma energy creature that lives on the sun
+* A decent temperature for when you just have to let something go and freeze the whole colony
 
 Temperature Alert
 * Audio + Visual alert for a temperature outside of a set range.
@@ -75,7 +91,6 @@ Genspawn.CanPlaceBlueprintOver.
 * if (oldDef == ThingDefOf.SteamGeyser)
 * return newDef == ThingDefOf.GeothermalGenerator;
 
-Add wood and cloth to replicators
 
 Bring back Autoloader Turrets?
 * Middle ground between stock mortars and auto turrets
@@ -96,21 +111,10 @@ Guard Tower
 * Gets the weapon from the pawn who is using it?
 * Drawn bigger so the pawn looks to stand on it?
 
-Repair System using omnigel?
-
-Balancing shields / onmigel
-
-Configurable Vents
-* change flow rate
-* Rotatable?
-* More descriptions
-
-Extreme Temp
-* Not really balanced, mainly for testing
-  * Also Traps
-* Super efficent Heat/Cold Storage, not generation
-* Would make a decent heater, for some kind of Plasma energy creature that lives on the sun
-* A decent temperature for when you just have to let something go and freeze the whole colony
+Omnigel?
+* Repair System
+* Add wood and cloth to replicators?
+* Balancing shields / onmigel
 
 Transporter storage
 * Store large amounts
