@@ -18,10 +18,11 @@ These are a bunch of ideas I had about the mod, they might not nessasarly ever g
   * FAQ from wiki
   *	Source of the Name / History?
     * Shields (Darker)
+      * https://ludeon.com/forums/index.php?topic=2677.0
     * Jaxxa Shields
+      * https://ludeon.com/forums/index.php?topic=4701.0
     * Enhanced Defence
-    * Enhanced Defence:Phoenix Edition
-    * Enhanced Defence
+      * https://ludeon.com/forums/index.php?topic=6636.0
     * Enhanced Development
 * For each module.
   * About
