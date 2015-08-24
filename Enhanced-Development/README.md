@@ -15,7 +15,7 @@ http://www.nexusmods.com/rimworld/mods/62/?
 
 ##ChangeLog:  
 ~~~
-1.00.00
+00.01.00
 - Initial re-release as Enhanced Development
 ~~~
 

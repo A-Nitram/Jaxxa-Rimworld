@@ -31,7 +31,7 @@
 				<priority>Important</priority>
 				<filter>
 					<categories>
-						<li>Resources</li>
+						<li>Root</li>
 					</categories>
 				</filter>
 			</fixedStorageSettings>
