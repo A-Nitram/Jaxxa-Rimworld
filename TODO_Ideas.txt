@@ -1,12 +1,13 @@
 Enhanced Developme:
 These are a bunch of ideas I had about the mod, they might not nessasarly ever get impimented.
 
-
 ##Notes:
 * Vehicles now Updated Yet
   * Make mountable animals first?
 
 CCL Help menu.
+
+Using new tool cabnets to enhance shields?
 
 * Trailer?
 * Readme
