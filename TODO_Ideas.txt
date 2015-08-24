@@ -65,12 +65,19 @@ Shields
     * Discharge when out of power
     * SIF / Fire / DropPod
 
-Reverse cycle cooler
-* Air Con Mode, Dynamicall Heat / Cool a room?
-* Options for increasing power load?
+Enviromental Control
+* Modes:
+  * Off?
+  * Auto
+  * Heat
+  * Cool
+  * Passive Vent
+  * Powered Vent
+* Set the Max Power Draw.
 
 Powered Vents
-* Change flow rate
+* Set Max power
+  * More power, faster ballancing
 * Shut Option
 
 ZPM Temp Storage
