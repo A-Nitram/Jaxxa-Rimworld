@@ -7,7 +7,6 @@ These are a bunch of ideas I had about the mod, they might not nessasarly ever g
 
 CCL Help menu.
 
-Using new tool cabnets to enhance shields?
 
 * Trailer?
 * Readme
@@ -29,11 +28,10 @@ Using new tool cabnets to enhance shields?
     * Enhanced Defence
       * https://ludeon.com/forums/index.php?topic=6636.0
     * Enhanced Development
-* For each module.
-  * About
+    
+Manual For each module.
+  * About (same as .xml) (including requirments)
   * Overview of what does it does
-  * Install
-    * Specific install instructions for this module
   * Details on specifically how it works
     * Including stats
 
@@ -63,6 +61,9 @@ Shields
     * Quick Charge
     * Discharge when out of power
     * SIF / Fire / DropPod
+
+Using new tool cabnets to enhance shields?
+
 
 Enviromental Control
 * Modes:
