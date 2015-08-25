@@ -37,8 +37,7 @@ Using new tool cabnets to enhance shields?
   * Details on specifically how it works
     * Including stats
 
-Things to Check: 
-* Make RC coolers depend on stock coolers research?
+Things to Check:
 * SIF- Load targets from XML
 * Check balance of Omnigel against current prices
 
