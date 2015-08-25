@@ -5,5 +5,5 @@
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <description>
 	Requires: ED-Core, ED-OmniGel
-	Changes OmniGel to grow 24 Hours a day.</description>
+This modifies the OmniGel plant to grow regardless of the time of day, in the same way that the 24Hour plants module does for the base plants.</description>
 </ModMetaData>

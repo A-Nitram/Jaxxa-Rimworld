@@ -5,6 +5,6 @@
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <description>
 	Requires: ED-Core
-Adds Personal Nano Shields into the game. Allows you to construct a building capable of upgrading your colonists to have a personal shield capable of protecting them from damage.
+This module adds an alternate version of Personal Shields into the game. Technically I had the first version of my personal shields out before they were in the base game, so the base game is the alternate version. These shields function differently to the base game in that they require additional infrastructure, they are limited in the amount of charge that they can store and need to return to base to recharge. The advantage that these have is that they block both incoming Melee and Ranged attacks while still allowing the user to deploy ranged weapons.
   </description>
 </ModMetaData>

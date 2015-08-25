@@ -4,8 +4,7 @@
 	<author>Jaxxa</author>
 	<url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
 	<description>
-Adds an Autoloader that can be used to supply things to some of the buildings in this mod.
-This is functionally identical to a Hopper in the base game, but is helpful for comparability to avoid having to edit the stock Hopper.
-Currently this is only needed by the Stargate Module.
+This module adds an Autoloader that can be used to supply things to some of the buildings in this mod. If a building in a module requires it, then this module will be listed as a requirement.
+This is functionally identical to a Hopper in the base game, but accepts a wider variety of resources without cluttering the stock Hopper or causing incompatibilities with other mods.
 	</description>
 </ModMetaData>
