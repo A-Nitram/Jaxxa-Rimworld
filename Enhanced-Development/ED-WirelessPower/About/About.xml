@@ -5,6 +5,8 @@
   <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
   <description>
 	Requires: ED-Core
-Adds a wireless power system that allows you to move power to any point on the map.
+This module allows for the creation of a Wireless power grid.
+Wireless power Nodes can transmit or receive power from the grid spanning the entire map. This allows you to establish a remote power generation location such as using a geothermal vent at a far side of the map, or set up advanced turrets, all without having to run power wires across the entire map.
+If the grid is overloaded by trying to draw more power that it provides it will completely shut down all receiving nodes and require you to reactivate them.
   </description>
 </ModMetaData>
