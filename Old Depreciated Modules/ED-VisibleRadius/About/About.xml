@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ED-VisibleRadius</name>
+  <author>Jaxxa</author>
+  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
+  <targetVersion>Alpha 10</targetVersion>
+  <description>
+	Requires: ED-Core
+Adds the option to keep the special display radius visible when some buildings are not selected.
+Currently supports Sun Lamps.
+By default it will be on a timer to turn off after about 40 seconds, can be switched to permanently on or off.
+  </description>
+</ModMetaData>

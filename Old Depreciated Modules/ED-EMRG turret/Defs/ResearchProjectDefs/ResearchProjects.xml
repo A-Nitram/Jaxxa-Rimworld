@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+	<ResearchProjectDef>
+		<defName>Building_EMRG_research</defName>
+		<label>Build an Electromagnetic Railgun</label>
+		<description>
+		Allows you to build a Railgun
+		</description>
+		<totalCost>1000</totalCost>
+		<prerequisites></prerequisites>
+	</ResearchProjectDef>
+
+<!--
+	<ResearchProjectDef>
+		<defName>Building_BoomratTurret_research</defName>
+		<label>Boomrat Turret</label>
+		<description>
+		Allows you to build a Boomrat turret.
+		</description>
+		<totalCost>30000</totalCost>
+		<prerequisites>
+			<li>Building_EMRG_research</li>
+		</prerequisites>
+	</ResearchProjectDef>
+-->
+
+</ResearchProjectDefs>
+
+<!--
+    <prerequisites>
+      <li>ShipBasics</li>
+    </prerequisites>
+	
+-->
