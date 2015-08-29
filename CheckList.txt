@@ -1,14 +1,11 @@
 This is my checklist for creating a release, there is nothing that you need to worry about in this.
 
-1.Check the .DLL is upto date (should be automatic now).
-2.Check it is uptodate with GitHub
-Copy the Reposotory
-2.Check the manual is upto date (Remove unneeded modules in copy) and place PDF is folder. 
-4.Remove .git folder.
-5.Remove .gitignore file.
-6.Remove TODO.txt.
-7.Remove /bin and /obj in source.
-8.Remove any modules not release ready.
-9.Remove this file.
-3.Zip everything.
-10.Update Tag on GitHub.
+1.Check it is uptodate with GitHub
+2.Check the .DLL is upto date (should be automatic now).
+3.Check the manual is upto date (Remove unneeded modules in copy) and place PDF is folder. 
+4.Zip everything.
+5.Remove /bin and /obj in source.
+6.Remove any modules not release ready.
+7.Upload New Version
+8.Upload New Manual
+9.Update Tag on GitHub.
