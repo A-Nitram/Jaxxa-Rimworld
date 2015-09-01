@@ -102,6 +102,9 @@ Genspawn.CanPlaceBlueprintOver.
 * if (oldDef == ThingDefOf.SteamGeyser)
 * return newDef == ThingDefOf.GeothermalGenerator;
 
+Tesla Turrets
+* Directly taking a chunk of power from the powergrid with each Shot
+  * Forces you to stock up on batteries to refire / uses them as an external capacitor.
 
 Bring back Autoloader Turrets?
 * Middle ground between stock mortars and auto turrets
