@@ -39,8 +39,6 @@ Things to Check:
 * SIF- Load targets from XML
 * Check balance of Omnigel against current prices
 
-Slower to build embrasures
-
 LaserFill
 * https://ludeon.com/forums/index.php?topic=14172.45
 
@@ -105,7 +103,8 @@ Genspawn.CanPlaceBlueprintOver.
 Tesla Turrets
 * Directly taking a chunk of power from the powergrid with each Shot
   * Forces you to stock up on batteries to refire / uses them as an external capacitor.
-
+  * https://www.reddit.com/r/RimWorld/comments/3j4mo0/i_am_shocked_that_nobody_has_added_this_with_a/
+  
 Bring back Autoloader Turrets?
 * Middle ground between stock mortars and auto turrets
 * Update EMRG into Light and Heavy Variants?
