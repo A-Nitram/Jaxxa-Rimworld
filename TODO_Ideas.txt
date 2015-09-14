@@ -195,6 +195,10 @@ Hunt Boom Rats with a specialised Weapon
   * Collect these and Fire these out of the cannon
   * Custom shell graphics and sound?
 
+* Building for reorgonising inventory.
+  * Hi Jaxxa. Thanks for your great mods. Can you tell me please, is possible to make a mod that would organize a stock pile? So that in a stock pile of 2x2 there won't be 2 squares with 2 and 3 simple meals(for example) but just one of 5 meals.
+
+
 Horta Mod
 *	Called: Rockalo
 *	While not usually aggressive these creatures are able to tunnel through solid rock thanks to their unique physiology that allows them to melt the rock down and resolidify it behind them. They appear to see by sensing electromagnetic distortions, that allow them to pick up the minerals in rocks that they feed on, however this also draws them towards power generators and storage systems. While they will not attach directly unless threatened. They are extremely hot and have been known to start fires in their area and very tough.
