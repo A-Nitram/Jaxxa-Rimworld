@@ -9,6 +9,8 @@ Combat realism projectile compatibility
 
 CCL Help menu?
 
+Stargate Events?
+
 * Trailer?
 * Readme
   * Overview of the other manual
