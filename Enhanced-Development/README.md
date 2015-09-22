@@ -16,7 +16,10 @@ http://www.nexusmods.com/rimworld/mods/62/?
 ##ChangeLog:  
 ~~~
 00.01.00
-- Initial re-release as Enhanced Development
+- Initial re-release as Enhanced Development.
+00.01.01
+- Update to Alpha 12D, not that I think it changed anything.
+- Removed Unneeded vent images.
 ~~~
 
 ##Old ChangeLog:  
