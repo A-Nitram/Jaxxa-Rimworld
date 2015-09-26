@@ -1,0 +1,263 @@
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using Verse;
+
+namespace Enhanced_Development.PersonalShields.Animal
+{
+    public enum ShieldStatePawn
+    {
+        Active = 0,
+        Resetting = 1,
+        Inactive = 3
+    }
+
+    class ShieldPawn : Pawn
+    {
+        private int energy = 100;
+        public int maxEnergy = 100;
+        private ShieldStatePawn m_ShieldState = ShieldStatePawn.Inactive;
+
+        private SoundDef SoundBreak = SoundDef.Named("PersonalShieldBroken");
+
+        public override void SpawnSetup()
+        {
+            base.SpawnSetup();
+
+            this.maxEnergy = 100;
+
+            //Log.Warning("SpawnSetup");
+
+            //if (this.apparel == null)
+            //{
+            //    this.apparel = new Pawn_ApparelTracker(this);
+            //}
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.LookValue<int>(ref this.energy, "energy", 0, false);
+            Scribe_Values.LookValue<int>(ref this.maxEnergy, "maxEnergy", 0, false);
+            Scribe_Values.LookValue<ShieldStatePawn>(ref this.m_ShieldState, "shieldState", ShieldStatePawn.Inactive, false);
+        }
+
+
+        #region Gizmoes
+        /*
+
+        //public override void Tick()
+        //{
+        //  //  Log.Warning("SP Tick");
+        //    base.Tick();
+        //}
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            Log.Warning("Giz");
+            IEnumerable<Gizmo> temp = base.GetGizmos().ToList();
+
+            Gizmo_PersonalShieldStatus opt1 = new Gizmo_PersonalShieldStatus();
+
+           // opt1.shield = this;
+
+            temp.ToList().Add(opt1);
+
+            return temp;
+
+            //List<Gizmo> list = base.GetGizmos().ToList();
+
+            //list.AddRange(this.apparel.GetGizmos());
+
+            //return list;
+        }
+
+        internal class Gizmo_PersonalShieldStatus : Gizmo
+        {
+            //Links
+            public Enhanced_Development.PersonalShields.Apparel_PersonalNanoShield shield;
+
+            //Constants
+            private static readonly Texture2D FullTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.2f, 0.2f, 0.24f));
+            private static readonly Texture2D EmptyTex = SolidColorMaterials.NewSolidColorTexture(Color.clear);
+
+            //Properties
+            public override float Width { get { return 140; } }
+
+            public override GizmoResult GizmoOnGUI(UnityEngine.Vector2 topLeft)
+            {
+                Rect overRect = new Rect(topLeft.x, topLeft.y, Width, Height);
+                Widgets.DrawWindowBackground(overRect);
+
+                Rect inRect = overRect.ContractedBy(6);
+
+                //Item label
+                {
+                    Rect textRect = inRect;
+                    textRect.height = overRect.height / 2;
+                    Text.Font = GameFont.Tiny;
+                    Widgets.Label(textRect, shield.LabelCap);
+                }
+
+                //Bar
+                {
+                    Rect barRect = inRect;
+                    barRect.yMin = overRect.y + overRect.height / 2f;
+                    //float ePct = shield.Energy / Mathf.Max(1f, shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax));
+                    float ePct = shield.Energy / Mathf.Max(1f, shield.maxEnergy);
+                    Widgets.FillableBar(barRect, ePct, FullTex, EmptyTex, false);
+                    Text.Font = GameFont.Small;
+                    Text.Anchor = TextAnchor.MiddleCenter;
+                    //Widgets.Label(barRect, (shield.Energy * 100).ToString("F0") + " / " + (shield.GetStatValue(StatDefOf.PersonalShieldEnergyMax) * 100).ToString("F0"));
+                    Widgets.Label(barRect, (shield.Energy).ToString("F0") + " / " + (shield.maxEnergy).ToString("F0"));
+                    Text.Anchor = TextAnchor.UpperLeft;
+                }
+
+                return new GizmoResult(GizmoState.Clear);
+            }
+        }
+        */
+        #endregion
+
+        public ShieldStatePawn ShieldState
+        {
+            get
+            {
+                //If the shield is Inactive dont change it.
+                if (this.m_ShieldState != ShieldStatePawn.Inactive)
+                {
+                    if (this.energy >= this.maxEnergy)
+                    {
+                        this.m_ShieldState = ShieldStatePawn.Active;
+                    }
+
+                    if (this.energy <= 0)
+                    {
+                        this.m_ShieldState = ShieldStatePawn.Resetting;
+                    }
+                }
+
+                return this.m_ShieldState;
+            }
+
+            set
+            {
+                // if (value == ShieldStatePawn.Active)
+                // {
+                this.m_ShieldState = value;
+                Log.Warning("m_ShieldState set to" + m_ShieldState.ToString());
+                //    this.energy = this.maxEnergy;
+                // }
+            }
+        }
+
+        public override void PreApplyDamage(DamageInfo dinfo, out bool absorbed)
+        {
+            absorbed = true;
+
+            // if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
+            //if (this.energy > 0f)
+            if (this.ShieldState == ShieldStatePawn.Active)
+            {
+
+                if (dinfo.Def == DamageDefOf.HealGlobal)
+                {
+                    absorbed = false;
+                }
+
+                if (dinfo.Def == DamageDefOf.HealInjury)
+                {
+                    absorbed = false;
+                }
+
+                if (dinfo.Def == DamageDefOf.Repair)
+                {
+                    absorbed = false;
+                }
+
+                if (dinfo.Def == DamageDefOf.RestoreBodyPart)
+                {
+                    absorbed = false;
+                }
+
+                if (dinfo.Def == DamageDefOf.SurgicalCut)
+                {
+                    absorbed = false;
+                }
+
+                this.energy -= dinfo.Amount;
+
+                /*if (dinfo.Def == DamageDefOf.EMP)
+                {
+                    this.energy = -1f;
+                }*/
+
+                if (this.energy < 0f)
+                {
+                    this.Break();
+                }
+
+            }
+            else
+            {
+                absorbed = false;
+            }
+
+            Log.Warning(absorbed.ToString());
+        }
+
+        private void Break()
+        {
+            //SoundBreak.PlayOneShot(this.Position);
+            MoteThrower.ThrowStatic(this.TrueCenter(), ThingDefOf.Mote_ExplosionFlash, 12f);
+            for (int i = 0; i < 6; i++)
+            {
+                UnityEngine.Vector3 loc = this.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
+                MoteThrower.ThrowDustPuff(loc, Rand.Range(0.8f, 1.2f));
+            }
+            this.energy = 0;
+            //this.ticksToReset = this.StartingTicksToReset;
+        }
+
+        public override string GetInspectString()
+        {
+            if (this.ShieldState == ShieldStatePawn.Inactive)
+            {
+                return base.GetInspectString();
+            }
+            else
+            {
+                return "Shields: " + this.energy + " / " + this.maxEnergy + Environment.NewLine + base.GetInspectString();
+            }
+        }
+
+
+        public bool isCharged()
+        {
+            if (this.energy >= this.maxEnergy)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void recharge(int chargeAmmount)
+        {
+            this.energy += chargeAmmount;
+
+            if (this.ShieldState == ShieldStatePawn.Inactive)
+            {
+                this.ShieldState = ShieldStatePawn.Active;
+            }
+
+            if (this.energy > this.maxEnergy)
+            {
+                this.energy = this.maxEnergy;
+            }
+        }
+    }
+}

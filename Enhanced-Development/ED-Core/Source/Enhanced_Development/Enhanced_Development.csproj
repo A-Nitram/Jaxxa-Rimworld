@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DropPod\Building_OrbitalRelay.cs" />
     <Compile Include="DropPod\OrbitalRelayThingDef.cs" />
+    <Compile Include="PersonalShields\Animal\ShieldPawn.cs" />
     <Compile Include="PersonalShields\Apparel_PersonalNanoShield.cs" />
     <Compile Include="PersonalShields\ThingDef_PersonalNanoShield.cs" />
     <Compile Include="Plants24H\Plant.cs" />

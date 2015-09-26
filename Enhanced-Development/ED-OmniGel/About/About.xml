@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>ED-OmniGel</name>
-  <author>Jaxxa</author>
-  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <description>
+	<name>ED-OmniGel</name>
+	<author>Jaxxa</author>
+	<url>https://ludeon.com/forums/index.php?topic=15606.0</url>
+	<description>
 	Requires: ED-Core
 Adds Omnigel into the game. Allows you to grow a new resource and refine it into resources such as stone or metal</description>
 </ModMetaData>

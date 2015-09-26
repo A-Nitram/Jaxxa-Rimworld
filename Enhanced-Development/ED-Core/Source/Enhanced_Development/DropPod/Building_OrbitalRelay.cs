@@ -236,7 +236,7 @@ namespace Enhanced_Development.DropPod
             if (power.PowerOn)
             {
                 //Log.Message("CLick AddColonist");
-                IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawns(this.Position, this.DropPodAddUnitRadius);
+                IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawnsInColony(this.Position, this.DropPodAddUnitRadius);
 
                 if (closePawns != null)
                 {

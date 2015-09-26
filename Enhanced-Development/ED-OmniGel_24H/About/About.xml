@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>ED-OmniGel-24H</name>
-  <author>Jaxxa</author>
-  <url>https://github.com/jaxxa/RimWorld-Enhanced-Defence</url>
-  <description>
+	<name>ED-OmniGel-24H</name>
+	<author>Jaxxa</author>
+	<url>https://ludeon.com/forums/index.php?topic=15606.0</url>
+	<description>
 	Requires: ED-Core, ED-OmniGel
 This modifies the OmniGel plant to grow regardless of the time of day, in the same way that the 24Hour plants module does for the base plants.</description>
 </ModMetaData>

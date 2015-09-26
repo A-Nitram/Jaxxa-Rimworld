@@ -234,59 +234,79 @@ namespace Enhanced_Development.PersonalShields
 
         private bool upgradePawns()
         {
-            IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawns(this.Position, this.MAX_DISTANCE);
+            IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawnsInColony(this.Position, this.MAX_DISTANCE);
 
             if (closePawns != null)
             {
                 //List<Thing> fireTo
                 foreach (Pawn currentPawn in closePawns.ToList())
                 {
-                    //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
-
-                    //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Development.PersonalShields.ThingDef_PersonalNanoShield()))
-                    //{
-                    //Apparel shield = new Apparel();
-                    ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNanoShield");
-
-                    ThingDef stuff = GenStuff.RandomStuffFor(personalShieldDef);
-                    Thing personalShield = ThingMaker.MakeThing(personalShieldDef, stuff);
-                    currentPawn.apparel.Wear((Apparel)personalShield);
-                    //}
-
-                    /*
-                    if (currentPawn.GetType() == typeof(Pawn))
+                    if (currentPawn.apparel != null)
                     {
-                        if (NanoManager.requestCharge(100))
+
+                        Log.Warning("1");
+                        //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
+
+                        //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Development.PersonalShields.ThingDef_PersonalNanoShield()))
+                        //{
+                        //Apparel shield = new Apparel();
+                        ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNanoShield");
+
+                        Log.Warning("2");
+                        ThingDef stuff = GenStuff.RandomStuffFor(personalShieldDef);
+                        Log.Warning("3");
+                        Thing personalShield = ThingMaker.MakeThing(personalShieldDef, stuff);
+                        Log.Warning("4");
+                        currentPawn.apparel.Wear((Apparel)personalShield);
+                        Log.Warning("5");
+                        //}
+
+                        /*
+                        if (currentPawn.GetType() == typeof(Pawn))
                         {
-                            IntVec3 pawnPosition = currentPawn.Position;
-
-                            ShieldedPawn newPawn = Enhanced_Development.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
-
-                            //Log.Message("Despawn");
-                            currentPawn.Destroy();
-
-                            GenSpawn.Spawn(newPawn, pawnPosition);
-                            return true;
-                        }
-                    }
-                    else if (currentPawn.GetType() == typeof(ShieldedPawn))
-                    {
-                        ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
-
-                        if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
-                        {
-                            if (NanoManager.requestCharge(1))
+                            if (NanoManager.requestCharge(100))
                             {
-                                currentShieldedPawn.currentShields += 1;
+                                IntVec3 pawnPosition = currentPawn.Position;
+
+                                ShieldedPawn newPawn = Enhanced_Development.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
+
+                                //Log.Message("Despawn");
+                                currentPawn.Destroy();
+
+                                GenSpawn.Spawn(newPawn, pawnPosition);
+                                return true;
                             }
                         }
-                    }
-                    else
-                    {
-                        Log.Error("Unknown Pawn Type");
-                    }
+                        else if (currentPawn.GetType() == typeof(ShieldedPawn))
+                        {
+                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
 
-                    */
+                            if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
+                            {
+                                if (NanoManager.requestCharge(1))
+                                {
+                                    currentShieldedPawn.currentShields += 1;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Log.Error("Unknown Pawn Type");
+                        }
+
+                        */
+                    }
+                    else if (currentPawn.GetType() == typeof(Enhanced_Development.PersonalShields.Animal.ShieldPawn))
+                    {
+                        Enhanced_Development.PersonalShields.Animal.ShieldPawn currentShieldPawn;
+                        currentShieldPawn = (Enhanced_Development.PersonalShields.Animal.ShieldPawn)currentPawn;
+
+                        if (currentShieldPawn.ShieldState == Animal.ShieldStatePawn.Inactive)
+                        {
+                            currentShieldPawn.recharge(1);
+                        }
+
+                    }
                 }
             }
 
@@ -312,27 +332,48 @@ namespace Enhanced_Development.PersonalShields
                         //List<Thing> fireTo
                         foreach (Pawn currentPawn in closePawns.ToList())
                         {
-                            List<RimWorld.Apparel> currentInventory = currentPawn.apparel.WornApparel;
-
-                            foreach (Thing currentThing in currentInventory)
+                            if (currentPawn.apparel != null)
                             {
-                                if (currentThing.def.defName == "Apparel_PersonalNanoShield")
+                                List<RimWorld.Apparel> currentInventory = currentPawn.apparel.WornApparel;
+
+                                foreach (Thing currentThing in currentInventory)
                                 {
-                                    //Log.Message("Found:" + currentThing.def.defName);
-                                    Apparel_PersonalNanoShield currentShield = (Apparel_PersonalNanoShield)currentThing;
-
-                                    if (!currentShield.isCharged())
+                                    if (currentThing.def.defName == "Apparel_PersonalNanoShield")
                                     {
-                                        //currentShield.Energy += 10.0f;
+                                        //Log.Message("Found:" + currentThing.def.defName);
+                                        Apparel_PersonalNanoShield currentShield = (Apparel_PersonalNanoShield)currentThing;
 
-                                        int chargeAmmount = 1;
-
-                                        if (NanoManager.requestCharge(chargeAmmount))
+                                        if (!currentShield.isCharged())
                                         {
-                                            currentShield.recharge(chargeAmmount);
+                                            //currentShield.Energy += 10.0f;
+
+                                            int chargeAmmount = 1;
+
+                                            if (NanoManager.requestCharge(chargeAmmount))
+                                            {
+                                                currentShield.recharge(chargeAmmount);
+                                            }
                                         }
                                     }
                                 }
+                            }
+                            else if (currentPawn.GetType() == typeof(Enhanced_Development.PersonalShields.Animal.ShieldPawn))
+                            {
+                                Enhanced_Development.PersonalShields.Animal.ShieldPawn currentShieldPawn;
+                                currentShieldPawn = (Enhanced_Development.PersonalShields.Animal.ShieldPawn)currentPawn;
+
+                                if (!currentShieldPawn.isCharged())
+                                {
+                                    //currentShield.Energy += 10.0f;
+
+                                    int chargeAmmount = 1;
+
+                                    if (NanoManager.requestCharge(chargeAmmount))
+                                    {
+                                        currentShieldPawn.recharge(chargeAmmount);
+                                    }
+                                }
+
                             }
 
                             /*

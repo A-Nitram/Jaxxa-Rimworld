@@ -20,6 +20,7 @@ http://www.nexusmods.com/rimworld/mods/62/?
 00.01.01
 - Update to Alpha 12D, not that I think it changed anything.
 - Removed Unneeded vent images.
+- Initial Work on Shielded Animals.
 ~~~
 
 ##Old ChangeLog:  

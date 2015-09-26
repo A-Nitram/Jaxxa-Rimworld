@@ -389,7 +389,7 @@ namespace Enhanced_Development.Stargate
             if (this.fullyCharged)
             {
                 //Log.Message("CLick AddColonist");
-                IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawns(this.Position, 3);
+                IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawnsInColony(this.Position, 3);
 
                 if (closePawns != null)
                 {

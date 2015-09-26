@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>ED-PersonalAnimalShields</name>
+	<author>Jaxxa</author>
+	<url>https://ludeon.com/forums/index.php?topic=15606.0</url>
+	<description>
+	Requires: ED-Core, ED-PersonalNanoShields
+This allows Personal Nano Shields to be added to animals.
+WARNING:  This will only work on animals that spawn after the mod is installed and will break your save game if it is uninstalled when and animal spawned while the mod is active is on the map (not just animals that you have put shields on).
+	</description>
+</ModMetaData>
