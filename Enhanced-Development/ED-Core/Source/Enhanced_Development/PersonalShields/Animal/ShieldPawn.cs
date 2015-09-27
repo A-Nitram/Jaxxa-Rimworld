@@ -150,7 +150,7 @@ namespace Enhanced_Development.PersonalShields.Animal
                 // if (value == ShieldStatePawn.Active)
                 // {
                 this.m_ShieldState = value;
-                Log.Warning("m_ShieldState set to" + m_ShieldState.ToString());
+                //Log.Warning("m_ShieldState set to" + m_ShieldState.ToString());
                 //    this.energy = this.maxEnergy;
                 // }
             }
@@ -211,7 +211,7 @@ namespace Enhanced_Development.PersonalShields.Animal
             }
 
 
-            Log.Warning(absorbed.ToString());
+            //Log.Warning(absorbed.ToString());
         }
 
         private void AbsorbedDamage(DamageInfo dinfo)

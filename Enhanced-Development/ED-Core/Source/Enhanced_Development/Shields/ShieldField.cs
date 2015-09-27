@@ -754,6 +754,7 @@ namespace Enhanced_Development.Shields
             Scribe_Values.LookValue<bool>(ref this.shieldBlockDirect, "shieldBlockDirect", true, false);
             Scribe_Values.LookValue<bool>(ref this.shieldFireSupression, "shieldFireSupression", false, false);
             Scribe_Values.LookValue<bool>(ref this.shieldStructuralIntegrityMode, "shieldStructuralIntegrityMode", false, false);
+            Scribe_Values.LookValue<bool>(ref this.shieldInterceptDropPod, "shieldInterceptDropPod", false, false);
 
 
             Scribe_Values.LookValue<int>(ref shieldCurrentStrength_base, "shieldCurrentStrength_base", 0, false);
