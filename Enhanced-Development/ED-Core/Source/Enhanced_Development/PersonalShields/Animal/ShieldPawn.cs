@@ -11,13 +11,13 @@ namespace Enhanced_Development.PersonalShields.Animal
     public enum ShieldStatePawn
     {
         Active = 0,
-        Resetting = 1,
+        Charging = 1,
         Inactive = 3
     }
 
     class ShieldPawn : Pawn
     {
-        private int energy = 100;
+        private int energy = 0;
         public int maxEnergy = 100;
         private ShieldStatePawn m_ShieldState = ShieldStatePawn.Inactive;
 
@@ -27,15 +27,7 @@ namespace Enhanced_Development.PersonalShields.Animal
         public override void SpawnSetup()
         {
             base.SpawnSetup();
-
             this.maxEnergy = 100;
-
-            //Log.Warning("SpawnSetup");
-
-            //if (this.apparel == null)
-            //{
-            //    this.apparel = new Pawn_ApparelTracker(this);
-            //}
         }
 
         public override void ExposeData()
@@ -138,7 +130,7 @@ namespace Enhanced_Development.PersonalShields.Animal
 
                     if (this.energy <= 0)
                     {
-                        this.m_ShieldState = ShieldStatePawn.Resetting;
+                        this.m_ShieldState = ShieldStatePawn.Charging;
                     }
                 }
 
@@ -241,6 +233,8 @@ namespace Enhanced_Development.PersonalShields.Animal
 
         private void Break()
         {
+            this.ShieldState = ShieldStatePawn.Charging;
+
             Verse.Sound.SoundStarter.PlayOneShot(SoundBreak, this.Position);
             MoteThrower.ThrowStatic(this.TrueCenter(), ThingDefOf.Mote_ExplosionFlash, 12f);
             for (int i = 0; i < 6; i++)
@@ -253,14 +247,16 @@ namespace Enhanced_Development.PersonalShields.Animal
 
         public override string GetInspectString()
         {
-            if (this.ShieldState == ShieldStatePawn.Inactive)
-            {
-                return base.GetInspectString();
-            }
-            else
+            if (this.ShieldState == ShieldStatePawn.Active)
             {
                 return "Shields: " + this.energy + " / " + this.maxEnergy + Environment.NewLine + base.GetInspectString();
             }
+            else if (this.ShieldState == ShieldStatePawn.Charging)
+            {
+                return "Shields Charging: " + this.energy + " / " + this.maxEnergy + Environment.NewLine + base.GetInspectString();
+            }
+
+            return base.GetInspectString();
         }
 
 
