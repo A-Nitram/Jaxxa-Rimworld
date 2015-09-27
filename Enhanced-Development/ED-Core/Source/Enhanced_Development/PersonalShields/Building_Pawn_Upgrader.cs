@@ -238,63 +238,16 @@ namespace Enhanced_Development.PersonalShields
 
             if (closePawns != null)
             {
-                //List<Thing> fireTo
                 foreach (Pawn currentPawn in closePawns.ToList())
                 {
                     if (currentPawn.apparel != null)
                     {
-
-                        Log.Warning("1");
-                        //if (!currentPawn.inventory.container.Contains(ThingDefOf.Apparel_PersonalShield))
-
-                        //if ( currentPawn.apparel.CanWearWithoutDroppingAnything( new Enhanced_Development.PersonalShields.ThingDef_PersonalNanoShield()))
-                        //{
-                        //Apparel shield = new Apparel();
                         ThingDef personalShieldDef = ThingDef.Named("Apparel_PersonalNanoShield");
 
-                        Log.Warning("2");
                         ThingDef stuff = GenStuff.RandomStuffFor(personalShieldDef);
-                        Log.Warning("3");
                         Thing personalShield = ThingMaker.MakeThing(personalShieldDef, stuff);
-                        Log.Warning("4");
                         currentPawn.apparel.Wear((Apparel)personalShield);
-                        Log.Warning("5");
-                        //}
 
-                        /*
-                        if (currentPawn.GetType() == typeof(Pawn))
-                        {
-                            if (NanoManager.requestCharge(100))
-                            {
-                                IntVec3 pawnPosition = currentPawn.Position;
-
-                                ShieldedPawn newPawn = Enhanced_Development.PersonalShields.ShieldedPawnGenerator.GeneratePawn("PawnKindDef_ShieldedPawn", Faction.OfColony, currentPawn);
-
-                                //Log.Message("Despawn");
-                                currentPawn.Destroy();
-
-                                GenSpawn.Spawn(newPawn, pawnPosition);
-                                return true;
-                            }
-                        }
-                        else if (currentPawn.GetType() == typeof(ShieldedPawn))
-                        {
-                            ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
-
-                            if (currentShieldedPawn.currentShields < currentShieldedPawn.max_shields)
-                            {
-                                if (NanoManager.requestCharge(1))
-                                {
-                                    currentShieldedPawn.currentShields += 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Log.Error("Unknown Pawn Type");
-                        }
-
-                        */
                     }
                     else if (currentPawn.GetType() == typeof(Enhanced_Development.PersonalShields.Animal.ShieldPawn))
                     {
@@ -305,7 +258,6 @@ namespace Enhanced_Development.PersonalShields
                         {
                             currentShieldPawn.recharge(1);
                         }
-
                     }
                 }
             }
@@ -319,17 +271,15 @@ namespace Enhanced_Development.PersonalShields
             //Only every 10 ticks
             if (currentTick % 10 == 0)
             {
-                //Log.Message("Trying Recharge");
 
                 IEnumerable<Pawn> pawns = Find.ListerPawns.ColonistsAndPrisoners;
 
                 if (pawns != null)
-                {
-                    IEnumerable<Pawn> closePawns = pawns.Where<Pawn>(t => t.Position.InHorDistOf(this.Position, this.MAX_DISTANCE));
+                {                    
+                    IEnumerable<Pawn> closePawns = Enhanced_Development.Utilities.Utilities.findPawnsInColony(this.Position, this.MAX_DISTANCE);
 
                     if (closePawns != null)
                     {
-                        //List<Thing> fireTo
                         foreach (Pawn currentPawn in closePawns.ToList())
                         {
                             if (currentPawn.apparel != null)
@@ -357,15 +307,14 @@ namespace Enhanced_Development.PersonalShields
                                     }
                                 }
                             }
-                            else if (currentPawn.GetType() == typeof(Enhanced_Development.PersonalShields.Animal.ShieldPawn))
+                            
+                            if (currentPawn.GetType() == typeof(Enhanced_Development.PersonalShields.Animal.ShieldPawn))
                             {
                                 Enhanced_Development.PersonalShields.Animal.ShieldPawn currentShieldPawn;
                                 currentShieldPawn = (Enhanced_Development.PersonalShields.Animal.ShieldPawn)currentPawn;
 
                                 if (!currentShieldPawn.isCharged())
                                 {
-                                    //currentShield.Energy += 10.0f;
-
                                     int chargeAmmount = 1;
 
                                     if (NanoManager.requestCharge(chargeAmmount))
@@ -375,22 +324,6 @@ namespace Enhanced_Development.PersonalShields
                                 }
 
                             }
-
-                            /*
-                            if (currentPawn.GetType() == typeof(ShieldedPawn))
-                            {
-                                ShieldedPawn currentShieldedPawn = (ShieldedPawn)currentPawn;
-
-                                if (currentShieldedPawn.getRequiresRecharge())
-                                {
-                                    int chargeAmmount = 1;
-
-                                    if (NanoManager.requestCharge(chargeAmmount))
-                                    {
-                                        currentShieldedPawn.recharge(chargeAmmount);
-                                    }
-                                }
-                            }*/
                         }
                     }
                 }

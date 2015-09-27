@@ -21,6 +21,7 @@ namespace Enhanced_Development.PersonalShields.Animal
         public int maxEnergy = 100;
         private ShieldStatePawn m_ShieldState = ShieldStatePawn.Inactive;
 
+        private SoundDef SoundAbsorbDamage = SoundDef.Named("PersonalShieldAbsorbDamage");
         private SoundDef SoundBreak = SoundDef.Named("PersonalShieldBroken");
 
         public override void SpawnSetup()
@@ -157,12 +158,14 @@ namespace Enhanced_Development.PersonalShields.Animal
 
         public override void PreApplyDamage(DamageInfo dinfo, out bool absorbed)
         {
-            absorbed = true;
+            absorbed = false;
 
             // if (this.ShieldState == ShieldState.Active && ((dinfo.Instigator != null && !dinfo.Instigator.Position.AdjacentTo8Way(this.wearer.Position)) || dinfo.Def.isExplosive))
             //if (this.energy > 0f)
             if (this.ShieldState == ShieldStatePawn.Active)
             {
+
+                absorbed = true;
 
                 if (dinfo.Def == DamageDefOf.HealGlobal)
                 {
@@ -189,30 +192,56 @@ namespace Enhanced_Development.PersonalShields.Animal
                     absorbed = false;
                 }
 
-                this.energy -= dinfo.Amount;
 
-                /*if (dinfo.Def == DamageDefOf.EMP)
+                if (absorbed)
                 {
-                    this.energy = -1f;
-                }*/
 
-                if (this.energy < 0f)
-                {
-                    this.Break();
+                    this.AbsorbedDamage(dinfo);
+
+
+                    /*if (dinfo.Def == DamageDefOf.EMP)
+                    {
+                        this.energy = -1f;
+                    }*/
+
+
                 }
 
+
             }
-            else
-            {
-                absorbed = false;
-            }
+
 
             Log.Warning(absorbed.ToString());
         }
 
+        private void AbsorbedDamage(DamageInfo dinfo)
+        {
+
+            this.energy -= dinfo.Amount;
+
+
+            Verse.Sound.SoundStarter.PlayOneShot(SoundAbsorbDamage, this.Position);
+            Vector3 impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
+            Vector3 loc = this.TrueCenter() + impactAngleVect.RotatedBy(180f) * 0.5f;
+            float num = Mathf.Min(10f, 2f + (float)dinfo.Amount / 10f);
+            MoteThrower.ThrowStatic(loc, ThingDefOf.Mote_ExplosionFlash, num);
+            int num2 = (int)num;
+            for (int i = 0; i < num2; i++)
+            {
+                MoteThrower.ThrowDustPuff(loc, Rand.Range(0.8f, 1.2f));
+            }
+            //this.lastAbsorbDamageTick = Find.TickManager.TicksGame;
+            //this.KeepDisplaying();
+
+            if (this.energy < 0f)
+            {
+                this.Break();
+            }
+        }
+
         private void Break()
         {
-            //SoundBreak.PlayOneShot(this.Position);
+            Verse.Sound.SoundStarter.PlayOneShot(SoundBreak, this.Position);
             MoteThrower.ThrowStatic(this.TrueCenter(), ThingDefOf.Mote_ExplosionFlash, 12f);
             for (int i = 0; i < 6; i++)
             {
@@ -220,7 +249,6 @@ namespace Enhanced_Development.PersonalShields.Animal
                 MoteThrower.ThrowDustPuff(loc, Rand.Range(0.8f, 1.2f));
             }
             this.energy = 0;
-            //this.ticksToReset = this.StartingTicksToReset;
         }
 
         public override string GetInspectString()
