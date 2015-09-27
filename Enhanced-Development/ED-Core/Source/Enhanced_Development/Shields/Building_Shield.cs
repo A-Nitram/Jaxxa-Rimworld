@@ -143,23 +143,24 @@ namespace Enhanced_Development.Shields
         public override void Tick()
         {
             base.Tick();
-            //Carefully check to prevent NullPointerExceptions
+
+            Boolean _PowerAvalable = false;
+
+            //Check to prevent NullPointerExceptions
             if (shieldField != null)
             {
                 //Disable shield when power goes off
                 if (this.power != null)
                 {
-                    if (!this.power.PowerOn)
+                    if (this.power.PowerOn)
                     {
-                        shieldField.enabled = false;
+                        _PowerAvalable = true;
                     }
-                    else
-                    {
-                        shieldField.enabled = true;
-                    }
+
                 }
                 //Do tick for the shield field
-                shieldField.ShieldTick(this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_InterceptDropPod, this.flag_shieldRepairMode);
+                shieldField.ShieldTick(_PowerAvalable, this.flag_direct, this.flag_indirect, this.flag_fireSupression, this.flag_InterceptDropPod, this.flag_shieldRepairMode);
+
                 //Change power requirements depending on shield status
                 switch (shieldField.status)
                 {

@@ -249,7 +249,7 @@ namespace Enhanced_Development.Shields
         }
 
         //Tick - here the projectiles are being found
-        public void ShieldTick(bool flag_direct, bool flag_indirect, bool flag_fireSupression, bool flag_InterceptDropPod, bool shieldRepairMode)
+        public void ShieldTick(bool powerAvalable, bool flag_direct, bool flag_indirect, bool flag_fireSupression, bool flag_InterceptDropPod, bool shieldRepairMode)
         {
             //Sleep if disabled
             if (!this.enabled)
@@ -302,13 +302,22 @@ namespace Enhanced_Development.Shields
                     interceptPods(flag_InterceptDropPod);
                 }
             }
+
             //Regenerate shield if necessary
-            if (online && (tick % shieldRechargeTickDelay == 0 || DebugSettings.unlimitedPower) && shieldCurrentStrength < shieldMaxShieldStrength)
+            if (online && (tick % shieldRechargeTickDelay == 0) && shieldCurrentStrength < shieldMaxShieldStrength)
             {
-                shieldCurrentStrength++;
+                if (powerAvalable)
+                {
+                    shieldCurrentStrength++;
+                }
+                else
+                {
+                    shieldCurrentStrength--;
+                }
             }
+
             //Try to get online - warmup
-            else if (!online)
+            if (!online && powerAvalable)
             {
                 if (warmupTicksCurrent < shieldRecoverWarmup)
                 {

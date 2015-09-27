@@ -14,6 +14,7 @@
 
 	<ThingDef Class="Enhanced_Development.Shields.ShieldBuildingThingDef" ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
 		<category>Building</category>
+		<thingClass>Enhanced_Development.Shields.Building_Shield</thingClass>
 		<altitudeLayer>BuildingTall</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<blockLight>true</blockLight>
@@ -46,7 +47,6 @@
 		<defName>Building_ShieldStandard</defName>
 		<label>Standard Shield</label>
 		<description>Creates shield field to protect important infrastructure.</description>
-		<thingClass>Enhanced_Development.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldStandard_research</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>
@@ -61,7 +61,7 @@
 			</li>
 		</comps>
 
-		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>4000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>8</shieldShieldRadius>
 
@@ -87,7 +87,6 @@
 		<defName>Building_ShieldSmall</defName>
 		<label>Small shield</label>
 		<description>Creates a smaller shield that allows people to stand on it.</description>
-		<thingClass>Enhanced_Development.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldSmall_research</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Small_Blue</texPath>
@@ -108,7 +107,7 @@
 		</comps>
 		<specialDisplayRadius>2</specialDisplayRadius>
 
-		<shieldMaxShieldStrength>1000</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>2000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>2</shieldShieldRadius>
 
@@ -134,7 +133,6 @@
 		<defName>Building_Shield_Fortress</defName>
 		<label>Fortress shield</label>
 		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.</description>
-		<thingClass>Enhanced_Development.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldFortress_research</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Green</texPath>
@@ -148,10 +146,15 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 		</comps>
+		<costList>
+			<Steel>200</Steel>
+			<Silver>600</Silver>
+		</costList>
+
 		<size>(2,2)</size>
 		<specialDisplayRadius>20</specialDisplayRadius>
 
-		<shieldMaxShieldStrength>8000</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>16000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>20</shieldShieldRadius>
 
@@ -177,7 +180,6 @@
 		<defName>Building_ShieldSIF</defName>
 		<label>SIF shield</label>
 		<description>Rather than creating a large circular shield this generator will create an small individual shield over each wall/door object.</description>
-		<thingClass>Enhanced_Development.Shields.Building_Shield</thingClass>
 		<researchPrerequisite>Building_ShieldSIF_research</researchPrerequisite>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Yellow</texPath>
@@ -190,7 +192,7 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 		</comps>	
-		<shieldMaxShieldStrength>3000</shieldMaxShieldStrength>
+		<shieldMaxShieldStrength>6000</shieldMaxShieldStrength>
 		<shieldInitialShieldStrength>100</shieldInitialShieldStrength>
 		<shieldShieldRadius>8</shieldShieldRadius>
 
