@@ -17,11 +17,11 @@ http://www.nexusmods.com/rimworld/mods/62/?
 ~~~
 00.01.00
 - Initial re-release as Enhanced Development.
-00.01.01
+00.02.00
 - Update to Alpha 12D.
-- Removed Unneeded vent images.
+- Removed unneeded vent images.
 - Initial version of Shielded Animals.
-- Fix for Droppod Intercept.
+- Fix for Drop-pod Intercept.
 - Increased Shield buildings max Shield strength.
 - Unpowered Shields buildings will now discharge slowly.
 ~~~
