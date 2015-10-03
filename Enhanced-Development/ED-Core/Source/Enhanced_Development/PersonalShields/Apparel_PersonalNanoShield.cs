@@ -125,8 +125,6 @@ namespace Enhanced_Development.PersonalShields
         }
         public override void Tick()
         {
-            Log.Message("Tick");
-
             if (tickFlag == 0)
             {
                 GetParametersFromXml();
