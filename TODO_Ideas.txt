@@ -53,8 +53,6 @@ Shields
 * Better Control UI
 * Rebalance shield cost
   * Increase for larger shields
-* Don't instantly lose charge if you loose power.
-* Check DropPod Intercept
 * Modular Shields - Craft Upgrade modules to install with shields
   * Module Ideas:
     * Range increase
